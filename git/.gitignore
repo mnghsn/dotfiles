@@ -1,0 +1,29 @@
+# Windows
+# via https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+# via https://github.com/github/gitignore/blob/master/Global/Linux.gitignore
+*~
+.directory
+.Trash-*
+
+# OSX
+# via https://github.com/github/gitignore/blob/master/Global/OSX.gitignore
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
