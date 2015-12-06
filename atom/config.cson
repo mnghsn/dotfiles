@@ -1,0 +1,13 @@
+"*":
+  core:
+    disabledPackages: [
+      "background-tips"
+      "exception-reporting"
+      "metrics"
+      "welcome"
+    ]
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    fontFamily: "Source Code Pro"
