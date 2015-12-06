@@ -1,0 +1,19 @@
+# .bash_paths
+
+# Directories to be appended to PATH
+declare -a append_dirs=(
+  "/usr/bin"
+  "$HOME/bin"
+  "$HOME/.dotfiles/bin"
+)
+
+for index in ${!append_dirs[*]}
+do
+  if [ -d ${append_dirs[$index]} ]; then
+    PATH="$PATH:${append_dirs[$index]}"
+  fi
+done
+
+unset append_dirs
+
+export PATH

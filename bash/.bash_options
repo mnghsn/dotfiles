@@ -1,0 +1,20 @@
+# .bash_options
+
+set -b                             # Cause output from background processes to be output right away.
+set -o notify                      # Notify when jobs running in background terminate
+
+shopt -s cdable_vars               # Disallow write access to terminal
+shopt -s cdspell                   # Auto correct typos in path names when using `cd`
+shopt -s checkhash
+shopt -s checkwinsize              # Update the window size after each command
+shopt -s cmdhist                   # Save multi-line commands in the history as a single line
+shopt -s histappend                # Append to bash history file
+shopt -s histreedit
+shopt -s histverify
+shopt -s mailwarn                  # Keep an eye on the mail file (access time)
+shopt -s nocaseglob                # Case-insensitive globbing
+shopt -s no_empty_cmd_completion   # Disable empty completion (bash >= 2.40 only)
+shopt -s sourcepath
+
+ulimit -S -c 0                     # Disable coredumps
+unset MAILCHECK                    # Disable incoming mail warning
