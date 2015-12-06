@@ -1,3 +1,5 @@
+#!/bin/bash
+#
 # .bash_options
 
 set -b                             # Cause output from background processes to be output right away.

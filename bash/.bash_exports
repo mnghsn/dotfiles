@@ -1,5 +1,6 @@
+#!/bin/bash
+#
 # .bash_exports
-
 
 export HISTCONTROL=ignoreboth:erasedups       # Ignore spaced commands and prevent storing duplicate commands
 export HISTFILESIZE=10000                     # Increase the maximum number of lines contained in history file (Default is 500)
