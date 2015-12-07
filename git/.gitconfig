@@ -60,8 +60,8 @@
   snapshots = !git stash list --grep snapshot
 
   # Status
-  s = status                        # Status
-  st = status                       # Status
+  s = status -s                     # Status
+  st = status -s                    # Status
 
   # Tag
   t = tag -n                        # Show tags with <n> lines of each tag message
