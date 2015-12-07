@@ -8,9 +8,10 @@
   nb = checkout -b                  # Create and switch to a new branch
 
   # Commit
-  c = commit -a                     # Commit with message
-  ca = commit -am                   # Commit all with message
-  ci = commit                       # Commit
+  c = commit                        # Commit
+  ca = commit -a                    # Commit with automatically staging changed files
+  cm = commit -m                    # Commit with message
+  cam = commit -am                  # Commit all changed files with message
   amend = commit -amend             # Amend last commit
 
   # Checkout
