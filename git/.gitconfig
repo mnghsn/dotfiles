@@ -90,4 +90,4 @@
   rebase = preserve
 
 [include]
-  path = .gitconfig.user
+  path = .gitconfig.local

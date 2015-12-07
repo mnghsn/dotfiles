@@ -11,7 +11,7 @@ load_dotfiles() {
     $HOME/.dotfiles/bash/.bash_prompt
     $HOME/.dotfiles/bash/.bash_paths
     $HOME/.dotfiles/bash/.bash_completion
-    $HOME/.bash_profile.user
+    $HOME/.bash_profile.local
   )
 
   for index in ${!files[*]}
