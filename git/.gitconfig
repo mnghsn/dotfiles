@@ -1,28 +1,28 @@
 [alias]
   # Add
-  a = add                         # Add
-  chunkyadd = add --patch         # Stage commits chunk by chunk
+  a = add                           # Add
+  chunkyadd = add --patch           # Stage commits chunk by chunk
 
   # Branch
-  b = branch -v                   # Show branches (verbose)
-  nb = checkout -b                # Create and switch to a new branch
+  b = branch -v                     # Show branches (verbose)
+  nb = checkout -b                  # Create and switch to a new branch
 
   # Commit
-  c = commit -a                   # Commit with message
-  ca = commit -am                 # Commit all with message
-  ci = commit                     # Commit
-  amend = commit -amend           # Amend last commit
+  c = commit -a                     # Commit with message
+  ca = commit -am                   # Commit all with message
+  ci = commit                       # Commit
+  amend = commit -amend             # Amend last commit
 
   # Checkout
-  co = checkout                   # Checkout
+  co = checkout                     # Checkout
 
   # Cherry-pick
-  cp = cherry-pick -x             # Grab a change from a branch
+  cp = cherry-pick -x               # Grab a change from a branch
 
   # Diff
-  d = diff                        # Diff unstaged changes
-  dc = diff --cached              # Diff staged changes
-  last = diff ^HEAD               # Diff last committed changes
+  d = diff                          # Diff unstaged changes
+  dc = diff --cached                # Diff staged changes
+  last = diff ^HEAD                 # Diff last committed changes
 
   # Log
   l = log --graph --date=short
@@ -32,27 +32,27 @@
   who = shortlog --numbered --summary --email --no-merges
 
   # Pull
-  pl = pull                       # Pull
+  pl = pull                         # Pull
 
   # Push
-  ps = push                       # Push
+  ps = push                         # Push
 
   # Rebase
-  rc = rebase --continue          # Continue rebase
-  rs = rebase --skip              # Skip rebase
+  rc = rebase --continue            # Continue rebase
+  rs = rebase --skip                # Skip rebase
 
   # Remote
-  r = remote -v                   # Show remotes (verbose)
+  r = remote -v                     # Show remotes (verbose)
 
   # Reset
-  unstage = reset HEAD            # Remove files from index (tracking)
-  uncommit = reset --soft HEAD^   # Go back before last commit with file in uncommitted state
+  unstage = reset HEAD              # Remove files from index (tracking)
+  uncommit = reset --soft HEAD^     # Go back before last commit with file in uncommitted state
 
   # Stash
-  ss = stash                      # Stash changes
-  sl = stash list                 # List stashes
-  sa = stash apply                # Apply stashes (restore changes)
-  sd = stash drop                 # Drop stashes (destory changes)
+  ss = stash                        # Stash changes
+  sl = stash list                   # List stashes
+  sa = stash apply                  # Apply stashes (restore changes)
+  sd = stash drop                   # Drop stashes (destory changes)
 
   # Snapshot
   # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
@@ -60,11 +60,11 @@
   snapshots = !git stash list --grep snapshot
 
   # Status
-  s = status                      # Status
-  st = status                     # Status
+  s = status                        # Status
+  st = status                       # Status
 
   # Tag
-  t = tag -n                      # Show tags with <n> lines of each tag message
+  t = tag -n                        # Show tags with <n> lines of each tag message
 
   # Clean
   trim = !git remote prune origin && git gc

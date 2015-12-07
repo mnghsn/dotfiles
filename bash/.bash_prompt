@@ -38,8 +38,8 @@ prompt_git() {
     # Get the short symbolic ref
     # If HEAD is not a symbolic ref, get the short SHA. Otherwise do nothing
     branch_name="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
-                  git rev-parse --short HEAD 2> /dev/null || \
-                  printf "(unknown)")"
+                   git rev-parse --short HEAD 2> /dev/null || \
+                   printf "(unknown)")"
 
     [ -n "$s" ] && s=" $s"
 
