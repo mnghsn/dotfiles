@@ -168,5 +168,8 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 user_pref("browser.fullscreen.animate", false);
 user_pref("browser.tabs.animate", false);
 
+// Disable UnifiedComplete
+user_pref("browser.urlbar.unifiedcomplete", false);
+
 // Set the cache directory location
 // user_pref("browser.cache.disk.parent_directory", "");
