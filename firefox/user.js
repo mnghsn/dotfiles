@@ -171,5 +171,9 @@ user_pref("browser.tabs.animate", false);
 // Disable UnifiedComplete
 user_pref("browser.urlbar.unifiedcomplete", false);
 
+// Disable search suggestions in URL bar
+user_pref("browser.urlbar.suggest.searches", false);
+user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
+
 // Set the cache directory location
 // user_pref("browser.cache.disk.parent_directory", "");
