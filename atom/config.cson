@@ -4,6 +4,8 @@
       "background-tips"
       "exception-reporting"
       "metrics"
+      "styleguide"
+      "timecop"
       "welcome"
     ]
   editor:
