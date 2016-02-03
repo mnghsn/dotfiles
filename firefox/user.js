@@ -67,6 +67,12 @@ user_pref("camera.control.face_detection.enabled", false);
 // Decrease the maximum number of popups from a single non-click event (Default is 20)
 user_pref("dom.popup_maximum", 2);
 
+// Disallow JavaScript to raise or lower windows
+user_pref("dom.disable_window_flip", true);
+
+// Disallow JavaScript to move or resize existing windows
+user_pref("dom.disable_window_move_resize", true);
+
 // -----------------------------------------------------------------------------
 // Privacy
 // -----------------------------------------------------------------------------
