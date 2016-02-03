@@ -167,6 +167,9 @@ user_pref("browser.slowStartup.samples", 0);
 // Disable `about:config` warnings
 user_pref("general.warnOnAboutConfig", false);
 
+// Skip the installation delay
+user_pref("security.dialog_enable_delay", 0);
+
 // Disable closing browser with last tab
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 
