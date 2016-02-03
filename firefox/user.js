@@ -181,5 +181,8 @@ user_pref("browser.urlbar.unifiedcomplete", false);
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
 
+// Hide the "Get Add-ons" pane in the Add-ons page
+user_pref("extensions.getAddons.showPane", false);
+
 // Set the cache directory location
 // user_pref("browser.cache.disk.parent_directory", "");
