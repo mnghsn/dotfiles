@@ -167,6 +167,7 @@ user_pref("loop.server", "");
 user_pref("browser.pocket.enabled", false);
 user_pref("browser.pocket.api", "");
 user_pref("browser.pocket.site", "");
+user_pref("browser.pocket.oAuthConsumerKey", "");
 user_pref("reader.parse-on-load.enabled", false);
 
 // Disable capturing page thumbnails
