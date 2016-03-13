@@ -189,6 +189,9 @@ user_pref("general.warnOnAboutConfig", false);
 // Skip the installation delay
 user_pref("security.dialog_enable_delay", 0);
 
+// Disable enforced add-on signing since Firefox 43
+user_pref("xpinstall.signatures.required", false);
+
 // Disable closing browser with last tab
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 
