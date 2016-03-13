@@ -161,6 +161,7 @@ user_pref("browser.selfsupport.url", "");
 
 // Disable Firefox Hello
 user_pref("loop.enabled", false);
+user_pref("loop.server", "");
 
 // Disable Pocket
 user_pref("browser.pocket.enabled", false);
