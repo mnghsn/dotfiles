@@ -54,6 +54,14 @@ user_pref("geo.wifi.uri", "http://127.0.0.1");
 user_pref("geo.wifi.logging.enabled", false);
 user_pref("browser.search.geoip.url", "");
 
+// Disable WebRTC
+user_pref("media.peerconnection.enabled", false);
+user_pref("media.peerconnection.use_document_iceservers", false);
+user_pref("media.peerconnection.video.enabled", false);
+user_pref("media.peerconnection.identity.timeout", 1);
+user_pref("media.peerconnection.turn.disable", true);
+user_pref("media.peerconnection.ice.default_address_only", true);
+
 // Do not reveal my internal IP
 user_pref("media-peerconnection.ice.default_address_only", true);
 user_pref("media.peerconnection.enabled", false);
