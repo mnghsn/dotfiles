@@ -2,7 +2,7 @@
 #
 # .bash_options
 
-set -b                              # Cause output from background processes to be output right away.
+set -b                              # Cause output from background processes to be output right away
 set -o notify                       # Notify when jobs running in background terminate
 
 shopt -s cdable_vars                # Disallow write access to terminal
