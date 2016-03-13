@@ -62,10 +62,6 @@ user_pref("media.peerconnection.identity.timeout", 1);
 user_pref("media.peerconnection.turn.disable", true);
 user_pref("media.peerconnection.ice.default_address_only", true);
 
-// Do not reveal my internal IP
-user_pref("media-peerconnection.ice.default_address_only", true);
-user_pref("media.peerconnection.enabled", false);
-
 // Disable Beacon
 user_pref("beacon.enabled", false);
 
