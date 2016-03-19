@@ -105,8 +105,8 @@ set_prompts() {
   PS1+="\[$bold_black\]:"
   PS1+="\[$text_reset\] "
   PS1+="\[$bold_blue\]\w"     # Working directory
-  PS1+="\$(prompt_git \"$text_reset $bold_purple[\" \"]\")"
-  PS1+="\[$text_reset\]\n"
+  PS1+="\[$text_reset\]"
+  PS1+="\$(prompt_git ' $bold_purple[' ']$text_reset')"$'\n'
   PS1+="\[$bold_blue\]\\$"
   PS1+="\[$text_reset\] "
 
