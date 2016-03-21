@@ -112,15 +112,6 @@ endif
 " Plugins (vim-plug)
 " ------------------------------------------------------------------------------
 
-if has('vim_starting')
-  " Download vim-plug if not exists
-  if !filereadable(glob('$HOME/.vim/autoload/plug.vim'))
-    echo 'Installing vim-plug...'
-    call system('curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
-  endif
-endif
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
