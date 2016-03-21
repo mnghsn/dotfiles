@@ -7,19 +7,8 @@ set nocompatible
 " Files
 " ------------------------------------------------------------------------------
 
-if !isdirectory(glob('$HOME/.vim/backups'))
-  call system('mkdir -p $HOME/.vim/backups')
-endif
 set backupdir=$HOME/.vim/backups
-
-if !isdirectory(glob('$HOME/.vim/swaps'))
-  call system('mkdir -p $HOME/.vim/swaps')
-endif
 set directory=$HOME/.vim/swaps
-
-if !isdirectory(glob('$HOME/.vim/undo'))
-  call system('mkdir -p $HOME/.vim/undo')
-endif
 set undodir=$HOME/.vim/undo
 
 " ------------------------------------------------------------------------------
