@@ -46,7 +46,7 @@ sync_dotfiles() {
   link_file "atom" "${HOME}/.atom"
 
   e_info "Setting up Firefox..."
-  for profile in $(find "${HOME}/.mozilla/firefox" -name "*.default" -type d); do
+  for profile in $(find "${HOME}/.mozilla/firefox" -name "*.default"); do
     link_file "firefox" "${profile}"
   done
 }
