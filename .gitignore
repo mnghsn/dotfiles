@@ -1,0 +1,15 @@
+# Atom
+/atom/.apm/
+/atom/.node-gyp/
+/atom/blob-store/
+/atom/compile-cache/
+/atom/packages/
+/atom/storage/
+
+# vim
+/vim/plugged/
+/vim/.viminfo
+
+# Firefox
+/firefox/*
+!/firefox/user.js
