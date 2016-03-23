@@ -90,7 +90,7 @@
   rebase = preserve
 
 [include]
-  path = .gitconfig.local
+  path = ~/.gitconfig.local
 
 [url "git@github.com:"]
   pushInsteadOf = git://github.com/
