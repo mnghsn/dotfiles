@@ -153,7 +153,7 @@ copy_file() {
   if is_success; then
     e_success "Copied ${1} to ${2}"
   else
-    e_error "Faild to copy ${1} to ${2}"
+    e_error "Failed to copy ${1} to ${2}"
   fi
 }
 
