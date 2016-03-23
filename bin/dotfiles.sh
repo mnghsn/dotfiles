@@ -32,7 +32,7 @@ sync_dotfiles() {
   link_file "bash/.bash_profile" "${HOME}/.bash_profile"
 
   e_info "Setting up git..."
-  link_file "git/.gitconfig" "${HOME}/.gitconfig"
+  copy_file "git/.gitconfig" "${HOME}/.gitconfig"
   link_file "git/.gitignore" "${HOME}/.gitignore"
 
   e_info "Setting up fontconfig..."
