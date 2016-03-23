@@ -2,16 +2,7 @@
 
 My personal configuration files.
 
-## Features
-
-Install and update configuration files automatically. These configuration files are included:
-
-* Bash
-* Git
-* Vim
-* Fontconfig for Linux
-* [Atom](https://atom.io/)
-* [Mozilla Firefox](https://www.mozilla.org/firefox)
+I use and maintain these files on Ubuntu-based distributions. There is no guarantee that they will work correctly on other systems.
 
 ## Installation
 
