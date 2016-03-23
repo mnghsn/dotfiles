@@ -36,11 +36,12 @@ Options:
 
 ## Credits
 
-* [dotfiles](https://github.com/necolas/dotfiles) by @necolas
-* [dotfiles](https://github.com/isaacs/dotfiles) by @isaacs
-* [dotfiles](https://github.com/eed3si9n/dotfiles) by @eed3si9n
-* [ssarcandy-vim](https://github.com/SSARCandy/ssarcandy-vim/) by @SSARCandy
-* [vim-plug](https://github.com/junegunn/vim-plug) by @junegunn
+* [dotfiles](https://github.com/necolas/dotfiles) by [necolas](https://github.com/necolas)
+* [dotfiles](https://github.com/isaacs/dotfiles) by [isaacs](https://github.com/isaacs)
+* [dotfiles](https://github.com/eed3si9n/dotfiles) by [eed3si9n](https://github.com/eed3si9n)
+* [ssarcandy-vim](https://github.com/SSARCandy/ssarcandy-vim) by [SSARCandy](https://github.com/SSARCandy)
+* [vim-plug](https://github.com/junegunn/vim-plug) by [junegunn](https://github.com/junegunn)
+* [The Ultimate Bashrc File GNOME-Look.org](http://gnome-look.org/content/show.php/Ultimate+Bashrc+File?content=129746)
 * [Font configuration - ArchWiki](https://wiki.archlinux.org/index.php/font_configuration)
 * [The Ghacks user.js Firefox privacy and security list has been updated - gHacks Tech News](http://www.ghacks.net/2016/01/04/the-firefox-privacy-and-security-list-has-been-updated/)
 
