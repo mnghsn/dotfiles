@@ -95,5 +95,7 @@
 [url "git@github.com:"]
   pushInsteadOf = git://github.com/
   pushInsteadOf = https://github.com/
+
+[url "git@gist.github.com:"]
   pushInsteadOf = git://gist.github.com/
   pushInsteadOf = https://gist.github.com/
