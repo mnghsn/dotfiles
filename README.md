@@ -15,7 +15,7 @@ Install and update configuration files automatically. These configuration files 
 
 ## Installation
 
-This Installation step requires **cURL** and **git**.
+This installation step requires **cURL** and **git**.
 
 ```bash
 $ curl --silent https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles.sh | bash
