@@ -9,7 +9,15 @@
       "welcome"
     ]
   editor:
+    fontFamily: "Source Code Pro"
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
-    fontFamily: "Source Code Pro"
+  "file-icons":
+    forceShow: true
+    onChanges: true
+  linter:
+    lintOnFly: false
+  pigments:
+    markerType: "dot"
+    mergeColorDuplicates: true
