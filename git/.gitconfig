@@ -30,7 +30,7 @@
   changes = "!f() { git log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status; }; f"
   short = "!f() { git log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"; }; f"
   simple = "!f() { git log --pretty=format:\" * %s\"; }; f"
-  authors = "!f() { git log --pretty=format:\"%an% <%ae%>\" | sort | uniq; }; f"
+  authors = "!f() { git log --pretty=format:\"%aN <%aE>\" | sort | uniq; }; f"
   who = shortlog --numbered --summary --email --no-merges
 
   # Pull
