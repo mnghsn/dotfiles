@@ -2,6 +2,7 @@
 #
 # .bash_exports
 
+export EDITOR="vim"                           # Make vim the default editor
 export HISTCONTROL=ignoreboth:erasedups       # Ignore spaced commands and prevent storing duplicate commands
 export HISTFILESIZE=10000                     # Increase the maximum number of lines contained in history file (Default is 500)
 export HISTSIZE=10000                         # Increase the maximum number of commands to remember (Default is 500)
