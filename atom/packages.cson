@@ -16,6 +16,7 @@ packages: [
   "linter-shellcheck"
   "linter-xmllint"
   "minimap"
+  "omni-ruler"
   "package-sync"
   "pigments"
   "pretty-json"
