@@ -152,6 +152,17 @@ user_pref("experiments.manifest.uri", "");
 // Others
 // -----------------------------------------------------------------------------
 
+// Ask me to activate plugins by default
+user_pref("plugin.default.state", 1);
+user_pref("plugin.defaultXpi.state", 1);
+
+// Enable click-to-play and set the session permission
+user_pref("plugins.click_to_play", true);
+user_pref("plugin.sessionPermissionNow.intervalInMinutes", 0);
+
+// Click to play Adobe Flash
+user_pref("plugin.state.flash", 1);
+
 // Disable Heartbeat
 user_pref("browser.selfsupport.url", "");
 
