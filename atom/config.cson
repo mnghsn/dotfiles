@@ -18,6 +18,8 @@
     onChanges: true
   linter:
     lintOnFly: false
+  "markdown-preview":
+    useGitHubStyle: true
   pigments:
     markerType: "dot"
     mergeColorDuplicates: true
