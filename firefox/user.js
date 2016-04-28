@@ -149,8 +149,14 @@ user_pref("experiments.activeExperiment", false);
 user_pref("experiments.manifest.uri", "");
 
 // -----------------------------------------------------------------------------
-// Others
+// Add-ons and Plugins
 // -----------------------------------------------------------------------------
+
+// Disable enforced add-on signing since Firefox 43
+user_pref("xpinstall.signatures.required", false);
+
+// Hide the "Get Add-ons" pane in the Add-ons page
+user_pref("extensions.getAddons.showPane", false);
 
 // Ask me to activate plugins by default
 user_pref("plugin.default.state", 1);
@@ -162,6 +168,10 @@ user_pref("plugin.sessionPermissionNow.intervalInMinutes", 0);
 
 // Click to play Adobe Flash
 user_pref("plugin.state.flash", 1);
+
+// -----------------------------------------------------------------------------
+// Others
+// -----------------------------------------------------------------------------
 
 // Disable Heartbeat
 user_pref("browser.selfsupport.url", "");
@@ -196,9 +206,6 @@ user_pref("general.warnOnAboutConfig", false);
 // Skip the installation delay
 user_pref("security.dialog_enable_delay", 0);
 
-// Disable enforced add-on signing since Firefox 43
-user_pref("xpinstall.signatures.required", false);
-
 // Disable closing browser with last tab
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 
@@ -212,9 +219,6 @@ user_pref("browser.urlbar.unifiedcomplete", false);
 // Disable search suggestions in URL bar
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
-
-// Hide the "Get Add-ons" pane in the Add-ons page
-user_pref("extensions.getAddons.showPane", false);
 
 // Set the cache directory location
 // user_pref("browser.cache.disk.parent_directory", "");
