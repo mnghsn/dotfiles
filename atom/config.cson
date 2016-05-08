@@ -16,6 +16,8 @@
   "file-icons":
     forceShow: true
     onChanges: true
+  "line-ending-selector":
+    defaultLineEnding: "LF"
   linter:
     lintOnFly: false
   "markdown-preview":
