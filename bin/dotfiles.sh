@@ -27,27 +27,15 @@ EOT
 # Links or copies dotfiles.
 ########################################
 sync_dotfiles() {
-  e_info "Setting up bash..."
-  link_file "bash/.bashrc"       "${HOME}/.bashrc"
-  link_file "bash/.bash_profile" "${HOME}/.bash_profile"
+  local dest
 
-  e_info "Setting up git..."
-  copy_file "git/.gitconfig" "${HOME}/.gitconfig"
-  link_file "git/.gitignore" "${HOME}/.gitignore"
-
-  e_info "Setting up fontconfig..."
-  link_file "fontconfig" "${HOME}/.config/fontconfig"
-
-  e_info "Setting up vim..."
-  link_file "vim"        "${HOME}/.vim"
-  link_file "vim/.vimrc" "${HOME}/.vimrc"
-
-  e_info "Setting up Atom..."
-  link_file "atom" "${HOME}/.atom"
-
-  e_info "Setting up Firefox..."
-  for profile in $(find "${HOME}/.mozilla/firefox" -name "*.default"); do
-    link_file "firefox" "${profile}"
+  for filename in $(find src/ -type f); do
+    dest="${HOME}${filename/src}"
+    mkdir -p $(dirname ${dest})
+    if [[ -f "${dest}" ]]; then
+      cp --remove-destination "${dest}" "${dest}.bak"
+    fi
+    link_file ${filename} ${dest}
   done
 }
 
