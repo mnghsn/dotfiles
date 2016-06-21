@@ -9,15 +9,15 @@ I use and maintain these files on Ubuntu-based distributions. There is no guaran
 This installation step requires **cURL** and **git**.
 
 ```bash
-$ curl -fsSL https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles.sh | bash
+$ curl -fsSL https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash
 ```
 
-**Note**: If you want to fork this repository and maintain your own dotfiles, you must substitute my user name and repository name for your own in the above command and the 2 variables found at the top of `bin/dotfiles.sh` script.
+**Note**: If you want to fork this repository and maintain your own dotfiles, you must substitute my user name and repository name for your own in the above command and the 2 variables found at the top of `bin/dotfiles` script.
 
 ## Update
 
 ```bash
-$ dotfiles.sh [options]
+$ dotfiles [options]
 ```
 
 Options:
