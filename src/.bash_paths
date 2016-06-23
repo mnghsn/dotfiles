@@ -2,11 +2,13 @@
 #
 # .bash_paths
 
+[ -f ~/.path ] && source ~/.path
+
 # Directories to be appended to PATH
 declare -a append_dirs=(
   "/usr/bin"
   "$HOME/bin"
-  "$HOME/.dotfiles/bin"
+  "$DOTFILES_PATH/bin"
 )
 
 for index in ${!append_dirs[*]}
