@@ -10,7 +10,7 @@ readlink() {
     return 1
   fi
 
-  local file phys default
+  local file phys result
 
   # Change directory and reset file.
   file="$1"

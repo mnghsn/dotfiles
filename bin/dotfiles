@@ -60,7 +60,7 @@ if [ ! -d "$DOTFILES_PATH" ]; then
     if is_exists "curl"; then
       curl -fsSLO "$HOME/dotfiles.tar.gz" "$DOTFILES_TARBALL_URL"
     elif is_exists "wget"; then
-      wget -qO "$HOME/dotfiles.tar.gz" "$DOTFILES_TAR_BALL_URL"
+      wget -qO "$HOME/dotfiles.tar.gz" "$DOTFILES_TARBALL_URL"
     fi
     tar -zxf "$HOME/dotfiles.tar.gz" --strip-components 1 -C "$DOTFILES_PATH"
     rm -rf "$HOME/dotfiles.tar.gz"
