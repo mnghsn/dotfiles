@@ -2,11 +2,11 @@
 
 My personal configuration files.
 
-I use and maintain these files on Ubuntu-based distributions. There is no guarantee that they will work correctly on other systems.
+I use and maintain these files on Ubuntu-based distributions. It may not work well on other platforms.
 
 ## Installation
 
-This installation step requires **cURL** and **git**.
+This installation step requires **cURL**.
 
 ```bash
 $ curl -fsSL https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash
@@ -14,22 +14,27 @@ $ curl -fsSL https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfil
 
 **Note**: If you want to fork this repository and maintain your own dotfiles, you must substitute my user name and repository name for your own in the above command and the 2 variables found at the top of `bin/dotfiles` script.
 
-## Update
+## Usage
 
-```bash
-$ dotfiles [options]
+```
+Usage: dotfiles <command>
+Commands:
+  help      Print help message
+  list      List all dotfiles
+  deploy    Link dotfiles to home directory
+  init      Install software packages and setup environment settings
+  update    Fetch latest dotfiles from the remote repository
+  install   Install dotfiles (Run "update", "deploy" and "init" command)
+  test      Test dotfiles and check shell scripts
+  clean     Remove linked dotfiles and restore their backup
 ```
 
-Options:
-
-* `-h` or `--help`: Print a help message.
-* `--no-sync`: Suppress pulling from the remote repository.
-
-## Credits
+## Thanks
 
 * [dotfiles](https://github.com/necolas/dotfiles) by [necolas](https://github.com/necolas)
 * [dotfiles](https://github.com/isaacs/dotfiles) by [isaacs](https://github.com/isaacs)
 * [dotfiles](https://github.com/eed3si9n/dotfiles) by [eed3si9n](https://github.com/eed3si9n)
+* [dotfiles](https://github.com/b4b4r07/dotfiles) by [b4b4r07](https://github.com/b4b4r07)
 * [ssarcandy-vim](https://github.com/SSARCandy/ssarcandy-vim) by [SSARCandy](https://github.com/SSARCandy)
 * [vim-plug](https://github.com/junegunn/vim-plug) by [junegunn](https://github.com/junegunn)
 * [The Ultimate Bashrc File GNOME-Look.org](http://gnome-look.org/content/show.php/Ultimate+Bashrc+File?content=129746)
