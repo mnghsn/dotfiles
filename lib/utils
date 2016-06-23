@@ -83,6 +83,7 @@ is_zsh() {
 # Returns the OS name in lowercase letters.
 ########################################
 os_type() {
+  # shellcheck disable=SC2119
   uname | lower
 }
 
@@ -171,6 +172,7 @@ die() {
 ########################################
 # Converts a string to lowercase letters.
 ########################################
+# shellcheck disable=SC2120
 lower() {
   if [ $# -eq 0 ]; then
     cat <&0
@@ -188,6 +190,7 @@ lower() {
 ########################################
 # Converts a string to uppercase letters.
 ########################################
+# shellcheck disable=SC2120
 upper() {
   if [ $# -eq 0 ]; then
     cat <&0
