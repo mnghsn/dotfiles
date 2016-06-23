@@ -19,11 +19,17 @@ addons:
     packages:
     - shellcheck
 
+env:
+  - DOTFILES_PATH=~/.dotfiles
+
 install:
   - curl -L https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash
 
+before_script:
+  - cd $(DOTFILES_PATH)
+
 script:
-  dotfiles test
+  bin/dotfiles test
 
 branches:
   only:
