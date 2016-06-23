@@ -19,7 +19,7 @@ addons:
     - shellcheck
 
 install:
-  curl -L https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash
+  - curl -L https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash
 
 script:
   dotfiles test
