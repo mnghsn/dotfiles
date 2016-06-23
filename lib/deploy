@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+#
+# Defines functions for `dotfiles deploy`.
+
+########################################
+# Creates a symlink.
+########################################
+link_file() {
+  mkdir -p "$(dirname "$2")"
+  ln -sfn "$1" "$2"
+}
+
+########################################
+# Renames exist file to backup.
+########################################
+backup_file() {
+  if [ -f "$1" ] && [ ! -L "$1" ]; then
+    mv -fn "$1" "$1.bak"
+  fi
+}
+
+########################################
+# Links dotfiles to home directory.
+########################################
+deploy_dotfiles() {
+  # Exit if dotfiles is not exist.
+  if [ ! -d "$DOTFILES_PATH" ]; then
+    die "Dotfiles not found."
+  fi
+
+  e_header "Deploy Dotfiles"
+
+  cd "$DOTFILES_PATH/src"
+
+  for file in $(find . -type f | sed 's/^.\///' | sort -n); do
+    backup_file "$HOME/$file" &&
+    link_file "$DOTFILES_PATH/src/$file" "$HOME/$file"
+
+    if is_success; then
+      e_success "$file"
+    else
+      e_error "$file"
+    fi
+  done
+}
