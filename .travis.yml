@@ -14,8 +14,9 @@ sudo: required
 
 addons:
   apt:
+    sources:
+    - debian-sid
     packages:
-    - curl
     - shellcheck
 
 install:
