@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+#
+# Defines functions for `dotfiles init`.
+
+########################################
+# Uses system package manager to install a new package.
+########################################
+install_package() {
+  if is_exists "$1"; then
+    e_success "$1 is already installed."
+    return 0
+  else
+    e_arrow "Installing $1..."
+
+    case "$(get_os)" in
+      linux)
+        if is_exists "apt"; then
+          sudo apt install "$1" -y -qq
+        elif is_exists "apt-get"; then
+          sudo apt-get install "$1" -y -qq
+        elif is_exists "dnf"; then
+          sudo dnf install "$1" -y -q
+        elif is_exists "yum"; then
+          sudo yum install "$1" -y -q
+        else
+          e_error "ERROR: Requires APT, DNF or YUM."
+          return 1
+        fi
+        ;;
+      osx)
+        if is_exists "brew"; then
+          brew install "$1" --quiet
+        elif is_exists "port"; then
+          sudo port install "$1" -q
+        else
+          e_error "ERROR: Requires Homebrew or MacPorts."
+          return 1
+        fi
+        ;;
+      *)
+        e_error "ERROR: This script doesn't support your system."
+        exit 1
+        ;;
+    esac
+
+    e_success "Done." | e_indent
+  fi
+}
+
+########################################
+# Installs software packages and setups environment settings.
+########################################
+init_dotfiles() {
+  # Exit if dotfiles is not exist.
+  if [ ! -d "$DOTFILES_PATH" ]; then
+    die "Dotfiles not found."
+  fi
+
+  e_header "Installs Software Packages and Setups Environment Settings"
+
+  local -a packages=(
+    'bash'
+    'curl'
+    'wget'
+    'git'
+    'vim'
+  )
+
+  # Ask for the administrator password upfront.
+  sudo -v
+
+  # Update existing `sudo` time stamp until this script finished.
+  while true; do
+    sudo -n true
+    sleep 60;
+    kill -0 "$$" || exit
+  done 2>/dev/null &
+
+  for i in ${!packages[*]}; do
+    install_package "${packages[$i]}"
+  done
+}
