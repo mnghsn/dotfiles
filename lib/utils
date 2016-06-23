@@ -162,6 +162,16 @@ is_git_repo() {
 }
 
 ########################################
+# Tests whether the previous command succeeded.
+########################################
+is_success() {
+  if [ $? -eq 0 ]; then
+    return 0
+  fi
+  return 1
+}
+
+########################################
 # Returns exit code error and echo error message.
 ########################################
 die() {
