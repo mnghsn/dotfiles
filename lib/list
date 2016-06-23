@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+# Defines functions for `dotfiles list`.
+
+########################################
+# Lists all dotfiles.
+########################################
+list_dotfiles() {
+  # Exit if dotfiles is not exist.
+  if [ ! -d "$DOTFILES_PATH" ]; then
+    die "Dotfiles not found."
+  fi
+
+  e_header "List All Dotfiles"
+
+  cd "$DOTFILES_PATH/src"
+
+  if is_exists "tree"; then
+    tree -a --noreport
+  else
+    e_warning "Install TREE command for pretty format."
+    ls -AR
+  fi
+}
