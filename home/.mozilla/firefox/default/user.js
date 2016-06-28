@@ -97,6 +97,7 @@ user_pref("privacy.donottrackheader.value", 1);
 // Use Tracking Protection in Private Windows
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
+user_pref("privacy.trackingprotection.introCount", 20);
 
 // Never accept third-party cookies
 user_pref("network.cookie.cookieBehavior", 1);
