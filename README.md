@@ -3,7 +3,7 @@
 
 My personal configuration files.
 
-I use and maintain these files on Ubuntu-based distributions. It may not work well on other platforms.
+I use and maintain these files mainly on Ubuntu-based distributions. There is no guarantee that they will work correctly on other platforms.
 
 ## Installation
 
@@ -26,8 +26,8 @@ Commands:
   init      Install software packages and setup environment settings
   update    Fetch latest dotfiles from the remote repository
   install   Install dotfiles (Run "update", "deploy" and "init" command)
-  test      Test dotfiles and check shell scripts
   clean     Remove linked dotfiles and restore their backup
+  test      Test dotfiles and check shell scripts
 ```
 
 ## Thanks
