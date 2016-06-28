@@ -9,6 +9,10 @@ os:
 
 sudo: required
 
+env:
+  global:
+    - DOTFILES_PATH=~/.dotfiles
+
 addons:
   apt:
     sources:
@@ -16,9 +20,9 @@ addons:
     packages:
     - shellcheck
 
-env:
-  global:
-    - DOTFILES_PATH=~/.dotfiles
+before_install:
+  - brew update
+  - brew install shellcheck
 
 install:
   - curl -L https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash
