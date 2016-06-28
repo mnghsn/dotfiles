@@ -18,6 +18,7 @@ remove_link() {
   if [[ -L "${HOME}/$1" ]]; then
     rm -rf "${HOME:?}/$1"
   fi
+}
 
 #######################################
 # Remove the parent directory if empty.
