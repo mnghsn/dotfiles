@@ -3,25 +3,25 @@ notifications:
     on_success: never
     on_failure: change
 
-os:
-  - linux
-  - osx
-
 sudo: required
 
 env:
   global:
     - DOTFILES_PATH=~/.dotfiles
 
-addons:
-  apt:
-    sources:
-    - debian-sid
-    packages:
-    - shellcheck
-
-before_install:
-  - [[ $(type -P 'brew') ]] && brew update && brew install shellcheck
+matrix:
+  include:
+    - os: linux
+      addons:
+        apt:
+          sources:
+          - debian-sid
+          packages:
+          - shellcheck
+    - os: osx
+      before_install:
+        - brew update
+        - brew install shellcheck
 
 install:
   - curl -L https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash
