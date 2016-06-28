@@ -17,10 +17,10 @@ matrix:
           - debian-sid
           packages:
           - shellcheck
-    - os: osx
-      before_install:
-        - brew update
-        - brew install shellcheck
+    #- os: osx
+    #  before_install:
+    #    - brew update
+    #    - brew install shellcheck
 
 install:
   - curl -L https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash
