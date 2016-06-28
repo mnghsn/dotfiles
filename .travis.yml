@@ -3,12 +3,9 @@ notifications:
     on_success: never
     on_failure: change
 
-git:
-  depth: 10
-
 os:
   - linux
-  #- osx
+  - osx
 
 sudo: required
 
