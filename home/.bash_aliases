@@ -1,18 +1,18 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # .bash_aliases
 
-# Allow aliases to be with sudo
-alias sudo="sudo "
+# Allow aliases to be with sudo.
+alias sudo='sudo '
 
-# Easier navigation
-alias ..="cd .."
-alias ...="cd ..."
-alias ~="cd ~"
-alias -- -="cd -"
+# Easier navigation.
+alias ..='cd ..'
+alias ...='cd ...'
+alias ~='cd ~'
+alias -- -='cd -'
 
-# Enable color support
-if [ -x /usr/bin/dircolors ]; then
+# Enable color support.
+if [[ -x /usr/bin/dircolors ]]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls --color=auto'
   alias grep='grep --color=auto'
@@ -20,10 +20,10 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
 fi
 
-# List directory
-alias l="ls -CF"
-alias la="ls -A --group-directories-first"
-alias ll="ls -alF --group-directories-first"
+# List directory.
+alias ls='ls -CF'
+alias la='ls -A --group-directories-first'
+alias ll='ls -alF --group-directories-first'
 
-# Clear screen
-alias cls="clear"
+# Clear screen.
+alias cls='clear'

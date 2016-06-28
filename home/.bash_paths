@@ -1,20 +1,19 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # .bash_paths
 
-[ -f ~/.path ] && source ~/.path
+[[ -f ~/.path ]] && source ~/.path
 
-# Directories to be appended to PATH
+# Directories to be appended to PATH.
 declare -a append_dirs=(
-  "/usr/bin"
-  "$HOME/bin"
-  "$DOTFILES_PATH/bin"
+  '/usr/bin'
+  "${HOME}/bin"
+  "${DOTFILES_PATH}/bin"
 )
 
-for index in ${!append_dirs[*]}
-do
-  if [ -d ${append_dirs[$index]} ]; then
-    PATH="$PATH:${append_dirs[$index]}"
+for index in ${!append_dirs[*]}; do
+  if [[ -d ${append_dirs[$index]} ]]; then
+    PATH="${PATH}:${append_dirs[$index]}"
   fi
 done
 

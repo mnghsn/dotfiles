@@ -1,15 +1,15 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # .bash_exports
 
-export EDITOR="vim"                           # Make vim the default editor
-export HISTCONTROL=ignoreboth:erasedups       # Ignore spaced commands and prevent storing duplicate commands
-export HISTFILESIZE=10000                     # Increase the maximum number of lines contained in history file (Default is 500)
-export HISTSIZE=10000                         # Increase the maximum number of commands to remember (Default is 500)
-export HISTIGNORE="&:bg:fg:ll:h"
-export HISTTIMEFORMAT="[%Y-%m-%d %H:%M:%S] "  # Make history shows the date for each command
-export PAGER="less -e"
+export EDITOR='vim'                           # Make vim the default editor.
+export HISTCONTROL=ignoreboth:erasedups       # Ignore spaced commands and prevent storing duplicate commands.
+export HISTFILESIZE=10000                     # Increase the maximum number of lines contained in history file (Default is 500).
+export HISTSIZE=10000                         # Increase the maximum number of commands to remember (Default is 500).
+export HISTIGNORE='&:bg:fg:ll:h'
+export HISTTIMEFORMAT="[%Y-%m-%d %H:%M:%S] "  # Make history shows the date for each command.
+export PAGER='less -e'
 
-# Make new shells get the history lines from all previous shells
-if [ ! -f $HOME/.bash_history ]; then touch $HOME/.bash_history; fi
-export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+# Make new shells get the history lines from all previous shells.
+if [[ ! -f "${HOME}/.bash_history" ]]; then touch "${HOME}/.bash_history"; fi
+export PROMPT_COMMAND="history -a; ${PROMPT_COMMAND}"
