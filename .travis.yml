@@ -3,8 +3,6 @@ notifications:
     on_success: never
     on_failure: change
 
-sudo: required
-
 env:
   global:
     - DOTFILES_PATH=~/.dotfiles
@@ -12,6 +10,7 @@ env:
 matrix:
   include:
     - os: linux
+      sudo: required
       addons:
         apt:
           sources:
