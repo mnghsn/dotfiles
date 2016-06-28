@@ -21,8 +21,7 @@ addons:
     - shellcheck
 
 before_install:
-  - brew update
-  - brew install shellcheck
+  - [[ $(type -P 'brew') ]] && brew update && brew install shellcheck
 
 install:
   - curl -L https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash
