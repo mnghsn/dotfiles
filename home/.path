@@ -1,0 +1,46 @@
+#!/bin/bash
+#
+# Exports DOTFILES_PATH variable.
+
+#######################################
+# Emulates GNU readlink -f option.
+#######################################
+readlink() {
+  if [[ $# -eq 0 ]]; then
+    return 1
+  fi
+
+  local file phys result
+
+  # Change directory and reset file.
+  file="$1"
+  builtin cd "$(dirname "${file}")"
+  file="$(basename "${file}")"
+
+  # Readlink recursively.
+  while [[ -L "${file}" ]]; do
+    file="$(command readlink "${file}")"
+    builtin cd "$(dirname "${file}")"
+    file="$(basename "${file}")"
+  done
+
+  # Get read pwd.
+  phys="$(pwd -P)"
+  result="${phys}/${file}"
+
+  echo "${result}"
+}
+
+
+dotfiles_path="$(dirname "$(dirname "$(readlink "${BASH_SOURCE:-$0}")")")"
+
+# $ source <file>
+if echo "$-" | grep -q "i"; then
+  DOTFILES_PATH="${dotfiles_path}"
+  export DOTFILES_PATH
+else
+  # $ bash <file>
+  if [[ "$0" = "${BASH_SOURCE:-}" ]]; then
+    echo "${dotfiles_path}"
+  fi
+fi
