@@ -81,7 +81,8 @@ download_dotfiles() {
 update_dotfiles() {
   # Skip update if Git is not installed.
   if ! type_exists 'git'; then
-    e_warning 'Git is required.'
+    e_warning 'Git is required. Skipped update.'
+    return 0
   fi
 
   e_info 'Updating dotfiles...'
