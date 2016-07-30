@@ -211,9 +211,34 @@ unset set_prompts
 # Paths
 # ------------------------------------------------------------------------------
 
-if [[ -d "${HOME}/bin" ]]; then
-  PATH="${HOME}/bin:${PATH}"
-fi
+# Directories to be prepended to PATH.
+declare -a prepend_dirs=(
+  '/usr/local/bin'
+)
+
+# Directories to be appended to PATH.
+declare -a append_dirs=(
+  '/usr/bin'
+  "${HOME}/bin"
+  "${HOME}/.local/bin"
+)
+
+# Prepend directories to PATH.
+for index in ${!prepend_dirs[*]}; do
+  if [[ -d ${prepend_dirs[$index]} ]]; then
+    PATH="${prepend_dirs[$index]}:${PATH}"
+  fi
+done
+
+# Append directories to PATH.
+for index in ${!append_dirs[*]}; do
+  if [[ -d ${append_dirs[$index]} ]]; then
+    PATH="${PATH}:${append_dirs[$index]}"
+  fi
+done
+
+unset prepend_dirs
+unset append_dirs
 
 export PATH
 
