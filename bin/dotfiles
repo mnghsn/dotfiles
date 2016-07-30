@@ -28,7 +28,7 @@ run_help() {
 #######################################
 deploy_dotfiles() {
   e_info 'Setting up Bin...'
-  deploy_file 'bin/dotfiles' 'bin/dotfiles'
+  deploy_file 'bin/dotfiles' '.local/bin/dotfiles'
 
   e_info 'Setting up Bash...'
   deploy_file 'bash/.bash_profile' '.bash_profile'
