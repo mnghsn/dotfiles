@@ -62,6 +62,7 @@ download_dotfiles() {
   if type_exists 'git'; then
     git clone --recursive "${DOTFILES_REPO_URL}" "${DOTFILES_PATH}"
   elif type_exists 'curl' || type_exists 'wget'; then
+    mkdir -p "${DOTFILES_PATH}"
     if type_exists 'curl'; then
       curl -L -o "${HOME}/dotfiles.tar.gz" "${DOTFILES_TARBALL_URL}"
     elif type_exists 'wget'; then
