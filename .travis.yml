@@ -1,0 +1,19 @@
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+os:
+  - linux
+  - osx
+
+script: 'curl -L https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash'
+
+git:
+  depth: 10
+
+sudo: false
+
+branches:
+  only:
+    - master

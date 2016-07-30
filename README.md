@@ -1,4 +1,5 @@
 # dotfiles
+[![Travis CI](https://img.shields.io/travis/jmlntw/dotfiles.svg?maxAge=86400)](https://travis-ci.org/jmlntw/dotfiles)
 
 My personal configuration files.
 
