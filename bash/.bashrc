@@ -212,7 +212,7 @@ unset set_prompts
 # ------------------------------------------------------------------------------
 
 if [[ -d "${HOME}/bin" ]]; then
-  PATH="${HOME}/bin;${PATH}"
+  PATH="${HOME}/bin:${PATH}"
 fi
 
 export PATH
