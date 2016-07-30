@@ -70,8 +70,7 @@ download_dotfiles() {
     tar -zxf "${HOME}/dotfiles.tar.gz" --strip-components 1 -C "${DOTFILES_PATH}"
     rm -rf "${HOME}/dotfiles.tar.gz"
   else
-    e_error 'Either Git, cURL or Wget is required.' 1>&2
-    exit 1
+    die 'Either Git, cURL or Wget is required.'
   fi
 }
 
@@ -152,6 +151,14 @@ is_success() {
     return 0
   fi
   return 1
+}
+
+#######################################
+# Exits the script and returns an exit code.
+#######################################
+die() {
+  e_error "$1" 1>&2
+  exit "${2:-1}"
 }
 
 #######################################
@@ -252,6 +259,5 @@ deploy_dotfiles
 if is_success; then
   e_warning 'Restart your shell before continue.'
 else
-  e_error 'ERROR: Failed to install dotfiles.' 1>&2
-  exit 1
+  die 'ERROR: Failed to install dotfiles.'
 fi
