@@ -1,0 +1,257 @@
+#!/bin/bash
+#
+# Installs or updates dotfiles.
+
+# NOTE: If you want to fork this repository and maintain your own dotfiles, you
+# must substitute the following user name and repository name for your own.
+DOTFILES_GITHUB_USER=${DOTFILES_GITHUB_USER:-'jmlntw'}
+DOTFILES_GITHUB_REPO=${DOTFILES_GITHUB_REPO:-'dotfiles'}
+
+DOTFILES_REPO_URL=${DOTFILES_REPO_URL:-"https://github.com/${DOTFILES_GITHUB_USER}/${DOTFILES_GITHUB_REPO}"}
+DOTFILES_TARBALL_URL=${DOTFILES_TARBALL_URL:-"${DOTFILES_REPO_URL}/tarball/master"}
+DOTFILES_GIT_REMOTE_URL=${DOTFILES_GIT_REMOTE_URL:-"${DOTFILES_REPO_URL}.git"}
+
+DOTFILES_PATH=${DOTFILES_PATH:-"${HOME}/.dotfiles"}
+
+#######################################
+# Prints help message.
+#######################################
+run_help() {
+  echo "Usage: $(basename "$0") [options]"
+  echo 'Options:'
+  echo '  -h, --help  Print this help message.'
+  echo ' --no-update  Do not update dotfiles from the remote repository.'
+}
+
+#######################################
+# Deploy dotfiles.
+#######################################
+deploy_dotfiles() {
+  e_info 'Setting up Bin...'
+  deploy_file 'bin/dotfiles' 'bin/dotfiles'
+
+  e_info 'Setting up Bash...'
+  deploy_file 'bash/.bash_profile' '.bash_profile'
+  deploy_file 'bash/.bashrc'       '.bashrc'
+
+  e_info 'Setting up Git...'
+  deploy_file 'git/.gitconfig' '.gitconfig'
+  deploy_file 'git/.gitignore' '.gitignore'
+
+  e_info 'Setting up Vim...'
+  deploy_file 'vim/.vimrc' '.vimrc'
+
+  e_info 'Setting up Fontconfig...'
+  deploy_file 'fontconfig/fonts.conf' '.config/fontconfig/fonts.conf'
+
+  e_info 'Setting up Atom Editor...'
+  deploy_file 'atom/config.cson'   '.atom/config.cson'
+  deploy_file 'atom/packages.cson' '.atom/packages.cson'
+
+  e_info 'Setting up Mozilla Firefox...'
+  deploy_file 'firefox/profiles.ini' '.mozilla/firefox/profiles.ini'
+  deploy_file 'firefox/user.js'      '.mozilla/firefox/default/user.js'
+}
+
+#######################################
+# Downloads dotfiles.
+#######################################
+download_dotfiles() {
+  e_info 'Downloading dotfiles from the remote repository...'
+
+  if type_exists 'git'; then
+    git clone --recursive "${DOTFILES_REPO_URL}" "${DOTFILES_PATH}"
+  elif type_exists 'curl' || type_exists 'wget'; then
+    if type_exists 'curl'; then
+      curl -o "${HOME}/dotfiles.tar.gz" "${DOTFILES_TARBALL_URL}"
+    elif type_exists 'wget'; then
+      wget -O "${HOME}/dotfiles.tar.gz" "${DOTFILES_TARBALL_URL}"
+    fi
+    tar -zxf "${HOME}/dotfiles.tar.gz" --strip-components 1 -C "${DOTFILES_PATH}"
+    rm -rf "${HOME}/dotfiles.tar.gz"
+  else
+    e_error 'Either Git, cURL or Wget is required.' 1>&2
+    exit 1
+  fi
+}
+
+#######################################
+# Update dotfiles.
+#######################################
+update_dotfiles() {
+  # Skip update if Git is not installed.
+  if ! type_exists 'git'; then
+    e_warning 'Git is required.'
+  fi
+
+  e_info 'Updating dotfiles...'
+
+  # Initialize Git repository.
+  if ! is_git_repo "${DOTFILES_PATH}"; then
+    git init
+    git remote add origin "${DOTFILES_GIT_URL}"
+  fi
+
+  # Unstage all changed files.
+  git reset HEAD
+
+  # Remove untracked files.
+  git clean -fd
+
+  # Pull git repository.
+  git pull --rebase origin master
+
+  # Update git submodules.
+  git submodule init
+  git submodule update
+  git submodule foreach git pull origin master
+}
+
+#######################################
+# Links file to home directory.
+#######################################
+deploy_file() {
+  # Backup file if it already exists.
+  if [[ -f "${HOME}/$2" ]] && [[ ! -L "${HOME}/$2" ]]; then
+    mv "${HOME}/$2" "${HOME}/$2.bak"
+  fi
+
+  # Link file to home directory.
+  mkdir -p "$(dirname "${HOME}/$2")" &&
+  ln -sfn "${DOTFILES_PATH}/$1" "${HOME}/$2"
+
+  if is_success; then
+    e_success "Linked $1 to $2"
+  else
+    e_error "Failed to link $1 to $2"
+  fi
+}
+
+#######################################
+# Tests whether a command exists.
+#######################################
+type_exists() {
+  if [[ $(type -P "$1") ]]; then
+    return 0
+  fi
+  return 1
+}
+
+#######################################
+# Tests whether we're in a git repository.
+#######################################
+is_git_repo() {
+  $(git rev-parse --is-inside-work-tree &> /dev/null)
+}
+
+#######################################
+# Tests whether the previous command succeeded.
+#######################################
+is_success() {
+  if [[ $? -eq 0 ]]; then
+    return 0
+  fi
+  return 1
+}
+
+#######################################
+# Prints a new line.
+#######################################
+e_newline() {
+  printf '\n'
+}
+
+#######################################
+# Prints a normal message.
+#######################################
+e_normal() {
+  printf "\033[0m%s\033[0m\n" "$@"
+}
+
+#######################################
+# Prints a information message.
+#######################################
+e_info() {
+  printf "\033[0;36m%s\033[0m\n" "$@"
+}
+
+#######################################
+# Prints a header message.
+#######################################
+e_header() {
+  printf "\033[1;37m%s\033[0m\n" "$@"
+}
+
+#######################################
+# Prints a success message.
+#######################################
+e_success() {
+  printf "\033[0;32m%s %s\033[0m\n" "✔" "$@"
+}
+
+#######################################
+# Prints a error message.
+#######################################
+e_error() {
+  printf "\033[0;31m%s %s\033[0m\n" "✖" "$@"
+}
+
+#######################################
+# Prints a warning message.
+#######################################
+e_warning() {
+  printf "\033[0;33m%s %s\033[0m\n" "❗" "$@"
+}
+
+# ------------------------------------------------------------------------------
+
+# Print help message if `-h` or `--help` flag is given.
+if [[ "$1" == '-h' ]] || [[ "$1" == '--help' ]]; then
+  run_help
+  exit 0
+fi
+
+# Test for all known flags.
+for opt in $@; do
+  case $opt in
+    --no-update) NO_UPDATE=true ;;
+    -*|--*)      e_warning "Invalid option: ${opt}"
+  esac
+done
+
+# Prints header message.
+e_header '      _       _    __ _ _           '
+e_header '   __| | ___ | |_ / _(_) | ___  ___ '
+e_header '  / _` |/ _ \| __| |_| | |/ _ \/ __|'
+e_header ' | (_| | (_) | |_|  _| | |  __/\__ \'
+e_header '  \__,_|\___/ \__|_| |_|_|\___||___/'
+e_newline
+e_header 'Copyright (c) 2015-2016 Jimmy Lin'
+e_header 'Licensed under the MIT License'
+e_newline
+e_normal "Remote dotfiles: ${DOTFILES_REPO_URL}"
+e_normal "Local dotfiles:  ${DOTFILES_PATH}"
+e_newline
+
+# Downloads dotfiles
+if [[ ! -d "${DOTFILES_PATH}" ]]; then
+  download_dotfiles
+fi
+
+# Switch to dotfiles directory.
+cd "${DOTFILES_PATH}" || exit 1
+
+# Update dotfiles if necessary.
+if [[ ! $NO_UPDATE ]]; then
+  update_dotfiles
+fi
+
+# Deploy dotfiles.
+deploy_dotfiles
+
+if is_success; then
+  e_warning 'Restart your shell before continue.'
+else
+  e_error 'ERROR: Failed to install dotfiles.' 1>&2
+  exit 1
+fi
