@@ -1,27 +1,31 @@
 " ~/.vimrc
 
-" Disable Vi compatibility
+" Disable Vi compatibility.
 set nocompatible
 
 " ------------------------------------------------------------------------------
 " Directories and Files
 " ------------------------------------------------------------------------------
 
+" Setup backup directory.
 if !isdirectory(glob('$HOME/.vim/backups'))
   call system('mkdir -p $HOME/.vim/backups')
 endif
 set backupdir=$HOME/.vim/backups
 
+" Setup swap directory.
 if !isdirectory(glob('$HOME/.vim/swaps'))
   call system('mkdir -p $HOME/.vim/swaps')
 endif
 set directory=$HOME/.vim/swaps
 
+" Setup undo directory.
 if !isdirectory(glob('$HOME/.vim/undo'))
   call system('mkdir -p $HOME/.vim/undo')
 endif
 set undodir=$HOME/.vim/undo
 
+" Set the location of `.viminfo` file.
 set viminfo+=n$HOME/.vim/.viminfo
 
 " ------------------------------------------------------------------------------
@@ -29,30 +33,50 @@ set viminfo+=n$HOME/.vim/.viminfo
 " ------------------------------------------------------------------------------
 
 if has('cmdline_info')
-  set ruler     " Show the cursor line and column number
-  set showcmd   " Show partial commands in status line
-  set showmode  " Show whether in INSERT or REPLACE mode
+  " Show the cursor line and column number.
+  set ruler
+
+  " Show partial commands in status line.
+  set showcmd
+
+  " Show whether in INSERT or REPLACE mode.
+  set showmode
 endif
 
 if has('statusline')
-  set laststatus=2  " Always show status line
+  " Always show status line.
+  set laststatus=2
 endif
 
 if has('wildmenu')
-  set wildmenu              " Show a list of possible completions
-  set wildmode=longest,list " Tab autocomplete longest possible part of a string then list
+  " Show a list of possible completions.
+  set wildmenu
+
+  " Tab autocomplete longest possible part of a string then list.
+  set wildmode=longest,list
+
   if has('wildignore')
-    set wildignore+=*/tmp/*,*.so,*.swp,*.zip    " Mac OSX / Linux
-    set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe " Windows
+    " OSX and Linux
+    set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+    " Windows
+    set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
   endif
 endif
 
-set title       " Enable screen title
-set number      " Enable line numbers
-set cursorline  " Highlight current line
-set mouse=a     " Enable mouse
+" Enable screen title.
+set title
 
-" Display a ruler
+" Enable line nunbers.
+set number
+
+" Highlight the current line.
+set cursorline
+
+" Enable mouse.
+set mouse=a
+
+" Display a ruler.
 let &colorcolumn = "80,".join(range(120,999),",")
 
 " ------------------------------------------------------------------------------
@@ -64,20 +88,38 @@ if has('autocmd')
   filetype on
   filetype indent on
   filetype plugin on
+
+  " Languages with specific tabs/spaces requirements.
+  autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+  " Don't treat JSON file as JavaScript.
+  autocmd BufRead,BufNewFile *.json set filetype=json
 endif
 
-set backspace=indent,eol,start  " Backspace through everything in INSERT mode
-set encoding=utf-8 nobomb       " Use UTF-8 without BOM
-set nowrap                      " No line wrap
+" Backspace through everything in INSERT mode.
+set backspace=indent,eol,start
 
-set shiftwidth=2  " Use 2 spaces for indentation
-set softtabstop=2 " Use 2 spaces for soft tab
-set tabstop=2     " Use 2 spaces for tab
-set expandtab     " Expand tab to spaces
+" Use UTF-8 without BOM.
+set encoding=utf-8 nobomb
 
-set list  " Show invisible characters
+" Disable line wrap.
+set nowrap
 
-" Set characters used to indicate invisibles
+" Use 2 spaces for indentation.
+set shiftwidth=2
+
+" Use 2 spaces for soft tab.
+set softtabstop=2
+
+" Use 2 spaces for tab.
+set tabstop=2
+
+" Expand tabs to spaces.
+set expandtab
+
+" Show invisible characters.
+set list
+
+" Set characters used to indicate invisibles.
 set listchars=tab:▶▶
 set listchars+=trail:·
 set listchars+=nbsp:·
@@ -88,17 +130,22 @@ set listchars+=eol:¬
 " ------------------------------------------------------------------------------
 
 if has('extra_search')
-  set hlsearch    " Highlight searches
-  set incsearch   " Highlight dynamically as pattern is typed
-  set ignorecase  " Ignore case of searches,
-  set smartcase   "   unless has mixed case
+  " Highlight searches.
+  set hlsearch
+
+  " Highlight dynamically as pattern is typed.
+  set incsearch
+
+  " Ignore case of searchs, unless it hase mixed case.
+  set ignorecase
+  set smartcase
 endif
 
 " ------------------------------------------------------------------------------
 " Key mappings
 " ------------------------------------------------------------------------------
 
-" Use <Shift>-<Arrows> to select the active split
+" Use <Shift>-<Arrows> to select the active split.
 noremap <S-Up> <C-W><C-K>
 imap <S-Up> <Esc><S-Up>
 noremap <S-Down> <C-W><C-J>
@@ -108,29 +155,39 @@ imap <S-Left> <Esc><S-Left>
 noremap <S-Right> <C-W><C-L>
 imap <S-Right> <Esc><S-Right>
 
-" Clear search highlight by dobule tapping <Esc>
+" Clear search highlight by dobule tapping <Esc>.
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" Save file
-nmap <Leader>s :update<CR>
+" Save file.
+inoremap <C-s>     <C-O>:update<CR>
+nnoremap <C-s>     :update<CR>
+nnoremap <Leader>s :update<CR>
+nnoremap <Leader>w :update<CR>
 
 " ------------------------------------------------------------------------------
 " Colors
 " ------------------------------------------------------------------------------
 
 if has('syntax')
-  syntax enable                 " Enable syntax highlight
-  set t_Co=256                  " Set 256 color terminal support
-  set background=dark           " Set dark background
-  silent! colorscheme molokai   " Set color scheme
+  " Enable syntax highlight.
+  syntax enable
+
+  " Set 256 color terminal support.
+  set t_Co=256
+
+  " Set dark background.
+  set background=dark
+
+  " Set color scheme.
+  silent! colorscheme molokai
 endif
 
 " ------------------------------------------------------------------------------
 " Plugins
 " ------------------------------------------------------------------------------
 
+" Download vim-plug if it doesn't exist.
 if has('vim_starting')
-  " Download vim-plug if not exists
   if !filereadable(glob('$HOME/.vim/autoload/plug.vim'))
     echo 'Installing vim-plug...'
     call system('curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
@@ -151,43 +208,77 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 
-" Install missing plugins automatically
+" Install missing plugins automatically.
 autocmd VimEnter *
   \  if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall | q
 \| endif
 
+" ------------------------------------------------------------------------------
 " Plugin: vim-colorschemes
+" ------------------------------------------------------------------------------
+
 silent! colorscheme molokai
 
+" ------------------------------------------------------------------------------
 " Plugin: NERDTree
+" ------------------------------------------------------------------------------
+
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeQuitOpen = 0
 let NERDTreeShowHidden = 1
+
+" Use <Ctrl>-<N> to toggle NERDTree.
 nmap <C-N> :NERDTreeToggle<CR>
+
+" Use <Ctrl>-<M> to find current file in NERDTree.
 nmap <C-M> :NERDTreeFind<CR>
 
+" ------------------------------------------------------------------------------
 " Plugin: vim-airline
-let g:airline_theme = 'molokai'                           " Set vim-airline theme
-let g:airline_left_sep = ' '                              " Left separator
-let g:airline_right_sep = ' '                             " Right separator
-let g:airline_section_x = '%{strftime("%m/%d %H:%M")}% '  " Show clock at section x
-let g:airline#extensions#tabline#enabled = 1              " Enable tabline
-let g:airline#extensions#tabline#fnamemod = ':t'          " Show only file name in tabline
-let g:airline#extensions#tabline#left_sep = ' '           " Tabline left separator when selected
-let g:airline#extensions#tabline#left_alt_sep = '|'       " Tabline left separator
-"let g:airline_powerline_fonts = 1                         " Use Powerline fonts
+" ------------------------------------------------------------------------------
+
+" Set vim-airline theme.
+let g:airline_theme = 'molokai'
+
+" Set separators.
+let g:airline_left_sep = ' '
+let g:airline_right_sep = ' '
+
+" Show a clock at section x.
+let g:airline_section_x = '%{strftime("%m/%d %H:%M")}% '
+
+" Enable tabline.
+let g:airline#extensions#tabline#enabled = 1
+
+" Show only file name in tabline.
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Set tabline separators.
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" Use Powerline fonts.
+"let g:airline_powerline_fonts = 1
+
+" Always show status line.
 set laststatus=2
-nmap <Tab> :bn!<CR>     " Use <Tab> to switch to next buffer in NORMAL mode
-nmap ` :bp!<CR>         " Use <`> to switch to previous buffer in NORMAL mode
-nmap <Leader>d :bd<CR>  " Close current buffer
+
+" Use <Tab> to switch to next buffer in NORMAL mode.
+nmap <Tab> :bn!<CR>
+
+" Use <`> to switch to previous buffer in NORMAL mode.
+nmap ` :bp!<CR>
+
+" Use <Leader>-<D> to close current buffer.
+nmap <Leader>d :bd<CR>
 
 " ------------------------------------------------------------------------------
 " User configuration
 " ------------------------------------------------------------------------------
 
-" Load user configuration file if exists.
+" Load user configuration file if it exists.
 if filereadable(glob('$HOME/.vimrc.local'))
   source $HOME/.vimrc.local
 endif
