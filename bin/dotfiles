@@ -142,7 +142,8 @@ type_exists() {
 # Tests whether we're in a git repository.
 #######################################
 is_git_repo() {
-  $(git rev-parse --is-inside-work-tree &> /dev/null)
+  git rev-parse --is-inside-work-tree &>/dev/null
+  return $?
 }
 
 #######################################
@@ -221,7 +222,7 @@ if [[ "$1" == '-h' ]] || [[ "$1" == '--help' ]]; then
 fi
 
 # Test for all known flags.
-for opt in $@; do
+for opt in "$@"; do
   case $opt in
     --no-update) NO_UPDATE=true ;;
     -*|--*)      e_warning "Invalid option: ${opt}"
@@ -229,11 +230,11 @@ for opt in $@; do
 done
 
 # Prints header message.
-e_header '      _       _    __ _ _           '
-e_header '   __| | ___ | |_ / _(_) | ___  ___ '
-e_header '  / _` |/ _ \| __| |_| | |/ _ \/ __|'
-e_header ' | (_| | (_) | |_|  _| | |  __/\__ \'
-e_header '  \__,_|\___/ \__|_| |_|_|\___||___/'
+e_header '      _       _    __ _ _            '
+e_header '   __| | ___ | |_ / _(_) | ___  ___  '
+e_header '  / _` |/ _ \| __| |_| | |/ _ \/ __| '
+e_header ' | (_| | (_) | |_|  _| | |  __/\__ \ '
+e_header '  \__,_|\___/ \__|_| |_|_|\___||___/ '
 e_newline
 e_header 'Copyright (c) 2015-2016 Jimmy Lin'
 e_header 'Licensed under the MIT License'
