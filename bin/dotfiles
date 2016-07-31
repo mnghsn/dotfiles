@@ -9,7 +9,7 @@ DOTFILES_GITHUB_REPO=${DOTFILES_GITHUB_REPO:-'dotfiles'}
 
 DOTFILES_REPO_URL=${DOTFILES_REPO_URL:-"https://github.com/${DOTFILES_GITHUB_USER}/${DOTFILES_GITHUB_REPO}"}
 DOTFILES_TARBALL_URL=${DOTFILES_TARBALL_URL:-"${DOTFILES_REPO_URL}/tarball/master"}
-DOTFILES_GIT_REMOTE_URL=${DOTFILES_GIT_REMOTE_URL:-"${DOTFILES_REPO_URL}.git"}
+DOTFILES_GIT_URL=${DOTFILES_GIT_URL:-"${DOTFILES_REPO_URL}.git"}
 
 DOTFILES_PATH=${DOTFILES_PATH:-"${HOME}/.dotfiles"}
 
@@ -60,7 +60,7 @@ download_dotfiles() {
   e_info 'Downloading dotfiles from the remote repository...'
 
   if type_exists 'git'; then
-    git clone --recursive "${DOTFILES_GIT_REMOTE_URL}" "${DOTFILES_PATH}"
+    git clone --recursive "${DOTFILES_GIT_URL}" "${DOTFILES_PATH}"
   elif type_exists 'curl' || type_exists 'wget'; then
     mkdir -p "${DOTFILES_PATH}"
     if type_exists 'curl'; then
