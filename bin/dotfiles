@@ -60,7 +60,7 @@ download_dotfiles() {
   e_info 'Downloading dotfiles from the remote repository...'
 
   if type_exists 'git'; then
-    git clone --recursive "${DOTFILES_REPO_URL}" "${DOTFILES_PATH}"
+    git clone --recursive "${DOTFILES_GIT_REMOTE_URL}" "${DOTFILES_PATH}"
   elif type_exists 'curl' || type_exists 'wget'; then
     mkdir -p "${DOTFILES_PATH}"
     if type_exists 'curl'; then
