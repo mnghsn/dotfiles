@@ -20,7 +20,7 @@ run_help() {
   echo "Usage: $(basename "$0") [options]"
   echo 'Options:'
   echo '  -h, --help  Print this help message.'
-  echo ' --no-update  Do not update dotfiles from the remote repository.'
+  echo '  --no-update  Do not update dotfiles from the remote repository.'
 }
 
 #######################################
