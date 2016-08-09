@@ -10,6 +10,7 @@ user_pref("browser.startup.page", 0);
 user_pref("browser.rights.3.shown", true);
 user_pref("browser.startup.homepage_override.mstone", "ignore");
 user_pref("startup.homepage_welcome_url", "");
+user_pref("startup.homepage_welcome_url.additional", "");
 user_pref("startup.homepage_override_url", "");
 user_pref("browser.usedOnWindows10.introURL", "");
 
