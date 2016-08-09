@@ -152,6 +152,7 @@ user_pref("datareporting.policy.dataSubmissionEnabled.v2", false);
 
 // Disable Crash Reporter
 user_pref("breakpad.reportURL", "");
+user_pref("browser.tabs.crashReporting.sendReport", false); // Added in Firefox 44
 
 // Disable Telemetry
 user_pref("toolkit.telemetry.enabled", false);
