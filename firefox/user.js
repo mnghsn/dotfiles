@@ -20,8 +20,8 @@ user_pref("browser.newtabpage.enabled", false);
 user_pref("browser.newtabpage.enhanced", false);
 user_pref("browser.newtab.preload", false);
 user_pref("browser.newtabpage.introShown", true);
-user_pref("browser.newtabpage.directory.ping", 0);
-user_pref("browser.newtabpage.directory.source", "");
+user_pref("browser.newtabpage.directory.ping", "data:text/plain,");
+user_pref("browser.newtabpage.directory.source", "data:text/plain,");
 
 // Always ask me where to save download files
 user_pref("browser.download.useDownloadDir", false);
