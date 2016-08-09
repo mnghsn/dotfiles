@@ -19,6 +19,7 @@ packages: [
   "omni-ruler"
   "package-sync"
   "pigments"
+  "platformio-ide-terminal"
   "pretty-json"
   "sort-lines"
 ]
