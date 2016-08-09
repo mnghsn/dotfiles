@@ -56,6 +56,7 @@ user_pref("intl.accept_languages", "ja, zh-tw, zh, en-us, en");
 user_pref("geo.enabled", false);
 user_pref("geo.wifi.uri", "http://127.0.0.1");
 user_pref("geo.wifi.logging.enabled", false);
+user_pref("geo.wifi.xhr.timeout", 1);
 user_pref("browser.search.geoip.url", "");
 
 // Disable WebRTC
