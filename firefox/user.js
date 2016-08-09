@@ -145,8 +145,8 @@ user_pref("signon.rememberSignons", false);
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.healthreport.service.enabled", false);
 user_pref("datareporting.healthreport.documentServerURI", "");
-user_pref("datareporting.healthreport.about.reportUrl", "");
-user_pref("datareporting.healthreport.about.reportUrlInified", "");
+user_pref("datareporting.healthreport.about.reportUrl", "data:text/plain,");
+user_pref("datareporting.healthreport.about.reportUrlInified", "data:text/plain,");
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled.v2", false);
 
