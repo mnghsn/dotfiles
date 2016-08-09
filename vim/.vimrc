@@ -199,12 +199,20 @@ call plug#begin('~/.vim/plugged')
 
 " Load plugins
 Plug 'airblade/vim-gitgutter'
+Plug 'ap/vim-css-color'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'elzr/vim-json'
 Plug 'flazz/vim-colorschemes'
+Plug 'othree/es.next.syntax.vim'
+Plug 'othree/html5.vim'
+Plug 'othree/yajs.vim'
+Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
