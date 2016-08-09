@@ -254,5 +254,11 @@ user_pref("browser.urlbar.unifiedcomplete", false);
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
 
+// Disable WebIDE to prevent remote debugging and addon downloads
+user_pref("devtools.webide.enabled", false);
+user_pref("devtools.webide.autoinstallADBHelper", false);
+user_pref("devtools.webide.autoinstallFxdtAdapters", false);
+user_pref("devtools.debugger.remote-enabled", false);
+
 // Set the cache directory location
 // user_pref("browser.cache.disk.parent_directory", "");
