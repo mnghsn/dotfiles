@@ -81,11 +81,23 @@ user_pref("camera.control.face_detection.enabled", false);
 // Decrease the maximum number of popups from a single non-click event (Default is 20)
 user_pref("dom.popup_maximum", 2);
 
-// Disallow JavaScript to raise or lower windows
-user_pref("dom.disable_window_flip", true);
+// Disallow JavaScript to hide or disable the following on new windows
+user_pref("dom.disable_window_open_feature.location", true);
+user_pref("dom.disable_window_open_feature.menubar", true);
+user_pref("dom.disable_window_open_feature.resizable", true);
+user_pref("dom.disable_window_open_feature.scrollbars", true);
+user_pref("dom.disable_window_open_feature.status", true);
+user_pref("dom.disable_window_open_feature.toolbar", true);
 
-// Disallow JavaScript to move or resize existing windows
+// Disallow JavaScript to meddle UI
+user_pref("dom.allow_scripts_to_close_windows", false);
+user_pref("dom.disable_window_flip", true);
 user_pref("dom.disable_window_move_resize", true);
+user_pref("dom.disable_window_open_feature.close", true);
+user_pref("dom.disable_window_open_feature.minimizable", true);
+user_pref("dom.disable_window_open_feature.personalbar", true);
+user_pref("dom.disable_window_open_feature.titlebar", true);
+user_pref("dom.disable_window_status_change", true);
 
 // Disable SPDY (SPDY would be deprecated in 2016)
 user_pref("network.http.spdy.enabled", false);
