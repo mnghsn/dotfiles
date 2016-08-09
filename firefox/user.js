@@ -167,6 +167,8 @@ user_pref("experiments.enabled", false);
 user_pref("experiments.supported", false);
 user_pref("experiments.activeExperiment", false);
 user_pref("experiments.manifest.uri", "");
+user_pref("network.allow-experiments", false);
+
 
 // -----------------------------------------------------------------------------
 // Add-ons and Plugins
