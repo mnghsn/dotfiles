@@ -49,6 +49,9 @@ user_pref("font.minimum-size.zh-CN", 10);
 user_pref("font.minimum-size.zh-HK", 10);
 user_pref("font.minimum-size.zh-TW", 10);
 
+// Choose preferred language for displaying pages
+user_pref("intl.accept_languages", "ja, zh-tw, zh, en-us, en");
+
 // Disable Geolocation
 user_pref("geo.enabled", false);
 user_pref("geo.wifi.uri", "http://127.0.0.1");
