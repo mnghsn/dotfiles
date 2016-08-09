@@ -260,5 +260,8 @@ user_pref("devtools.webide.autoinstallADBHelper", false);
 user_pref("devtools.webide.autoinstallFxdtAdapters", false);
 user_pref("devtools.debugger.remote-enabled", false);
 
+// Disable UI tour
+user_pref("browser.uitour.enabled", false);
+
 // Set the cache directory location
 // user_pref("browser.cache.disk.parent_directory", "");
