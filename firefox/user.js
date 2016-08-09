@@ -169,6 +169,11 @@ user_pref("experiments.activeExperiment", false);
 user_pref("experiments.manifest.uri", "");
 user_pref("network.allow-experiments", false);
 
+// Enable OCSP stapling
+user_pref("security.ssl.enable_ocsp_stapling", true);
+
+// Query OCSP responder servers to confirm current validity of certificates
+user_pref("security.OCSP.enabled", 1);
 
 // -----------------------------------------------------------------------------
 // Add-ons and Plugins
