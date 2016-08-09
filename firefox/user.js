@@ -206,12 +206,19 @@ user_pref("browser.selfsupport.url", "");
 // Disable Firefox Hello
 user_pref("loop.enabled", false);
 user_pref("loop.server", "");
+user_pref("loop.feedback.formURL", "");
+user_pref("loop.feedback.manualFormURL", "");
+user_pref("loop.facebook.appId", "");
+user_pref("loop.facebook.enabled", false);
+user_pref("loop.facebook.fallbackUrl", "");
+user_pref("loop.facebook.shareUrl", "");
+user_pref("loop.logDomains", false);
 
 // Disable Pocket
-user_pref("browser.pocket.enabled", false);
-user_pref("browser.pocket.api", "");
-user_pref("browser.pocket.site", "");
-user_pref("browser.pocket.oAuthConsumerKey", "");
+user_pref("extensions.pocket.enabled", false);
+user_pref("extensions.pocket.api", "");
+user_pref("extensions.pocket.site", "");
+user_pref("extensions.pocket.oAuthConsumerKey", "");
 user_pref("reader.parse-on-load.enabled", false);
 
 // Disable capturing page thumbnails
