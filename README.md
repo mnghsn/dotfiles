@@ -5,8 +5,19 @@ My personal configuration files.
 
 ## Installation
 
+### Quick Installation
+
 ```bash
 $ curl -L https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash
+```
+
+### Using [Docker](https://www.docker.com/)
+
+```bash
+$ git clone https://github.com/jmlntw/dotfiles.git dotfiles
+$ cd dotfiles
+$ sudo docker build -t jmlntw/dotfiles .
+$ sudo docker run -it --rm jmlntw/dotfiles
 ```
 
 **Note**: If you want to fork this repository and maintain your own dotfiles, you must substitute my user name and repository name for your own in the above command and the 2 variables found at the top of `bin/dotfiles` script.
