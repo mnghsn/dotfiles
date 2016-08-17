@@ -1,0 +1,9 @@
+{
+  "extensions": [
+    "EditorConfig.EditorConfig",
+    "Tyriar.sort-lines",
+    "mohsen1.prettify-json",
+    "naumovs.color-highlight",
+    "robertohuertasm.vscode-icons"
+  ]
+}

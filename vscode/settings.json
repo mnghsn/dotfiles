@@ -1,0 +1,19 @@
+{
+  "editor.fontFamily": "'Source Code Pro', monospace",
+  "editor.glyphMargin": true,
+  "editor.rulers": [
+      80,
+      100,
+      120,
+      200
+  ],
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.renderWhitespace": true,
+  "editor.renderControlCharacters": true,
+  "editor.renderIndentGuides": true,
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false
+}
