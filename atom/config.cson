@@ -8,6 +8,7 @@
       "timecop"
       "welcome"
     ]
+    telemetryConsent: "no"
   editor:
     fontFamily: "Source Code Pro"
     invisibles: {}
