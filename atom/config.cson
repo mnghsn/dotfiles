@@ -10,7 +10,6 @@
     ]
     telemetryConsent: "no"
   editor:
-    fontFamily: "Source Code Pro"
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
