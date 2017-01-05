@@ -233,6 +233,8 @@ user_pref("extensions.pocket.enabled", false);
 user_pref("extensions.pocket.api", "");
 user_pref("extensions.pocket.site", "");
 user_pref("extensions.pocket.oAuthConsumerKey", "");
+
+// Disable Reader View
 user_pref("reader.parse-on-load.enabled", false);
 
 // Disable capturing page thumbnails
