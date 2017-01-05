@@ -198,6 +198,18 @@ user_pref("plugin.sessionPermissionNow.intervalInMinutes", 0);
 // Click to play Adobe Flash
 user_pref("plugin.state.flash", 1);
 
+// Disable all DRM content
+user_pref("media.eme.enabled", false);
+user_pref("browser.eme.ui.enabled", false);
+user_pref("media.eme.apiVisible", false);
+
+// Disable OpenH264 Video Codec by Cisco
+user_pref("media.gmp-gmpopenh264.enabled", false);
+user_pref("media.gmp-manager.url", "data:text/plain,");
+
+// Disable Primetime Content Decryption Module by Adobe
+user_pref("media.gmp-eme-adobe.enabled", false);
+
 // -----------------------------------------------------------------------------
 // Others
 // -----------------------------------------------------------------------------
