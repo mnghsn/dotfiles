@@ -184,6 +184,9 @@ user_pref("xpinstall.signatures.required", false);
 // Hide the "Get Add-ons" pane in the Add-ons page
 user_pref("extensions.getAddons.showPane", false);
 
+// Disable extension discovery
+user_pref("extensions.webservice.discoverURL", "http://127.0.0.1");
+
 // Ask me to activate plugins by default
 user_pref("plugin.default.state", 1);
 user_pref("plugin.defaultXpi.state", 1);
