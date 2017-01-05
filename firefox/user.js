@@ -64,10 +64,11 @@ user_pref("intl.accept_languages", "ja, zh-tw, zh, en-us, en");
 
 // Disable Geolocation
 user_pref("geo.enabled", false);
-user_pref("geo.wifi.uri", "http://127.0.0.1");
+user_pref("geo.wifi.uri", "https://127.0.0.1");
 user_pref("geo.wifi.logging.enabled", false);
 user_pref("geo.wifi.xhr.timeout", 1);
 user_pref("browser.search.geoip.url", "");
+user_pref("browser.search.geoip.timeout", 1);
 
 // Disable WebRTC
 user_pref("media.peerconnection.enabled", false);
