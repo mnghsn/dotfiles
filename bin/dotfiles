@@ -242,7 +242,7 @@ e_header '  / _` |/ _ \| __| |_| | |/ _ \/ __| '
 e_header ' | (_| | (_) | |_|  _| | |  __/\__ \ '
 e_header '  \__,_|\___/ \__|_| |_|_|\___||___/ '
 e_newline
-e_header 'Copyright (c) 2015-2016 Jimmy Lin'
+e_header 'Copyright (c) 2015-2017 Jimmy Lin'
 e_header 'Licensed under the MIT License'
 e_newline
 e_normal "Remote dotfiles: ${DOTFILES_REPO_URL}"
