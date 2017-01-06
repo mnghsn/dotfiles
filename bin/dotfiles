@@ -31,6 +31,9 @@ deploy_dotfiles() {
   deploy_file 'bin/dotfiles'      '.local/bin/dotfiles'
   deploy_file 'bin/backup-github' '.local/bin/backup-github'
 
+  e_info 'Setting up Shell...'
+  deploy_file 'shell/.inputrc' '.inputrc'
+
   e_info 'Setting up Bash...'
   deploy_file 'bash/.bash_profile' '.bash_profile'
   deploy_file 'bash/.bashrc'       '.bashrc'
