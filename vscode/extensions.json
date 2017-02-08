@@ -1,6 +1,7 @@
 {
   "extensions": [
     "EditorConfig.EditorConfig",
+    "jmlntw.vscode-ensure-single-final-newline",
     "Tyriar.sort-lines",
     "mohsen1.prettify-json",
     "naumovs.color-highlight",
