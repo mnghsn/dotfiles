@@ -141,7 +141,7 @@ link_file() {
 #######################################
 # Copies file to home directory.
 #######################################
-link_file() {
+copy_file() {
   # Backup file if it already exists.
   if [[ -f "${HOME}/$2" ]]; then
     mv "${HOME}/$2" "${HOME}/$2.bak"
