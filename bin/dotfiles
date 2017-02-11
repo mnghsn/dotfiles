@@ -59,8 +59,8 @@ deploy_dotfiles() {
   deploy_file 'vscode/file__0.localstorage' '.config/Code/Local Storage/file__0.localstorage'
 
   e_info 'Setting up Mozilla Firefox...'
-  deploy_file 'firefox/profiles.ini' '.mozilla/firefox/profiles.ini'
-  deploy_file 'firefox/user.js'      '.mozilla/firefox/default/user.js'
+  deploy_file 'firefox/profiles.ini'    '.mozilla/firefox/profiles.ini'
+  deploy_file 'firefox/default/user.js' '.mozilla/firefox/default/user.js'
 }
 
 #######################################
