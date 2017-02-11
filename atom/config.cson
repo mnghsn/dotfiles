@@ -30,5 +30,5 @@
       "200"
     ]
   pigments:
-    markerType: "dot"
+    markerType: "native-dot"
     mergeColorDuplicates: true
