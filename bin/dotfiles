@@ -54,9 +54,9 @@ deploy_dotfiles() {
   deploy_file 'atom/packages.cson' '.atom/packages.cson'
 
   e_info 'Setting up Microsoft Visual Studio Code...'
-  deploy_file 'vscode/settings.json'        '.config/Code/User/settings.json'
-  deploy_file 'vscode/extensions.json'      '.config/Code/User/extensions.json'
-  deploy_file 'vscode/file__0.localstorage' '.config/Code/Local Storage/file__0.localstorage'
+  deploy_file 'vscode/User/settings.json'                 '.config/Code/User/settings.json'
+  deploy_file 'vscode/User/extensions.json'               '.config/Code/User/extensions.json'
+  deploy_file 'vscode/Local Storage/file__0.localstorage' '.config/Code/Local Storage/file__0.localstorage'
 
   e_info 'Setting up Mozilla Firefox...'
   deploy_file 'firefox/profiles.ini'    '.mozilla/firefox/profiles.ini'
