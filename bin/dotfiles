@@ -32,6 +32,7 @@ deploy_dotfiles() {
   deploy_file 'bin/backup-github' '.local/bin/backup-github'
 
   e_info 'Setting up Shell...'
+  deploy_file 'shell/.curlrc'  '.curlrc'
   deploy_file 'shell/.inputrc' '.inputrc'
 
   e_info 'Setting up Bash...'
