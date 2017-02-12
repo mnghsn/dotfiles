@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Installs or updates dotfiles.
+# Installs or synchronizes dotfiles.
 
 # NOTE: If you want to fork this repository and maintain your own dotfiles, you
 # must substitute the following user name and repository name for your own.
@@ -19,15 +19,15 @@ DOTFILES_PATH=${DOTFILES_PATH:-"${HOME}/.dotfiles"}
 run_help() {
   echo "Usage: $(basename "$0") [options]"
   echo 'Options:'
-  echo '  -h, --help    Print this help message.'
-  echo '  --no-update   Do not update dotfiles from the remote repository.'
+  echo '  -h, --help        Print this help message.'
+  echo '  --no-sync         Suppress pulling from the remote repository.'
 }
 
 #######################################
 # Deploy dotfiles.
 #######################################
 deploy_dotfiles() {
-  e_info 'Setting up Bin...'
+  e_info 'Setting up executable files...'
   link_file 'bin/dotfiles'      '.local/bin/dotfiles'
   link_file 'bin/backup-github' '.local/bin/backup-github'
 
@@ -49,18 +49,18 @@ deploy_dotfiles() {
   e_info 'Setting up Fontconfig...'
   link_file 'fontconfig/fonts.conf' '.config/fontconfig/fonts.conf'
 
+  e_info 'Setting up Mozilla Firefox...'
+  link_file 'firefox/profiles.ini'    '.mozilla/firefox/profiles.ini'
+  link_file 'firefox/default/user.js' '.mozilla/firefox/default/user.js'
+
   e_info 'Setting up Atom Editor...'
   link_file 'atom/config.cson'   '.atom/config.cson'
   link_file 'atom/packages.cson' '.atom/packages.cson'
 
-  e_info 'Setting up Microsoft Visual Studio Code...'
+  e_info 'Setting up Visual Studio Code...'
   link_file 'vscode/User/settings.json'                 '.config/Code/User/settings.json'
   link_file 'vscode/User/extensions.json'               '.config/Code/User/extensions.json'
   copy_file 'vscode/Local Storage/file__0.localstorage' '.config/Code/Local Storage/file__0.localstorage'
-
-  e_info 'Setting up Mozilla Firefox...'
-  link_file 'firefox/profiles.ini'    '.mozilla/firefox/profiles.ini'
-  link_file 'firefox/default/user.js' '.mozilla/firefox/default/user.js'
 }
 
 #######################################
@@ -86,9 +86,9 @@ download_dotfiles() {
 }
 
 #######################################
-# Update dotfiles.
+# Synchronizes dotfiles.
 #######################################
-update_dotfiles() {
+sync_dotfiles() {
   # Skip update if Git is not installed.
   if ! type_exists 'git'; then
     e_warning 'Git is required. Skipped update.'
@@ -254,7 +254,7 @@ fi
 # Test for all known flags.
 for opt in "$@"; do
   case $opt in
-    --no-update) NO_UPDATE=true ;;
+    --no-sync) NO_SYNC=true ;;
     -*|--*)      e_warning "Invalid option: ${opt}"
   esac
 done
@@ -265,9 +265,6 @@ e_header '   __| | ___ | |_ / _(_) | ___  ___  '
 e_header '  / _` |/ _ \| __| |_| | |/ _ \/ __| '
 e_header ' | (_| | (_) | |_|  _| | |  __/\__ \ '
 e_header '  \__,_|\___/ \__|_| |_|_|\___||___/ '
-e_newline
-e_header 'Copyright (c) 2015-2017 Jimmy Lin'
-e_header 'Licensed under the MIT License'
 e_newline
 e_normal "Remote dotfiles: ${DOTFILES_REPO_URL}"
 e_normal "Local dotfiles:  ${DOTFILES_PATH}"
@@ -282,8 +279,8 @@ fi
 cd "${DOTFILES_PATH}" || exit 1
 
 # Update dotfiles if necessary.
-if [[ ! $NO_UPDATE ]]; then
-  update_dotfiles
+if [[ ! $NO_SYNC ]]; then
+  sync_dotfiles
 fi
 
 # Deploy dotfiles.
