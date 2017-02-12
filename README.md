@@ -1,4 +1,5 @@
 # dotfiles
+
 [![Build Status](https://travis-ci.org/jmlntw/dotfiles.svg?branch=master)](https://travis-ci.org/jmlntw/dotfiles)
 
 My personal configuration files.
@@ -20,7 +21,7 @@ $ dotfiles [options]
 Options:
 
 * `-h`, `--help`: Print help message.
-* `--no-update`: Do not update dotfiles from the remote repository.
+* `--no-sync`: Suppress pulling from the remote repository.
 
 ## Acknowledgements
 
