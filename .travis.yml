@@ -3,6 +3,8 @@ notifications:
     on_success: never
     on_failure: change
 
+language: generic
+
 os:
   - linux
   - osx
