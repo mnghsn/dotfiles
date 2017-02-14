@@ -220,7 +220,7 @@ call plug#end()
 " Plugin: vim-colorschemes
 " ------------------------------------------------------------------------------
 
-silent! colorscheme molokai
+silent! colorscheme Tomorrow-Night
 
 " ------------------------------------------------------------------------------
 " Plugin: NERDTree
@@ -242,7 +242,7 @@ nmap <C-M> :NERDTreeFind<CR>
 " ------------------------------------------------------------------------------
 
 " Set vim-airline theme.
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'tomorrow'
 
 " Set separators.
 let g:airline_left_sep = ' '
