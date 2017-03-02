@@ -23,5 +23,6 @@
   "telemetry.enableCrashReporter": false,
   "workbench.welcome.enabled": false,
   "workbench.iconTheme": "vscode-icons",
+  "color-highlight.matchWords": false,
   "vsicons.projectDetection.disableDetect": true
 }
