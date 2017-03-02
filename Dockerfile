@@ -14,7 +14,7 @@ ENV HOME=/home/jimmy
 WORKDIR /home/jimmy
 
 ADD . /home/jimmy/.dotfiles
-RUN cd ~/.dotfiles/bin && ./dotfiles --no-update
+RUN cd ~/.dotfiles/bin && ./dotfiles --no-sync
 
 VOLUME ["/home/jimmy/workspace"]
 
