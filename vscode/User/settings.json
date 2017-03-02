@@ -11,6 +11,8 @@
   "editor.renderWhitespace": "boundary",
   "editor.renderControlCharacters": true,
   "editor.renderIndentGuides": true,
+  "editor.minimap.enabled": true,
+  "editor.minimap.renderCharacters": false,
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
