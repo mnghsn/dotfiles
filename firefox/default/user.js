@@ -298,6 +298,7 @@ user_pref("devtools.debugger.remote-enabled", false);
 
 // Disable UI tour
 user_pref("browser.uitour.enabled", false);
+user_pref("browser.uitour.url", "");
 
 // Prevent links from launching Windows Store (Windows 8+)
 user_pref("network.protocol-handler.external.ms-windows-store", false);
