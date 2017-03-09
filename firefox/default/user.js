@@ -198,6 +198,10 @@ user_pref("extensions.webservice.discoverURL", "http://127.0.0.1");
 user_pref("extensions.enabledScopes", 1);
 user_pref("extensions.autoDisableScopes", 15);
 
+// Clear localStorage and UUID when a WebExtension is uninstalled
+user_pref("extensions.webextensions.keepStorageOnUninstall", false);
+user_pref("extensions.webextensions.keepUuidOnUninstall", false);
+
 // Ask me to activate plugins by default
 user_pref("plugin.default.state", 1);
 user_pref("plugin.defaultXpi.state", 1);
