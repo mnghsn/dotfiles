@@ -3,9 +3,10 @@
 # ------------------------------------------------------------------------------
 # https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
 
-# Windows image file caches
+# Windows thumbnail cache files
 Thumbs.db
 ehthumbs.db
+ehthumbs_vista.db
 
 # Folder config file
 Desktop.ini
@@ -37,6 +38,9 @@ $RECYCLE.BIN/
 
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
 
 # ------------------------------------------------------------------------------
 # macOS
