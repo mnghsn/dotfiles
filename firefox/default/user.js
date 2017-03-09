@@ -89,7 +89,6 @@ user_pref("browser.send_pings", false);
 user_pref("browser.send_pings.require_same_host", true);
 
 // Disable camera controlling
-user_pref("camera.control.autofocus_moving_callback.enabled", false);
 user_pref("camera.control.face_detection.enabled", false);
 
 // Decrease the maximum number of popups from a single non-click event (Default is 20)
@@ -107,7 +106,6 @@ user_pref("dom.webnotifications.serviceworker.enabled", false);
 
 // Disable SPDY (SPDY would be deprecated in 2016)
 user_pref("network.http.spdy.enabled", false);
-user_pref("network.http.spdy.enabled.v3-1", false);
 user_pref("network.http.spdy.enabled.deps", false);
 
 // -----------------------------------------------------------------------------
@@ -245,17 +243,6 @@ user_pref("media.gmp-eme-adobe.autoupdate", false);
 user_pref("browser.selfsupport.enabled", false);
 user_pref("browser.selfsupport.url", "");
 
-// Disable Firefox Hello
-user_pref("loop.enabled", false);
-user_pref("loop.server", "");
-user_pref("loop.feedback.formURL", "");
-user_pref("loop.feedback.manualFormURL", "");
-user_pref("loop.facebook.appId", "");
-user_pref("loop.facebook.enabled", false);
-user_pref("loop.facebook.fallbackUrl", "");
-user_pref("loop.facebook.shareUrl", "");
-user_pref("loop.logDomains", false);
-
 // Disable Pocket
 user_pref("extensions.pocket.enabled", false);
 user_pref("extensions.pocket.api", "");
@@ -267,7 +254,6 @@ user_pref("reader.parse-on-load.enabled", false);
 
 // Disable capturing page thumbnails
 user_pref("browser.pagethumbnails.capturing_disabled", true);
-user_pref("pageThumbs.enabled", false);
 
 // Disable Taskbar Jump List in Windows 7 and above
 user_pref("browser.taskbar.lists.frequent.enabled", false);
@@ -290,9 +276,6 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 // Disable UI animation
 user_pref("browser.fullscreen.animate", false);
 user_pref("browser.tabs.animate", false);
-
-// Disable UnifiedComplete
-user_pref("browser.urlbar.unifiedcomplete", false);
 
 // Disable search suggestions in URL bar
 user_pref("browser.urlbar.suggest.searches", false);
