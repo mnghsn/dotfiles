@@ -101,6 +101,10 @@ user_pref("dom.disable_window_flip", true);
 // Disallow JavaScript to move or resize existing windows
 user_pref("dom.disable_window_move_resize", true);
 
+// Disable web notifications
+user_pref("dom.webnotifications.enabled", false);
+user_pref("dom.webnotifications.serviceworker.enabled", false);
+
 // Disable SPDY (SPDY would be deprecated in 2016)
 user_pref("network.http.spdy.enabled", false);
 user_pref("network.http.spdy.enabled.v3-1", false);
