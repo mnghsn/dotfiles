@@ -73,6 +73,9 @@ user_pref("media.peerconnection.identity.timeout", 1);
 user_pref("media.peerconnection.turn.disable", true);
 user_pref("media.peerconnection.ice.default_address_only", true);
 
+// Disable audio auto-play in non-active tabs
+user_pref("media.block-autoplay-until-in-foreground", true);
+
 // Disable Beacon
 user_pref("beacon.enabled", false);
 
