@@ -244,10 +244,6 @@ nmap <C-M> :NERDTreeFind<CR>
 " Set vim-airline theme.
 let g:airline_theme = 'molokai'
 
-" Set separators.
-let g:airline_left_sep = ' '
-let g:airline_right_sep = ' '
-
 " Show a clock at section x.
 let g:airline_section_x = '%{strftime("%m/%d %H:%M")}% '
 
@@ -256,10 +252,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Show only file name in tabline.
 let g:airline#extensions#tabline#fnamemod = ':t'
-
-" Set tabline separators.
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " Use Powerline fonts.
 "let g:airline_powerline_fonts = 1
