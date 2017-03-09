@@ -69,9 +69,14 @@ user_pref("browser.search.geoip.timeout", 1);
 user_pref("media.peerconnection.enabled", false);
 user_pref("media.peerconnection.use_document_iceservers", false);
 user_pref("media.peerconnection.video.enabled", false);
+user_pref("media.peerconnection.identity.enabled", false);
 user_pref("media.peerconnection.identity.timeout", 1);
 user_pref("media.peerconnection.turn.disable", true);
+user_pref("media.navigator.video.enabled", false);
+
+// Improve WebRTC IP leak issue
 user_pref("media.peerconnection.ice.default_address_only", true);
+user_pref("media.peerconnection.ice.no_host", true);
 
 // Disable audio auto-play in non-active tabs
 user_pref("media.block-autoplay-until-in-foreground", true);
