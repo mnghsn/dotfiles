@@ -3,7 +3,10 @@
 # ~/.bashrc
 
 # If not running interactively, don't do anything.
-[[ -z "${PS1}" ]] && return
+case $- in
+  *i*) ;;
+    *) return;;
+esac
 
 # ------------------------------------------------------------------------------
 # Options
@@ -58,6 +61,9 @@ ulimit -S -c 0
 
 # Disable incoming mail warning.
 unset MAILCHECK
+
+# Make `less` more friendly for non-text input files.
+[[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # ------------------------------------------------------------------------------
 # Exports
@@ -116,6 +122,15 @@ alias ll='ls -alF --group-directories-first'
 
 # Clear screen like Windows.
 alias cls='clear'
+
+# Add an `alert` alias for long running commands.
+# Usage: sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Load `.bash_aliases`.
+if [[ -f ~/.bash_aliases ]]; then
+  . ~/.bash_aliases
+fi
 
 # ------------------------------------------------------------------------------
 # Prompt
@@ -246,8 +261,12 @@ export PATH
 # Bash Completion
 # ------------------------------------------------------------------------------
 
-if [[ -r "/etc/bash_completion" ]]; then
-  source "/etc/bash_completion"
+if ! shopt -oq posix; then
+  if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [[ -f /etc/bash_completion ]]; then
+    . /etc/bash_completion
+  fi
 fi
 
 # ------------------------------------------------------------------------------
