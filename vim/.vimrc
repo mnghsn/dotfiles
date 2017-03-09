@@ -120,7 +120,7 @@ set expandtab
 set list
 
 " Set characters used to indicate invisibles.
-set listchars=tab:▶▶
+set listchars=tab:»·,
 set listchars+=trail:·
 set listchars+=nbsp:·
 set listchars+=eol:¬
