@@ -34,7 +34,7 @@ Inspiration and code was taken from many sources, including:
 * [ssarcandy-vim](https://github.com/SSARCandy/ssarcandy-vim) by [@SSARCandy](https://github.com/SSARCandy)
 * [The Ultimate Bashrc File GNOME-Look.org](https://gnome-look.org/content/show.php/Ultimate+Bashrc+File?content=129746)
 * [Font configuration - ArchWiki](https://wiki.archlinux.org/index.php/font_configuration)
-* [The Ghacks user.js Firefox privacy and security list has been updated - gHacks Tech News](https://www.ghacks.net/2016/01/04/the-firefox-privacy-and-security-list-has-been-updated/)
+* [A comprehensive list of Firefox privacy and security settings](https://www.ghacks.net/2015/08/18/a-comprehensive-list-of-firefox-privacy-and-security-settings/)
 
 ## License
 
