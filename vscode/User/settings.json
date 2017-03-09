@@ -1,28 +1,27 @@
 {
-  "editor.glyphMargin": true,
   "editor.rulers": [
-      80,
-      100,
-      120,
-      200
+    80,
+    100,
+    120,
+    200
   ],
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
+  "editor.minimap.enabled": true,
+  "editor.minimap.renderCharacters": false,
   "editor.renderWhitespace": "boundary",
   "editor.renderControlCharacters": true,
   "editor.renderIndentGuides": true,
-  "editor.minimap.enabled": true,
-  "editor.minimap.renderCharacters": false,
+  "workbench.welcome.enabled": false,
+  "workbench.iconTheme": "vscode-icons",
   "files.eol": "\n",
-  "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
   "css.colorDecorators.enable": false,
   "scss.colorDecorators.enable": false,
   "less.colorDecorators.enable": false,
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
-  "workbench.welcome.enabled": false,
-  "workbench.iconTheme": "vscode-icons",
   "color-highlight.matchWords": false,
   "vsicons.projectDetection.disableDetect": true
 }
