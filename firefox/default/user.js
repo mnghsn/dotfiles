@@ -210,6 +210,7 @@ user_pref("media.gmp-eme-adobe.enabled", false);
 // -----------------------------------------------------------------------------
 
 // Disable Heartbeat
+user_pref("browser.selfsupport.enabled", false);
 user_pref("browser.selfsupport.url", "");
 
 // Disable Firefox Hello
