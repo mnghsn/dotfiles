@@ -275,5 +275,11 @@ user_pref("devtools.debugger.remote-enabled", false);
 // Disable UI tour
 user_pref("browser.uitour.enabled", false);
 
+// Prevent links from launching Windows Store (Windows 8+)
+user_pref("network.protocol-handler.external.ms-windows-store", false);
+
+// Disable Microsoft Family Safety cert (Winodws 8+)
+user_pref("security.family_safety.mode", 0);
+
 // Set the cache directory location
 // user_pref("browser.cache.disk.parent_directory", "");
