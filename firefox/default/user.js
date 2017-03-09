@@ -194,6 +194,10 @@ user_pref("extensions.getAddons.showPane", false);
 // Disable extension discovery
 user_pref("extensions.webservice.discoverURL", "http://127.0.0.1");
 
+// Lock down allowed extension directories
+user_pref("extensions.enabledScopes", 1);
+user_pref("extensions.autoDisableScopes", 15);
+
 // Ask me to activate plugins by default
 user_pref("plugin.default.state", 1);
 user_pref("plugin.defaultXpi.state", 1);
