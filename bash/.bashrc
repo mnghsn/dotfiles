@@ -76,13 +76,13 @@ export EDITOR='vim'
 export HISTCONTROL=ignoreboth:erasedups
 
 # Set the maximum number of lines contained in history file. (Default is 500)
-export HISTFILESIZE=10000
+export HISTFILESIZE=1000
 
 # Set the maximum number of commands to remember. (Default is 500)
-export HISTSIZE=10000
+export HISTSIZE=1000
 
 # Prevent storing some commands to history.
-export HISTIGNORE='&:bg:fg:ll:h'
+export HISTIGNORE='&:bg:fg'
 
 # Make history show the time for each command.
 export HISTTIMEFORMAT='%F %T '
