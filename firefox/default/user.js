@@ -39,12 +39,6 @@ user_pref("browser.search.region", "JP");
 user_pref("browser.search.countryCode", "JP");
 user_pref("browser.search.isUS", false);
 
-// Disable using system locale
-user_pref("intl.locale.matchOS", false);
-
-// Set locale
-user_pref("general.useragent.locale", "ja");
-
 // Disable geographically specific results/search engines
 user_pref("browser.search.geoSpecificDefaults", false);
 user_pref("browser.search.geoSpecificDefaults.url", "");
