@@ -30,6 +30,7 @@ deploy_dotfiles() {
   e_info 'Setting up executable files...'
   link_file 'bin/dotfiles'      '.local/bin/dotfiles'
   link_file 'bin/backup-github' '.local/bin/backup-github'
+  link_file 'bin/git-updateall' '.local/bin/git-updateall'
 
   e_info 'Setting up Shell...'
   link_file 'shell/.curlrc'  '.curlrc'
