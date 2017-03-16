@@ -1,4 +1,5 @@
 packages: [
+  "autocomplete-emojis"
   "editorconfig"
   "file-icons"
   "highlight-selected"
