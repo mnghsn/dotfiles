@@ -77,7 +77,7 @@ set cursorline
 set mouse=a
 
 " Display a ruler.
-let &colorcolumn = "80,".join(range(120,999),",")
+let &colorcolumn = "80,100,120,".join(range(200,999),",")
 
 " ------------------------------------------------------------------------------
 " Editing
