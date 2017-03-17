@@ -275,6 +275,8 @@ e_newline
 # Downloads dotfiles
 if [[ ! -d "${DOTFILES_PATH}" ]]; then
   download_dotfiles
+  # Do not synchronize dotfiles again.
+  NO_SYNC=true
 fi
 
 # Switch to dotfiles directory.
