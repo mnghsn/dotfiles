@@ -43,7 +43,7 @@ deploy_dotfiles() {
 
   e_info 'Setting up Git...'
   link_file 'git/.gitconfig' '.gitconfig'
-  link_file 'git/.gitignore_global' '.gitignore_global'
+  link_file 'git/.gitignore' '.gitignore'
 
   e_info 'Setting up Vim...'
   link_file 'vim/.vimrc' '.vimrc'
