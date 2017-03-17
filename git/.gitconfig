@@ -82,8 +82,8 @@
 
 [core]
   autocrlf = input
-  excludesfile = ~/.gitignore_global
-  attributesfile = ~/.gitattributes_global
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
 
 [merge]
   ff = false
