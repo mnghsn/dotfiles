@@ -250,14 +250,14 @@ declare -a append_dirs=(
 
 # Prepend directories to PATH.
 for index in ${!prepend_dirs[*]}; do
-  if [[ -d ${prepend_dirs[$index]} ]]; then
+  if [[ -d ${prepend_dirs[$index]} ]] && [[ ":${PATH}:" != *":${prepend_dirs[$index]}:"* ]]; then
     PATH="${prepend_dirs[$index]}:${PATH}"
   fi
 done
 
 # Append directories to PATH.
 for index in ${!append_dirs[*]}; do
-  if [[ -d ${append_dirs[$index]} ]]; then
+  if [[ -d ${append_dirs[$index]} ]] && [[ ":${PATH}:" != *":${append_dirs[$index]}:"* ]]; then
     PATH="${PATH}:${append_dirs[$index]}"
   fi
 done
