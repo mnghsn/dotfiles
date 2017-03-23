@@ -224,6 +224,9 @@ set_prompts() {
   PS1+="\[${reset}\] "
 
   export PS1
+
+  PS2="\[${blue}\]>\[${reset}\] "
+  export PS2
 }
 
 set_prompts
