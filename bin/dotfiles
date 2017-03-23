@@ -32,6 +32,8 @@ deploy_dotfiles() {
   link_file 'bin/backup-github' '.local/bin/backup-github'
   link_file 'bin/git-updateall' '.local/bin/git-updateall'
   link_file 'bin/pyserver'      '.local/bin/pyserver'
+  link_file 'bin/crlf2lf'       '.local/bin/crlf2lf'
+  link_file 'bin/lf2crlf'       '.local/bin/lf2crlf'
 
   e_info 'Setting up Shell...'
   link_file 'shell/.curlrc'  '.curlrc'

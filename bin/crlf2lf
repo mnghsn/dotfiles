@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# Converts `CRLF` (Windows) line endings to `LF` (Unix).
+
+FILES="$@"
+for file in "${FILES}"; do
+  sed "s/$(printf '\r')//" < "${file}" > "/tmp/${file}.crlf.tmp"
+  mv "/tmp/${file}.crlf.tmp" "${file}"
+done
