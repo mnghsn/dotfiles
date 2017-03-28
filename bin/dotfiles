@@ -45,8 +45,14 @@ deploy_dotfiles() {
   link_file 'shell/.inputrc' '.inputrc'
 
   e_info 'Deploying Bash...'
-  link_file 'bash/.bash_profile' '.bash_profile'
-  link_file 'bash/.bashrc'       '.bashrc'
+  link_file 'bash/.bash_aliases'    '.bash_aliases'
+  link_file 'bash/.bash_exports'    '.bash_exports'
+  link_file 'bash/.bash_functions'  '.bash_functions'
+  link_file 'bash/.bash_options'    '.bash_options'
+  link_file 'bash/.bash_paths'      '.bash_paths'
+  link_file 'bash/.bash_profile'    '.bash_profile'
+  link_file 'bash/.bash_prompt'     '.bash_prompt'
+  link_file 'bash/.bashrc'          '.bashrc'
 
   e_info 'Deploying Git...'
   link_file 'git/.gitconfig' '.gitconfig'
