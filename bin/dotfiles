@@ -322,9 +322,8 @@ main() {
   deploy_dotfiles
 
   e_newline
-  # Restart the shell automatically if running by `curl -L {URL} | bash` or
-  # `bash -c "$(curl -L {URL})"`.
-  if [[ -n "${BASH_EXECUTION_STRING:-}" ]] || [[ -p /dev/stdin ]]; then
+  # Restart the shell automatically if running by `bash -c "$(curl -L {URL})"`.
+  if [[ -n "${BASH_EXECUTION_STRING:-}" ]]; then
     e_info 'Restarting your shell...'
     exec "${SHELL:-'/bin/bash'}"
   else
