@@ -1,15 +1,15 @@
 #!/bin/bash
 #
-# Installs or synchronizes dotfiles.
+# Deploys and synchronizes dotfiles.
 
-# NOTE: If you want to fork this repository and maintain your own dotfiles, you
+# N.B. If you want to fork this repository and maintain your own dotfiles, you
 # must substitute the following user name and repository name for your own.
 DOTFILES_GITHUB_USER=${DOTFILES_GITHUB_USER:-'jmlntw'}
 DOTFILES_GITHUB_REPO=${DOTFILES_GITHUB_REPO:-'dotfiles'}
 
 DOTFILES_REPO_URL=${DOTFILES_REPO_URL:-"https://github.com/${DOTFILES_GITHUB_USER}/${DOTFILES_GITHUB_REPO}"}
-DOTFILES_TARBALL_URL=${DOTFILES_TARBALL_URL:-"${DOTFILES_REPO_URL}/tarball/master"}
 DOTFILES_GIT_URL=${DOTFILES_GIT_URL:-"${DOTFILES_REPO_URL}.git"}
+DOTFILES_TAR_URL=${DOTFILES_TAR_URL:-"${DOTFILES_REPO_URL}/tarball/master"}
 
 DOTFILES_PATH=${DOTFILES_PATH:-"${HOME}/.dotfiles"}
 
@@ -17,17 +17,22 @@ DOTFILES_PATH=${DOTFILES_PATH:-"${HOME}/.dotfiles"}
 # Prints help message.
 #######################################
 run_help() {
-  echo "Usage: $(basename "$0") [options]"
-  echo 'Options:'
-  echo '  -h, --help        Print this help message.'
-  echo '  --no-sync         Suppress pulling from the remote repository.'
+cat <<EOS
+Deploys and synchronizes dotfiles.
+
+Usage: $(basename "${0}") [options]
+
+Options:
+  -h, --help    Print this help message.
+  --no-sync     Suppress pulling from the remote repository.
+EOS
 }
 
 #######################################
-# Deploy dotfiles.
+# Deploys dotfiles.
 #######################################
 deploy_dotfiles() {
-  e_info 'Setting up executable files...'
+  e_info 'Deploying executable files...'
   link_file 'bin/dotfiles'      '.local/bin/dotfiles'
   link_file 'bin/backup-github' '.local/bin/backup-github'
   link_file 'bin/git-updateall' '.local/bin/git-updateall'
@@ -35,33 +40,33 @@ deploy_dotfiles() {
   link_file 'bin/crlf2lf'       '.local/bin/crlf2lf'
   link_file 'bin/lf2crlf'       '.local/bin/lf2crlf'
 
-  e_info 'Setting up Shell...'
+  e_info 'Deploying shell...'
   link_file 'shell/.curlrc'  '.curlrc'
   link_file 'shell/.inputrc' '.inputrc'
 
-  e_info 'Setting up Bash...'
+  e_info 'Deploying Bash...'
   link_file 'bash/.bash_profile' '.bash_profile'
   link_file 'bash/.bashrc'       '.bashrc'
 
-  e_info 'Setting up Git...'
+  e_info 'Deploying Git...'
   link_file 'git/.gitconfig' '.gitconfig'
   link_file 'git/.gitignore' '.gitignore'
 
-  e_info 'Setting up Vim...'
+  e_info 'Deploying Vim...'
   link_file 'vim/.vimrc' '.vimrc'
 
-  e_info 'Setting up Fontconfig...'
+  e_info 'Deploying font configuration...'
   link_file 'fontconfig/fonts.conf' '.config/fontconfig/fonts.conf'
 
-  e_info 'Setting up Mozilla Firefox...'
+  e_info 'Deploying Mozilla Firefox...'
   link_file 'firefox/profiles.ini'    '.mozilla/firefox/profiles.ini'
   link_file 'firefox/default/user.js' '.mozilla/firefox/default/user.js'
 
-  e_info 'Setting up Atom Editor...'
+  e_info 'Deploying Atom Editor...'
   link_file 'atom/config.cson'   '.atom/config.cson'
   link_file 'atom/packages.cson' '.atom/packages.cson'
 
-  e_info 'Setting up Visual Studio Code...'
+  e_info 'Deploying Visual Studio Code...'
   link_file 'vscode/User/settings.json'                 '.config/Code/User/settings.json'
   link_file 'vscode/User/extensions.json'               '.config/Code/User/extensions.json'
   copy_file 'vscode/Local Storage/file__0.localstorage' '.config/Code/Local Storage/file__0.localstorage'
@@ -71,17 +76,21 @@ deploy_dotfiles() {
 # Downloads dotfiles.
 #######################################
 download_dotfiles() {
-  e_info 'Downloading dotfiles from the remote repository...'
+  e_info 'Downloading dotfiles...'
 
-  if type_exists 'git'; then
+  if has 'git'; then
+    # Use Git to clone dotfiles repository.
     git clone --depth 1 --recursive "${DOTFILES_GIT_URL}" "${DOTFILES_PATH}"
-  elif type_exists 'curl' || type_exists 'wget'; then
-    mkdir -p "${DOTFILES_PATH}"
-    if type_exists 'curl'; then
-      curl -L -o "${HOME}/dotfiles.tar.gz" "${DOTFILES_TARBALL_URL}"
-    elif type_exists 'wget'; then
-      wget -O "${HOME}/dotfiles.tar.gz" "${DOTFILES_TARBALL_URL}"
+  elif has 'curl' || has 'wget'; then
+    if has 'curl'; then
+      # Use cURL to download dotfiles tarball.
+      curl -L -o "${HOME}/dotfiles.tar.gz" "${DOTFILES_TAR_URL}"
+    elif has 'wget'; then
+      # Use Wget to download dotfiles tarball.
+      wget -O "${HOME}/dotfiles.tar.gz" "${DOTFILES_TAR_URL}"
     fi
+    # Extract dotfiles tarball.
+    mkdir -p "${DOTFILES_PATH}"
     tar -zxf "${HOME}/dotfiles.tar.gz" --strip-components 1 -C "${DOTFILES_PATH}"
     rm -rf "${HOME}/dotfiles.tar.gz"
   else
@@ -93,15 +102,18 @@ download_dotfiles() {
 # Synchronizes dotfiles.
 #######################################
 sync_dotfiles() {
-  # Skip update if Git is not installed.
-  if ! type_exists 'git'; then
-    e_warning 'Git is required. Skipped update.'
+  # Skip synchronization if Git is not installed.
+  if ! has 'git'; then
+    e_warning 'Git is not installed. Skip synchronization.'
     return 0
   fi
 
-  e_info 'Updating dotfiles...'
+  e_info 'Synchronizing dotfiles...'
 
-  # Initialize Git repository.
+  # Make sure we are in dotfiles directory.
+  cd "${DOTFILES_PATH}" || die "Failed to open directory: '${DOTFILES_PATH}'"
+
+  # Initialize Git repository if necessary.
   if ! is_git_repo "${DOTFILES_PATH}"; then
     git init
     git remote add origin "${DOTFILES_GIT_URL}"
@@ -109,71 +121,85 @@ sync_dotfiles() {
 
   # Unstage all changed files.
   git reset HEAD
-
   # Remove untracked files.
   git clean -fd
-
-  # Pull git repository.
+  # Pull Git repository.
   git pull --rebase origin master
-
-  # Update git submodules.
+  # Initialize and update all Git submodules.
   git submodule init
   git submodule update
   git submodule foreach git pull origin master
 }
 
 #######################################
-# Links file to home directory.
+# Creates a symbolic link from dotfiles
+# to home directory.
 #######################################
 link_file() {
-  # Backup file if it already exists.
-  if [[ -f "${HOME}/$2" ]] && [[ ! -L "${HOME}/$2" ]]; then
-    mv "${HOME}/$2" "${HOME}/$2.bak"
+  local src="${DOTFILES_PATH}/${1}"
+  local dest="${HOME}/${2}"
+
+  # Test whether the source file exists.
+  if [[ ! -f "${src}" ]]; then
+    die "File not found: '${src}'"
   fi
 
-  # Link file to home directory.
-  mkdir -p "$(dirname "${HOME}/$2")" &&
-  ln -sfn "${DOTFILES_PATH}/$1" "${HOME}/$2"
+  # Backup the destination file if exists.
+  if [[ -f "${dest}" ]] && [[ ! -L "${dest}" ]]; then
+    mv "${dest}" "${dest}.bak"
+  fi
+
+  # Create the destination directory if necessary and then
+  # create a symbolic link.
+  mkdir -p "$(dirname "${dest}")" && ln -fns "${src}" "${dest}"
 
   if is_success; then
-    e_success "Linked $1 to $2"
+    e_success "Linked: '${1}' to '~/${2}'"
   else
-    e_error "Failed to link $1 to $2"
+    die "Failed to link: '${1}' to '~/${2}'"
   fi
 }
 
 #######################################
-# Copies file to home directory.
+# Copies a file from dotfiles to home
+# directory.
 #######################################
 copy_file() {
-  # Backup file if it already exists.
-  if [[ -f "${HOME}/$2" ]]; then
-    mv "${HOME}/$2" "${HOME}/$2.bak"
+  local src="${DOTFILES_PATH}/${1}"
+  local dest="${HOME}/${2}"
+
+  # Test whether the source file exists.
+  if [[ ! -f "${src}" ]]; then
+    die "File not found: '${src}'"
   fi
 
-  # Copy file to home directory.
-  mkdir -p "$(dirname "${HOME}/$2")" &&
-  cp -f "${DOTFILES_PATH}/$1" "${HOME}/$2"
+  # Backup the destination file if exists.
+  if [[ -f "${dest}" ]]; then
+    mv "${dest}" "${dest}.bak"
+  fi
+
+  # Create the destination directory if necessary and then
+  # copy the source file to destination.
+  mkdir -p "$(dirname "${dest}")" && cp -f "${src}" "${dest}"
 
   if is_success; then
-    e_success "Copied $1 to $2"
+    e_success "Copied: '${1}' to '~/${2}'"
   else
-    e_error "Failed to copy $1 to $2"
+    die "Failed to copy: '${1}' to '~/${2}'"
   fi
 }
 
 #######################################
 # Tests whether a command exists.
 #######################################
-type_exists() {
-  if [[ $(type -P "$1") ]]; then
-    return 0
-  fi
-  return 1
+has() {
+  type -P "${1}" &>/dev/null
+  return $?
 }
 
 #######################################
-# Tests whether we're in a git repository.
+# Tests whether we are in a Git
+# repository.
 #######################################
 is_git_repo() {
   git rev-parse --is-inside-work-tree &>/dev/null
@@ -181,25 +207,24 @@ is_git_repo() {
 }
 
 #######################################
-# Tests whether the previous command succeeded.
+# Tests whether the previous command
+# succeeded.
 #######################################
 is_success() {
-  if [[ $? -eq 0 ]]; then
-    return 0
-  fi
-  return 1
+  return $?
 }
 
 #######################################
-# Exits the script and returns an exit code.
+# Exits this script with a failure
+# message and returns an exit code.
 #######################################
 die() {
-  e_error "$1" 1>&2
+  e_failure "Terminated: ${1}" 1>&2
   exit "${2:-1}"
 }
 
 #######################################
-# Prints a new line.
+# Prints a blank line.
 #######################################
 e_newline() {
   printf '\n'
@@ -209,91 +234,104 @@ e_newline() {
 # Prints a normal message.
 #######################################
 e_normal() {
-  printf "\033[0m%s\033[0m\n" "$@"
+  printf '\033[0m%s\033[0m\n' "$@"
 }
 
 #######################################
 # Prints a header message.
 #######################################
 e_header() {
-  printf "\033[1;37m%s\033[0m\n" "$@"
+  printf '\033[1;37m%s\033[0m\n' "$@"
 }
 
 #######################################
-# Prints a information message.
+# Prints an information message.
 #######################################
 e_info() {
-  printf "\033[0;36m%s\033[0m\n" "$@"
+  printf '\033[0;36m%s %s\033[0m\n' '➡️' "$@"
 }
 
 #######################################
 # Prints a success message.
 #######################################
 e_success() {
-  printf "\033[0;32m%s %s\033[0m\n" "✔" "$@"
+  printf '\033[0;32m%s %s\033[0m\n' '✔️' "$@"
 }
 
 #######################################
-# Prints a error message.
+# Prints a failure message.
 #######################################
-e_error() {
-  printf "\033[0;31m%s %s\033[0m\n" "✖" "$@"
+e_failure() {
+  printf '\033[0;31m%s %s\033[0m\n' '✖️' "$@"
 }
 
 #######################################
-# Prints a warning message.
+# Prints an warning message.
 #######################################
 e_warning() {
-  printf "\033[0;33m%s %s\033[0m\n" "❗" "$@"
+  printf '\033[0;33m%s %s\033[0m\n' '❗' "$@"
 }
 
-# ------------------------------------------------------------------------------
+#######################################
+# The main program.
+#######################################
+main() {
+  local sync=true
 
-# Print help message if `-h` or `--help` flag is given.
-if [[ "$1" == '-h' ]] || [[ "$1" == '--help' ]]; then
-  run_help
-  exit 0
-fi
+  # Print help message if `-h` or `--help` flag is given.
+  if [[ "${1}" == '-h' ]] || [[ "${1}" == '--help' ]]; then
+    run_help
+    exit 0
+  fi
 
-# Test for all known flags.
-for opt in "$@"; do
-  case $opt in
-    --no-sync) NO_SYNC=true ;;
-    -*|--*)      e_warning "Invalid option: ${opt}"
-  esac
-done
+  # Test for all known flags.
+  for opt in "$@"; do
+    case "${opt}" in
+      '--no-sync') sync=false ;;
+      -*|--*)      e_warning "Invalid option: '${opt}'"
+    esac
+  done
 
-# Prints header message.
-e_header '      _       _    __ _ _            '
-e_header '   __| | ___ | |_ / _(_) | ___  ___  '
-e_header '  / _` |/ _ \| __| |_| | |/ _ \/ __| '
-e_header ' | (_| | (_) | |_|  _| | |  __/\__ \ '
-e_header '  \__,_|\___/ \__|_| |_|_|\___||___/ '
-e_newline
-e_normal "Remote dotfiles: ${DOTFILES_REPO_URL}"
-e_normal "Local dotfiles:  ${DOTFILES_PATH}"
-e_newline
+  # Print logo and header messages.
+  e_header '      _       _    __ _ _            '
+  e_header '   __| | ___ | |_ / _(_) | ___  ___  '
+  e_header '  / _` |/ _ \| __| |_| | |/ _ \/ __| '
+  e_header ' | (_| | (_) | |_|  _| | |  __/\__ \ '
+  e_header '  \__,_|\___/ \__|_| |_|_|\___||___/ '
+  e_newline
+  e_normal "Remote dotfiles: ${DOTFILES_GIT_URL}"
+  e_normal "Local dotfiles:  ${DOTFILES_PATH}"
+  e_newline
 
-# Downloads dotfiles
-if [[ ! -d "${DOTFILES_PATH}" ]]; then
-  download_dotfiles
-  # Do not synchronize dotfiles again.
-  NO_SYNC=true
-fi
+  # Download dotfiles if not exist.
+  if [[ ! -d "${DOTFILES_PATH}" ]]; then
+    download_dotfiles
+    # Do not synchronize dotfiles again.
+    sync=false
+  fi
 
-# Switch to dotfiles directory.
-cd "${DOTFILES_PATH}" || exit 1
+  # Switch to the dotfiles directory.
+  cd "${DOTFILES_PATH}" || die "Failed to open directory: '${DOTFILES_PATH}'"
 
-# Update dotfiles if necessary.
-if [[ ! $NO_SYNC ]]; then
-  sync_dotfiles
-fi
+  # Synchronize dotfiles if necessary.
+  if $sync; then
+    sync_dotfiles
+  fi
 
-# Deploy dotfiles.
-deploy_dotfiles
+  # Deploy dotfiles.
+  deploy_dotfiles
 
-if is_success; then
-  e_warning 'Restart your shell before continue.'
-else
-  die 'ERROR: Failed to install dotfiles.'
-fi
+  e_newline
+  # Restart the shell automatically if running by `curl -L {URL} | bash` or
+  # `bash -c "$(curl -L {URL})"`.
+  if [[ -n "${BASH_EXECUTION_STRING:-}" ]] || [[ -p /dev/stdin ]]; then
+    e_info 'Restarting your shell...'
+    exec "${SHELL:-'/bin/bash'}"
+  else
+    e_warning 'Restart your shell before continuing.'
+  fi
+
+  e_success 'Done.'
+}
+
+main "$@"
