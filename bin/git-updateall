@@ -7,4 +7,4 @@ find . \
   ! -path . \
   -type d \
   -print \
-  -execdir git --git-dir={}/.git --work-tree=${PWD}/{} pull \;
+  -execdir git --git-dir={}/.git --work-tree="${PWD}/{}" pull \;
