@@ -6,73 +6,65 @@
 GHBU_USERNAME=${GHBU_USERNAME:-''}
 GHBU_PASSWORD=${GHBU_PASSWORD:-''}
 GHBU_BACKUP_DIR=${GHBU_BACKUP_DIR:-"${HOME}/github-backups"}
-GHBU_PRUNE_OLD=${GHBU_PRUNE_OLD:-false}
-GHBU_PRUNE_OLD_DAYS=${GHBU_PRUNE_OLD_DAYS:-7}
+GHBU_PRUNE_OLD_DAYS=${GHBU_PRUNE_OLD_DAYS:-'7'}
 GHBU_USE_HTTPS=${GHBU_USE_HTTPS:-false}
 GHBU_QUIET=${GHBU_QUIET:-false}
 GHBU_DRY_RUN=${GHBU_DRY_RUN:-false}
 
 GHBU_REPO_HOST=${GHBU_REPO_HOST:-'github.com'}
 GHBU_GIST_HOST=${GHBU_GIST_HOST:-'gist.github.com'}
-GHBU_API=${GHBU_API:-'https://api.github.com'}
+GHBU_API_URL=${GHBU_API_URL:-'https://api.github.com'}
 
+CURL_AUTH=''
 TIMESTAMP="$(date "+%y%m%d-%H%M%S")"
 
-######################################
+#######################################
 # Prints help message.
-######################################
+#######################################
 run_help() {
-  echo "Usage: $(basename "$0") [options]"
-  echo 'Options:'
-  echo '  -h, --help        Show help text.'
-  echo '  -q, --quiet       Suppress console output.'
-  echo '  -D, --dry         Run without cloning Git repositories.'
-  echo '  -H, --use-https   Use HTTPS protocol to clone instead of SSL.'
-  echo ''
-  echo '  -u, --username <username>'
-  echo '        Specify your GitHub username. It is required.'
-  echo ''
-  echo '  -p, --password <password>'
-  echo '        Specify your GitHub password. If you have enabled two-factor'
-  echo '        authentication, you should use personal access token instead.'
-  echo '        It is required if you want to backup private GitHub repositories'
-  echo '        and gists.'
-  echo ''
-  echo '  -d, --dir <path>'
-  echo '        Specify where to save backup files. Default directory is'
-  echo "        ${GHBU_BACKUP_DIR}"
-  echo ''
-  echo '  -r, --prune <n_days>'
-  echo '        Delete backup files older than <n_days> automatically. Set'
-  echo '        <n_days> to 0 to disable auto pruning. Default <n_days> is'
-  echo "        ${GHBU_PRUNE_OLD_DAYS} days."
+cat <<EOS
+A simple script to backup a user's GitHub repositories and gists.
+
+Usage: $(basename "${0}") [options]
+
+Options:
+  -h, --help        Print this help message.
+  -q, --quiet       Suppress console output.
+  -D, --dry         Run without cloning Git repositories.
+  -H, --use-https   Use HTTPS protocol instead of SSH to clone Git repositories.
+
+  -u, --username <username>
+      (Required) Specify your GitHub username.
+  -p, --password <password>
+      (Required for private repositories) Specify your GitHub password.
+      If you have enabled two-factor authentication for your GitHub account,
+      use Personal Access Token instead.
+  -d, --dir <dir>
+      Specify where to save backup files.
+      Default directory is '${GHBU_BACKUP_DIR}'
+  -r, --prune <days>
+      Delete backup files older the N days automatically.
+      Set to 0 to disable auto pruning. Default value is ${GHBU_PRUNE_OLD_DAYS} day(s).
+EOS
 }
 
 #######################################
-# Creates a gzipped tar archive of the specified files ($1)
-# and deletes the source.
-#######################################
-tgz() {
-  tar zcPf "$1.tar.gz" "$1" && rm -rf "$1"
-}
-
-#######################################
-# Fetches GitHub repository or gist list using GitHub API.
+# Fetches GitHub repositories or gist
+# list using GitHub API.
 #######################################
 fetch_list() {
   local result=''
   local pending=''
-  local api_url="${GHBU_API}/users/${GHBU_USERNAME}/$1"
   local page=0
 
   while true; do
     let page++
-    pending="$(curl --silent "${CURL_AUTH}" "${api_url}?page=${page}&per_page=90" -q -k \
-      | grep "\"$2\"" \
+    pending="$(request_api "users/${GHBU_USERNAME}/${1}?page=${page}&per_page=90" \
+      | grep "\"${2}\"" \
       | awk -F': "' '{print $2}' \
       | sed -e 's/",//g')"
     if [[ -z "${pending}" ]]; then
-      break;
+      break
     fi
     result="${result} ${pending}"
   done
@@ -80,162 +72,156 @@ fetch_list() {
   echo "${result}"
 }
 
-# ------------------------------------------------------------------------------
+#######################################
+# Creates an archive file from a Git
+# repository.
+#######################################
+archive_git() {
+  git clone --quiet --mirror "${1}" "${2}" 2>/dev/null && tgz "${2}"
+}
 
-# Test for all known options.
-for OPT in "$@"; do
-  case "${OPT}" in
-    '-h'|'--help')
-      run_help
-      exit
-      ;;
+#######################################
+# Creates an archive file from GitHub
+# API.
+#######################################
+archive_api() {
+  request_api "${1}" > "${2}" && tgz "${2}"
+}
 
-    '-q'|'--quiet')
-      GHBU_QUIET=true
-      shift
-      ;;
+#######################################
+# Creates a gzipped tar archive of the
+# specified folder and then deletes
+# the sources.
+#######################################
+tgz() {
+  tar zcPf "${1}.tar.gz" "${1}" && rm -rf "${1}"
+}
 
-    '-D'|'--dry')
-      GHBU_DRY_RUN=true
-      shift
-      ;;
+#######################################
+# Requests data from GitHub API.
+#######################################
+request_api() {
+  curl -q -s "${CURL_AUTH}" "${GHBU_API_URL}/${1}" -H 'Accept: application/vnd.github.v3.html+json'
+}
 
-    '-H'|'--use-https')
-      GHBU_USE_HTTPS=true
-      shift
-      ;;
-
-    '-u'|'--username')
-      if [[ -z "$2" ]] || [[ "$2" =~ ^-+ ]]; then
-        shift
-      else
-        GHBU_USERNAME="$2"
-        shift 2
-      fi
-      ;;
-
-    '-p'|'--password')
-      if [[ -z "$2" ]] || [[ "$2" =~ ^-+ ]]; then
-        shift
-      else
-        GHBU_PASSWORD="$2"
-        shift 2
-      fi
-      ;;
-
-    '-d'|'--dir')
-      if [[ -z "$2" ]] || [[ "$2" =~ ^-+ ]]; then
-        shift
-      else
-        GHBU_BACKUP_DIR="$2"
-        shift 2
-      fi
-      ;;
-
-    '-r'|'--prune')
-      if [[ -z "$2" ]] || [[ "$2" =~ ^-+ ]]; then
-        GHBU_PRUNE_OLD=true
-        shift
-      else
-        if [[ $2 -eq 0 ]]; then
-          GHBU_PRUNE_OLD=false
-        else
-          GHBU_PRUNE_OLD=true
-          GHBU_PRUNE_OLD_DAYS=$2
-        fi
-        shift 2
-      fi
-      ;;
-
-    -*|--*)
-      shift
-      ;;
-  esac
-done
-
-# Exit script if GitHub username is not specified.
-if [[ -z "${GHBU_USERNAME}" ]]; then
-  $GHBU_QUIET || echo 'Error: Github username must be specified.' 1>&2
-  exit 1
-fi
-
-$GHBU_QUIET || ($GHBU_DRY_RUN && echo 'Note: This is a dry run.')
-
-# Create backup directory if not exist and then enter it.
-$GHBU_DRY_RUN || mkdir -p "${GHBU_BACKUP_DIR}"
-$GHBU_DRY_RUN || cd "${GHBU_BACKUP_DIR}" || exit 1
-
-# Set cURL user authentication if password is specified.
-if [[ -n "${GHBU_PASSWORD}" ]]; then
-  CURL_AUTH="-u ${GHBU_USERNAME}:${GHBU_PASSWORD}"
-else
-  $GHBU_QUIET || echo 'Password or personal access token is not specified.'
-  $GHBU_QUIET || echo 'Backup only public repositories and gists.'
-fi
-
-# Set Git clone commands.
-if $GHBU_USE_HTTPS; then
-  $GHBU_QUIET || echo 'Use HTTPS protocol to clone Git repositories.'
-  REPO_CLONE_URL="https://${GHBU_REPO_HOST}/"
-  GIST_CLONE_URL="https://${GHBU_GIST_HOST}/"
-else
-  $GHBU_QUIET || echo 'Use SSL protocol to clone Git repositories.'
-  REPO_CLONE_URL="git@${GHBU_REPO_HOST}:"
-  GIST_CLONE_URL="git@${GHBU_GIST_HOST}:"
-fi
-
-# Fetch GitHub repository list.
-$GHBU_QUIET || echo 'Fetching GitHub repository list...'
-REPO_LIST="$(fetch_list 'repos' 'name')"
-$GHBU_QUIET || echo "Found $(echo "${REPO_LIST}" | wc -w) GitHub repositories."
-
-# Fetch gist list.
-$GHBU_QUIET || echo 'Fetching gist list...'
-GIST_LIST="$(fetch_list 'gists' 'id')"
-$GHBU_QUIET || echo "Found $(echo "${GIST_LIST}" | wc -w) gists."
-
-# Backup GitHub repositories.
-for REPO in $REPO_LIST; do
-  $GHBU_QUIET || echo "Backing up ${GHBU_USERNAME}/${REPO}..."
-  $GHBU_DRY_RUN \
-    || (git clone --quiet --mirror "${REPO_CLONE_URL}${GHBU_USERNAME}/${REPO}.git" \
-        "${GHBU_USERNAME}-${REPO}-${TIMESTAMP}.git" \
-      && tgz "${GHBU_USERNAME}-${REPO}-${TIMESTAMP}.git")
-
-  $GHBU_QUIET || echo "Backing up ${GHBU_USERNAME}/${REPO} wiki if any..."
-  $GHBU_DRY_RUN \
-    || (git clone --quiet --mirror "${REPO_CLONE_URL}${GHBU_USERNAME}/${REPO}.wiki.git" \
-        "${GHBU_USERNAME}-${REPO}.wiki-${TIMESTAMP}.git" 2>/dev/null \
-      && tgz "${GHBU_USERNAME}-${REPO}.wiki-${TIMESTAMP}.git")
-
-  $GHBU_QUIET || echo "Backing up ${GHBU_USERNAME}/${REPO} issues..."
-  $GHBU_DRY_RUN \
-    || (curl --silent "${CURL_AUTH}" "${GHBU_API}/repos/${GHBU_USERNAME}/${REPO}/issues" -q \
-        > "${GHBU_USERNAME}-${REPO}.issues-${TIMESTAMP}.json" \
-      && tgz "${GHBU_USERNAME}-${REPO}.issues-${TIMESTAMP}.json")
-done
-
-# Backup gists.
-for GIST in $GIST_LIST; do
-  $GHBU_QUIET || echo "Backing up gist ${GIST:0:8}..."
-  $GHBU_DRY_RUN \
-    || (git clone --quiet --mirror "${GIST_CLONE_URL}${GIST}.git" \
-          "${GHBU_USERNAME}-gist-${GIST:0:8}-${TIMESTAMP}.git" \
-        && tgz "${GHBU_USERNAME}-gist-${GIST:0:8}-${TIMESTAMP}.git")
-done
-
-# Prune old backup files.
-if $GHBU_PRUNE_OLD; then
-  $GHBU_QUIET || echo "Pruning backup files older than ${GHBU_PRUNE_OLD_DAYS} day(s)..."
-  if [[ -d "${GHBU_BACKUP_DIR}" ]]; then
-    $GHBU_QUIET \
-      || echo "Found $(find "${GHBU_BACKUP_DIR}" -name '*.tar.gz' -mtime +"${GHBU_PRUNE_OLD_DAYS}" | wc -l) old file(s)."
-    $GHBU_DRY_RUN || \
-      find "${GHBU_BACKUP_DIR}" -name '*.tar.gz' -mtime +"${GHBU_PRUNE_OLD_DAYS}" -exec rm -fv {} >/dev/null \;
-  else
-    $GHBU_QUIET || echo 'Backup directory does not exist.'
+#######################################
+# Tests whether the string is a valid
+# argument.
+#######################################
+is_arg() {
+  if [[ -z "${1}" ]] || [[ "${1}" =~ ^-+ ]]; then
+    return 1
   fi
-fi
+  return 0
+}
 
-$GHBU_QUIET || echo 'Done.'
-$GHBU_QUIET || echo 'GitHub backup completed.'
+#######################################
+# The main program.
+#######################################
+main() {
+  local repo_clone_url=''
+  local gist_clone_url=''
+  local repo_list=''
+  local gist_list=''
+
+  # Test for all known flags.
+  for opt in "$@"; do
+    case "${opt}" in
+      '-h'|'--help')      run_help; exit             ;;
+      '-q'|'--quiet')     GHBU_QUIET=true; shift     ;;
+      '-D'|'--dry')       GHBU_DRY_RUN=true; shift   ;;
+      '-H'|'--use-https') GHBU_USE_HTTPS=true; shift ;;
+      '-u'|'--username')
+        if is_arg "${2}"; then GHBU_USERNAME="${2}"; shift 2; else shift; fi
+        ;;
+      '-p'|'--password')
+        if is_arg "${2}"; then GHBU_PASSWORD="${2}"; shift 2; else shift; fi
+        ;;
+      '-d'|'--dir')
+        if is_arg "${2}"; then GHBU_BACKUP_DIR="${2}"; shift 2; else shift; fi
+        ;;
+      '-r'|'--prune')
+        if is_arg "${2}"; then GHBU_PRUNE_OLD_DAYS="${2}"; shift 2; else shift; fi
+        ;;
+    esac
+  done
+
+  # Exit this script if GitHub username is not specified.
+  if [[ -z "${GHBU_USERNAME}" ]]; then
+    $GHBU_QUIET || echo 'Please specified your GitHub username. (--username)' 1>&2
+    exit 1
+  fi
+
+  # Print a dry run notice.
+  if $GHBU_DRY_RUN; then
+    $GHBU_QUIET || echo 'NOTE: This is a dry run.'
+  fi
+
+  # Create a backup directory if not exist and then enter it.
+  $GHBU_DRY_RUN || mkdir -p "${GHBU_BACKUP_DIR}"
+  $GHBU_DRY_RUN || cd "${GHBU_BACKUP_DIR}" || exit 1
+
+  # Set cURL user authentication string if password is specified.
+  if [[ -n "${GHBU_PASSWORD}" ]]; then
+    CURL_AUTH="-u ${GHBU_USERNAME}:${GHBU_PASSWORD}"
+  else
+    $GHBU_QUIET || echo 'Password or Personal Access Token is not specified. (--password)'
+    $GHBU_QUIET || echo 'Backup only public repositories and gists.'
+  fi
+
+  # Set Git clone URL.
+  if $GHBU_USE_HTTPS; then
+    $GHBU_QUIET || echo 'Use HTTPS protocol to clone Git repositories.'
+    repo_clone_url="https://${GHBU_REPO_HOST}/"
+    gist_clone_url="https://${GHBU_GIST_HOST}/"
+  else
+    $GHBU_QUIET || echo 'Use SSH protocol to clone Git repositories.'
+    repo_clone_url="git@${GHBU_REPO_HOST}:"
+    gist_clone_url="git@${GHBU_GIST_HOST}:"
+  fi
+
+  # Fetch GitHub repository and gist list.
+  $GHBU_QUIET || echo 'Fetching GitHub repository list...'
+  repo_list="$(fetch_list 'repos' 'name')"
+  $GHBU_QUIET || echo "Found $(echo "${repo_list}" | wc -w) GitHub repository(ies)."
+
+  $GHBU_QUIET || echo 'Fetching gist list...'
+  gist_list="$(fetch_list 'gists' 'id')"
+  $GHBU_QUIET || echo "Found $(echo "${gist_list}" | wc -w) gist(s)."
+
+  # Backup GitHub repositories.
+  for repo in ${repo_list}; do
+    local name="${GHBU_USERNAME}/${repo}"
+    $GHBU_QUIET || echo "Backup '${name}'..."
+    $GHBU_DRY_RUN || archive_git "${repo_clone_url}${name}.git" "${name////-}-${TIMESTAMP}.git"
+    $GHBU_QUIET || echo "Backup '${name}' wiki (if any)..."
+    $GHBU_DRY_RUN || archive_git "${repo_clone_url}${name}.wiki.git" "${name////-}.wiki-${TIMESTAMP}.git"
+    $GHBU_QUIET || echo "Backup '${name}' issues..."
+    $GHBU_DRY_RUN || archive_api "repos/${name}/issues" "${name////-}.issues-${TIMESTAMP}.json"
+  done
+
+  # Backup gists.
+  for gist in ${gist_list}; do
+    local name="${GHBU_USERNAME}/gist/${gist:0:8}"
+    $GHBU_QUIET || echo "Backup gist '${name}'..."
+    $GHBU_DRY_RUN || archive_git "${gist_clone_url}${gist}.git" "${name////-}-${TIMESTAMP}.git"
+  done
+
+  # Prune old backup files.
+  if [[ $GHBU_PRUNE_OLD_DAYS != '0' ]]; then
+    $GHBU_QUIET || echo "Pruning backup files older then ${GHBU_PRUNE_OLD_DAYS} day(s)..."
+    # shellcheck disable=SC2089
+    local find_arg="${GHBU_BACKUP_DIR} -name '*.tar.gz' -mtime +${GHBU_PRUNE_OLD_DAYS}"
+    # shellcheck disable=SC2086
+    # shellcheck disable=SC2090
+    $GHBU_QUIET || echo "Found $(find ${find_arg} 2>/dev/null | wc -l) old file(s)."
+    $GHBU_QUIET || echo 'Deleting files (if any)...'
+    # shellcheck disable=SC2086
+    # shellcheck disable=SC2090
+    $GHBU_DRY_RUN || find ${find_arg} -exec rm -fv {} >/dev/null \;
+  fi
+
+  $GHBU_QUIET || echo 'Done. GitHub backup completed.'
+}
+
+main "$@"
