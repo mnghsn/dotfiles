@@ -59,7 +59,11 @@ deploy_dotfiles() {
   link_file 'git/.gitignore' '.gitignore'
 
   e_info 'Deploying Vim...'
-  link_file 'vim/.vimrc' '.vimrc'
+  link_file 'vim/.vimrc'        '.vimrc'
+  link_file 'vim/basic.vim'     '.vim/basic.vim'
+  link_file 'vim/colors.vim'    '.vim/colors.vim'
+  link_file 'vim/mappings.vim'  '.vim/mappings.vim'
+  link_file 'vim/plugins.vim'   '.vim/plugins.vim'
 
   e_info 'Deploying font configuration...'
   link_file 'fontconfig/fonts.conf' '.config/fontconfig/fonts.conf'
