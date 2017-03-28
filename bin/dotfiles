@@ -66,7 +66,15 @@ deploy_dotfiles() {
   link_file 'vim/plugins.vim'   '.vim/plugins.vim'
 
   e_info 'Deploying font configuration...'
-  link_file 'fontconfig/fonts.conf' '.config/fontconfig/fonts.conf'
+  link_file 'fontconfig/30-aliases.conf'                  '.config/fontconfig/conf.d/30-aliases.conf'
+  link_file 'fontconfig/56-emojione-color.conf'           '.config/fontconfig/conf.d/56-emojione-color.conf'
+  link_file 'fontconfig/69-language-selector-ja.conf'     '.config/fontconfig/conf.d/69-language-selector-ja.conf'
+  link_file 'fontconfig/69-language-selector-ko.conf'     '.config/fontconfig/conf.d/69-language-selector-ko.conf'
+  link_file 'fontconfig/69-language-selector-zh-cn.conf'  '.config/fontconfig/conf.d/69-language-selector-zh-cn.conf'
+  link_file 'fontconfig/69-language-selector-zh-hk.conf'  '.config/fontconfig/conf.d/69-language-selector-zh-hk.conf'
+  link_file 'fontconfig/69-language-selector-zh-mo.conf'  '.config/fontconfig/conf.d/69-language-selector-zh-mo.conf'
+  link_file 'fontconfig/69-language-selector-zh-sg.conf'  '.config/fontconfig/conf.d/69-language-selector-zh-sg.conf'
+  link_file 'fontconfig/69-language-selector-zh-tw.conf'  '.config/fontconfig/conf.d/69-language-selector-zh-tw.conf'
 
   e_info 'Deploying Mozilla Firefox...'
   link_file 'firefox/profiles.ini'    '.mozilla/firefox/profiles.ini'
