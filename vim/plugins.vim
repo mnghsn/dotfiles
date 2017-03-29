@@ -14,7 +14,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Load plugins
+" Load plugins.
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 Plug 'editorconfig/editorconfig-vim'
@@ -57,6 +57,9 @@ nmap <C-M> :NERDTreeFind<CR>
 " Plugin: vim-airline
 """""""""""""""""""""""""""""""""""""""
 
+" Always show status line.
+set laststatus=2
+
 " Set vim-airline theme.
 let g:airline_theme = 'molokai'
 " Show a clock at section x.
@@ -68,8 +71,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " Use Powerline fonts.
 "let g:airline_powerline_fonts = 1
 
-" Always show status line.
-set laststatus=2
 " Use <Tab> to switch to next buffer in NORMAL mode.
 nmap <Tab> :bn!<CR>
 " Use <`> to switch to previous buffer in NORMAL mode.

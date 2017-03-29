@@ -51,8 +51,9 @@ if has('wildmenu')
   set wildmenu
   " Tab autocomplete longest possible part of a string then list.
   set wildmode=longest,list
+
   if has('wildignore')
-    " OSX and Linux
+    " macOS and Linux
     set wildignore+=*/tmp/*,*.so,*.swp,*.zip
     " Windows
     set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
@@ -61,13 +62,10 @@ endif
 
 " Enable screen title.
 set title
-
 " Enable line nunbers.
 set number
-
 " Highlight the current line.
 set cursorline
-
 " Enable mouse.
 set mouse=a
 
@@ -79,7 +77,7 @@ let &colorcolumn = "80,100,120,".join(range(200,999),",")
 """""""""""""""""""""""""""""""""""""""
 
 if has('autocmd')
-  " Load files for specific filetypes
+  " Load files for specific filetypes.
   filetype on
   filetype indent on
   filetype plugin on
@@ -92,28 +90,22 @@ endif
 
 " Backspace through everything in INSERT mode.
 set backspace=indent,eol,start
-
 " Use UTF-8 without BOM.
 set encoding=utf-8 nobomb
-
 " Disable line wrap.
 set nowrap
 
 " Use 2 spaces for indentation.
 set shiftwidth=2
-
 " Use 2 spaces for soft tab.
 set softtabstop=2
-
 " Use 2 spaces for tab.
 set tabstop=2
-
 " Expand tabs to spaces.
 set expandtab
 
 " Show invisible characters.
 set list
-
 " Set characters used to indicate invisibles.
 set listchars=tab:»·,
 set listchars+=trail:·
@@ -129,7 +121,7 @@ if has('extra_search')
   set hlsearch
   " Highlight dynamically as pattern is typed.
   set incsearch
-  " Ignore case of searchs, unless it has mixed case.
+  " Ignore case of searches, unless it has mixed case.
   set ignorecase
   set smartcase
 endif
