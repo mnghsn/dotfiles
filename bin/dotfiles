@@ -167,8 +167,8 @@ link_file() {
     mv "${dest}" "${dest}.bak"
   fi
 
-  # Create the destination directory if necessary and then
-  # create a symbolic link.
+  # Create the destination directory if necessary and then create a symbolic
+  # link to destination.
   mkdir -p "$(dirname "${dest}")" && ln -fns "${src}" "${dest}"
 
   if is_success; then
@@ -196,8 +196,8 @@ copy_file() {
     mv "${dest}" "${dest}.bak"
   fi
 
-  # Create the destination directory if necessary and then
-  # copy the source file to destination.
+  # Create the destination directory if necessary and then copy the source file
+  # to destination.
   mkdir -p "$(dirname "${dest}")" && cp -f "${src}" "${dest}"
 
   if is_success; then
