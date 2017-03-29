@@ -19,7 +19,7 @@
   "line-ending-selector":
     defaultLineEnding: "LF"
   linter:
-    lintOnFly: false
+    lintOnChange: false
   "markdown-preview":
     useGitHubStyle: true
   "omni-ruler":
