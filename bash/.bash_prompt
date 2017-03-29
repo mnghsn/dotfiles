@@ -18,7 +18,7 @@ prompt_git() {
 
   # Check if the current directory is in a Git repository.
   if [[ $(git rev-parse --is-inside-work-tree &>/dev/null; printf '%s' $?) == 0 ]]; then
-    # Check if the current directory is in `.git` before running git checks.
+    # Check if the current directory is in `.git` before running Git checks.
     if [[ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]]; then
       # Ensure index is up to date.
       git update-index --really-refresh -q &>/dev/null
@@ -55,6 +55,9 @@ prompt_git() {
   fi
 }
 
+#######################################
+# Sets Bash prompt.
+#######################################
 set_prompts() {
   local black='\033[1;30m'
   local red='\033[1;31m'

@@ -42,8 +42,8 @@ shopt -s nocaseglob
 # Disable empty completion. (Bash >= 2.40)
 shopt -s no_empty_cmd_completion
 
-# Make `source` command use the value of `$PATH` to find the directory containing
-# the file supplied as an argument.
+# Make `source` command use the value of `$PATH` to find the directory
+# containing the file supplied as an argument.
 shopt -s sourcepath
 
 # Disable coredumps.

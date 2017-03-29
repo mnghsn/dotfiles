@@ -3,7 +3,8 @@
 # ~/.bash_functions
 
 #######################################
-# Creates a new directory and enter it.
+# Creates a new directory and then
+# enters it.
 #######################################
 mkd() {
   mkdir -p "$@" && cd "$_"
