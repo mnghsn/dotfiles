@@ -41,8 +41,8 @@ deploy_dotfiles() {
   link_file 'bin/lf2crlf'       '.local/bin/lf2crlf'
 
   e_info 'Deploying shell...'
-  link_file 'shell/.curlrc'  '.curlrc'
-  link_file 'shell/.inputrc' '.inputrc'
+  link_file 'shell/.curlrc'   '.curlrc'
+  link_file 'shell/.inputrc'  '.inputrc'
 
   e_info 'Deploying Bash...'
   link_file 'bash/.bash_aliases'    '.bash_aliases'
@@ -81,8 +81,8 @@ deploy_dotfiles() {
   link_file 'firefox/default/user.js' '.mozilla/firefox/default/user.js'
 
   e_info 'Deploying Atom Editor...'
-  link_file 'atom/config.cson'   '.atom/config.cson'
-  link_file 'atom/packages.cson' '.atom/packages.cson'
+  link_file 'atom/config.cson'    '.atom/config.cson'
+  link_file 'atom/packages.cson'  '.atom/packages.cson'
 
   e_info 'Deploying Visual Studio Code...'
   link_file 'vscode/User/settings.json'                 '.config/Code/User/settings.json'
