@@ -43,13 +43,13 @@ Options:
       Specify where to save backup files.
       Default directory is '${GHBU_BACKUP_DIR}'
   -r, --prune <days>
-      Delete backup files older the N days automatically.
+      Delete backup files older then N days automatically.
       Set to 0 to disable auto pruning. Default value is ${GHBU_PRUNE_OLD_DAYS} day(s).
 EOS
 }
 
 #######################################
-# Fetches GitHub repositories or gist
+# Fetches GitHub repository or gist
 # list using GitHub API.
 #######################################
 fetch_list() {
