@@ -345,8 +345,6 @@ main() {
   else
     e_warning 'Restart your shell before continuing.'
   fi
-
-  e_success 'Done.'
 }
 
 main "$@"
