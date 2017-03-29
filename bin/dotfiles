@@ -324,8 +324,6 @@ main() {
   # Download dotfiles if not exist.
   if [[ ! -d "${DOTFILES_PATH}" ]]; then
     download_dotfiles
-    # Do not synchronize dotfiles again.
-    sync=false
   fi
 
   # Switch to the dotfiles directory.
