@@ -81,6 +81,16 @@ user_pref("media.peerconnection.ice.no_host", true);
 // Disable audio auto-play in non-active tabs
 user_pref("media.block-autoplay-until-in-foreground", true);
 
+// Disable link prefetching
+user_pref("network.prefetch-next", false);
+
+// Disable DNS prefetching
+user_pref("network.dns.disablePrefetch", true);
+user_pref("network.dns.disablePrefetchFromHTTPS", true);
+
+// Disable opening connection to links when mouseover
+user_pref("network.http.speculative-parallel-limit", 0);
+
 // Disable Beacon
 user_pref("beacon.enabled", false);
 
