@@ -101,7 +101,7 @@ tgz() {
 # Requests data from GitHub API.
 #######################################
 request_api() {
-  curl -q -s "${CURL_AUTH}" "${GHBU_API_URL}/${1}" -H 'Accept: application/vnd.github.v3.html+json'
+  curl -q -s "${CURL_AUTH}" "${GHBU_API_URL}/${1}" -H 'Accept: application/vnd.github.v3+json'
 }
 
 #######################################
