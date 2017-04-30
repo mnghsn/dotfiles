@@ -32,9 +32,9 @@ Inspiration and code was taken from many sources, including:
 * [dotfiles](https://github.com/eed3si9n/dotfiles) by [@eed3si9n](https://github.com/eed3si9n)
 * [dotfiles](https://github.com/b4b4r07/dotfiles) by [@b4b4r07](https://github.com/b4b4r07)
 * [ssarcandy-vim](https://github.com/SSARCandy/ssarcandy-vim) by [@SSARCandy](https://github.com/SSARCandy)
+* [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js) by [@ghacksuserjs](https://github.com/ghacksuserjs)
 * [The Ultimate Bashrc File GNOME-Look.org](https://gnome-look.org/content/show.php/Ultimate+Bashrc+File?content=129746)
 * [Font configuration - ArchWiki](https://wiki.archlinux.org/index.php/font_configuration)
-* [A comprehensive list of Firefox privacy and security settings](https://www.ghacks.net/2015/08/18/a-comprehensive-list-of-firefox-privacy-and-security-settings/)
 
 ## License
 
