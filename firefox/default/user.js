@@ -13,7 +13,6 @@ user_pref("startup.homepage_welcome_url", "");
 user_pref("startup.homepage_welcome_url.additional", "");
 user_pref("startup.homepage_override_url", "");
 user_pref("browser.laterrun.enabled", false);
-user_pref("browser.usedOnWindows10.introURL", "");
 
 // Show a blank page when opening new tab
 user_pref("browser.newtab.url", "about:blank");   // Deprecated since Firefox 41
@@ -62,6 +61,7 @@ user_pref("geo.enabled", false);
 user_pref("geo.wifi.uri", "https://127.0.0.1");
 user_pref("geo.wifi.logging.enabled", false);
 user_pref("geo.wifi.xhr.timeout", 1);
+user_pref("geo.security.allowinsecure", false);
 user_pref("browser.search.geoip.url", "");
 user_pref("browser.search.geoip.timeout", 1);
 
@@ -124,12 +124,12 @@ user_pref("network.http.spdy.enabled.deps", false);
 
 // Request that sites not track me
 user_pref("privacy.donottrackheader.enabled", true);
-user_pref("privacy.donottrackheader.value", 1);
 
 // Use Tracking Protection in Private Windows
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
 user_pref("privacy.trackingprotection.introCount", 20);
+user_pref("privacy.trackingprotection.ui.enabled", true);
 
 // Never accept third-party cookies
 user_pref("network.cookie.cookieBehavior", 1);
@@ -167,6 +167,8 @@ user_pref("datareporting.policy.dataSubmissionEnabled.v2", false);
 // Disable Crash Reporter
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false); // Added in Firefox 44
+user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
+user_pref("browser.crashReports.unsubmittedCheck.autoSubmit", false);
 
 // Disable Telemetry
 user_pref("toolkit.telemetry.enabled", false);
@@ -239,11 +241,6 @@ user_pref("media.gmp-gmpopenh264.enabled", false);
 user_pref("media.gmp-gmpopenh264.autoupdate", false);
 user_pref("media.gmp-manager.url", "data:text/plain,");
 
-// Disable Primetime Content Decryption Module by Adobe
-user_pref("media.gmp-eme-adobe.enabled", false);
-user_pref("media.gmp-eme-adobe.visible", false);
-user_pref("media.gmp-eme-adobe.autoupdate", false);
-
 // -----------------------------------------------------------------------------
 // Others
 // -----------------------------------------------------------------------------
@@ -289,6 +286,9 @@ user_pref("browser.tabs.animate", false);
 // Disable search suggestions in URL bar
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
+
+// Display the raw Punycode in URL bar.
+user_pref("network.IDN_show_punycode", true);
 
 // Disable WebIDE to prevent remote debugging and addon downloads
 user_pref("devtools.webide.enabled", false);
