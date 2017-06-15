@@ -15,13 +15,13 @@ user_pref("startup.homepage_override_url", "");
 user_pref("browser.laterrun.enabled", false);
 
 // Show a blank page when opening new tab
-user_pref("browser.newtab.url", "about:blank");   // Deprecated since Firefox 41
 user_pref("browser.newtabpage.enabled", false);
 user_pref("browser.newtabpage.enhanced", false);
 user_pref("browser.newtab.preload", false);
 user_pref("browser.newtabpage.introShown", true);
 user_pref("browser.newtabpage.directory.ping", "data:text/plain,");
 user_pref("browser.newtabpage.directory.source", "data:text/plain,");
+user_pref("browser.newtabpage.activity-stream.enabled", false); // Firefox 54+
 
 // Always ask me where to save download files
 user_pref("browser.download.useDownloadDir", false);
@@ -72,6 +72,7 @@ user_pref("media.peerconnection.video.enabled", false);
 user_pref("media.peerconnection.identity.enabled", false);
 user_pref("media.peerconnection.identity.timeout", 1);
 user_pref("media.peerconnection.turn.disable", true);
+user_pref("media.peerconnection.ice.tcp", false);
 user_pref("media.navigator.video.enabled", false);
 
 // Improve WebRTC IP leak issue
@@ -234,7 +235,6 @@ user_pref("media.gmp-widevinecdm.autoupdate", false);
 // Disable all DRM content
 user_pref("media.eme.enabled", false);
 user_pref("browser.eme.ui.enabled", false);
-user_pref("media.eme.apiVisible", false);
 
 // Disable OpenH264 Video Codec by Cisco
 user_pref("media.gmp-gmpopenh264.enabled", false);
@@ -283,9 +283,15 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 user_pref("browser.fullscreen.animate", false);
 user_pref("browser.tabs.animate", false);
 
+// Disable site specific zoom
+user_pref("browser.zoom.siteSpecific", false);
+
 // Disable search suggestions in URL bar
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
+
+// Disable preloading top websites in URL bar (Firefox 54+)
+user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
 
 // Display the raw Punycode in URL bar.
 user_pref("network.IDN_show_punycode", true);
