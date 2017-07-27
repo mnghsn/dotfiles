@@ -10,7 +10,7 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "boundary",
   "editor.renderControlCharacters": true,
-  "workbench.welcome.enabled": false,
+  "workbench.startupEditor": "newUntitledFile",
   "workbench.tips.enabled": false,
   "workbench.iconTheme": "vscode-icons",
   "files.eol": "\n",
