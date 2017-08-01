@@ -115,6 +115,9 @@ user_pref("dom.disable_window_move_resize", true);
 user_pref("dom.webnotifications.enabled", false);
 user_pref("dom.webnotifications.serviceworker.enabled", false);
 
+// Disable Flyweb
+user_pref("dom.flyweb.enabled", false);
+
 // Disable SPDY (SPDY would be deprecated in 2016)
 user_pref("network.http.spdy.enabled", false);
 user_pref("network.http.spdy.enabled.deps", false);
@@ -248,6 +251,10 @@ user_pref("media.gmp-manager.url", "data:text/plain,");
 // Disable Heartbeat
 user_pref("browser.selfsupport.enabled", false);
 user_pref("browser.selfsupport.url", "");
+
+// Disable Shield (Telemetry system)
+user_pref("extensions.shield-recipe-client.enabled", false);
+user_pref("extensions.shield-recipe-client.api_url", "");
 
 // Disable Pocket
 user_pref("extensions.pocket.enabled", false);
