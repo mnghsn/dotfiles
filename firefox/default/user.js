@@ -296,6 +296,7 @@ user_pref("browser.zoom.siteSpecific", false);
 // Disable search suggestions in URL bar
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
+user_pref("browser.urlbar.oneOffSearches", false);
 
 // Disable preloading top websites in URL bar (Firefox 54+)
 user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
