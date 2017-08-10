@@ -19,9 +19,8 @@ user_pref("browser.newtabpage.enabled", false);
 user_pref("browser.newtabpage.enhanced", false);
 user_pref("browser.newtab.preload", false);
 user_pref("browser.newtabpage.introShown", true);
-user_pref("browser.newtabpage.directory.ping", "data:text/plain,");
 user_pref("browser.newtabpage.directory.source", "data:text/plain,");
-user_pref("browser.newtabpage.activity-stream.enabled", false); // Firefox 54+
+user_pref("browser.newtabpage.activity-stream.enabled", false);
 
 // Always ask me where to save download files
 user_pref("browser.download.useDownloadDir", false);
@@ -58,10 +57,9 @@ user_pref("intl.accept_languages", "ja, zh-tw, zh, en-us, en");
 
 // Disable Geolocation
 user_pref("geo.enabled", false);
-user_pref("geo.wifi.uri", "https://127.0.0.1");
+user_pref("geo.wifi.uri", "");
 user_pref("geo.wifi.logging.enabled", false);
 user_pref("geo.wifi.xhr.timeout", 1);
-user_pref("geo.security.allowinsecure", false);
 user_pref("browser.search.geoip.url", "");
 user_pref("browser.search.geoip.timeout", 1);
 
@@ -161,26 +159,23 @@ user_pref("signon.rememberSignons", false);
 
 // Disable Firefox Health Report
 user_pref("datareporting.healthreport.uploadEnabled", false);
-user_pref("datareporting.healthreport.service.enabled", false);
-user_pref("datareporting.healthreport.documentServerURI", "");
 user_pref("datareporting.healthreport.about.reportUrl", "data:text/plain,");
-user_pref("datareporting.healthreport.about.reportUrlInified", "data:text/plain,");
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
-user_pref("datareporting.policy.dataSubmissionEnabled.v2", false);
 
 // Disable Crash Reporter
 user_pref("breakpad.reportURL", "");
-user_pref("browser.tabs.crashReporting.sendReport", false); // Added in Firefox 44
+user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit", false);
 
 // Disable Telemetry
 user_pref("toolkit.telemetry.enabled", false);
 user_pref("toolkit.telemetry.unified", false);
-user_pref("toolkit.telemetry.unifiedIsOptIn", true);
 user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.cachedClientID", "");
 user_pref("toolkit.telemetry.server", "");
+user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
 
 // Disable Telemetry Experiments
 user_pref("experiments.enabled", false);
@@ -229,6 +224,9 @@ user_pref("plugin.state.flash", 1);
 // Disable all GMP (Gecko Media Plugins)
 user_pref("media.gmp-provider.enabled", false);
 user_pref("media.gmp.trial-create.enabled", false);
+user_pref("media.gmp-manager.url", "data:text/plain,");
+user_pref("media.gmp-manager.url.override", "data:text/plain,");
+user_pref("media.gmp-manager.updateEnabled", false);
 
 // Disable widevine CDM
 user_pref("media.gmp-widevinecdm.visible", false);
@@ -237,20 +235,16 @@ user_pref("media.gmp-widevinecdm.autoupdate", false);
 
 // Disable all DRM content
 user_pref("media.eme.enabled", false);
+user_pref("media.eme.chromium-api.enabled", false);
 user_pref("browser.eme.ui.enabled", false);
 
 // Disable OpenH264 Video Codec by Cisco
 user_pref("media.gmp-gmpopenh264.enabled", false);
 user_pref("media.gmp-gmpopenh264.autoupdate", false);
-user_pref("media.gmp-manager.url", "data:text/plain,");
 
 // -----------------------------------------------------------------------------
 // Others
 // -----------------------------------------------------------------------------
-
-// Disable Heartbeat
-user_pref("browser.selfsupport.enabled", false);
-user_pref("browser.selfsupport.url", "");
 
 // Disable Shield (Telemetry system)
 user_pref("extensions.shield-recipe-client.enabled", false);
@@ -287,8 +281,7 @@ user_pref("security.dialog_enable_delay", 0);
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 // Disable UI animation
-user_pref("browser.fullscreen.animate", false);
-user_pref("browser.tabs.animate", false);
+user_pref("toolkit.cosmeticAnimations.enabled", false);
 
 // Disable site specific zoom
 user_pref("browser.zoom.siteSpecific", false);
@@ -310,6 +303,9 @@ user_pref("devtools.webide.autoinstallADBHelper", false);
 user_pref("devtools.webide.autoinstallFxdtAdapters", false);
 user_pref("devtools.debugger.remote-enabled", false);
 
+// Disable Onboarding
+user_pref("browser.onboarding.enabled", false);
+
 // Disable UI tour
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.uitour.url", "");
@@ -319,6 +315,3 @@ user_pref("network.protocol-handler.external.ms-windows-store", false);
 
 // Disable Microsoft Family Safety cert (Winodws 8+)
 user_pref("security.family_safety.mode", 0);
-
-// Set the cache directory location
-// user_pref("browser.cache.disk.parent_directory", "");
