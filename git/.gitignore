@@ -8,6 +8,9 @@ Thumbs.db
 ehthumbs.db
 ehthumbs_vista.db
 
+# Dump file
+*.stackdump
+
 # Folder config file
 Desktop.ini
 
@@ -47,6 +50,7 @@ $RECYCLE.BIN/
 # ------------------------------------------------------------------------------
 # https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
 
+# General
 *.DS_Store
 .AppleDouble
 .LSOverride
