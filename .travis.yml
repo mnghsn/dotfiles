@@ -9,7 +9,7 @@ os:
   - linux
   - osx
 
-script: 'curl -fsSL raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash'
+script: 'curl -fsSL https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash'
 
 git:
   depth: 10
