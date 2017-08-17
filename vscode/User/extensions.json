@@ -2,10 +2,10 @@
   "extensions": [
     "EditorConfig.EditorConfig",
     "jmlntw.vscode-ensure-single-final-newline",
-    "Tyriar.sort-lines",
     "mohsen1.prettify-json",
     "naumovs.color-highlight",
+    "Perkovec.emoji",
     "robertohuertasm.vscode-icons",
-    "Perkovec.emoji"
+    "Tyriar.sort-lines"
   ]
 }
