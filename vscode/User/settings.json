@@ -12,12 +12,11 @@
   "editor.renderControlCharacters": true,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tips.enabled": false,
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "files.eol": "\n",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "extensions.ignoreRecommendations": true,
   "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
-  "vsicons.projectDetection.disableDetect": true
+  "telemetry.enableCrashReporter": false
 }
