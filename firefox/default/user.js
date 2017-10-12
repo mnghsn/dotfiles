@@ -306,6 +306,8 @@ user_pref("devtools.webide.enabled", false);
 user_pref("devtools.webide.autoinstallADBHelper", false);
 user_pref("devtools.webide.autoinstallFxdtAdapters", false);
 user_pref("devtools.debugger.remote-enabled", false);
+user_pref("devtools.debugger.force-local", true);
+user_pref("devtools.chrome.enabled", false);
 
 // Disable Onboarding
 user_pref("browser.onboarding.enabled", false);
