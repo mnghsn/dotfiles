@@ -259,6 +259,10 @@ user_pref("extensions.pocket.oAuthConsumerKey", "");
 // Disable Reader View
 user_pref("reader.parse-on-load.enabled", false);
 
+// Disable SHIELD
+user_pref("extensions.shield-recipe-client.enabled", false);
+user_pref("app.shield.optoutstudies.enabled", false);
+
 // Disable capturing page thumbnails
 user_pref("browser.pagethumbnails.capturing_disabled", true);
 
