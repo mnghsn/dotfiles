@@ -183,7 +183,6 @@ user_pref("browser.uitour.url", "");
 // Disable remote debugging
 user_pref("devtools.webide.enabled", false);
 user_pref("devtools.webide.autoinstallADBHelper", false);
-user_pref("devtools.webide.autoinstallFxdtAdapters", false);
 user_pref("devtools.debugger.force-local", true);
 user_pref("devtools.debugger.remote-enabled", false);
 user_pref("devtools.chrome.enabled", false);
@@ -250,7 +249,6 @@ user_pref("media.gmp-widevinecdm.autoupdate", false);
 
 // Disable all DRM content
 user_pref("media.eme.enabled", false);
-user_pref("media.eme.chromium-api.enabled", false);
 user_pref("browser.eme.ui.enabled", false);
 
 // Disable OpenH264 Video Codec by Cisco
