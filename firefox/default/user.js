@@ -65,15 +65,33 @@ user_pref("browser.send_pings.require_same_host", true);
 // Disable face detection
 user_pref("camera.control.face_detection.enabled", false);
 
+// Disable camera image capture
+user_pref("dom.imagecapture.enabled", false);
+
+// Disable canvas capture stream
+user_pref("canvas.capturestream.enabled", false);
+
 // Disallow JavaScript to move or resize window
 user_pref("dom.disable_window_move_resize", true);
+
+// Limit events that can cause a popup
+user_pref("dom.popup_allowed_events", "click dblclick");
 
 // Decrease the maximum number of popups from a single non-click event
 user_pref("dom.popup_maximum", 2);
 
+// Disable links opening in a new window
+user_pref("browser.link.open_newwindow.restriction", 0);
+
 // Disable Notifications API
 user_pref("dom.webnotifications.enabled", false);
 user_pref("dom.webnotifications.serviceworker.enabled", false);
+
+// Disable Push API
+user_pref("dom.push.enabled", false);
+user_pref("dom.push.connection.enabled", false);
+user_pref("dom.push.serverURL", "");
+user_pref("dom.push.userAgentID", "");
 
 // Disable Geolocation
 user_pref("geo.enabled", false);
@@ -97,6 +115,22 @@ user_pref("media.navigator.video.enabled", false);
 // Limit WebRTC IP leaks
 user_pref("media.peerconnection.ice.default_address_only", true);
 user_pref("media.peerconnection.ice.no_host", true);
+
+// Disable WebRTC screen sharing
+user_pref("media.getusermedia.screensharing.enabled", false);
+user_pref("media.getusermedia.screensharing.allowed_domains", "");
+user_pref("media.getusermedia.audiocapture.enabled", false);
+user_pref("media.getusermedia.browser.enabled", false);
+
+// Disable WebGL
+user_pref("webgl.disabled", true);
+user_pref("webgl.disable-extensions", true);
+user_pref("webgl.disable-fail-if-major-performance-caveat", true);
+user_pref("webgl.enable-debug-renderer-info", false);
+user_pref("webgl.enable-webgl2", false);
+user_pref("webgl.min_capability_mode", true);
+user_pref("webgl.dxgl.enabled", false);
+user_pref("pdfjs.enableWebGL", false);
 
 // -----------------------------------------------------------------------------
 // Privacy
@@ -122,6 +156,11 @@ user_pref("network.predictor.enable-prefetch", false);
 
 // Disable opening connection to links when mouseover
 user_pref("network.http.speculative-parallel-limit", 0);
+
+// Disable Seer/Necko
+user_pref("network.predictor.enabled", false);
+user_pref("network.captive-portal-service.enabled", false);
+user_pref("captivedetect.canonicalURL", "");
 
 // -----------------------------------------------------------------------------
 // Security
@@ -176,6 +215,9 @@ user_pref("network.allow-experiments", false);
 // Disable Onboarding
 user_pref("browser.onboarding.enabled", false);
 
+// Disable Ping-centre telemetry
+user_pref("browser.ping-centre.telemetry", false);
+
 // Disable UITour backend
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.uitour.url", "");
@@ -213,6 +255,12 @@ user_pref("extensions.enabledScopes", 1);
 // Clear localStorage and UUID when an extension is uninstalled
 user_pref("extensions.webextensions.keepStorageOnUninstall", false);
 user_pref("extensions.webextensions.keepUuidOnUninstall", false);
+
+// Disable Form Autofill
+user_pref("extensions.formautofill.available", "off");
+user_pref("extensions.formautofill.addresses.enabled", false);
+user_pref("extensions.formautofill.creditCards.enabled", false);
+user_pref("extensions.formautofill.heuristics.enabled", false);
 
 // Disable Pocket
 user_pref("extensions.pocket.enabled", false);
@@ -268,6 +316,9 @@ user_pref("browser.download.useDownloadDir", false);
 // Disable downloading on desktop
 user_pref("browser.download.folderList", 2);
 
+// Always display download button on toolbar
+user_pref("browser.download.autohideButton", false);
+
 // Disable URL bar domain guessing
 user_pref("browser.fixup.alternate.enabled", false);
 
@@ -277,6 +328,9 @@ user_pref("browser.fixup.hide_user_pass", true);
 // Disable capturing page thumbnails
 user_pref("browser.pagethumbnails.capturing_disabled", false);
 
+// Display search bar by default
+user_pref("browser.search.widget.inNavBar", true);
+
 // Disable closing browser with last tab
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 
@@ -284,10 +338,17 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 user_pref("browser.taskbar.lists.frequent.enabled", false);
 user_pref("browser.taskbar.lists.recent.enabled", false);
 
+// Disable URL bar autofill
+user_pref("browser.urlbar.autoFill", false);
+user_pref("browser.urlbar.autoFill.typed", false);
+
 // Disable search suggestions in the URL bar
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
 user_pref("browser.urlbar.oneOffSearches", false);
+
+// Disable URL bar making speculative connections
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
 // Display all parts of the URL in the URL bar
 user_pref("browser.urlbar.trimURLs", false);
@@ -312,3 +373,4 @@ user_pref("security.family_safety.mode", 0);
 
 // Disable UI animation
 user_pref("toolkit.cosmeticAnimations.enabled", false);
+user_pref("browser.stopReloadAnimation.enabled", false);
