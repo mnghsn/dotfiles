@@ -374,3 +374,6 @@ user_pref("security.family_safety.mode", 0);
 // Disable UI animation
 user_pref("toolkit.cosmeticAnimations.enabled", false);
 user_pref("browser.stopReloadAnimation.enabled", false);
+
+// Prevent accessibility services from accessing your browser
+user_pref("accessibility.force_disabled", 1);
