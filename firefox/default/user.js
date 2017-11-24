@@ -310,6 +310,9 @@ user_pref("security.dialog_enable_delay", 0);
 // Others
 // -----------------------------------------------------------------------------
 
+// Prevent accessibility services from accessing browser
+user_pref("accessibility.force_disabled", 1);
+
 // Always ask me where to save download files
 user_pref("browser.download.useDownloadDir", false);
 
@@ -374,6 +377,3 @@ user_pref("security.family_safety.mode", 0);
 // Disable UI animation
 user_pref("toolkit.cosmeticAnimations.enabled", false);
 user_pref("browser.stopReloadAnimation.enabled", false);
-
-// Prevent accessibility services from accessing your browser
-user_pref("accessibility.force_disabled", 1);
