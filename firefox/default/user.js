@@ -145,6 +145,10 @@ user_pref("privacy.trackingprotection.pbmode.enabled", true);
 user_pref("privacy.trackingprotection.ui.enabled", true);
 user_pref("privacy.trackingprotection.introCount", 20);
 
+// Enable First Party Isolation
+user_pref("privacy.firstparty.isolate", true);
+user_pref("privacy.firstparty.isolate.restrict_opener_access", true);
+
 // Never accept third-party cookies
 user_pref("network.cookie.cookieBehavior", 1);
 
