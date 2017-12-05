@@ -66,6 +66,9 @@
   s = status -s                     # Status
   st = status -s                    # Status
 
+  # Size
+  size = git count-objects -vH      # Find reopsitory size
+
   # Tag
   t = tag -n                        # Show tags with <n> lines of each tag message
 
