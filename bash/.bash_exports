@@ -21,7 +21,4 @@ export HISTIGNORE='&:bg:fg'
 export HISTTIMEFORMAT='%F %T '
 
 # Make new shells get the history lines from all previous shells.
-if [[ ! -f "${HOME}/.bash_history" ]]; then
-  touch "${HOME}/.bash_history"
-fi
 export PROMPT_COMMAND="history -a; ${PROMPT_COMMAND}"
