@@ -9,10 +9,6 @@
 
   # Commit
   c = commit                        # Commit
-  ca = commit -a                    # Commit with automatically staging changed files
-  cm = commit -m                    # Commit with message
-  cam = commit -am                  # Commit all changed files with message
-  amend = commit -amend             # Amend last commit
 
   # Checkout
   co = checkout                     # Checkout
@@ -23,39 +19,22 @@
   # Diff
   d = diff                          # Diff unstaged changes
   dc = diff --cached                # Diff staged changes
-  last = diff ^HEAD                 # Diff last committed changes
 
   # Log
   graph = log --graph --decorate --oneline
   oneline = log --oneline
-  simple = log --pretty=format:' * %s'
   authors = !git log --pretty=format:'%aN <%aE>' | sort | uniq
   who = shortlog --numbered --summary --email --no-merges
   count = rev-list HEAD --count
   countall = rev-list --all --count
 
-  # Pull
-  pl = pull                         # Pull
-
-  # Push
-  ps = push                         # Push
-
   # Rebase
   rc = rebase --continue            # Continue rebase
   rs = rebase --skip                # Skip rebase
 
-  # Remote
-  r = remote -v                     # Show remotes (verbose)
-
   # Reset
   unstage = reset HEAD              # Remove files from index (tracking)
   uncommit = reset --soft HEAD^     # Go back before last commit with file in uncommitted state
-
-  # Stash
-  ss = stash                        # Stash changes
-  sl = stash list                   # List stashes
-  sa = stash apply                  # Apply stashes (restore changes)
-  sd = stash drop                   # Drop stashes (destory changes)
 
   # Snapshot
   # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
@@ -68,9 +47,6 @@
 
   # Size
   size = count-objects -vH          # Find reopsitory size
-
-  # Tag
-  t = tag -n                        # Show tags with <n> lines of each tag message
 
   # Clean
   trim = !git remote prune origin && git gc
