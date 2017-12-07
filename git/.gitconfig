@@ -21,9 +21,9 @@
   dc = diff --cached                # Diff staged changes
 
   # Log
-  graph = log --graph --decorate --oneline
+  graph = log --graph --all --decorate --oneline
   oneline = log --oneline
-  authors = !git log --pretty=format:'%aN <%aE>' | sort | uniq
+  authors = !git log --pretty=format:'%an <%ae>' | sort -u
   who = shortlog --numbered --summary --email --no-merges
   count = rev-list HEAD --count
   countall = rev-list --all --count
@@ -39,7 +39,7 @@
   # Snapshot
   # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
-  snapshots = !git stash list --grep snapshot
+  snapshots = stash list --grep snapshot
 
   # Status
   s = status -s                     # Status
@@ -54,7 +54,7 @@
 
   # Fetch and checkout a GitHub pull request from a remote (defaults to `origin`)
   # Usage: `git gh-pr 123` or `git gh-pr 123 upstream`
-  gh-pr = !bash -c 'git fetch -fu ${2:-origin} refs/pull/$1/head:gh-pr/$1 && git checkout gh-pr/$1' -
+  gh-pr = "!f(){ git fetch -fu ${2:-origin} refs/pull/$1/head:gh-pr/$1 && git checkout gh-pr/$1; };f"
 
 [color]
   ui = auto
