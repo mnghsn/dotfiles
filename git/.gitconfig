@@ -1,52 +1,51 @@
 [alias]
-  # Add
-  a = add                           # Add
-  chunkyadd = add --patch           # Stage commits chunk by chunk
-
-  # Branch
-  b = branch -v                     # Show branches (verbose)
-  nb = checkout -b                  # Create and switch to a new branch
-
-  # Commit
-  c = commit                        # Commit
-
-  # Checkout
-  co = checkout                     # Checkout
-
-  # Cherry-pick
-  cp = cherry-pick -x               # Grab a change from a branch
-
-  # Diff
-  d = diff                          # Diff unstaged changes
-  dc = diff --cached                # Diff staged changes
+  # Shortcuts
+  aa = add --all
+  ap = add --patch
+  br = branch
+  ci = commit
+  cm = commit --message
+  co = checkout
+  cb = checkout -b
+  cp = cherry-pick
+  dc = diff --cached
+  lg = log --graph
+  lo = log --oneline
+  rc = rebase --continue
+  rs = rebase --skip
+  st = status
+  ss = status --short
 
   # Log
   graph = log --graph --all --decorate --oneline
-  oneline = log --oneline
+
+  # Lookup
   authors = !git log --pretty=format:'%an <%ae>' | sort -u
-  who = shortlog --numbered --summary --email --no-merges
-  count = rev-list HEAD --count
-  countall = rev-list --all --count
+  whorank = shortlog --numbered --summary --email --no-merges
+  count = rev-list --all --count
+  size = count-objects --verbose --human-readable
 
-  # Rebase
-  rc = rebase --continue            # Continue rebase
-  rs = rebase --skip                # Skip rebase
+  # Sync
+  sync = !git pull --rebase && git submodule update --init --recursive
 
-  # Reset
-  unstage = reset HEAD              # Remove files from index (tracking)
-  uncommit = reset --soft HEAD^     # Go back before last commit with file in uncommitted state
+  # Publish
+  branch-name = rev-parse --abbrev-ref HEAD
+  publish = "!git push --set-upstream origin $(git branch-name)"
+  unpublish = "!git push origin :$(git branch-name)"
 
   # Snapshot
-  # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
   snapshots = stash list --grep snapshot
 
-  # Status
-  s = status -s                     # Status
-  st = status -s                    # Status
+  # Reset
+  discard = checkout --
+  unstage = reset HEAD
+  uncommit = reset --soft HEAD^
 
-  # Size
-  size = count-objects -vH          # Find reopsitory size
+  # Assume
+  assume = update-index --assume-unchanged
+  unassume = update-index --no-assume-unchanged
+  assumed = !git ls-files -v | grep ^h | cut -c 3-
 
   # Clean
   trim = !git remote prune origin && git gc
