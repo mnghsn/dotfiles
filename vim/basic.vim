@@ -28,9 +28,6 @@ set undodir=$HOME/.vim/undo
 " Set the location of `.viminfo` file.
 set viminfo+=n$HOME/.vim/.viminfo
 
-" Set encryption method.
-set cm=blowfish2
-
 """""""""""""""""""""""""""""""""""""""
 " Interface
 """""""""""""""""""""""""""""""""""""""
@@ -127,4 +124,16 @@ if has('extra_search')
   " Ignore case of searches, unless it has mixed case.
   set ignorecase
   set smartcase
+endif
+
+"""""""""""""""""""""""""""""""""""""""
+" Encryption
+"""""""""""""""""""""""""""""""""""""""
+
+if has('cryptv')
+  if v:version > 704 || v:version == 704 && has('patch399')
+    set cryptmethod=blowfish2
+  elseif v:version >= 703
+    set cryptmethod=blowfish
+  endif
 endif
