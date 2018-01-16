@@ -107,7 +107,7 @@ set expandtab
 " Show invisible characters.
 set list
 " Set characters used to indicate invisibles.
-set listchars=tab:»·,trail:·,nbsp:·,extends:»,precedes:«,eol:¬
+set listchars=tab:‣\ ,trail:·,nbsp:·,extends:»,precedes:«,eol:¬
 
 """""""""""""""""""""""""""""""""""""""
 " Searching
