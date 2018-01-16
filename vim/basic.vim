@@ -129,8 +129,10 @@ endif
 
 if has('cryptv')
   if v:version > 704 || v:version == 704 && has('patch399')
+    " Set default encryption method to "blowfish2". (vim >= 7.4.399)
     set cryptmethod=blowfish2
   elseif v:version >= 703
+    " Set default encryption method to "blowfish".
     set cryptmethod=blowfish
   endif
 endif
