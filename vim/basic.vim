@@ -62,7 +62,7 @@ endif
 
 " Enable screen title.
 set title
-" Enable line nunbers.
+" Enable line numbers.
 set number
 " Highlight the current line.
 set cursorline
