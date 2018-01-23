@@ -60,17 +60,22 @@ if has('wildmenu')
   endif
 endif
 
-" Enable screen title.
-set title
+if has('title')
+  " Enable screen title.
+  set title
+endif
+
+if has('syntax')
+  " Highlight the current line.
+  set cursorline
+  " Display a ruler.
+  let &colorcolumn = "80,100,120,".join(range(200,999),",")
+endif
+
 " Enable line numbers.
 set number
-" Highlight the current line.
-set cursorline
 " Enable mouse.
 set mouse=a
-
-" Display a ruler.
-let &colorcolumn = "80,100,120,".join(range(200,999),",")
 
 """""""""""""""""""""""""""""""""""""""
 " Editing
@@ -90,8 +95,12 @@ endif
 
 " Backspace through everything in INSERT mode.
 set backspace=indent,eol,start
-" Use UTF-8 without BOM.
-set encoding=utf-8 nobomb
+
+if has('multi_byte')
+  " Use UTF-8 without BOM.
+  set encoding=utf-8 nobomb
+endif
+
 " Disable line wrap.
 set nowrap
 
