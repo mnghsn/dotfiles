@@ -37,7 +37,7 @@ if has('cmdline_info')
   set ruler
   " Show partial commands in status line.
   set showcmd
-  " Show whether in INSERT or REPLACE mode.
+  " Show whether in INSERT, REPLACE or VISUAL mode.
   set showmode
 endif
 
