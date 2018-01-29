@@ -84,10 +84,11 @@ set_prompts() {
   PS1+="\[${black}\]: "
   PS1+="\[${blue}\]\w"
   PS1+="\$(prompt_git ' ${purple}[' ']')"$'\n'
-  PS1+="\[${black}\]\\$"
-  PS1+="\[${reset}\] "
+  PS1+="\[${black}\]\\$ "
+  PS1+="\[${reset}\]"
 
-  PS2="\[${black}\]>\[${reset}\] "
+  PS2="\[${black}\]> "
+  PS2+="\[${reset}\]"
 
   export PS1
   export PS2
