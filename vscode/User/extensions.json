@@ -1,9 +1,5 @@
 {
   "extensions": [
-    "EditorConfig.EditorConfig",
-    "naumovs.color-highlight",
-    "Perkovec.emoji",
-    "PKief.material-icon-theme",
-    "Tyriar.sort-lines"
+    "EditorConfig.EditorConfig"
   ]
 }
