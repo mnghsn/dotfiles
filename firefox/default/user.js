@@ -75,7 +75,7 @@ user_pref("canvas.capturestream.enabled", false);
 user_pref("dom.disable_window_move_resize", true);
 
 // Limit events that can cause a popup
-user_pref("dom.popup_allowed_events", "click dblclick");
+user_pref("dom.popup_allowed_events", "click dblclick mouseup");
 
 // Decrease the maximum number of popups from a single non-click event
 user_pref("dom.popup_maximum", 2);
