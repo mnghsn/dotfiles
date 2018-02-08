@@ -13,10 +13,13 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tips.enabled": false,
   "workbench.iconTheme": "vs-minimal",
+  "workbench.statusBar.feedback.visible": false,
   "files.eol": "\n",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
   "extensions.ignoreRecommendations": true,
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false
