@@ -16,19 +16,19 @@ call plug#begin('~/.vim/plugged')
 
 " Load plugins.
 Plug 'airblade/vim-gitgutter'
-Plug 'ap/vim-css-color'
+Plug 'ap/vim-css-color', { 'for': 'css' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'elzr/vim-json'
+Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'flazz/vim-colorschemes'
-Plug 'othree/es.next.syntax.vim'
-Plug 'othree/html5.vim'
-Plug 'othree/yajs.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'scrooloose/nerdtree'
+Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
+Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'Yggdroot/indentLine'
 
 call plug#end()
