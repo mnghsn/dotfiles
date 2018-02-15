@@ -266,21 +266,21 @@ e_header() {
 # Prints an information message.
 #######################################
 e_info() {
-  printf '\033[0;36m%s %s\033[0m\n' '➡️' "$@"
+  printf '\033[0;36m%s %s\033[0m\n' '➜' "$@"
 }
 
 #######################################
 # Prints a success message.
 #######################################
 e_success() {
-  printf '\033[0;32m%s %s\033[0m\n' '✔️' "$@"
+  printf '\033[0;32m%s %s\033[0m\n' '✔' "$@"
 }
 
 #######################################
 # Prints a failure message.
 #######################################
 e_failure() {
-  printf '\033[0;31m%s %s\033[0m\n' '✖️' "$@"
+  printf '\033[0;31m%s %s\033[0m\n' '✘' "$@"
 }
 
 #######################################
@@ -317,8 +317,8 @@ main() {
   e_header ' | (_| | (_) | |_|  _| | |  __/\__ \ '
   e_header '  \__,_|\___/ \__|_| |_|_|\___||___/ '
   e_newline
-  e_normal "Remote dotfiles: ${DOTFILES_GIT_URL}"
-  e_normal "Local dotfiles:  ${DOTFILES_PATH}"
+  e_normal "  * Remote: ${DOTFILES_GIT_URL}"
+  e_normal "  * Local:  ${DOTFILES_PATH}"
   e_newline
 
   # Download dotfiles if not exist.
