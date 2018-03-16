@@ -62,9 +62,6 @@ user_pref("beacon.enabled", false);
 user_pref("browser.send_pings", false);
 user_pref("browser.send_pings.require_same_host", true);
 
-// Disable face detection
-user_pref("camera.control.face_detection.enabled", false);
-
 // Disable camera image capture
 user_pref("dom.imagecapture.enabled", false);
 
@@ -86,6 +83,7 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 // Disable Notifications API
 user_pref("dom.webnotifications.enabled", false);
 user_pref("dom.webnotifications.serviceworker.enabled", false);
+user_pref("permissions.default.desktop-notification", 2);
 
 // Disable Push API
 user_pref("dom.push.enabled", false);
@@ -97,6 +95,7 @@ user_pref("dom.push.userAgentID", "");
 user_pref("geo.enabled", false);
 user_pref("geo.wifi.uri", "");
 user_pref("geo.wifi.logging.enabled", false);
+user_pref("permissions.default.geo", 2);
 
 // Disable audio auto-play in non-active tabs
 user_pref("media.block-autoplay-until-in-foreground", true);
@@ -118,7 +117,6 @@ user_pref("media.peerconnection.ice.no_host", true);
 
 // Disable WebRTC screen sharing
 user_pref("media.getusermedia.screensharing.enabled", false);
-user_pref("media.getusermedia.screensharing.allowed_domains", "");
 user_pref("media.getusermedia.audiocapture.enabled", false);
 user_pref("media.getusermedia.browser.enabled", false);
 
@@ -131,6 +129,10 @@ user_pref("webgl.enable-webgl2", false);
 user_pref("webgl.min_capability_mode", true);
 user_pref("webgl.dxgl.enabled", false);
 user_pref("pdfjs.enableWebGL", false);
+
+// Block camera and microphone permissions.
+user_pref("permissions.default.camera", 2);
+user_pref("permissions.default.microphone", 2);
 
 // -----------------------------------------------------------------------------
 // Privacy
@@ -188,7 +190,6 @@ user_pref("security.OCSP.require", true);
 
 // Disable Health Report
 user_pref("datareporting.healthreport.uploadEnabled", false);
-user_pref("datareporting.healthreport.about.reportUrl", "data:text/plain,");
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 
 // Disable Crash Reporter
@@ -203,12 +204,13 @@ user_pref("toolkit.telemetry.enabled", false);
 user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.cachedClientID", "");
-user_pref("toolkit.telemetry.server", "");
+user_pref("toolkit.telemetry.server", "data:,");
 user_pref("toolkit.telemetry.newProfilePing.enabled", false);
 user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
 user_pref("toolkit.telemetry.updatePing.enabled", false);
 user_pref("toolkit.telemetry.bhrPing.enabled", false);
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+user_pref("toolkit.telemetry.hybridContent.enabled", false);
 
 // Disable Telemetry Experiments
 user_pref("experiments.enabled", false);
@@ -233,9 +235,6 @@ user_pref("devtools.webide.autoinstallADBHelper", false);
 user_pref("devtools.debugger.force-local", true);
 user_pref("devtools.debugger.remote-enabled", false);
 user_pref("devtools.chrome.enabled", false);
-
-// Disable FlyWeb
-user_pref("dom.flyweb.enabled", false);
 
 // Disable Reader View
 user_pref("reader.parse-on-load.enabled", false);
