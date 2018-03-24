@@ -71,9 +71,6 @@ user_pref("canvas.capturestream.enabled", false);
 // Disallow JavaScript to move or resize window.
 user_pref("dom.disable_window_move_resize", true);
 
-// Limit events that can cause a popup.
-user_pref("dom.popup_allowed_events", "click dblclick mouseup");
-
 // Decrease the maximum number of popups from a single non-click event.
 user_pref("dom.popup_maximum", 2);
 
@@ -120,16 +117,6 @@ user_pref("media.getusermedia.screensharing.enabled", false);
 user_pref("media.getusermedia.audiocapture.enabled", false);
 user_pref("media.getusermedia.browser.enabled", false);
 
-// Disable WebGL.
-user_pref("webgl.disabled", true);
-user_pref("webgl.disable-extensions", true);
-user_pref("webgl.disable-fail-if-major-performance-caveat", true);
-user_pref("webgl.enable-debug-renderer-info", false);
-user_pref("webgl.enable-webgl2", false);
-user_pref("webgl.min_capability_mode", true);
-user_pref("webgl.dxgl.enabled", false);
-user_pref("pdfjs.enableWebGL", false);
-
 // Block camera and microphone permissions.
 user_pref("permissions.default.camera", 2);
 user_pref("permissions.default.microphone", 2);
@@ -154,19 +141,8 @@ user_pref("privacy.firstparty.isolate.restrict_opener_access", true);
 // Never accept third-party cookies.
 user_pref("network.cookie.cookieBehavior", 1);
 
-// Disable prefetching.
-user_pref("network.prefetch-next", false);
-user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true);
-user_pref("network.predictor.enable-prefetch", false);
-
 // Disable opening connection to links when mouseover.
 user_pref("network.http.speculative-parallel-limit", 0);
-
-// Disable Seer/Necko.
-user_pref("network.predictor.enabled", false);
-user_pref("network.captive-portal-service.enabled", false);
-user_pref("captivedetect.canonicalURL", "");
 
 // -----------------------------------------------------------------------------
 // Security
@@ -242,12 +218,6 @@ user_pref("reader.parse-on-load.enabled", false);
 // -----------------------------------------------------------------------------
 // Add-ons and Plugins
 // -----------------------------------------------------------------------------
-
-// Disable extension metadata updating.
-user_pref("extensions.getAddons.cache.enabled", false);
-
-// Disable Personas (themes) updating.
-user_pref("lightweightThemes.update.enabled", false);
 
 // Disable "Get Add-ons" pane.
 user_pref("extensions.getAddons.showPane", false);
@@ -357,14 +327,8 @@ user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
 user_pref("browser.urlbar.oneOffSearches", false);
 
-// Disable URL bar making speculative connections.
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
-
 // Display all parts of the URL in the URL bar.
 user_pref("browser.urlbar.trimURLs", false);
-
-// Disable preloading top websites in the URL bar.
-user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
 
 // Disable site specific zoom.
 user_pref("browser.zoom.siteSpecific", false);
