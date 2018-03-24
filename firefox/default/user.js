@@ -269,9 +269,12 @@ user_pref("extensions.formautofill.heuristics.enabled", false);
 // Disable Pocket.
 user_pref("extensions.pocket.enabled", false);
 
-// Disable Shield.
+// Disable Shield and Normandy (telemetry system).
 user_pref("extensions.shield-recipe-client.enabled", false);
 user_pref("extensions.shield-recipe-client.api_url", "");
+user_pref("app.normandy.enabled", false);
+user_pref("app.normandy.api_url", "");
+user_pref("app.shield.optoutstudies.enabled", false);
 
 // Disable Web Compatibility Reporter.
 user_pref("extensions.webcompat-reporter.enabled", false);
