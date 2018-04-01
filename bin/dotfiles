@@ -292,17 +292,13 @@ e_warning() {
 main() {
   local sync=true
 
-  # Print help message if `-h` or `--help` flag is given.
-  if [[ "${1}" == '-h' ]] || [[ "${1}" == '--help' ]]; then
-    run_help
-    exit 0
-  fi
-
   # Test for all known flags.
   for opt in "$@"; do
+    # shellcheck disable=SC2221,SC2222
     case "${opt}" in
-      '--no-sync') sync=false ;;
-      -*|--*)      e_warning "Invalid option: '${opt}'"
+      '-h'|'--help') run_help; exit ;;
+      '--no-sync')   sync=false ;;
+      -*|--*)        e_warning "Invalid option: '${opt}'"
     esac
   done
 
