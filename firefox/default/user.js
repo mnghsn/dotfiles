@@ -384,3 +384,13 @@ user_pref("security.family_safety.mode", 0);
 // Disable UI animation.
 user_pref("toolkit.cosmeticAnimations.enabled", false);
 user_pref("browser.stopReloadAnimation.enabled", false);
+
+// Disable disk cache.
+user_pref("browser.cache.disk.enable", false);
+user_pref("browser.cache.disk.capacity", 0);
+user_pref("browser.cache.disk.smart_size.enabled", false);
+user_pref("browser.cache.disk.smart_size.first_run", false);
+user_pref("browser.cache.disk_cache_ssl", false);
+
+// Set the minimum interval between session save operations.
+user_pref("browser.sessionstore.interval", 1800000);
