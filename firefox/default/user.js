@@ -393,4 +393,5 @@ user_pref("browser.cache.disk.smart_size.first_run", false);
 user_pref("browser.cache.disk_cache_ssl", false);
 
 // Set the minimum interval between session save operations.
-user_pref("browser.sessionstore.interval", 1800000);
+user_pref("browser.sessionstore.interval", 600000);
+user_pref("browser.sessionstore.interval.idle", 3600000);
