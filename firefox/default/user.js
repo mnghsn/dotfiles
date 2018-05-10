@@ -17,10 +17,6 @@ user_pref("browser.laterrun.enabled", false);
 // Show a blank page when opening new tab.
 user_pref("browser.newtab.preload", false);
 user_pref("browser.newtabpage.enabled", false);
-user_pref("browser.newtabpage.enhanced", false);
-user_pref("browser.newtabpage.introShown", true);
-user_pref("browser.newtabpage.directory.source", "data:text/plain,");
-user_pref("browser.newtabpage.activity-stream.enabled", false);
 user_pref("browser.library.activity-stream.enabled", false);
 
 // Disable Slow Startup notifications.
@@ -229,6 +225,10 @@ user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.uitour.url", "");
 
+// Disable Browser Error Reporter.
+user_pref("browser.chrome.errorReporter.enabled", false);
+user_pref("browser.chrome.errorReporter.submitUrl", "");
+
 // Disable remote debugging.
 user_pref("devtools.webide.enabled", false);
 user_pref("devtools.webide.autoinstallADBHelper", false);
@@ -270,14 +270,15 @@ user_pref("extensions.formautofill.heuristics.enabled", false);
 user_pref("extensions.pocket.enabled", false);
 
 // Disable Shield and Normandy (telemetry system).
-user_pref("extensions.shield-recipe-client.enabled", false);
-user_pref("extensions.shield-recipe-client.api_url", "");
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 user_pref("app.shield.optoutstudies.enabled", false);
 
 // Disable Web Compatibility Reporter.
 user_pref("extensions.webcompat-reporter.enabled", false);
+
+// Disable uploading screenshots to the server.
+user_pref("extensions.screenshots.upload-disabled", true);
 
 // Disable all plugins by default.
 user_pref("plugin.default.state", 0);
@@ -380,6 +381,10 @@ user_pref("network.protocol-handler.external.ms-windows-store", false);
 
 // Disable Windows Family Safety Mode.
 user_pref("security.family_safety.mode", 0);
+
+// Display HTTP sites as insecure.
+user_pref("security.insecure_connection_icon.enabled", true);
+user_pref("security.insecure_connection_text.enabled", true);
 
 // Disable UI animation.
 user_pref("toolkit.cosmeticAnimations.enabled", false);
