@@ -388,7 +388,6 @@ user_pref("security.insecure_connection_text.enabled", false);
 
 // Disable UI animation.
 user_pref("toolkit.cosmeticAnimations.enabled", false);
-user_pref("browser.stopReloadAnimation.enabled", false);
 
 // Disable disk cache.
 user_pref("browser.cache.disk.enable", false);
