@@ -384,7 +384,7 @@ user_pref("security.family_safety.mode", 0);
 
 // Display HTTP sites as insecure.
 user_pref("security.insecure_connection_icon.enabled", true);
-user_pref("security.insecure_connection_text.enabled", true);
+user_pref("security.insecure_connection_text.enabled", false);
 
 // Disable UI animation.
 user_pref("toolkit.cosmeticAnimations.enabled", false);
