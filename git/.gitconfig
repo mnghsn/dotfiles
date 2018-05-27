@@ -77,5 +77,9 @@
   pushInsteadOf = git://gist.github.com/
   pushInsteadOf = https://gist.github.com/
 
+[url "git@gitlab.com:"]
+  pushInsteadOf = git://gitlab.com/
+  pushInsteadOf = https://gitlab.com/
+
 [include]
   path = ~/.gitconfig.local
