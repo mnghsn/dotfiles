@@ -62,7 +62,6 @@ deploy_dotfiles() {
   link_file 'vim/.vim/plugins.vim'   '.vim/plugins.vim'
 
   e_info 'Deploying font configuration...'
-  link_file 'fontconfig/30-aliases.conf'                  '.config/fontconfig/conf.d/30-aliases.conf'
   link_file 'fontconfig/56-twemoji-color.conf'            '.config/fontconfig/conf.d/56-twemoji-color.conf'
   link_file 'fontconfig/69-language-selector-ja.conf'     '.config/fontconfig/conf.d/69-language-selector-ja.conf'
   link_file 'fontconfig/69-language-selector-ko.conf'     '.config/fontconfig/conf.d/69-language-selector-ko.conf'
