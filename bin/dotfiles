@@ -34,7 +34,6 @@ EOS
 deploy_dotfiles() {
   e_info 'Deploying executable files...'
   link_file 'bin/dotfiles'      '.local/bin/dotfiles'
-  link_file 'bin/backup-github' '.local/bin/backup-github'
 
   e_info 'Deploying shell...'
   link_file 'shell/.curlrc'   '.curlrc'
