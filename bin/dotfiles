@@ -2,6 +2,8 @@
 #
 # Deploys and synchronizes dotfiles.
 
+{ # This ensures the entire script is downloaded. #
+
 # N.B. If you want to fork this repository and maintain your own dotfiles, you
 # must substitute the following user name and repository name for your own.
 DOTFILES_GITHUB_USER=${DOTFILES_GITHUB_USER:-'jmlntw'}
@@ -336,3 +338,5 @@ main() {
 }
 
 main "$@"
+
+} # This ensures the entire script is downloaded. #
