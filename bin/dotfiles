@@ -56,7 +56,7 @@ deploy_dotfiles() {
   link_file 'git/.gitignore' '.gitignore'
 
   e_info 'Deploying Vim...'
-  link_file 'vim/.vimrc'        '.vimrc'
+  link_file 'vim/.vimrc'             '.vimrc'
   link_file 'vim/.vim/basic.vim'     '.vim/basic.vim'
   link_file 'vim/.vim/colors.vim'    '.vim/colors.vim'
   link_file 'vim/.vim/mappings.vim'  '.vim/mappings.vim'
