@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Deploys and synchronizes dotfiles.
+# Synchronizes and deploys dotfiles.
 
 { # This ensures the entire script is downloaded. #
 
@@ -16,7 +16,7 @@ DOTFILES_PATH=${DOTFILES_PATH:-"${HOME}/.dotfiles"}
 #######################################
 run_help() {
 cat <<EOS
-Deploys and synchronizes dotfiles.
+Synchronizes and deploys dotfiles.
 
 Usage: $(basename "${0}") [options]
 
