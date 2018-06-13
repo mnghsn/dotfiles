@@ -5,13 +5,9 @@
 { # This ensures the entire script is downloaded. #
 
 # N.B. If you want to fork this repository and maintain your own dotfiles, you
-# must substitute the following user name and repository name for your own.
-DOTFILES_GITHUB_USER=${DOTFILES_GITHUB_USER:-'jmlntw'}
-DOTFILES_GITHUB_REPO=${DOTFILES_GITHUB_REPO:-'dotfiles'}
-
-DOTFILES_REPO_URL=${DOTFILES_REPO_URL:-"https://github.com/${DOTFILES_GITHUB_USER}/${DOTFILES_GITHUB_REPO}"}
-DOTFILES_GIT_URL=${DOTFILES_GIT_URL:-"${DOTFILES_REPO_URL}.git"}
-DOTFILES_TAR_URL=${DOTFILES_TAR_URL:-"${DOTFILES_REPO_URL}/tarball/master"}
+# must substitute the following variables for your own.
+DOTFILES_GIT_URL=${DOTFILES_GIT_URL:-'https://github.com/jmlntw/dotfiles.git'}
+DOTFILES_TAR_URL=${DOTFILES_TAR_URL:-'https://github.com/jmlntw/dotfiles/tarball/master'}
 
 DOTFILES_PATH=${DOTFILES_PATH:-"${HOME}/.dotfiles"}
 
