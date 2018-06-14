@@ -4,6 +4,10 @@
 
 { # This ensures the entire script is downloaded. #
 
+set -o errexit
+set -o errtrace
+set -o nounset
+
 # N.B. If you want to fork this repository and maintain your own dotfiles, you
 # must substitute the following variables for your own.
 DOTFILES_GIT_URL=${DOTFILES_GIT_URL:-'https://github.com/jmlntw/dotfiles.git'}
