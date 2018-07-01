@@ -63,10 +63,14 @@ deploy_dotfiles() {
   link_file 'vim/.vim/plugins.vim'   '.vim/plugins.vim'
 
   e_info 'Deploying font configuration...'
-  link_file 'fontconfig/50-twemoji-color.conf'  '.config/fontconfig/conf.d/50-twemoji-color.conf'
-  link_file 'fontconfig/60-sarasa-gothic.conf'  '.config/fontconfig/conf.d/60-sarasa-gothic.conf'
-  link_file 'fontconfig/70-source-han.conf'     '.config/fontconfig/conf.d/70-source-han.conf'
-  link_file 'fontconfig/80-noto-cjk.conf'       '.config/fontconfig/conf.d/80-noto-cjk.conf'
+  link_file 'fontconfig/56-twemoji-color.conf'            '.config/fontconfig/conf.d/56-twemoji-color.conf'
+  link_file 'fontconfig/69-language-selector-ja.conf'     '.config/fontconfig/conf.d/69-language-selector-ja.conf'
+  link_file 'fontconfig/69-language-selector-ko.conf'     '.config/fontconfig/conf.d/69-language-selector-ko.conf'
+  link_file 'fontconfig/69-language-selector-zh-cn.conf'  '.config/fontconfig/conf.d/69-language-selector-zh-cn.conf'
+  link_file 'fontconfig/69-language-selector-zh-hk.conf'  '.config/fontconfig/conf.d/69-language-selector-zh-hk.conf'
+  link_file 'fontconfig/69-language-selector-zh-mo.conf'  '.config/fontconfig/conf.d/69-language-selector-zh-mo.conf'
+  link_file 'fontconfig/69-language-selector-zh-sg.conf'  '.config/fontconfig/conf.d/69-language-selector-zh-sg.conf'
+  link_file 'fontconfig/69-language-selector-zh-tw.conf'  '.config/fontconfig/conf.d/69-language-selector-zh-tw.conf'
 
   e_info 'Deploying Mozilla Firefox...'
   link_file 'firefox/profiles.ini'    '.mozilla/firefox/profiles.ini'
