@@ -2,8 +2,6 @@
 #
 # Synchronizes and deploys dotfiles.
 
-{ # This ensures the entire script is downloaded. #
-
 set -o errexit
 set -o errtrace
 set -o nounset
@@ -342,5 +340,3 @@ main() {
 }
 
 main "$@"
-
-} # This ensures the entire script is downloaded. #
