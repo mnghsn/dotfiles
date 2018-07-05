@@ -116,16 +116,6 @@ user_pref("media.getusermedia.screensharing.enabled", false);
 user_pref("media.getusermedia.audiocapture.enabled", false);
 user_pref("media.getusermedia.browser.enabled", false);
 
-// Disable WebGL.
-user_pref("webgl.disabled", true);
-user_pref("webgl.disable-extensions", true);
-user_pref("webgl.disable-fail-if-major-performance-caveat", true);
-user_pref("webgl.enable-debug-renderer-info", false);
-user_pref("webgl.enable-webgl2", false);
-user_pref("webgl.min_capability_mode", true);
-user_pref("webgl.dxgl.enabled", false);
-user_pref("pdfjs.enableWebGL", false);
-
 // Block camera and microphone permissions.
 user_pref("permissions.default.camera", 2);
 user_pref("permissions.default.microphone", 2);
