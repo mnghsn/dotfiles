@@ -3,7 +3,7 @@ MAINTAINER Jimmy Lin <jmlntw@gmail.com>
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y curl git vim sudo
+    apt-get install -y build-essential bash-completion curl git vim sudo
 
 RUN useradd --user-group --create-home --shell /bin/bash jimmy && \
     echo "jimmy ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
