@@ -178,6 +178,9 @@ user_pref("security.OCSP.require", true);
 // Features and Components
 // -----------------------------------------------------------------------------
 
+// Check for updates but let me choose to install them.
+user_pref("app.update.auto", false);
+
 // Disable Health Report.
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
