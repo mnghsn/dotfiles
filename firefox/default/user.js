@@ -137,8 +137,12 @@ user_pref("privacy.trackingprotection.introCount", 20);
 user_pref("privacy.firstparty.isolate", true);
 user_pref("privacy.firstparty.isolate.restrict_opener_access", true);
 
-// Never accept third-party cookies.
-user_pref("network.cookie.cookieBehavior", 1);
+// Accept third-party cookies from visited.
+user_pref("network.cookie.cookieBehavior", 3);
+
+// Set third-party cookies to session-only.
+user_pref("network.cookie.thirdparty.sessionOnly", true);
+user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
 // Disable prefetching.
 user_pref("network.prefetch-next", false);
