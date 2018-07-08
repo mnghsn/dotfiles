@@ -167,6 +167,11 @@ user_pref("beacon.enabled", false);
 // Security
 // -----------------------------------------------------------------------------
 
+// Enable Safe Browsing.
+user_pref("browser.safebrowsing.phishing.enabled", true);
+user_pref("browser.safebrowsing.malware.enabled", true);
+user_pref("browser.safebrowsing.downloads.enabled", true);
+
 // Disable saving passwords.
 user_pref("signon.rememberSignons", false);
 
