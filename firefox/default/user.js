@@ -190,6 +190,9 @@ user_pref("security.family_safety.mode", 0);
 // Features
 // -----------------------------------------------------------------------------
 
+// Disable Firefox Accounts and Sync.
+user_pref("identity.fxaccounts.enabled", false);
+
 // Disable Normandy and Shield (telemetry system).
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
