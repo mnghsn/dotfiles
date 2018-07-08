@@ -24,7 +24,7 @@ Usage: $(basename "${0}") [options]
 
 Options:
   -h, --help    Print this help message.
-  --no-sync     Suppress pulling from the remote repository.
+  --sync        Synchronize with the remote repository.
 EOS
 }
 
@@ -32,76 +32,78 @@ EOS
 # Deploys dotfiles.
 #######################################
 deploy_dotfiles() {
-  e_info 'Deploying executable files...'
-  link_file 'bin/dotfiles' '.local/bin/dotfiles'
+  e_header '=> Deploying...'
 
-  e_info 'Deploying shell...'
-  link_file 'shell/.curlrc'   '.curlrc'
-  link_file 'shell/.inputrc'  '.inputrc'
+  # Executable files
+  deploy_file link 'bin/dotfiles' '.local/bin/dotfiles'
 
-  e_info 'Deploying Bash...'
-  link_file 'bash/.bash_aliases'   '.bash_aliases'
-  link_file 'bash/.bash_exports'   '.bash_exports'
-  link_file 'bash/.bash_functions' '.bash_functions'
-  link_file 'bash/.bash_options'   '.bash_options'
-  link_file 'bash/.bash_paths'     '.bash_paths'
-  link_file 'bash/.bash_profile'   '.bash_profile'
-  link_file 'bash/.bash_prompt'    '.bash_prompt'
-  link_file 'bash/.bashrc'         '.bashrc'
+  # Shell
+  deploy_file link 'shell/.curlrc' '.curlrc'
+  deploy_file link 'shell/.inputrc' '.inputrc'
 
-  e_info 'Deploying Git...'
-  link_file 'git/.gitconfig' '.gitconfig'
-  link_file 'git/.gitignore' '.gitignore'
+  # Bash
+  deploy_file link 'bash/.bash_aliases' '.bash_aliases'
+  deploy_file link 'bash/.bash_exports' '.bash_exports'
+  deploy_file link 'bash/.bash_functions' '.bash_functions'
+  deploy_file link 'bash/.bash_options' '.bash_options'
+  deploy_file link 'bash/.bash_paths' '.bash_paths'
+  deploy_file link 'bash/.bash_profile' '.bash_profile'
+  deploy_file link 'bash/.bash_prompt' '.bash_prompt'
+  deploy_file link 'bash/.bashrc' '.bashrc'
 
-  e_info 'Deploying Vim...'
-  link_file 'vim/.vimrc'            '.vimrc'
-  link_file 'vim/.vim/basic.vim'    '.vim/basic.vim'
-  link_file 'vim/.vim/colors.vim'   '.vim/colors.vim'
-  link_file 'vim/.vim/mappings.vim' '.vim/mappings.vim'
-  link_file 'vim/.vim/plugins.vim'  '.vim/plugins.vim'
+  # Git
+  deploy_file link 'git/.gitconfig' '.gitconfig'
+  deploy_file link 'git/.gitignore' '.gitignore'
 
-  e_info 'Deploying font configuration...'
-  link_file 'fontconfig/56-twemoji-color.conf'           '.config/fontconfig/conf.d/56-twemoji-color.conf'
-  link_file 'fontconfig/69-language-selector-ja.conf'    '.config/fontconfig/conf.d/69-language-selector-ja.conf'
-  link_file 'fontconfig/69-language-selector-ko.conf'    '.config/fontconfig/conf.d/69-language-selector-ko.conf'
-  link_file 'fontconfig/69-language-selector-zh-cn.conf' '.config/fontconfig/conf.d/69-language-selector-zh-cn.conf'
-  link_file 'fontconfig/69-language-selector-zh-hk.conf' '.config/fontconfig/conf.d/69-language-selector-zh-hk.conf'
-  link_file 'fontconfig/69-language-selector-zh-mo.conf' '.config/fontconfig/conf.d/69-language-selector-zh-mo.conf'
-  link_file 'fontconfig/69-language-selector-zh-sg.conf' '.config/fontconfig/conf.d/69-language-selector-zh-sg.conf'
-  link_file 'fontconfig/69-language-selector-zh-tw.conf' '.config/fontconfig/conf.d/69-language-selector-zh-tw.conf'
+  # Vim
+  deploy_file link 'vim/.vimrc' '.vimrc'
+  deploy_file link 'vim/.vim/basic.vim' '.vim/basic.vim'
+  deploy_file link 'vim/.vim/colors.vim' '.vim/colors.vim'
+  deploy_file link 'vim/.vim/mappings.vim' '.vim/mappings.vim'
+  deploy_file link 'vim/.vim/plugins.vim' '.vim/plugins.vim'
 
-  e_info 'Deploying Mozilla Firefox...'
-  link_file 'firefox/profiles.ini'    '.mozilla/firefox/profiles.ini'
-  link_file 'firefox/default/user.js' '.mozilla/firefox/default/user.js'
+  # Fontconfig
+  deploy_file link 'fontconfig/56-twemoji-color.conf' '.config/fontconfig/conf.d/56-twemoji-color.conf'
+  deploy_file link 'fontconfig/69-language-selector-ja.conf' '.config/fontconfig/conf.d/69-language-selector-ja.conf'
+  deploy_file link 'fontconfig/69-language-selector-ko.conf' '.config/fontconfig/conf.d/69-language-selector-ko.conf'
+  deploy_file link 'fontconfig/69-language-selector-zh-cn.conf' '.config/fontconfig/conf.d/69-language-selector-zh-cn.conf'
+  deploy_file link 'fontconfig/69-language-selector-zh-hk.conf' '.config/fontconfig/conf.d/69-language-selector-zh-hk.conf'
+  deploy_file link 'fontconfig/69-language-selector-zh-mo.conf' '.config/fontconfig/conf.d/69-language-selector-zh-mo.conf'
+  deploy_file link 'fontconfig/69-language-selector-zh-sg.conf' '.config/fontconfig/conf.d/69-language-selector-zh-sg.conf'
+  deploy_file link 'fontconfig/69-language-selector-zh-tw.conf' '.config/fontconfig/conf.d/69-language-selector-zh-tw.conf'
 
-  e_info 'Deploying Atom Editor...'
-  link_file 'atom/config.cson'   '.atom/config.cson'
-  link_file 'atom/packages.cson' '.atom/packages.cson'
+  # Mozilla Firefox
+  deploy_file link 'firefox/profiles.ini' '.mozilla/firefox/profiles.ini'
+  deploy_file link 'firefox/default/user.js' '.mozilla/firefox/default/user.js'
 
-  e_info 'Deploying Visual Studio Code...'
-  link_file 'vscode/User/settings.json'                 '.config/Code/User/settings.json'
-  link_file 'vscode/User/extensions.json'               '.config/Code/User/extensions.json'
-  copy_file 'vscode/Local Storage/file__0.localstorage' '.config/Code/Local Storage/file__0.localstorage'
+  # Atom Editor
+  deploy_file link 'atom/config.cson' '.atom/config.cson'
+  deploy_file link 'atom/packages.cson' '.atom/packages.cson'
+
+  # Visual Studio Code
+  deploy_file link 'vscode/User/settings.json' '.config/Code/User/settings.json'
+  deploy_file link 'vscode/User/extensions.json' '.config/Code/User/extensions.json'
+  deploy_file copy 'vscode/Local Storage/file__0.localstorage' '.config/Code/Local Storage/file__0.localstorage'
 }
 
 #######################################
 # Downloads dotfiles.
 #######################################
 download_dotfiles() {
-  e_info 'Downloading dotfiles...'
+  e_header '=> Downloading...'
 
-  if has 'git'; then
-    # Use Git to clone dotfiles repository.
+  if command_exists 'git'; then
+    # Use Git to clone the repository.
     git clone --depth 1 --recursive "${DOTFILES_GIT_URL}" "${DOTFILES_PATH}"
-  elif has 'curl' || has 'wget'; then
-    if has 'curl'; then
-      # Use cURL to download dotfiles tarball.
+  elif command_exists 'curl' || command_exists 'wget'; then
+    if command_exists 'curl'; then
+      # Use cURL to download tarball.
       curl -L -o "${HOME}/dotfiles.tar.gz" "${DOTFILES_TAR_URL}"
-    elif has 'wget'; then
-      # Use Wget to download dotfiles tarball.
+    elif command_exists 'wget'; then
+      # Use Wget to download tarball.
       wget -O "${HOME}/dotfiles.tar.gz" "${DOTFILES_TAR_URL}"
     fi
-    # Extract dotfiles tarball.
+    # Extract the tarball.
     mkdir -p "${DOTFILES_PATH}"
     tar -zxf "${HOME}/dotfiles.tar.gz" --strip-components 1 -C "${DOTFILES_PATH}"
     rm -rf "${HOME}/dotfiles.tar.gz"
@@ -114,28 +116,27 @@ download_dotfiles() {
 # Synchronizes dotfiles.
 #######################################
 sync_dotfiles() {
-  # Skip synchronization if Git is not installed.
-  if ! has 'git'; then
-    e_warning 'Git is not installed. Skip synchronization.'
+  e_header '=> Synchronizing...'
+
+  if ! command_exists 'git'; then
+    echo 'Git is not installed. Skip synchronization.'
     return 0
   fi
 
-  e_info 'Synchronizing dotfiles...'
+  # Switch to dotfiles directory.
+  cd "${DOTFILES_PATH}"
 
-  # Make sure we are in dotfiles directory.
-  cd "${DOTFILES_PATH}" || die "Failed to open directory: '${DOTFILES_PATH}'"
-
-  # Initialize Git repository if necessary.
-  if ! is_git_repo "${DOTFILES_PATH}"; then
+  # Initialize the repository if necessary.
+  if ! git rev-parse --is-inside-work-tree &>/dev/null; then
     git init
     git remote add origin "${DOTFILES_GIT_URL}"
+    git fetch origin master
   fi
 
-  # Unstage all changed files.
-  git reset HEAD
-  # Remove untracked files.
+  # Reset the repository.
+  git reset --hard FETCH_HEAD
   git clean -fd
-  # Pull Git repository.
+  # Pull from the remote repository.
   git pull --rebase origin master
   # Initialize and update all Git submodules.
   git submodule init
@@ -144,16 +145,17 @@ sync_dotfiles() {
 }
 
 #######################################
-# Creates a symbolic link from dotfiles
+# Deploys a single file from dotfiles
 # to home directory.
 #######################################
-link_file() {
-  local src="${DOTFILES_PATH}/${1}"
-  local dest="${HOME}/${2}"
+deploy_file() {
+  local method="${1:-link}"
+  local src="${DOTFILES_PATH}/${2}"
+  local dest="${HOME}/${3}"
 
   # Test whether the source file exists.
   if [[ ! -f "${src}" ]]; then
-    die "File not found: '${src}'"
+    die "File not found: ${src}"
   fi
 
   # Backup the destination file if exists.
@@ -161,69 +163,21 @@ link_file() {
     mv "${dest}" "${dest}.bak"
   fi
 
-  # Create the destination directory if necessary and then create a symbolic
-  # link to destination.
-  mkdir -p "$(dirname "${dest}")" && ln -fns "${src}" "${dest}"
+  # Create the destination directory.
+  mkdir -p "$(dirname "${dest}")"
 
-  if is_success; then
-    e_success "Linked: '${1}' to '~/${2}'"
-  else
-    die "Failed to link: '${1}' to '~/${2}'"
-  fi
-}
-
-#######################################
-# Copies a file from dotfiles to home
-# directory.
-#######################################
-copy_file() {
-  local src="${DOTFILES_PATH}/${1}"
-  local dest="${HOME}/${2}"
-
-  # Test whether the source file exists.
-  if [[ ! -f "${src}" ]]; then
-    die "File not found: '${src}'"
-  fi
-
-  # Backup the destination file if exists.
-  if [[ -f "${dest}" ]]; then
-    mv "${dest}" "${dest}.bak"
-  fi
-
-  # Create the destination directory if necessary and then copy the source file
-  # to destination.
-  mkdir -p "$(dirname "${dest}")" && cp -f "${src}" "${dest}"
-
-  if is_success; then
-    e_success "Copied: '${1}' to '~/${2}'"
-  else
-    die "Failed to copy: '${1}' to '~/${2}'"
-  fi
+  # Use specified method to deploy the file.
+  case "${method}" in
+    link) ln -fns "${src}" "${dest}" && echo "Linked: ~/${3}" ;;
+    copy) cp -f "${src}" "${dest}" && echo "Copied: ~/${3}" ;;
+  esac
 }
 
 #######################################
 # Tests whether a command exists.
 #######################################
-has() {
-  type -P "${1}" &>/dev/null
-  return $?
-}
-
-#######################################
-# Tests whether we are in a Git
-# repository.
-#######################################
-is_git_repo() {
-  git rev-parse --is-inside-work-tree &>/dev/null
-  return $?
-}
-
-#######################################
-# Tests whether the previous command
-# succeeded.
-#######################################
-is_success() {
-  return $?
+command_exists() {
+  command -v "$@" >/dev/null 2>&1
 }
 
 #######################################
@@ -236,31 +190,10 @@ die() {
 }
 
 #######################################
-# Prints a blank line.
-#######################################
-e_newline() {
-  printf '\n'
-}
-
-#######################################
-# Prints a normal message.
-#######################################
-e_normal() {
-  printf '\033[0m%s\033[0m\n' "$@"
-}
-
-#######################################
 # Prints a header message.
 #######################################
 e_header() {
   printf '\033[1;37m%s\033[0m\n' "$@"
-}
-
-#######################################
-# Prints an information message.
-#######################################
-e_info() {
-  printf '\033[0;36m%s %s\033[0m\n' '➜' "$@"
 }
 
 #######################################
@@ -278,62 +211,49 @@ e_failure() {
 }
 
 #######################################
-# Prints an warning message.
-#######################################
-e_warning() {
-  printf '\033[0;33m%s %s\033[0m\n' '!' "$@"
-}
-
-#######################################
 # The main program.
 #######################################
 main() {
-  local sync=true
+  local skip_sync=true
 
-  # Test for all known flags.
+  # Trap all errors and then print the error line number.
+  trap 'die "There was an error at line ${LINENO}".' ERR
+
+  # Test for all known options.
   for opt in "$@"; do
     case "${opt}" in
       '-h'|'--help') run_help; exit ;;
-      '--no-sync')   sync=false ;;
+      '--sync')      skip_sync=fasle ;;
     esac
   done
 
-  # Print logo and header messages.
-  e_header '      _       _    __ _ _            '
-  e_header '   __| | ___ | |_ / _(_) | ___  ___  '
-  e_header '  / _` |/ _ \| __| |_| | |/ _ \/ __| '
-  e_header ' | (_| | (_) | |_|  _| | |  __/\__ \ '
-  e_header '  \__,_|\___/ \__|_| |_|_|\___||___/ '
-  e_newline
-  e_normal "  * Remote: ${DOTFILES_GIT_URL}"
-  e_normal "  * Local:  ${DOTFILES_PATH}"
-  e_newline
+  # Print header messages.
+  e_header '--------------'
+  e_header '  # dotfiles  '
+  e_header '--------------'
+  echo "* DOTFILES_GIT_URL : ${DOTFILES_GIT_URL}"
+  echo "* DOTFILES_TAR_URL : ${DOTFILES_TAR_URL}"
+  echo "* DOTFILES_PATH    : ${DOTFILES_PATH}"
 
   # Download dotfiles if not exist.
   if [[ ! -d "${DOTFILES_PATH}" ]]; then
     download_dotfiles
-    # Do not synchronize dotfiles again.
-    sync=false
+    skip_sync=true
   fi
 
-  # Switch to the dotfiles directory.
-  cd "${DOTFILES_PATH}" || die "Failed to open directory: '${DOTFILES_PATH}'"
-
   # Synchronize dotfiles if necessary.
-  if $sync; then
+  if ! $skip_sync; then
     sync_dotfiles
   fi
 
   # Deploy dotfiles.
   deploy_dotfiles
 
-  e_newline
-  # Restart the shell automatically if running by `bash -c "$(curl -L {URL})"`.
+  # Restart the shell automatically if running by `bash -c`.
   if [[ -n "${BASH_EXECUTION_STRING:-}" ]]; then
-    e_info 'Restarting your shell...'
     exec "${SHELL:-'/bin/bash'}"
   else
-    e_warning 'Restart your shell before continuing.'
+    e_success 'Done. Restart the shell before continuing.'
   fi
 }
 
