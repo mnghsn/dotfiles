@@ -21,7 +21,7 @@ $ dotfiles [options]
 Options:
 
 * `-h`, `--help`: Print help message.
-* `--no-sync`: Suppress pulling from the remote repository.
+* `--sync`: Synchronize with the remote repository.
 
 ## Acknowledgements
 
