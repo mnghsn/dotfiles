@@ -360,7 +360,7 @@ user_pref("browser.taskbar.lists.frequent.enabled", false);
 user_pref("browser.taskbar.lists.recent.enabled", false);
 
 // Disable capturing page thumbnails.
-user_pref("browser.pagethumbnails.capturing_disabled", true)
+user_pref("browser.pagethumbnails.capturing_disabled", true);
 
 // Disable site specific zoom.
 user_pref("browser.zoom.siteSpecific", false);
