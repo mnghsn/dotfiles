@@ -3,6 +3,13 @@
 # ~/.bash_functions
 
 #######################################
+# Lists all defined functions.
+#######################################
+list_functions() {
+  declare -F | grep -v "\-f _"
+}
+
+#######################################
 # Creates a new directory and then
 # enters it.
 #######################################
