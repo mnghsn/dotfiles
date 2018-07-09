@@ -214,7 +214,7 @@ e_failure() {
 # The main program.
 #######################################
 main() {
-  local skip_sync=true
+  local opt_sync=false
 
   # Trap all errors and then print the error line number.
   trap 'die "There was an error at line ${LINENO}".' ERR
@@ -223,7 +223,7 @@ main() {
   for opt in "$@"; do
     case "${opt}" in
       '-h'|'--help') run_help; exit ;;
-      '--sync')      skip_sync=fasle ;;
+      '--sync')      opt_sync=true ;;
     esac
   done
 
@@ -238,11 +238,11 @@ main() {
   # Download dotfiles if not exist.
   if [[ ! -d "${DOTFILES_PATH}" ]]; then
     download_dotfiles
-    skip_sync=true
+    opt_sync=false
   fi
 
   # Synchronize dotfiles if necessary.
-  if ! $skip_sync; then
+  if $opt_sync; then
     sync_dotfiles
   fi
 
