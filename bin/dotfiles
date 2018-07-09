@@ -97,13 +97,13 @@ download_dotfiles() {
     # Use Git to clone the repository.
     git clone --depth 1 --recursive "${DOTFILES_GIT_URL}" "${DOTFILES_PATH}"
   elif command_exists 'curl' || command_exists 'wget'; then
+    # Use cURL or Wget to download the tarball.
     if command_exists 'curl'; then
-      # Use cURL to download tarball.
       curl -L -o "${HOME}/dotfiles.tar.gz" "${DOTFILES_TAR_URL}"
     elif command_exists 'wget'; then
-      # Use Wget to download tarball.
       wget -O "${HOME}/dotfiles.tar.gz" "${DOTFILES_TAR_URL}"
     fi
+
     # Extract the tarball.
     mkdir -p "${DOTFILES_PATH}"
     tar -zxf "${HOME}/dotfiles.tar.gz" --strip-components 1 -C "${DOTFILES_PATH}"
@@ -127,7 +127,7 @@ sync_dotfiles() {
   # Switch to dotfiles directory.
   cd "${DOTFILES_PATH}"
 
-  # Initialize the repository if necessary.
+  # Initialize the Git repository if necessary.
   if ! git rev-parse --is-inside-work-tree &>/dev/null; then
     git init
     git remote add origin "${DOTFILES_GIT_URL}"
