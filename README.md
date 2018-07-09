@@ -22,6 +22,7 @@ Options:
 
 * `-h`, `--help`: Print help message.
 * `--sync`: Synchronize with the remote repository.
+* `--yes`: Automatic yes to prompts.
 
 ## Acknowledgements
 

@@ -25,6 +25,7 @@ Usage: $(basename "${0}") [options]
 Options:
   -h, --help    Print this help message.
   --sync        Synchronize with the remote repository.
+  --yes         Automatic yes to prompts.
 EOS
 }
 
@@ -211,10 +212,26 @@ e_failure() {
 }
 
 #######################################
+# Asks for confirmation before
+# proceeding.
+#######################################
+e_confirm() {
+  printf '%s' "$@"
+  read -r -p ' Continue? (y/N) ' -n 1
+  printf '\n'
+
+  if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
+    return 0
+  fi
+  return 1
+}
+
+#######################################
 # The main program.
 #######################################
 main() {
   local opt_sync=false
+  local opt_yes=false
 
   # Trap all errors and then print the error line number.
   trap 'die "There was an error at line ${LINENO}".' ERR
@@ -224,6 +241,7 @@ main() {
     case "${opt}" in
       '-h'|'--help') run_help; exit ;;
       '--sync')      opt_sync=true ;;
+      '--yes')       opt_yes=true ;;
     esac
   done
 
@@ -243,7 +261,11 @@ main() {
 
   # Synchronize dotfiles if necessary.
   if $opt_sync; then
-    sync_dotfiles
+    if $opt_yes || e_confirm 'Warning: This step may overwrite your existing dotfiles.'; then
+      sync_dotfiles
+    else
+      echo 'Skipped synchronization.'
+    fi
   fi
 
   # Deploy dotfiles.
