@@ -18,7 +18,6 @@
   "files.trimTrailingWhitespace": true,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "window.titleBarStyle": "custom",
   "workbench.iconTheme": "vs-minimal",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.feedback.visible": false,
