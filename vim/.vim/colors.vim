@@ -8,6 +8,11 @@ if has('syntax')
   " Set dark background.
   set background=dark
 
+  " Enable True Color (vim >= 8.0).
+  if has('termguicolors')
+    set termguicolors
+  endif
+
   " Set color scheme.
   silent! colorscheme molokai
 endif
