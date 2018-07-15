@@ -12,7 +12,4 @@ if has('syntax')
   if has('termguicolors')
     set termguicolors
   endif
-
-  " Set color scheme.
-  silent! colorscheme molokai
 endif

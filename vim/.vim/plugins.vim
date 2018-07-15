@@ -19,14 +19,13 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color', { 'for': 'css' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'flazz/vim-colorschemes'
+Plug 'jacoborus/tender.vim'
 Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'terryma/vim-multiple-cursors'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'Yggdroot/indentLine'
@@ -34,10 +33,20 @@ Plug 'Yggdroot/indentLine'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""
-" Plugin: vim-colorschemes
+" Plugin: tender
 """""""""""""""""""""""""""""""""""""""
 
-silent! colorscheme molokai
+" Set color scheme.
+silent! colorscheme tender
+" Set vim-airline theme.
+let g:airline_theme = 'tender'
+
+"""""""""""""""""""""""""""""""""""""""
+" Plugin: indentLine
+"""""""""""""""""""""""""""""""""""""""
+
+" Set conceal color.
+let g:indentLine_color_term = 239
 
 """""""""""""""""""""""""""""""""""""""
 " Plugin: NERDTree
@@ -61,7 +70,7 @@ nmap <C-M> :NERDTreeFind<CR>
 set laststatus=2
 
 " Set vim-airline theme.
-let g:airline_theme = 'molokai'
+"let g:airline_theme = 'molokai'
 " Show a clock at section x.
 let g:airline_section_x = '%{strftime("%m/%d %H:%M")}% '
 " Enable tabline.
