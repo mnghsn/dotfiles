@@ -136,7 +136,7 @@ sync_dotfiles() {
   fi
 
   # Reset the repository.
-  git reset --hard FETCH_HEAD
+  git reset HEAD
   git clean -fd
   # Pull from the remote repository.
   git pull --rebase origin master
