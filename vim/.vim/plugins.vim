@@ -70,7 +70,7 @@ nmap <C-M> :NERDTreeFind<CR>
 set laststatus=2
 
 " Set vim-airline theme.
-"let g:airline_theme = 'molokai'
+"let g:airline_theme = 'dark'
 " Show a clock at section x.
 let g:airline_section_x = '%{strftime("%m/%d %H:%M")}% '
 " Enable tabline.
