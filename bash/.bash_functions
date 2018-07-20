@@ -6,7 +6,7 @@
 # Lists all defined functions.
 #######################################
 list_functions() {
-  declare -F | grep -v "\-f _"
+  declare -F | grep -v '\-f _'
 }
 
 #######################################

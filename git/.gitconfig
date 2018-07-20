@@ -30,8 +30,8 @@
 
   # Publish
   branch-name = rev-parse --abbrev-ref HEAD
-  publish = "!git push --set-upstream origin $(git branch-name)"
-  unpublish = "!git push origin :$(git branch-name)"
+  publish = !git push --set-upstream origin "$(git branch-name)"
+  unpublish = !git push origin :"$(git branch-name)"
 
   # Snapshot
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"

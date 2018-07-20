@@ -2,10 +2,10 @@
 #
 # ~/.inputrc
 
-# Use case-insensitive tab autocompletion
+# Use case-insensitive tab autocompletion.
 set completion-ignore-case on
 
-# Auto list tab completions (use instead of TAB-cycling)
+# Auto list tab completions (use instead of TAB-cycling).
 set show-all-if-ambiguous on
 
 # Use the string that has already been typed as the prefix for searching
