@@ -5,7 +5,7 @@
 """""""""""""""""""""""""""""""""""""""
 
 " Automatically install vim-plug and plugins.
-" https://github.com/junegunn/vim-plug/wiki/faq
+" https://github.com/junegunn/vim-plug/wiki/tips
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
