@@ -57,10 +57,8 @@ let NERDTreeMinimalUI = 1
 let NERDTreeQuitOpen = 0
 let NERDTreeShowHidden = 1
 
-" Use <Ctrl>-<N> to toggle NERDTree.
-nmap <C-N> :NERDTreeToggle<CR>
-" Use <Ctrl>-<M> to find current file in NERDTree.
-nmap <C-M> :NERDTreeFind<CR>
+" Use <Ctrl>-<M> to toggle NERDTree.
+nmap <C-M> :NERDTreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""
 " Plugin: vim-airline
