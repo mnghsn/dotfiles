@@ -65,7 +65,7 @@ set_prompts() {
   local name_color=''
 
   # Check if user is logged in as root.
-  if [[ "${USER}" == 'root' ]]; then
+  if [[ "${EUID}" -eq 0 ]]; then
     name_color="${red}"
   else
     name_color="${green}"
