@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Synchronizes and deploys dotfiles.
+# Installs or synchronizes dotfiles.
 
 set -o errexit
 set -o errtrace
@@ -18,14 +18,13 @@ DOTFILES_PATH=${DOTFILES_PATH:-"${HOME}/.dotfiles"}
 #######################################
 run_help() {
 cat <<EOS
-Synchronizes and deploys dotfiles.
+Installs or synchronizes dotfiles.
 
 Usage: $(basename "${0}") [options]
 
 Options:
   -h, --help    Print this help message.
-  --sync        Synchronize with the remote repository.
-  --yes         Automatic yes to prompts.
+  --no-sync     Suppress pulling from the remote repository.
 EOS
 }
 
@@ -133,11 +132,11 @@ sync_dotfiles() {
     git init
     git remote add origin "${DOTFILES_GIT_URL}"
     git fetch origin master
+    # Reset the repository.
+    git reset --hard FETCH_HEAD
+    git clean -fd
   fi
 
-  # Reset the repository.
-  git reset HEAD
-  git clean -fd
   # Pull from the remote repository.
   git pull --rebase origin master
   # Initialize and update all Git submodules.
@@ -213,46 +212,20 @@ e_failure() {
 }
 
 #######################################
-# Asks for confirmation before
-# proceeding.
-#######################################
-e_confirm() {
-  printf '%s' "$@"
-  read -r -p ' Continue? (y/N) ' -n 1
-  printf '\n'
-
-  if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
-    return 0
-  fi
-  return 1
-}
-
-#######################################
 # The main program.
 #######################################
 main() {
-  local opt_sync=false
-  local opt_yes=false
-
   # Trap all errors and then print the error line number.
   trap 'die "There was an error at line ${LINENO}".' ERR
 
   # Test for all known options.
+  local opt_sync=true
   for opt in "$@"; do
     case "${opt}" in
       '-h'|'--help') run_help; exit ;;
-      '--sync')      opt_sync=true ;;
-      '--yes')       opt_yes=true ;;
+      '--no-sync')   opt_sync=false ;;
     esac
   done
-
-  # Print header messages.
-  e_header '--------------'
-  e_header '  # dotfiles  '
-  e_header '--------------'
-  echo "* DOTFILES_GIT_URL : ${DOTFILES_GIT_URL}"
-  echo "* DOTFILES_TAR_URL : ${DOTFILES_TAR_URL}"
-  echo "* DOTFILES_PATH    : ${DOTFILES_PATH}"
 
   # Download dotfiles if not exist.
   if [[ ! -d "${DOTFILES_PATH}" ]]; then
@@ -262,11 +235,9 @@ main() {
 
   # Synchronize dotfiles if necessary.
   if $opt_sync; then
-    if $opt_yes || e_confirm 'Warning: This step may overwrite your existing dotfiles.'; then
-      sync_dotfiles
-    else
-      echo 'Skipped synchronization.'
-    fi
+    sync_dotfiles
+  else
+    echo 'Skipped synchronization.'
   fi
 
   # Deploy dotfiles.
@@ -276,7 +247,7 @@ main() {
   if [[ -n "${BASH_EXECUTION_STRING:-}" ]]; then
     exec "${SHELL:-'/bin/bash'}"
   else
-    e_success 'Done. Restart the shell before continuing.'
+    source "${HOME}/.bash_profile"
   fi
 }
 
