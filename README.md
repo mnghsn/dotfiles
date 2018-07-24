@@ -18,11 +18,10 @@ $ curl -fsSL https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfil
 $ dotfiles [options]
 ```
 
-Options:
-
-* `-h`, `--help`: Print help message.
-* `--sync`: Synchronize with the remote repository.
-* `--yes`: Automatic yes to prompts.
+| Option         | Description                                  |
+| -------------- | -------------------------------------------- |
+| `-h`, `--help` | Print help message                           |
+| `--no-sync`    | Suppress pulling from the remote repository. |
 
 ## Acknowledgements
 
