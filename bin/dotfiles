@@ -20,7 +20,7 @@ run_help() {
 cat <<EOS
 Installs or synchronizes dotfiles.
 
-Usage: $(basename "${0}") [options]
+Usage: ${0##*/} [options]
 
 Options:
   -h, --help    Print this help message.
@@ -29,149 +29,147 @@ EOS
 }
 
 #######################################
-# Deploys dotfiles.
+# Installs dotfiles.
 #######################################
-deploy_dotfiles() {
-  e_header '=> Deploying...'
+install_dotfiles() {
+  e_header '=> Installing...'
 
-  # Executable files
-  deploy_file link 'bin/dotfiles' '.local/bin/dotfiles'
+  deploy link 'bash'
+  deploy link 'shell'
+  deploy link 'git'
+  deploy link 'bin'                   '.local/bin'
+  deploy link 'vim/.vimrc'            '.vimrc'
+  deploy link 'vim/.vim'              '.vim'
+  deploy link 'fontconfig'            '.config/fontconfig/conf.d'
+  deploy copy 'firefox'               '.mozilla/firefox'
+  deploy link 'firefox/default'       '.mozilla/firefox/default'
+  deploy link 'atom'                  '.atom'
+  deploy link 'vscode/User'           '.config/Code/User'
+  deploy copy 'vscode/Local Storage'  '.config/Code/Local Storage'
 
-  # Shell
-  deploy_file link 'shell/.curlrc' '.curlrc'
-  deploy_file link 'shell/.inputrc' '.inputrc'
-
-  # Bash
-  deploy_file link 'bash/.bash_aliases' '.bash_aliases'
-  deploy_file link 'bash/.bash_exports' '.bash_exports'
-  deploy_file link 'bash/.bash_functions' '.bash_functions'
-  deploy_file link 'bash/.bash_options' '.bash_options'
-  deploy_file link 'bash/.bash_paths' '.bash_paths'
-  deploy_file link 'bash/.bash_profile' '.bash_profile'
-  deploy_file link 'bash/.bash_prompt' '.bash_prompt'
-  deploy_file link 'bash/.bashrc' '.bashrc'
-
-  # Git
-  deploy_file link 'git/.gitconfig' '.gitconfig'
-  deploy_file link 'git/.gitignore' '.gitignore'
-
-  # Vim
-  deploy_file link 'vim/.vimrc' '.vimrc'
-  deploy_file link 'vim/.vim/basic.vim' '.vim/basic.vim'
-  deploy_file link 'vim/.vim/colors.vim' '.vim/colors.vim'
-  deploy_file link 'vim/.vim/mappings.vim' '.vim/mappings.vim'
-  deploy_file link 'vim/.vim/plugins.vim' '.vim/plugins.vim'
-
-  # Fontconfig
-  deploy_file link 'fontconfig/30-cjk-aliases.conf' '.config/fontconfig/conf.d/30-cjk-aliases.conf'
-  deploy_file link 'fontconfig/56-twemoji-color.conf' '.config/fontconfig/conf.d/56-twemoji-color.conf'
-  deploy_file link 'fontconfig/69-language-selector-ja.conf' '.config/fontconfig/conf.d/69-language-selector-ja.conf'
-  deploy_file link 'fontconfig/69-language-selector-ko.conf' '.config/fontconfig/conf.d/69-language-selector-ko.conf'
-  deploy_file link 'fontconfig/69-language-selector-zh-cn.conf' '.config/fontconfig/conf.d/69-language-selector-zh-cn.conf'
-  deploy_file link 'fontconfig/69-language-selector-zh-hk.conf' '.config/fontconfig/conf.d/69-language-selector-zh-hk.conf'
-  deploy_file link 'fontconfig/69-language-selector-zh-mo.conf' '.config/fontconfig/conf.d/69-language-selector-zh-mo.conf'
-  deploy_file link 'fontconfig/69-language-selector-zh-sg.conf' '.config/fontconfig/conf.d/69-language-selector-zh-sg.conf'
-  deploy_file link 'fontconfig/69-language-selector-zh-tw.conf' '.config/fontconfig/conf.d/69-language-selector-zh-tw.conf'
-
-  # Mozilla Firefox
-  deploy_file link 'firefox/profiles.ini' '.mozilla/firefox/profiles.ini'
-  deploy_file link 'firefox/default/user.js' '.mozilla/firefox/default/user.js'
-
-  # Atom Editor
-  deploy_file link 'atom/config.cson' '.atom/config.cson'
-  deploy_file link 'atom/packages.cson' '.atom/packages.cson'
-
-  # Visual Studio Code
-  deploy_file link 'vscode/User/settings.json' '.config/Code/User/settings.json'
-  deploy_file link 'vscode/User/extensions.json' '.config/Code/User/extensions.json'
-  deploy_file copy 'vscode/Local Storage/file__0.localstorage' '.config/Code/Local Storage/file__0.localstorage'
+  e_success 'Done.'
 }
 
 #######################################
-# Downloads dotfiles.
+# Downloads dotfiles from the remote
+# repository.
 #######################################
 download_dotfiles() {
   e_header '=> Downloading...'
 
   if command_exists 'git'; then
-    # Use Git to clone the repository.
     git clone --depth 1 --recursive "${DOTFILES_GIT_URL}" "${DOTFILES_PATH}"
   elif command_exists 'curl' || command_exists 'wget'; then
-    # Use cURL or Wget to download the tarball.
     if command_exists 'curl'; then
       curl -L -o "${HOME}/dotfiles.tar.gz" "${DOTFILES_TAR_URL}"
     elif command_exists 'wget'; then
       wget -O "${HOME}/dotfiles.tar.gz" "${DOTFILES_TAR_URL}"
     fi
-
-    # Extract the tarball.
     mkdir -p "${DOTFILES_PATH}"
     tar -zxf "${HOME}/dotfiles.tar.gz" --strip-components 1 -C "${DOTFILES_PATH}"
     rm -rf "${HOME}/dotfiles.tar.gz"
   else
     die 'Either Git, cURL or Wget is required.'
   fi
+
+  e_success 'Done.'
 }
 
 #######################################
-# Synchronizes dotfiles.
+# Synchronizes dotfiles with the remote
+# repository.
 #######################################
 sync_dotfiles() {
   e_header '=> Synchronizing...'
 
   if ! command_exists 'git'; then
-    echo 'Git is not installed. Skip synchronization.'
+    e_warning 'Git is not installed. Skipped synchronization.'
     return 0
   fi
 
-  # Switch to dotfiles directory.
   cd "${DOTFILES_PATH}"
 
-  # Initialize the Git repository if necessary.
-  if ! git rev-parse --is-inside-work-tree &>/dev/null; then
+  if ! is_git_repo; then
     git init
     git remote add origin "${DOTFILES_GIT_URL}"
     git fetch origin master
-    # Reset the repository.
     git reset --hard FETCH_HEAD
     git clean -fd
   fi
 
-  # Pull from the remote repository.
   git pull --rebase origin master
-  # Initialize and update all Git submodules.
-  git submodule init
-  git submodule update
-  git submodule foreach git pull origin master
+  git submodule update --recursive --init --quiet
+
+  e_success 'Done.'
 }
 
 #######################################
-# Deploys a single file from dotfiles
-# to home directory.
+# Delpoys a file or all files one level
+# deep from the specified directory to
+# home directory.
 #######################################
-deploy_file() {
+deploy() {
   local method="${1:-link}"
-  local src="${DOTFILES_PATH}/${2}"
-  local dest="${HOME}/${3}"
+  local source="${DOTFILES_PATH}/${2:-}"
+  local dest="${HOME}/${3:-}"
+  local deploy_func
 
-  # Test whether the source file exists.
-  if [[ ! -f "${src}" ]]; then
-    die "File not found: ${src}"
-  fi
-
-  # Backup the destination file if exists.
-  if [[ -f "${dest}" ]] && [[ ! -L "${dest}" ]]; then
-    mv "${dest}" "${dest}.bak"
-  fi
-
-  # Create the destination directory.
-  mkdir -p "$(dirname "${dest}")"
-
-  # Use specified method to deploy the file.
   case "${method}" in
-    link) ln -fns "${src}" "${dest}" && echo "Linked: ~/${3}" ;;
-    copy) cp -f "${src}" "${dest}" && echo "Copied: ~/${3}" ;;
+    link) deploy_func=link_file ;;
+    copy) deploy_func=copy_file ;;
   esac
+
+  if [[ -f "${source}" ]]; then
+    $deploy_func "${source}" "${dest%/}"
+  elif [[ -d "${source}" ]]; then
+    find "${source}" -maxdepth 1 -type f -print0 \
+      | sort -z \
+      | while IFS= read -r -d $'\0' file; do
+          $deploy_func "${file}" "${dest%/}/${file##*/}"
+        done
+  else
+    die "Invalid source: ${source}"
+  fi
+}
+
+#######################################
+# Creates a backup if the specified
+# file exists.
+#######################################
+backup_file() {
+  if [[ -f "${1}" ]] && [[ ! -L "${1}" ]]; then
+    mv "${1}" "${1}~"
+  fi
+}
+
+#######################################
+# Creates a symbolic link.
+#######################################
+link_file() {
+  backup_file "${2}" \
+    && mkdir -p "${2%/*}" \
+    && ln -fs "${1}" "${2}" \
+    && printf '\033[1;30m%s:\033[0m %s \033[1;30m->\033[0m ~/%s\n' \
+      'ln' "${1#${DOTFILES_PATH}/}" "${2#${HOME}/}"
+}
+
+#######################################
+# Copies a file.
+#######################################
+copy_file() {
+  backup_file "${2}" \
+    && mkdir -p "${2%/*}" \
+    && cp -f "${1}" "${2}" \
+    && printf '\033[1;30m%s:\033[0m %s \033[1;30m->\033[0m ~/%s\n' \
+      'cp' "${1#${DOTFILES_PATH}/}" "${2#${HOME}/}"
+}
+
+#######################################
+# Tests whether we are in a Git
+# repository.
+#######################################
+is_git_repo() {
+  git rev-parse --is-inside-work-tree &>/dev/null
 }
 
 #######################################
@@ -212,42 +210,47 @@ e_failure() {
 }
 
 #######################################
-# The main program.
+# Prints a warning message.
+#######################################
+e_warning() {
+  printf '\033[0;33m%s %s\033[0m\n' '!' "$@"
+}
+
+#######################################
+# Starts this script.
 #######################################
 main() {
-  # Trap all errors and then print the error line number.
-  trap 'die "There was an error at line ${LINENO}".' ERR
+  trap 'die "There was an error at line ${LINENO}."' ERR
+
+  local opt_sync=true
 
   # Test for all known options.
-  local opt_sync=true
   for opt in "$@"; do
     case "${opt}" in
-      '-h'|'--help') run_help; exit ;;
-      '--no-sync')   opt_sync=false ;;
+      -h|--help) run_help; exit ;;
+      --no-sync) opt_sync=false ;;
+      -*|--*) e_warning "Invalid option: ${opt}" ;;
     esac
   done
 
-  # Download dotfiles if not exist.
   if [[ ! -d "${DOTFILES_PATH}" ]]; then
     download_dotfiles
     opt_sync=false
   fi
 
-  # Synchronize dotfiles if necessary.
   if $opt_sync; then
     sync_dotfiles
-  else
-    echo 'Skipped synchronization.'
   fi
 
-  # Deploy dotfiles.
-  deploy_dotfiles
+  install_dotfiles
 
-  # Restart the shell automatically if running by `bash -c`.
-  if [[ -n "${BASH_EXECUTION_STRING:-}" ]]; then
-    exec "${SHELL:-'/bin/bash'}"
-  else
-    source "${HOME}/.bash_profile"
+  # Restart the shell automatically.
+  if [[ -n "${BASH_EXECUTION_STRING:-}" ]] || [[ -p /dev/stdin ]]; then
+    if [[ -p /dev/stdin ]]; then
+      e_warning 'Restart the shell before you continue.'
+    else
+      exec "${SHELL:-'/bin/bash'}"
+    fi
   fi
 }
 
