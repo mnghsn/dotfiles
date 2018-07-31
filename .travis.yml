@@ -9,7 +9,8 @@ os:
   - linux
   - osx
 
-script: 'curl -fsSL https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash'
+script:
+  - bin/dotfiles
 
 git:
   depth: 10
