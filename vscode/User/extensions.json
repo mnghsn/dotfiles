@@ -1,8 +1,6 @@
 {
   "extensions": [
     "EditorConfig.EditorConfig",
-    "MS-CEINTL.vscode-language-pack-ja",
-    "MS-CEINTL.vscode-language-pack-zh-hant",
     "robertohuertasm.vscode-icons"
   ]
 }
