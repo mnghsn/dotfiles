@@ -18,7 +18,11 @@
   "files.trimTrailingWhitespace": true,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
+  "update.enableWindowsBackgroundUpdates": false,
+  "update.showReleaseNotes": false,
+  "workbench.enableExperiments": false,
   "workbench.iconTheme": "vs-minimal",
+  "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.feedback.visible": false,
   "workbench.tips.enabled": false
