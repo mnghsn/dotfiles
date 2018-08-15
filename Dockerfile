@@ -1,5 +1,4 @@
 FROM ubuntu:18.04
-MAINTAINER Jimmy Lin <jmlntw@gmail.com>
 
 RUN apt-get update && \
     apt-get upgrade -y && \
