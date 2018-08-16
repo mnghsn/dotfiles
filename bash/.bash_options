@@ -2,12 +2,6 @@
 #
 # ~/.bash_options
 
-# Cause output from background processes to be output right away.
-set -b
-
-# Notify when jobs running in background terminate.
-set -o notify
-
 # Disallow write access to terminal.
 shopt -s cdable_vars
 
@@ -33,24 +27,11 @@ shopt -s histreedit
 # into the editing buffer.
 shopt -s histverify
 
-# Keep an eye on the mail file (access time).
-shopt -s mailwarn
-
 # Case-insensitive globbing.
 shopt -s nocaseglob
 
 # Disable empty completion. (Bash >= 2.40)
 shopt -s no_empty_cmd_completion
-
-# Make `source` command use the value of `$PATH` to find the directory
-# containing the file supplied as an argument.
-shopt -s sourcepath
-
-# Disable coredumps.
-ulimit -S -c 0
-
-# Disable incoming mail warning.
-unset MAILCHECK
 
 # Make `less` more friendly for non-text input files.
 [[ -x '/usr/bin/lesspipe' ]] && eval "$(SHELL=/bin/sh lesspipe)"
