@@ -1,20 +1,22 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y build-essential bash-completion sudo curl wget git vim
+RUN apt-get update \
+  && apt-get upgrade -y \
+  && apt-get install -y build-essential bash-completion sudo curl wget git vim
 
-RUN useradd --user-group --create-home --shell /bin/bash jimmy && \
-    echo "jimmy ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN useradd --user-group --create-home --shell /bin/bash jimmy \
+  && echo "jimmy ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 USER jimmy
 ENV HOME=/home/jimmy
-WORKDIR /home/jimmy
 
-ADD . /home/jimmy/.dotfiles
-RUN cd ~/.dotfiles/bin && ./dotfiles --no-sync
+ARG DOTFILES_PATH=$HOME/.dotfiles
+ADD . $DOTFILES_PATH
+RUN $DOTFILES_PATH/bin/dotfiles --no-sync
 
-VOLUME ["/home/jimmy/workspace"]
+RUN mkdir -p $HOME/workspace
+WORKDIR $HOME/workspace
+VOLUME $HOME/workspace
 
 ENTRYPOINT ["/bin/bash"]
 CMD ["--login"]
