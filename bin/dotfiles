@@ -34,20 +34,17 @@ EOS
 install_dotfiles() {
   e_header '=> Installing...'
 
-  deploy link 'bash'
-  deploy link 'shell'
-  deploy link 'git'
   deploy link 'bin'                   '.local/bin'
-  deploy link 'vim/.vimrc'            '.vimrc'
-  deploy link 'vim/.vim'              '.vim'
+  deploy link 'shell'
+  deploy link 'bash'
+  deploy link 'git'
+  deploy link 'vim'
   deploy link 'fontconfig'            '.config/fontconfig/conf.d'
-  deploy copy 'firefox'               '.mozilla/firefox'
+  deploy copy 'firefox/profiles.ini'  '.mozilla/firefox/profiles.ini'
   deploy link 'firefox/default'       '.mozilla/firefox/default'
   deploy link 'atom'                  '.atom'
   deploy link 'vscode/User'           '.config/Code/User'
   deploy copy 'vscode/Local Storage'  '.config/Code/Local Storage'
-
-  e_success 'Done.'
 }
 
 #######################################
@@ -71,8 +68,6 @@ download_dotfiles() {
   else
     die 'Either Git, cURL or Wget is required.'
   fi
-
-  e_success 'Done.'
 }
 
 #######################################
@@ -99,37 +94,39 @@ sync_dotfiles() {
 
   git pull --rebase origin master
   git submodule update --recursive --init --quiet
-
-  e_success 'Done.'
 }
 
 #######################################
-# Delpoys a file or all files one level
-# deep from the specified directory to
-# home directory.
+# Deploys files from dotfiles to home
+# directory.
 #######################################
 deploy() {
-  local method="${1:-link}"
   local source="${DOTFILES_PATH}/${2:-}"
   local dest="${HOME}/${3:-}"
-  local deploy_func
+  local deploy_cmd
 
-  case "${method}" in
-    link) deploy_func=link_file ;;
-    copy) deploy_func=copy_file ;;
+  case "${1:-link}" in
+    link) deploy_cmd=link_file ;;
+    copy) deploy_cmd=copy_file ;;
   esac
 
   if [[ -f "${source}" ]]; then
-    $deploy_func "${source}" "${dest%/}"
+    $deploy_cmd "${source}" "${dest%/}"
   elif [[ -d "${source}" ]]; then
-    find "${source}" -maxdepth 1 -type f -print0 \
-      | sort -z \
-      | while IFS= read -r -d $'\0' file; do
-          $deploy_func "${file}" "${dest%/}/${file##*/}"
-        done
+    get_files "${source}" | while IFS= read -r -d $'\0' file; do
+      $deploy_cmd "${file}" "${dest%/}/${file##${source}/}"
+    done
   else
     die "Invalid source: ${source}"
   fi
+}
+
+#######################################
+# Gets a list of all files in the
+# specified directory.
+#######################################
+get_files() {
+  find "${1}" -type f -print0 | sort -z
 }
 
 #######################################
@@ -146,22 +143,22 @@ backup_file() {
 # Creates a symbolic link.
 #######################################
 link_file() {
-  backup_file "${2}" \
-    && mkdir -p "${2%/*}" \
-    && ln -fs "${1}" "${2}" \
-    && printf '\033[1;30m%s:\033[0m %s \033[1;30m->\033[0m ~/%s\n' \
-      'ln' "${1#${DOTFILES_PATH}/}" "${2#${HOME}/}"
+  backup_file "${2}"
+  mkdir -p "${2%/*}"
+  ln -fs "${1}" "${2}"
+
+  e_success "Linked: ~/${2##${HOME}/}"
 }
 
 #######################################
 # Copies a file.
 #######################################
 copy_file() {
-  backup_file "${2}" \
-    && mkdir -p "${2%/*}" \
-    && cp -f "${1}" "${2}" \
-    && printf '\033[1;30m%s:\033[0m %s \033[1;30m->\033[0m ~/%s\n' \
-      'cp' "${1#${DOTFILES_PATH}/}" "${2#${HOME}/}"
+  backup_file "${2}"
+  mkdir -p "${2%/*}"
+  cp -f "${1}" "${2}"
+
+  e_success "Copied: ~/${2##${HOME}/}"
 }
 
 #######################################
@@ -229,29 +226,18 @@ main() {
     case "${opt}" in
       -h|--help) run_help; exit ;;
       --no-sync) opt_sync=false ;;
-      -*|--*) e_warning "Invalid option: ${opt}" ;;
     esac
   done
 
   if [[ ! -d "${DOTFILES_PATH}" ]]; then
     download_dotfiles
-    opt_sync=false
-  fi
-
-  if $opt_sync; then
+  elif $opt_sync; then
     sync_dotfiles
   fi
 
   install_dotfiles
 
-  # Restart the shell automatically.
-  if [[ -n "${BASH_EXECUTION_STRING:-}" ]] || [[ -p /dev/stdin ]]; then
-    if [[ -p /dev/stdin ]]; then
-      e_warning 'Restart the shell before you continue.'
-    else
-      exec "${SHELL:-'/bin/bash'}"
-    fi
-  fi
+  e_warning 'Restart the shell before you continue.'
 }
 
 main "$@"
