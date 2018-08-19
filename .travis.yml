@@ -1,22 +1,19 @@
-notifications:
-  email:
-    on_success: never
-    on_failure: change
-
 language: generic
-
 os:
   - linux
   - osx
+sudo: false
 
 script:
   - bin/dotfiles
 
 git:
   depth: 10
-
-sudo: false
-
 branches:
   only:
     - master
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
