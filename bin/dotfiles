@@ -34,17 +34,58 @@ EOS
 install_dotfiles() {
   e_header '=> Installing...'
 
-  deploy link 'bin'                   '.local/bin'
-  deploy link 'shell'
-  deploy link 'bash'
-  deploy link 'git'
-  deploy link 'vim'
-  deploy link 'fontconfig'            '.config/fontconfig/conf.d'
-  deploy copy 'firefox/profiles.ini'  '.mozilla/firefox/profiles.ini'
-  deploy link 'firefox/default'       '.mozilla/firefox/default'
-  deploy link 'atom'                  '.atom'
-  deploy link 'vscode/User'           '.config/Code/User'
-  deploy copy 'vscode/Local Storage'  '.config/Code/Local Storage'
+  # Executable files
+  link_file 'bin/dotfiles' '.local/bin/dotfiles'
+
+  # Shell
+  link_file 'shell/.inputrc' '.inputrc'
+  link_file 'shell/.curlrc'  '.curlrc'
+
+  # Bash
+  link_file 'bash/.bashrc'         '.bashrc'
+  link_file 'bash/.bash_profile'   '.bash_profile'
+  link_file 'bash/.bash_aliases'   '.bash_aliases'
+  link_file 'bash/.bash_exports'   '.bash_exports'
+  link_file 'bash/.bash_functions' '.bash_functions'
+  link_file 'bash/.bash_options'   '.bash_options'
+  link_file 'bash/.bash_paths'     '.bash_paths'
+  link_file 'bash/.bash_prompt'    '.bash_prompt'
+
+  # Git
+  link_file 'git/.gitconfig' '.gitconfig'
+  link_file 'git/.gitignore' '.gitignore'
+
+  # Vim
+  link_file 'vim/.vimrc'            '.vimrc'
+  link_file 'vim/.vim/basic.vim'    '.vim/basic.vim'
+  link_file 'vim/.vim/colors.vim'   '.vim/colors.vim'
+  link_file 'vim/.vim/mappings.vim' '.vim/mappings.vim'
+  link_file 'vim/.vim/plugins.vim'  '.vim/plugins.vim'
+
+  # Fontconfig
+  link_file 'fontconfig/30-cjk-aliases.conf'             '.config/fontconfig/conf.d/30-cjk-aliases.conf'
+  link_file 'fontconfig/56-twemoji-color.conf'           '.config/fontconfig/conf.d/56-twemoji-color.conf'
+  link_file 'fontconfig/69-language-selector-ja.conf'    '.config/fontconfig/conf.d/69-language-selector-ja.conf'
+  link_file 'fontconfig/69-language-selector-ko.conf'    '.config/fontconfig/conf.d/69-language-selector-ko.conf'
+  link_file 'fontconfig/69-language-selector-zh-cn.conf' '.config/fontconfig/conf.d/69-language-selector-zh-cn.conf'
+  link_file 'fontconfig/69-language-selector-zh-hk.conf' '.config/fontconfig/conf.d/69-language-selector-zh-hk.conf'
+  link_file 'fontconfig/69-language-selector-zh-mo.conf' '.config/fontconfig/conf.d/69-language-selector-zh-mo.conf'
+  link_file 'fontconfig/69-language-selector-zh-sg.conf' '.config/fontconfig/conf.d/69-language-selector-zh-sg.conf'
+  link_file 'fontconfig/69-language-selector-zh-tw.conf' '.config/fontconfig/conf.d/69-language-selector-zh-tw.conf'
+
+  # Mozilla Firefox
+  copy_file 'firefox/profiles.ini'    '.mozilla/firefox/profiles.ini'
+  link_file 'firefox/default/user.js' '.mozilla/firefox/default/user.js'
+
+  # Atom
+  link_file 'atom/config.cson'   '.atom/config.cson'
+  link_file 'atom/packages.cson' '.atom/packages.cson'
+
+  # Visual Studio Code
+  link_file 'vscode/User/settings.json'                 '.config/Code/User/settings.json'
+  link_file 'vscode/User/locale.json'                   '.config/Code/User/locale.json'
+  link_file 'vscode/User/extensions.json'               '.config/Code/User/extensions.json'
+  copy_file 'vscode/Local Storage/file__0.localstorage' '.config/Code/Local Storage/file__0.localstorage'
 }
 
 #######################################
@@ -55,13 +96,16 @@ download_dotfiles() {
   e_header '=> Downloading...'
 
   if command_exists 'git'; then
+    # Use Git to clone the remote repository.
     git clone --depth 1 --recursive "${DOTFILES_GIT_URL}" "${DOTFILES_PATH}"
   elif command_exists 'curl' || command_exists 'wget'; then
+    # Use cURL or Wget to download the tarball.
     if command_exists 'curl'; then
       curl -L -o "${HOME}/dotfiles.tar.gz" "${DOTFILES_TAR_URL}"
     elif command_exists 'wget'; then
       wget -O "${HOME}/dotfiles.tar.gz" "${DOTFILES_TAR_URL}"
     fi
+    # Extract the tarball to dotfiles directory.
     mkdir -p "${DOTFILES_PATH}"
     tar -zxf "${HOME}/dotfiles.tar.gz" --strip-components 1 -C "${DOTFILES_PATH}"
     rm -rf "${HOME}/dotfiles.tar.gz"
@@ -85,80 +129,66 @@ sync_dotfiles() {
   cd "${DOTFILES_PATH}"
 
   if ! is_git_repo; then
+    # Initialize the Git repository.
     git init
     git remote add origin "${DOTFILES_GIT_URL}"
     git fetch origin master
+    # Reset the repository.
     git reset --hard FETCH_HEAD
     git clean -fd
   fi
 
+  # Update from the remote repository.
   git pull --rebase origin master
   git submodule update --recursive --init --quiet
 }
 
 #######################################
-# Deploys files from dotfiles to home
-# directory.
-#######################################
-deploy() {
-  local source="${DOTFILES_PATH}/${2:-}"
-  local dest="${HOME}/${3:-}"
-  local deploy_cmd
-
-  case "${1:-link}" in
-    link) deploy_cmd=link_file ;;
-    copy) deploy_cmd=copy_file ;;
-  esac
-
-  if [[ -f "${source}" ]]; then
-    $deploy_cmd "${source}" "${dest%/}"
-  elif [[ -d "${source}" ]]; then
-    get_files "${source}" | while IFS= read -r -d $'\0' file; do
-      $deploy_cmd "${file}" "${dest%/}/${file##${source}/}"
-    done
-  else
-    die "Invalid source: ${source}"
-  fi
-}
-
-#######################################
-# Gets a list of all files in the
-# specified directory.
-#######################################
-get_files() {
-  find "${1}" -type f -print0 | sort -z
-}
-
-#######################################
-# Creates a backup if the specified
-# file exists.
-#######################################
-backup_file() {
-  if [[ -f "${1}" ]] && [[ ! -L "${1}" ]]; then
-    mv "${1}" "${1}~"
-  fi
-}
-
-#######################################
-# Creates a symbolic link.
+# Creates a symbolic link between
+# dotfiles and home directory.
 #######################################
 link_file() {
-  backup_file "${2}"
-  mkdir -p "${2%/*}"
-  ln -fs "${1}" "${2}"
+  local source="${DOTFILES_PATH}/${1}"
+  local dest="${HOME}/${2}"
 
-  e_success "Linked: ~/${2##${HOME}/}"
+  # Exit if the source file does not exist.
+  if [[ ! -f "${source}" ]]; then
+    die "File not found: ${source}"
+  fi
+
+  # Create a backup if the target file exists.
+  if [[ -f "${dest}" ]] && [[ ! -L "${dest}" ]]; then
+    mv "${dest}" "${dest}~"
+  fi
+
+  mkdir -p "${dest%/*}"
+  ln -fs "${source}" "${dest}"
+
+  e_success "Linked: ${1} -> ~/${2}"
 }
 
 #######################################
-# Copies a file.
+# Copies a file from dotfiles to home
+# directory.
 #######################################
 copy_file() {
-  backup_file "${2}"
-  mkdir -p "${2%/*}"
-  cp -f "${1}" "${2}"
+  local source="${DOTFILES_PATH}/${1}"
+  local dest="${HOME}/${2}"
 
-  e_success "Copied: ~/${2##${HOME}/}"
+  # Exit if the source file does not exist.
+  if [[ ! -f "${source}" ]]; then
+    die "File not found: ${source}"
+  fi
+
+  # Create a backup if the target file exists.
+  if [[ -f "${dest}" ]]; then
+    mv "${dest}" "${dest}~"
+  fi
+
+  mkdir -p "${dest%/*}"
+  cp -f "${source}" "${dest}"
+
+  e_success "Copied: ${1} -> ~/${2}"
 }
 
 #######################################
@@ -229,15 +259,18 @@ main() {
     esac
   done
 
+  # Get dotfiles from the remote repository.
   if [[ ! -d "${DOTFILES_PATH}" ]]; then
     download_dotfiles
   elif $opt_sync; then
     sync_dotfiles
   fi
 
+  # Install dotfiles.
   install_dotfiles
 
-  e_warning 'Restart the shell before you continue.'
+  echo 'Completed.'
+  echo 'Restart the shell before you continue.'
 }
 
 main "$@"
