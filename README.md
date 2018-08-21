@@ -14,14 +14,13 @@ $ curl -fsSL https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfil
 
 ## Usage
 
-```bash
-$ dotfiles [options]
 ```
+Usage: dotfiles [options]
 
-| Option         | Description                                  |
-| -------------- | -------------------------------------------- |
-| `-h`, `--help` | Print help message                           |
-| `--no-sync`    | Suppress pulling from the remote repository. |
+Options:
+  -h, --help    Print this help message.
+  --no-sync     Suppress pulling from the remote repository.
+```
 
 ## Acknowledgements
 
