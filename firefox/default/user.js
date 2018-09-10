@@ -368,5 +368,8 @@ user_pref("browser.zoom.siteSpecific", false);
 // Disable UI animation.
 user_pref("toolkit.cosmeticAnimations.enabled", false);
 
+// Disable automatic start and session restore after Windows reboot.
+user_pref("toolkit.winRegisterApplicationRestart", false);
+
 // Disable Alt key toggling the menu bar.
 user_pref("ui.key.menuAccessKey", 0);
