@@ -227,10 +227,6 @@ user_pref("extensions.webservice.discoverURL", "");
 user_pref("extensions.enabledScopes", 1);
 user_pref("extensions.autoDisableScopes", 15);
 
-// Clear localStorage and UUID when an extension is uninstalled.
-user_pref("extensions.webextensions.keepStorageOnUninstall", false);
-user_pref("extensions.webextensions.keepUuidOnUninstall", false);
-
 // Disable Mozilla permission to silently opt you into tests.
 user_pref("network.allow-experiments", false);
 
