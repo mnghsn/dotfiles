@@ -224,7 +224,7 @@ user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.webservice.discoverURL", "");
 
 // Lock down allowed extension directories.
-user_pref("extensions.enabledScopes", 1);
+user_pref("extensions.enabledScopes", 4);
 user_pref("extensions.autoDisableScopes", 15);
 
 // Disable Mozilla permission to silently opt you into tests.
