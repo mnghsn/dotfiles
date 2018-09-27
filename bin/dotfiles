@@ -98,16 +98,18 @@ download_dotfiles() {
     # Use Git to clone the remote repository.
     git clone --depth 1 --recursive "${DOTFILES_GIT_URL}" "${DOTFILES_PATH}"
   elif command_exists 'curl' || command_exists 'wget'; then
+    local tarball="${HOME}/dotfiles.tar.gz"
+
     # Use cURL or Wget to download the tarball.
     if command_exists 'curl'; then
-      curl -L -o "${HOME}/dotfiles.tar.gz" "${DOTFILES_TAR_URL}"
+      curl -L -o "${tarball}" "${DOTFILES_TAR_URL}"
     elif command_exists 'wget'; then
-      wget -O "${HOME}/dotfiles.tar.gz" "${DOTFILES_TAR_URL}"
+      wget -O "${tarball}" "${DOTFILES_TAR_URL}"
     fi
     # Extract the tarball to dotfiles directory.
     mkdir -p "${DOTFILES_PATH}"
-    tar -zxf "${HOME}/dotfiles.tar.gz" --strip-components 1 -C "${DOTFILES_PATH}"
-    rm -rf "${HOME}/dotfiles.tar.gz"
+    tar -zxf "${tarball}" --strip-components 1 -C "${DOTFILES_PATH}"
+    rm -rf "${tarball}"
   else
     die 'Either Git, cURL or Wget is required.'
   fi
