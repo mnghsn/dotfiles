@@ -271,6 +271,16 @@ main() {
     esac
   done
 
+  echo '      _       _    __ _ _            '
+  echo '   __| | ___ | |_ / _(_) | ___  ___  '
+  echo '  / _` |/ _ \| __| |_| | |/ _ \/ __| '
+  echo ' | (_| | (_) | |_|  _| | |  __/\__ \ '
+  echo '  \__,_|\___/ \__|_| |_|_|\___||___/ '
+  echo
+  echo "* DOTFILES_GIT_URL: ${DOTFILES_GIT_URL}"
+  echo "* DOTFILES_TAR_URL: ${DOTFILES_TAR_URL}"
+  echo "* DOTFILES_PATH: ${DOTFILES_PATH}"
+
   # Get dotfiles from the remote repository.
   if [[ ! -d "${DOTFILES_PATH}" ]]; then
     download_dotfiles
