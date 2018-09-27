@@ -94,16 +94,16 @@ install_dotfiles() {
 download_dotfiles() {
   e_header 'Downloading...'
 
-  if command_exists 'git'; then
+  if command_exists git; then
     # Use Git to clone the remote repository.
     git clone --depth 1 --recursive "${DOTFILES_GIT_URL}" "${DOTFILES_PATH}"
-  elif command_exists 'curl' || command_exists 'wget'; then
+  elif command_exists curl || command_exists wget; then
     local tarball="${HOME}/dotfiles.tar.gz"
 
     # Use cURL or Wget to download the tarball.
-    if command_exists 'curl'; then
+    if command_exists curl; then
       curl -L -o "${tarball}" "${DOTFILES_TAR_URL}"
-    elif command_exists 'wget'; then
+    elif command_exists wget; then
       wget -O "${tarball}" "${DOTFILES_TAR_URL}"
     fi
     # Extract the tarball to dotfiles directory.
@@ -123,7 +123,7 @@ download_dotfiles() {
 sync_dotfiles() {
   e_header 'Synchronizing...'
 
-  if ! command_exists 'git'; then
+  if ! command_exists git; then
     e_warning 'Git is not installed. Skipped synchronization.'
     return 0
   fi
