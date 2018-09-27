@@ -102,9 +102,9 @@ download_dotfiles() {
 
     # Use cURL or Wget to download the tarball.
     if command_exists curl; then
-      curl -L -o "${tarball}" "${DOTFILES_TAR_URL}"
+      curl -L# -o "${tarball}" "${DOTFILES_TAR_URL}"
     elif command_exists wget; then
-      wget -O "${tarball}" "${DOTFILES_TAR_URL}"
+      wget -nv -O "${tarball}" "${DOTFILES_TAR_URL}"
     fi
     # Extract the tarball to dotfiles directory.
     mkdir -p "${DOTFILES_PATH}"
