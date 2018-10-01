@@ -107,7 +107,6 @@ user_pref("privacy.donottrackheader.enabled", true);
 // Enable Tracking Protection.
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
-user_pref("privacy.trackingprotection.ui.enabled", true);
 user_pref("privacy.trackingprotection.introCount", 20);
 
 // Enable First Party Isolation.
