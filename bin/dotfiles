@@ -161,7 +161,7 @@ link_file() {
 
   # Create a backup if the target file exists.
   if [[ -f "${dest}" ]] && [[ ! -L "${dest}" ]]; then
-    mv "${dest}" "${dest}~"
+    mv "${dest}" "${dest}.bak"
   fi
 
   mkdir -p "${dest%/*}"
@@ -186,7 +186,7 @@ copy_file() {
 
   # Create a backup if the target file exists.
   if [[ -f "${dest}" ]]; then
-    mv "${dest}" "${dest}~"
+    mv "${dest}" "${dest}.bak"
   fi
 
   mkdir -p "${dest%/*}"
