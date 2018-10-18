@@ -4,6 +4,7 @@ os:
   - osx
 
 script:
+  - shellcheck bin/dotfiles
   - bin/dotfiles
 
 branches:
