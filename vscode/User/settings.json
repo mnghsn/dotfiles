@@ -1,4 +1,5 @@
 {
+  "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.find.autoFindInSelection": true,
   "editor.minimap.renderCharacters": false,
   "editor.multiCursorModifier": "ctrlCmd",
