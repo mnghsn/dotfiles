@@ -22,6 +22,7 @@
   "update.showReleaseNotes": false,
   "workbench.enableExperiments": false,
   "workbench.iconTheme": "vscode-icons",
+  "workbench.settings.editor": "json",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.feedback.visible": false,
