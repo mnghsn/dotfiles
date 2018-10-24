@@ -24,7 +24,6 @@ user_pref("browser.newtab.preload", false);
 user_pref("intl.accept_languages", "ja, zh-tw, zh, en-us, en");
 
 // Disable GeoIP-based search results.
-user_pref("browser.search.countryCode", "JP");
 user_pref("browser.search.region", "JP");
 user_pref("browser.search.geoip.url", "");
 
@@ -196,7 +195,6 @@ user_pref("identity.fxaccounts.enabled", false);
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 user_pref("app.shield.optoutstudies.enabled", false);
-user_pref("shield.savant.enabled", false);
 
 // Disable Ping-centre telemetry.
 user_pref("browser.ping-centre.telemetry", false);
@@ -300,8 +298,7 @@ user_pref("xpinstall.signatures.required", false);
 // Disable `about:config` warning.
 user_pref("general.warnOnAboutConfig", false);
 
-// Check for Firefox updates but let me choose to install them.
-user_pref("app.update.enabled", true);
+// Let me choose to install Firefox updates.
 user_pref("app.update.auto", false);
 
 // Prevent accessibility services from accessing my browser.
