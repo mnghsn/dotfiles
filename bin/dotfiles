@@ -239,7 +239,7 @@ e_success() {
 }
 
 #######################################
-# Prints a error message.
+# Prints an error message.
 # Usage: e_error MESSAGE...
 #######################################
 e_error() {
