@@ -18,7 +18,9 @@ DOTFILES_PATH=${DOTFILES_PATH:-"${HOME}/.dotfiles"}
 #######################################
 run_help() {
 cat <<EOS
-Usage: ${0##*/} [OPTION]...
+Usage: ${0##*/} [options]
+
+Options:
   -h, --help        Print this help message.
       --no-sync     Suppress pulling from the remote repository.
 EOS
