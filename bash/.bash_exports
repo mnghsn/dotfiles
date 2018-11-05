@@ -23,5 +23,8 @@ export HISTIGNORE='&:bg:fg'
 # Make history show the time for each command.
 export HISTTIMEFORMAT='%F %T '
 
+# Shorten paths in the Bash prompt. (Bash >= 4.0)
+export PROMPT_DIRTRIM=3
+
 # Make new shells get the history lines from all previous shells.
 export PROMPT_COMMAND="history -a; ${PROMPT_COMMAND}"
