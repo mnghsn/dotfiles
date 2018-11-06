@@ -22,7 +22,17 @@ mkd() {
 # endings to `LF` (Unix).
 #######################################
 crlf2lf() {
-  sed -i "s/$(printf '\r')//g" "${1}"
+  if [[ $# -eq 0 ]]; then
+    cat <&0
+  elif [[ $# -eq 1 ]]; then
+    if [[ -f "${1}" ]] && [[ -r "${1}" ]]; then
+      cat "${1}"
+    else
+      echo "${1}"
+    fi
+  else
+    return 1
+  fi | sed -e "s/$(printf '\r')//g"
 }
 
 #######################################
@@ -30,7 +40,17 @@ crlf2lf() {
 # `CRLF` (Windows).
 #######################################
 lf2crlf() {
-  sed -i "s/$/$(printf '\r')/g" "${1}"
+  if [[ $# -eq 0 ]]; then
+    cat <&0
+  elif [[ $# -eq 1 ]]; then
+    if [[ -f "${1}" ]] && [[ -r "${1}" ]]; then
+      cat "${1}"
+    else
+      echo "${1}"
+    fi
+  else
+    return 1
+  fi | sed -e "s/$/$(printf '\r')/g"
 }
 
 #######################################
