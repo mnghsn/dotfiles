@@ -19,6 +19,7 @@
   "files.trimTrailingWhitespace": true,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
+  "terminal.integrated.rendererType": "dom",
   "update.enableWindowsBackgroundUpdates": false,
   "update.showReleaseNotes": false,
   "workbench.enableExperiments": false,
