@@ -2,9 +2,6 @@
 #
 # ~/.bash_exports
 
-# Make default language English.
-export LANG='en_US.UTF-8'
-
 # Make vim the default editor.
 export EDITOR='vim'
 
