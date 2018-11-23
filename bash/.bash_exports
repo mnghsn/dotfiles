@@ -2,6 +2,12 @@
 #
 # ~/.bash_exports
 
+# Set default locale to English (US).
+export LANG='en_US.UTF-8'
+
+# Set letter sorting as in C.
+export LC_COLLATE='C'
+
 # Make vim the default editor.
 export EDITOR='vim'
 
