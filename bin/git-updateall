@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Runs `git pull` on every directory within the current directory.
+
+find . \
+  -maxdepth 1 \
+  ! -path . \
+  -type d \
+  -print \
+  -execdir git --git-dir={}/.git --work-tree="${PWD}/{}" pull \;

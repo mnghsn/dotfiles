@@ -33,8 +33,9 @@ install_dotfiles() {
   e_header 'Installing...'
 
   # Executable files
-  link_file 'bin/dotfiles' '.local/bin/dotfiles'
-  link_file 'bin/pyserver' '.local/bin/pyserver'
+  link_file 'bin/dotfiles'      '.local/bin/dotfiles'
+  link_file 'bin/pyserver'      '.local/bin/pyserver'
+  link_file 'bin/git-updateall' '.local/bin/git-updateall'
 
   # Shell
   link_file 'shell/.inputrc' '.inputrc'
