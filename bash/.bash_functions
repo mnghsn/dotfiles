@@ -54,58 +54,6 @@ lf2crlf() {
 }
 
 #######################################
-# Starts an HTTP server from a
-# directory, optionally specifying the
-# port.
-#######################################
-pyserver() {
-  local port="${1:-8000}"
-
-  python -c '
-import sys
-
-try:
-    # Python 2
-    import SimpleHTTPServer as server
-    import SocketServer as socketserver
-except ImportError:
-    # Python 3
-    import http.server as server
-    import socketserver
-
-handler = server.SimpleHTTPRequestHandler
-map = handler.extensions_map
-port = int(sys.argv[1])
-
-# Redefining the default content-type to text/plain instead of the default
-# application/octet-stream allows "unknown" files to be viewable in-browser
-# as text instead of being downloaded.
-map[""] = "text/plain"
-
-# Serve everything as UTF-8.
-# (Although not technically correct, this does not break anything for binary
-# files.)
-for key, value in map.items():
-    map[key] = value + "; charset=utf-8"
-
-# Create but do not automatically bind socket.
-# (the `allow_reuse_address` option needs to be set first)
-httpd = socketserver.ThreadingTCPServer(("localhost", port), handler, False)
-
-# Prevent "cannot bind to address" errors on restart.
-# https://brokenbad.com/address-reuse-in-pythons-socketserver/
-httpd.allow_reuse_address = True
-
-# Manually bind socket and start the server.
-httpd.server_bind()
-httpd.server_activate()
-print("Serving content on port:", port)
-httpd.serve_forever()
-
-  ' "${port}"
-}
-
-#######################################
 # Runs `git pull` on every directory
 # within the current directory.
 #######################################

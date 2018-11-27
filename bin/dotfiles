@@ -34,6 +34,7 @@ install_dotfiles() {
 
   # Executable files
   link_file 'bin/dotfiles' '.local/bin/dotfiles'
+  link_file 'bin/pyserver' '.local/bin/pyserver'
 
   # Shell
   link_file 'shell/.inputrc' '.inputrc'
