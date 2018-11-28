@@ -16,7 +16,11 @@ except ImportError:
 
 handler = server.SimpleHTTPRequestHandler
 map = handler.extensions_map
-port = int(sys.argv[1])
+
+if len(sys.argv) >= 2:
+    port = int(sys.argv[1])
+else:
+    port = 8000
 
 # Redefining the default content-type to text/plain instead of the default
 # application/octet-stream allows "unknown" files to be viewable in-browser
