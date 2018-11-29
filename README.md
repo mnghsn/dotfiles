@@ -30,6 +30,7 @@ Inspiration and code was taken from many sources, including:
 * [dotfiles](https://github.com/isaacs/dotfiles) by [@isaacs](https://github.com/isaacs)
 * [dotfiles](https://github.com/eed3si9n/dotfiles) by [@eed3si9n](https://github.com/eed3si9n)
 * [dotfiles](https://github.com/b4b4r07/dotfiles) by [@b4b4r07](https://github.com/b4b4r07)
+* [dotfiles](https://github.com/danmelton/dotfiles) by [@danmelton](https://github.com/danmelton)
 * [ssarcandy-vim](https://github.com/SSARCandy/ssarcandy-vim) by [@SSARCandy](https://github.com/SSARCandy)
 * [vim-opinion](https://github.com/rstacruz/vim-opinion) by [@rstacruz](https://github.com/rstacruz)
 * [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js) by [@ghacksuserjs](https://github.com/ghacksuserjs)
