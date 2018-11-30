@@ -52,3 +52,16 @@ lf2crlf() {
     return 1
   fi | sed -e "s/$/$(printf '\r')/g"
 }
+
+#######################################
+# Runs `git pull` on every directory
+# within the current directory.
+#######################################
+git-updateall() {
+  find . \
+    -maxdepth 1 \
+    ! -path . \
+    -type d \
+    -print \
+    -execdir git --git-dir={}/.git --work-tree="${PWD}/{}" pull \;
+}

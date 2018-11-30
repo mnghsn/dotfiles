@@ -35,8 +35,6 @@ install_dotfiles() {
   # Executable files
   link_file 'bin/dotfiles'          '.local/bin/dotfiles'
   link_file 'bin/pyserver'          '.local/bin/pyserver'
-  link_file 'bin/git-updateall'     '.local/bin/git-updateall'
-  link_file 'bin/docker-updateall'  '.local/bin/docker-updateall'
 
   # Shell
   link_file 'shell/.inputrc' '.inputrc'

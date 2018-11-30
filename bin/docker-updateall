@@ -1,7 +1,0 @@
-#!/bin/bash
-#
-# Runs `docker pull` on every Docker image.
-
-docker images --format='{{.Repository}}:{{.Tag}}' \
-  | sort \
-  | xargs -L1 docker pull
