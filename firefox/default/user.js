@@ -18,6 +18,8 @@ user_pref("browser.newtab.preload", false);
 
 // Disable Activity Stream.
 user_pref("browser.library.activity-stream.enabled", false);
+user_pref("browser.aboutHomeSnippets.updateUrl", "");
+user_pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "");
 user_pref("browser.newtabpage.activity-stream.disableSnippets", true);
 user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
@@ -161,6 +163,11 @@ user_pref("toolkit.telemetry.bhrPing.enabled", false);
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 user_pref("toolkit.telemetry.hybridContent.enabled", false);
 
+// Disable Telemetry Coverage.
+user_pref("toolkit.telemetry.coverage.opt-out", true);
+user_pref("toolkit.coverage.opt-out", true);
+user_pref("toolkit.coverage.endpoint.base", "");
+
 // Disable prefetching.
 user_pref("network.prefetch-next", false);
 user_pref("network.dns.disablePrefetch", true);
@@ -229,9 +236,9 @@ user_pref("reader.parse-on-load.enabled", false);
 
 // Disable various developer tools.
 user_pref("devtools.chrome.enabled", false);
-user_pref("devtools.webide.enabled", false);
-user_pref("devtools.webide.autoinstallADBHelper", false);
 user_pref("devtools.debugger.remote-enabled", false);
+user_pref("devtools.webide.enabled", false);
+user_pref("devtools.webide.autoinstallADBExtension", false);
 
 // -----------------------------------------------------------------------------
 // Add-ons
