@@ -143,7 +143,6 @@ user_pref("datareporting.policy.dataSubmissionEnabled", false);
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
-user_pref("browser.crashReports.unsubmittedCheck.autoSubmit", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
 // Disable Browser Error Reporter.
@@ -298,7 +297,6 @@ user_pref("media.gmp-widevinecdm.autoupdate", false);
 
 // Disable all DRM content.
 user_pref("media.eme.enabled", false);
-user_pref("browser.eme.ui.enabled", false);
 
 // Disable OpenH264 Video Codec by Cisco.
 user_pref("media.gmp-gmpopenh264.enabled", false);
