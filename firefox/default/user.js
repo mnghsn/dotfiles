@@ -43,6 +43,7 @@ user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint", "");
 user_pref("intl.accept_languages", "ja, zh-tw, zh, en-us, en");
 
 // Disable GeoIP-based search results.
+user_pref("browser.search.countryCode", "JP"); // [60 ESR]
 user_pref("browser.search.region", "JP");
 user_pref("browser.search.geoip.url", "");
 
@@ -222,6 +223,7 @@ user_pref("identity.fxaccounts.enabled", false);
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 user_pref("app.shield.optoutstudies.enabled", false);
+user_pref("shield.savant.enabled", false); // [60 ESR]
 
 // Disable Ping-centre telemetry.
 user_pref("browser.ping-centre.telemetry", false);
@@ -238,6 +240,8 @@ user_pref("devtools.chrome.enabled", false);
 user_pref("devtools.debugger.remote-enabled", false);
 user_pref("devtools.webide.enabled", false);
 user_pref("devtools.webide.autoinstallADBExtension", false);
+user_pref("devtools.webide.autoinstallADBHelper", false); // [60 ESR]
+user_pref("devtools.webide.adbAddonURL", ""); // [60 ESR]
 
 // -----------------------------------------------------------------------------
 // Add-ons
@@ -253,6 +257,12 @@ user_pref("extensions.autoDisableScopes", 15);
 
 // Disable Mozilla permission to silently opt you into tests.
 user_pref("network.allow-experiments", false);
+
+// Disable experiments. [60 ESR]
+user_pref("experiments.enabled", false);
+user_pref("experiments.activeExperiment", false);
+user_pref("experiments.supported", false);
+user_pref("experiments.manifest.uri", "");
 
 // Disable Onboarding.
 user_pref("browser.onboarding.enabled", false);
@@ -313,6 +323,7 @@ user_pref("xpinstall.signatures.required", false);
 user_pref("general.warnOnAboutConfig", false);
 
 // Let me choose to install Firefox updates.
+user_pref("app.update.enabled", false); // [60 ESR]
 user_pref("app.update.auto", false);
 user_pref("app.update.service.enabled", false);
 user_pref("app.update.staging.enabled", false);
