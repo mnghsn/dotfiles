@@ -314,6 +314,8 @@ user_pref("general.warnOnAboutConfig", false);
 
 // Let me choose to install Firefox updates.
 user_pref("app.update.auto", false);
+user_pref("app.update.service.enabled", false);
+user_pref("app.update.staging.enabled", false);
 
 // Prevent accessibility services from accessing my browser.
 user_pref("accessibility.force_disabled", 1);
