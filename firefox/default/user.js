@@ -168,6 +168,15 @@ user_pref("toolkit.telemetry.coverage.opt-out", true);
 user_pref("toolkit.coverage.opt-out", true);
 user_pref("toolkit.coverage.endpoint.base", "");
 
+// Disable Normandy and Shield (telemetry system).
+user_pref("app.normandy.enabled", false);
+user_pref("app.normandy.api_url", "");
+user_pref("app.shield.optoutstudies.enabled", false);
+user_pref("shield.savant.enabled", false); // [60 ESR]
+
+// Disable Ping-centre telemetry.
+user_pref("browser.ping-centre.telemetry", false);
+
 // Disable prefetching.
 user_pref("network.prefetch-next", false);
 user_pref("network.dns.disablePrefetch", true);
@@ -218,15 +227,6 @@ user_pref("security.family_safety.mode", 0);
 
 // Disable Firefox Accounts and Sync.
 user_pref("identity.fxaccounts.enabled", false);
-
-// Disable Normandy and Shield (telemetry system).
-user_pref("app.normandy.enabled", false);
-user_pref("app.normandy.api_url", "");
-user_pref("app.shield.optoutstudies.enabled", false);
-user_pref("shield.savant.enabled", false); // [60 ESR]
-
-// Disable Ping-centre telemetry.
-user_pref("browser.ping-centre.telemetry", false);
 
 // Disable UITour backend.
 user_pref("browser.uitour.enabled", false);
