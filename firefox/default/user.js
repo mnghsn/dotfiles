@@ -221,6 +221,9 @@ user_pref("security.dialog_enable_delay", 0);
 // Disable Windows Family Safety Mode.
 user_pref("security.family_safety.mode", 0);
 
+// Disallow cross-origin sub-resources to open HTTP authentication dialogs.
+user_pref("network.auth.subresource-http-auth-allow", 1);
+
 // -----------------------------------------------------------------------------
 // Features
 // -----------------------------------------------------------------------------
