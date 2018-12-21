@@ -267,6 +267,9 @@ user_pref("experiments.activeExperiment", false);
 user_pref("experiments.supported", false);
 user_pref("experiments.manifest.uri", "");
 
+// Disable Contextual Feature Recommendation (CFR).
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
+
 // Disable Onboarding.
 user_pref("browser.onboarding.enabled", false);
 
