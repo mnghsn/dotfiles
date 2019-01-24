@@ -64,6 +64,7 @@ install_dotfiles() {
   # Fontconfig
   link_file 'fontconfig/30-cjk-aliases.conf'             '.config/fontconfig/conf.d/30-cjk-aliases.conf'
   link_file 'fontconfig/56-twemoji-color.conf'           '.config/fontconfig/conf.d/56-twemoji-color.conf'
+  link_file 'fontconfig/60-latin.conf'                   '.config/fontconfig/conf.d/60-latin.conf'
   link_file 'fontconfig/69-language-selector-ja.conf'    '.config/fontconfig/conf.d/69-language-selector-ja.conf'
   link_file 'fontconfig/69-language-selector-ko.conf'    '.config/fontconfig/conf.d/69-language-selector-ko.conf'
   link_file 'fontconfig/69-language-selector-zh-cn.conf' '.config/fontconfig/conf.d/69-language-selector-zh-cn.conf'
