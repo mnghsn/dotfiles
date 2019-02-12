@@ -19,7 +19,6 @@
   "git.inputValidationSubjectLength": 50,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.rendererType": "dom",
   "update.enableWindowsBackgroundUpdates": false,
   "window.newWindowDimensions": "inherit",
   "workbench.editor.highlightModifiedTabs": true,
