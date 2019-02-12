@@ -27,6 +27,7 @@
   "workbench.iconTheme": "vscode-icons",
   "workbench.settings.editor": "json",
   "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.settings.useSplitJSON": true,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.feedback.visible": false,
   "workbench.tips.enabled": false
