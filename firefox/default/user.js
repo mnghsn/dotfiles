@@ -113,8 +113,8 @@ user_pref("media.block-autoplay-until-in-foreground", true);
 // Privacy
 // -----------------------------------------------------------------------------
 
-// Accept third-party cookies from visited.
-user_pref("network.cookie.cookieBehavior", 3);
+// Block all third-party cookies.
+user_pref("network.cookie.cookieBehavior", 1);
 
 // Set third-party cookies to session-only.
 user_pref("network.cookie.thirdparty.sessionOnly", true);
