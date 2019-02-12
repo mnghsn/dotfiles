@@ -21,7 +21,6 @@
   "telemetry.enableTelemetry": false,
   "terminal.integrated.rendererType": "dom",
   "update.enableWindowsBackgroundUpdates": false,
-  "update.showReleaseNotes": false,
   "window.newWindowDimensions": "inherit",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.enableExperiments": false,
