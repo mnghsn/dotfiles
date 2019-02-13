@@ -66,6 +66,9 @@ user_pref("font.minimum-size.zh-TW", 10);
 user_pref("geo.enabled", false);
 user_pref("geo.wifi.uri", "");
 user_pref("geo.wifi.logging.enabled", false);
+user_pref("geo.provider.ms-windows-location", false);
+user_pref("geo.provider.use_corelocation", false);
+user_pref("geo.provider.use_gpsd", false);
 user_pref("permissions.default.geo", 2);
 
 // Disable WebRTC.
