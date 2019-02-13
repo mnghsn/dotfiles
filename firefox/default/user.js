@@ -187,6 +187,9 @@ user_pref("network.predictor.enabled", false);
 user_pref("network.captive-portal-service.enabled", false);
 user_pref("captivedetect.canonicalURL", "");
 
+// Disable Network Connectivity Services.
+user_pref("network.connectivity-service.enabled", false);
+
 // Disable opening connection to links when mouseover.
 user_pref("network.http.speculative-parallel-limit", 0);
 
