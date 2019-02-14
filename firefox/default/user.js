@@ -131,6 +131,9 @@ user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
 user_pref("privacy.trackingprotection.introCount", 20);
 
+// Disable Content Blocking notification.
+user_pref("browser.contentblocking.introCount", 20);
+
 // Enable First Party Isolation.
 user_pref("privacy.firstparty.isolate", true);
 user_pref("privacy.firstparty.isolate.restrict_opener_access", true);
