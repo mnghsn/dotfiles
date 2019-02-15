@@ -109,6 +109,9 @@ user_pref("dom.popup_allowed_events", "click dblclick mouseup");
 // Disallow JavaScript to move or resize window.
 user_pref("dom.disable_window_move_resize", true);
 
+// Enable window.opener protection.
+user_pref("dom.targetBlankNoOpener.enabled", true);
+
 // Disable audio auto-play in non-active tabs.
 user_pref("media.block-autoplay-until-in-foreground", true);
 
