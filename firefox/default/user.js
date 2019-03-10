@@ -398,9 +398,6 @@ user_pref("browser.pagethumbnails.capturing_disabled", true);
 // Disable site specific zoom.
 user_pref("browser.zoom.siteSpecific", false);
 
-// Disalbe location bar searching.
-user_pref("keyword.enabled", false);
-
 // Disable UI animation.
 user_pref("toolkit.cosmeticAnimations.enabled", false);
 
