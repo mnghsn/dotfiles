@@ -16,7 +16,6 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "git.inputValidationSubjectLength": 50,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "update.enableWindowsBackgroundUpdates": false,
