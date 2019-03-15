@@ -82,10 +82,10 @@ install_dotfiles() {
   link_file 'atom/packages.cson' '.atom/packages.cson'
 
   # Visual Studio Code
-  link_file 'vscode/User/settings.json'                 '.config/Code/User/settings.json'
-  link_file 'vscode/User/locale.json'                   '.config/Code/User/locale.json'
-  link_file 'vscode/User/extensions.json'               '.config/Code/User/extensions.json'
-  copy_file 'vscode/Local Storage/file__0.localstorage' '.config/Code/Local Storage/file__0.localstorage'
+  link_file 'vscode/settings.json'             '.config/Code/User/settings.json'
+  link_file 'vscode/locale.json'               '.config/Code/User/locale.json'
+  link_file 'vscode/extensions.json'           '.config/Code/User/extensions.json'
+  copy_file 'vscode/globalStorage/state.vscdb' '.config/Code/User/globalStorage/state.vscdb'
 }
 
 #######################################
