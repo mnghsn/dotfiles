@@ -1,6 +1,6 @@
 {
   "extensions": [
     "EditorConfig.EditorConfig",
-    "robertohuertasm.vscode-icons"
+    "vscode-icons-team.vscode-icons"
   ]
 }
