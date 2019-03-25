@@ -62,16 +62,13 @@ install_dotfiles() {
   link_file 'vim/.vim/plugins.vim'  '.vim/plugins.vim'
 
   # Fontconfig
-  link_file 'fontconfig/30-cjk-aliases.conf'             '.config/fontconfig/conf.d/30-cjk-aliases.conf'
-  link_file 'fontconfig/56-twemoji-color.conf'           '.config/fontconfig/conf.d/56-twemoji-color.conf'
-  link_file 'fontconfig/60-latin.conf'                   '.config/fontconfig/conf.d/60-latin.conf'
-  link_file 'fontconfig/69-language-selector-ja.conf'    '.config/fontconfig/conf.d/69-language-selector-ja.conf'
-  link_file 'fontconfig/69-language-selector-ko.conf'    '.config/fontconfig/conf.d/69-language-selector-ko.conf'
-  link_file 'fontconfig/69-language-selector-zh-cn.conf' '.config/fontconfig/conf.d/69-language-selector-zh-cn.conf'
-  link_file 'fontconfig/69-language-selector-zh-hk.conf' '.config/fontconfig/conf.d/69-language-selector-zh-hk.conf'
-  link_file 'fontconfig/69-language-selector-zh-mo.conf' '.config/fontconfig/conf.d/69-language-selector-zh-mo.conf'
-  link_file 'fontconfig/69-language-selector-zh-sg.conf' '.config/fontconfig/conf.d/69-language-selector-zh-sg.conf'
-  link_file 'fontconfig/69-language-selector-zh-tw.conf' '.config/fontconfig/conf.d/69-language-selector-zh-tw.conf'
+  link_file 'fontconfig/30-cjk-aliases.conf'      '.config/fontconfig/conf.d/30-cjk-aliases.conf'
+  link_file 'fontconfig/56-twemoji-color.conf'    '.config/fontconfig/conf.d/56-twemoji-color.conf'
+  link_file 'fontconfig/66-noto-color-emoji.conf' '.config/fontconfig/conf.d/66-noto-color-emoji.conf'
+  link_file 'fontconfig/66-noto-mono.conf'        '.config/fontconfig/conf.d/66-noto-mono.conf'
+  link_file 'fontconfig/66-noto-sans.conf'        '.config/fontconfig/conf.d/66-noto-sans.conf'
+  link_file 'fontconfig/66-noto-serif.conf'       '.config/fontconfig/conf.d/66-noto-serif.conf'
+  link_file 'fontconfig/70-noto-cjk.conf'         '.config/fontconfig/conf.d/70-noto-cjk.conf'
 
   # Mozilla Firefox
   copy_file 'firefox/profiles.ini'    '.mozilla/firefox/profiles.ini'
