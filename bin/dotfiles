@@ -64,6 +64,7 @@ install_dotfiles() {
   # Fontconfig
   link_file 'fontconfig/30-cjk-aliases.conf'      '.config/fontconfig/conf.d/30-cjk-aliases.conf'
   link_file 'fontconfig/45-iosevka.conf'          '.config/fontconfig/conf.d/45-iosevka.conf'
+  link_file 'fontconfig/45-sarasa-gothic.conf'    '.config/fontconfig/conf.d/45-sarasa-gothic.conf'
   link_file 'fontconfig/56-twemoji-color.conf'    '.config/fontconfig/conf.d/56-twemoji-color.conf'
   link_file 'fontconfig/66-noto-color-emoji.conf' '.config/fontconfig/conf.d/66-noto-color-emoji.conf'
   link_file 'fontconfig/66-noto-mono.conf'        '.config/fontconfig/conf.d/66-noto-mono.conf'
