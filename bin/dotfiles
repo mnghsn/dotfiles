@@ -62,15 +62,15 @@ install_dotfiles() {
   link_file 'vim/.vim/plugins.vim'  '.vim/plugins.vim'
 
   # Fontconfig
-  link_file 'fontconfig/30-cjk-aliases.conf'      '.config/fontconfig/conf.d/30-cjk-aliases.conf'
-  link_file 'fontconfig/45-iosevka.conf'          '.config/fontconfig/conf.d/45-iosevka.conf'
-  link_file 'fontconfig/45-sarasa-gothic.conf'    '.config/fontconfig/conf.d/45-sarasa-gothic.conf'
-  link_file 'fontconfig/56-twemoji-color.conf'    '.config/fontconfig/conf.d/56-twemoji-color.conf'
-  link_file 'fontconfig/66-noto-color-emoji.conf' '.config/fontconfig/conf.d/66-noto-color-emoji.conf'
-  link_file 'fontconfig/66-noto-mono.conf'        '.config/fontconfig/conf.d/66-noto-mono.conf'
-  link_file 'fontconfig/66-noto-sans.conf'        '.config/fontconfig/conf.d/66-noto-sans.conf'
-  link_file 'fontconfig/66-noto-serif.conf'       '.config/fontconfig/conf.d/66-noto-serif.conf'
-  link_file 'fontconfig/70-noto-cjk.conf'         '.config/fontconfig/conf.d/70-noto-cjk.conf'
+  link_file 'fontconfig/30-cjk-aliases.conf'             '.config/fontconfig/conf.d/30-cjk-aliases.conf'
+  link_file 'fontconfig/40-generic.conf'                 '.config/fontconfig/conf.d/40-generic.conf'
+  link_file 'fontconfig/60-generic.conf'                 '.config/fontconfig/conf.d/60-generic.conf'
+  link_file 'fontconfig/69-language-selector-ja.conf'    '.config/fontconfig/conf.d/69-language-selector-ja.conf'
+  link_file 'fontconfig/69-language-selector-ko.conf'    '.config/fontconfig/conf.d/69-language-selector-ko.conf'
+  link_file 'fontconfig/69-language-selector-zh-cn.conf' '.config/fontconfig/conf.d/69-language-selector-zh-cn.conf'
+  link_file 'fontconfig/69-language-selector-zh-hk.conf' '.config/fontconfig/conf.d/69-language-selector-zh-hk.conf'
+  link_file 'fontconfig/69-language-selector-zh-tw.conf' '.config/fontconfig/conf.d/69-language-selector-zh-tw.conf'
+  link_file 'fontconfig/70-reject.conf'                  '.config/fontconfig/conf.d/70-reject.conf'
 
   # Mozilla Firefox
   copy_file 'firefox/profiles.ini'    '.mozilla/firefox/profiles.ini'
