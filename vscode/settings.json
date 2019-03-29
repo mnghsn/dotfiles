@@ -1,7 +1,6 @@
 {
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.copyWithSyntaxHighlighting": false,
-  "editor.find.autoFindInSelection": true,
   "editor.minimap.renderCharacters": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderControlCharacters": true,
