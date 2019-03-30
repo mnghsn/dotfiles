@@ -341,6 +341,7 @@ user_pref("app.update.enabled", false); // [60 ESR]
 user_pref("app.update.auto", false);
 user_pref("app.update.service.enabled", false);
 user_pref("app.update.staging.enabled", false);
+user_pref("app.update.silent", false);
 
 // Prevent accessibility services from accessing my browser.
 user_pref("accessibility.force_disabled", 1);
