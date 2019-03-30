@@ -269,6 +269,9 @@ user_pref("extensions.autoDisableScopes", 15);
 // Disable Mozilla permission to silently opt you into tests.
 user_pref("network.allow-experiments", false);
 
+// Disable personalized extension recommendations.
+user_pref("browser.discovery.enabled", false);
+
 // Disable experiments. [60 ESR]
 user_pref("experiments.enabled", false);
 user_pref("experiments.activeExperiment", false);
