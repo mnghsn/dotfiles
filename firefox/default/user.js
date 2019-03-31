@@ -76,11 +76,7 @@ user_pref("media.peerconnection.enabled", false);
 user_pref("media.peerconnection.ice.tcp", false);
 user_pref("media.peerconnection.identity.enabled", false);
 user_pref("media.peerconnection.identity.timeout", 1);
-user_pref("media.peerconnection.turn.disable", true);
-user_pref("media.peerconnection.use_document_iceservers", false);
-user_pref("media.peerconnection.video.enabled", false);
 user_pref("media.navigator.enabled", false);
-user_pref("media.navigator.video.enabled", false);
 
 // Disable Notifications API.
 user_pref("dom.webnotifications.enabled", false);
