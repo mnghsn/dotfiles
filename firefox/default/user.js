@@ -126,7 +126,8 @@ user_pref("dom.disable_window_move_resize", true);
 // Enable window.opener protection.
 user_pref("dom.targetBlankNoOpener.enabled", true);
 
-// Disable audio auto-play in non-active tabs.
+// Disable audio auto-play.
+user_pref("media.autoplay.default", 1);
 user_pref("media.block-autoplay-until-in-foreground", true);
 
 // -----------------------------------------------------------------------------
