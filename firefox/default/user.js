@@ -93,6 +93,9 @@ user_pref("dom.push.connection.enabled", false);
 user_pref("dom.push.serverURL", "");
 user_pref("dom.push.userAgentID", "");
 
+// Disable shaking the screen.
+user_pref("dom.vibrator.enabled", false);
+
 // Block camera and microphone permissions.
 user_pref("permissions.default.camera", 2);
 user_pref("permissions.default.microphone", 2);
