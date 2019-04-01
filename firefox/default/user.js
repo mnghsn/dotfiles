@@ -44,7 +44,6 @@ user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint", "");
 user_pref("intl.accept_languages", "ja, zh-tw, zh, en-us, en");
 
 // Disable GeoIP-based search results.
-user_pref("browser.search.countryCode", "JP"); // [60 ESR]
 user_pref("browser.search.region", "JP");
 user_pref("browser.search.geoip.url", "");
 
@@ -148,10 +147,6 @@ user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
-// Disable Browser Error Reporter.
-user_pref("browser.chrome.errorReporter.enabled", false);
-user_pref("browser.chrome.errorReporter.submitUrl", "");
-
 // Disable Telemetry.
 user_pref("toolkit.telemetry.enabled", false);
 user_pref("toolkit.telemetry.unified", false);
@@ -174,7 +169,6 @@ user_pref("toolkit.coverage.endpoint.base", "");
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 user_pref("app.shield.optoutstudies.enabled", false);
-user_pref("shield.savant.enabled", false); // [60 ESR]
 
 // Disable Ping-centre telemetry.
 user_pref("browser.ping-centre.telemetry", false);
@@ -248,8 +242,6 @@ user_pref("devtools.chrome.enabled", false);
 user_pref("devtools.debugger.remote-enabled", false);
 user_pref("devtools.webide.enabled", false);
 user_pref("devtools.webide.autoinstallADBExtension", false);
-user_pref("devtools.webide.autoinstallADBHelper", false); // [60 ESR]
-user_pref("devtools.webide.adbAddonURL", ""); // [60 ESR]
 
 // -----------------------------------------------------------------------------
 // Add-ons
@@ -269,17 +261,8 @@ user_pref("network.allow-experiments", false);
 // Disable personalized extension recommendations.
 user_pref("browser.discovery.enabled", false);
 
-// Disable experiments. [60 ESR]
-user_pref("experiments.enabled", false);
-user_pref("experiments.activeExperiment", false);
-user_pref("experiments.supported", false);
-user_pref("experiments.manifest.uri", "");
-
 // Disable Contextual Feature Recommendation (CFR).
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
-
-// Disable Onboarding.
-user_pref("browser.onboarding.enabled", false);
 
 // Disable Form Autofill.
 user_pref("extensions.formautofill.available", "off");
@@ -337,7 +320,6 @@ user_pref("xpinstall.signatures.required", false);
 user_pref("general.warnOnAboutConfig", false);
 
 // Let me choose to install Firefox updates.
-user_pref("app.update.enabled", false); // [60 ESR]
 user_pref("app.update.auto", false);
 user_pref("app.update.service.enabled", false);
 user_pref("app.update.staging.enabled", false);
@@ -407,3 +389,34 @@ user_pref("toolkit.winRegisterApplicationRestart", false);
 
 // Disable Alt key toggling the menu bar.
 user_pref("ui.key.menuAccessKey", 0);
+
+// -----------------------------------------------------------------------------
+// ESR
+// -----------------------------------------------------------------------------
+
+// Disable experiments.
+user_pref("experiments.enabled", false);
+user_pref("experiments.manifest.uri", "");
+user_pref("experiments.supported", false);
+user_pref("experiments.activeExperiment", false);
+user_pref("network.allow-experiments", false);
+
+// Disable GeoIP-based search results.
+user_pref("browser.search.countryCode", "JP");
+
+// Disable auto-update checks for Firefox.
+user_pref("app.update.enabled", false);
+
+// Disable "Savant" Shield study.
+user_pref("shield.savant.enabled", false);
+
+// Disable Onboarding
+user_pref("browser.onboarding.enabled", false);
+
+// Disable WebIDE ADB extension downloads.
+user_pref("devtools.webide.autoinstallADBHelper", false);
+user_pref("devtools.webide.adbAddonURL", "");
+
+// Disable Browser Error Reporter.
+user_pref("browser.chrome.errorReporter.enabled", false);
+user_pref("browser.chrome.errorReporter.submitUrl", "");
