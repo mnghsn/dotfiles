@@ -73,10 +73,14 @@ user_pref("permissions.default.geo", 2);
 
 // Disable WebRTC.
 user_pref("media.peerconnection.enabled", false);
-user_pref("media.peerconnection.ice.tcp", false);
-user_pref("media.peerconnection.identity.enabled", false);
-user_pref("media.peerconnection.identity.timeout", 1);
+user_pref("media.peerconnection.ice.default_address_only", true);
+user_pref("media.peerconnection.ice.no_host", true);
 user_pref("media.navigator.enabled", false);
+
+// Disable screensharing.
+user_pref("media.getusermedia.screensharing.enabled", false);
+user_pref("media.getusermedia.browser.enabled", false);
+user_pref("media.getusermedia.audiocapture.enabled", false);
 
 // Disable Notifications API.
 user_pref("dom.webnotifications.enabled", false);
