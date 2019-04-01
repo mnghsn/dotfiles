@@ -109,6 +109,17 @@ user_pref("dom.disable_open_during_load", true);
 user_pref("dom.popup_maximum", 2);
 user_pref("dom.popup_allowed_events", "click dblclick mouseup");
 
+// Prevent websites from disabling new window features.
+user_pref("dom.disable_window_open_feature.close", true);
+user_pref("dom.disable_window_open_feature.location", true);
+user_pref("dom.disable_window_open_feature.menubar", true);
+user_pref("dom.disable_window_open_feature.minimizable", true);
+user_pref("dom.disable_window_open_feature.personalbar", true);
+user_pref("dom.disable_window_open_feature.resizable", true);
+user_pref("dom.disable_window_open_feature.status", true);
+user_pref("dom.disable_window_open_feature.titlebar", true);
+user_pref("dom.disable_window_open_feature.toolbar", true);
+
 // Disallow JavaScript to move or resize window.
 user_pref("dom.disable_window_move_resize", true);
 
