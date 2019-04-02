@@ -233,6 +233,10 @@ user_pref("security.ssl.enable_ocsp_stapling", true);
 user_pref("security.OCSP.enabled", 1);
 user_pref("security.OCSP.require", true);
 
+// Enable CSP (Content Security Policy).
+user_pref("security.csp.enable", true);
+user_pref("security.csp.experimentalEnabled", true);
+
 // Skip the security delay on "Install" and "Open/Save" dialogs.
 user_pref("security.dialog_enable_delay", 0);
 
