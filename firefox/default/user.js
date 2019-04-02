@@ -283,9 +283,6 @@ user_pref("extensions.webservice.discoverURL", "");
 user_pref("extensions.enabledScopes", 4);
 user_pref("extensions.autoDisableScopes", 15);
 
-// Disable Mozilla permission to silently opt you into tests.
-user_pref("network.allow-experiments", false);
-
 // Disable personalized extension recommendations.
 user_pref("browser.discovery.enabled", false);
 
