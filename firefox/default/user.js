@@ -366,6 +366,10 @@ user_pref("browser.cache.disk.smart_size.first_run", false);
 user_pref("browser.cache.disk.capacity", 0);
 user_pref("browser.cache.disk_cache_ssl", false);
 
+// Disable offline cache.
+user_pref("browser.cache.offline.enable", false);
+user_pref("browser.cache.offline.insecure.enable", false);
+
 // Set the minimum interval between session save operations.
 user_pref("browser.sessionstore.interval", 600000);
 
