@@ -330,6 +330,9 @@ user_pref("media.eme.enabled", false);
 user_pref("media.gmp-gmpopenh264.enabled", false);
 user_pref("media.gmp-gmpopenh264.autoupdate", false);
 
+// Warn me when websites try to install add-ons.
+user_pref("xpinstall.whitelist.required", true);
+
 // Disable signature enforcement for Nightly and ESR.
 user_pref("xpinstall.signatures.required", false);
 
