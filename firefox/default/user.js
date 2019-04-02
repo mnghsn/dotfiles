@@ -371,7 +371,7 @@ user_pref("browser.cache.offline.enable", false);
 user_pref("browser.cache.offline.insecure.enable", false);
 
 // Set the minimum interval between session save operations.
-user_pref("browser.sessionstore.interval", 600000);
+user_pref("browser.sessionstore.interval", 60000);
 
 // Disable location bar domain guessing.
 user_pref("browser.fixup.alternate.enabled", false);
