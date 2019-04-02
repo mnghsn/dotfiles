@@ -279,10 +279,6 @@ user_pref("devtools.webide.autoinstallADBExtension", false);
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.webservice.discoverURL", "");
 
-// Lock down allowed extension directories.
-user_pref("extensions.enabledScopes", 4);
-user_pref("extensions.autoDisableScopes", 15);
-
 // Disable personalized extension recommendations.
 user_pref("browser.discovery.enabled", false);
 
