@@ -243,6 +243,11 @@ user_pref("security.dialog_enable_delay", 0);
 // Disable Windows Family Safety Mode.
 user_pref("security.family_safety.mode", 0);
 
+// Disable insecure active content on HTTPS pages.
+user_pref("security.mixed_content.block_active_content", true);
+user_pref("security.mixed_content.block_display_content", true);
+user_pref("security.mixed_content.block_object_subrequest", true);
+
 // Disallow cross-origin sub-resources to open HTTP authentication dialogs.
 user_pref("network.auth.subresource-http-auth-allow", 1);
 
