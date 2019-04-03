@@ -17,13 +17,14 @@ user_pref("browser.newtabpage.enabled", false);
 user_pref("browser.newtab.preload", false);
 
 // Disable Activity Stream.
-user_pref("browser.library.activity-stream.enabled", false);
 user_pref("browser.aboutHomeSnippets.updateUrl", "");
+user_pref("browser.library.activity-stream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "");
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
 user_pref("browser.newtabpage.activity-stream.disableSnippets", true);
+user_pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
-user_pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false);
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
@@ -71,16 +72,8 @@ user_pref("geo.provider.use_corelocation", false);
 user_pref("geo.provider.use_gpsd", false);
 user_pref("permissions.default.geo", 2);
 
-// Disable WebRTC.
-user_pref("media.peerconnection.enabled", false);
-user_pref("media.peerconnection.ice.default_address_only", true);
-user_pref("media.peerconnection.ice.no_host", true);
-user_pref("media.navigator.enabled", false);
-
-// Disable screensharing.
-user_pref("media.getusermedia.screensharing.enabled", false);
-user_pref("media.getusermedia.browser.enabled", false);
-user_pref("media.getusermedia.audiocapture.enabled", false);
+// Disable Beacon API.
+user_pref("beacon.enabled", false);
 
 // Disable Notifications API.
 user_pref("dom.webnotifications.enabled", false);
@@ -93,12 +86,23 @@ user_pref("dom.push.connection.enabled", false);
 user_pref("dom.push.serverURL", "");
 user_pref("dom.push.userAgentID", "");
 
-// Disable shaking the screen.
-user_pref("dom.vibrator.enabled", false);
+// Disable WebRTC.
+user_pref("media.peerconnection.enabled", false);
+user_pref("media.peerconnection.ice.default_address_only", true);
+user_pref("media.peerconnection.ice.no_host", true);
+user_pref("media.navigator.enabled", false);
+user_pref("media.getusermedia.audiocapture.enabled", false);
+user_pref("media.getusermedia.browser.enabled", false);
+user_pref("media.getusermedia.screensharing.enabled", false);
 
 // Block camera and microphone permissions.
 user_pref("permissions.default.camera", 2);
 user_pref("permissions.default.microphone", 2);
+
+// Disable autoplaying media unless the user has interacted with the page.
+user_pref("media.autoplay.default", 1);
+user_pref("media.autoplay.enabled.user-gestures-needed", true);
+user_pref("media.block-autoplay-until-in-foreground", true);
 
 // Disable links opening in a new window.
 user_pref("browser.link.open_newwindow", 3);
@@ -106,10 +110,14 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 
 // Limit pop-up window events.
 user_pref("dom.disable_open_during_load", true);
-user_pref("dom.popup_maximum", 2);
 user_pref("dom.popup_allowed_events", "click dblclick mouseup");
+user_pref("dom.popup_maximum", 2);
 
-// Prevent websites from disabling new window features.
+// Enable window.opener protection.
+user_pref("dom.targetBlankNoOpener.enabled", true);
+
+// Disallow JavaScript to change the window features.
+user_pref("dom.disable_window_move_resize", true);
 user_pref("dom.disable_window_open_feature.close", true);
 user_pref("dom.disable_window_open_feature.location", true);
 user_pref("dom.disable_window_open_feature.menubar", true);
@@ -120,15 +128,29 @@ user_pref("dom.disable_window_open_feature.status", true);
 user_pref("dom.disable_window_open_feature.titlebar", true);
 user_pref("dom.disable_window_open_feature.toolbar", true);
 
-// Disallow JavaScript to move or resize window.
-user_pref("dom.disable_window_move_resize", true);
+// -----------------------------------------------------------------------------
+// Connection
+// -----------------------------------------------------------------------------
 
-// Enable window.opener protection.
-user_pref("dom.targetBlankNoOpener.enabled", true);
+// Disable prefetching.
+user_pref("network.prefetch-next", false);
+user_pref("network.dns.disablePrefetch", true);
+user_pref("network.dns.disablePrefetchFromHTTPS", true);
+user_pref("network.predictor.enabled", false);
+user_pref("network.predictor.enable-prefetch", false);
 
-// Disable audio auto-play.
-user_pref("media.autoplay.default", 1);
-user_pref("media.block-autoplay-until-in-foreground", true);
+// Disable opening connection to links when mouseover.
+user_pref("network.http.speculative-parallel-limit", 0);
+
+// Disable pings but enforce same host in case.
+user_pref("browser.send_pings", false);
+user_pref("browser.send_pings.require_same_host", true);
+
+// Disable Network Connectivity checks.
+user_pref("network.connectivity-service.enabled", false);
+
+// Disallow cross-origin sub-resources to open HTTP authentication dialogs.
+user_pref("network.auth.subresource-http-auth-allow", 1);
 
 // -----------------------------------------------------------------------------
 // Privacy
@@ -141,129 +163,126 @@ user_pref("network.cookie.cookieBehavior", 1);
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
-// Enable DNT HTTP header.
-user_pref("privacy.donottrackheader.enabled", true);
-
-// Enable Tracking Protection.
-user_pref("privacy.trackingprotection.enabled", true);
-user_pref("privacy.trackingprotection.pbmode.enabled", true);
-user_pref("privacy.trackingprotection.introCount", 20);
-
-// Disable Content Blocking notification.
-user_pref("browser.contentblocking.introCount", 20);
-
 // Enable First Party Isolation.
 user_pref("privacy.firstparty.isolate", true);
 user_pref("privacy.firstparty.isolate.restrict_opener_access", true);
 
-// Disable Health Report.
-user_pref("datareporting.healthreport.uploadEnabled", false);
-user_pref("datareporting.policy.dataSubmissionEnabled", false);
+// Enable Tracking Protection in all windows.
+user_pref("privacy.trackingprotection.enabled", true);
+user_pref("privacy.trackingprotection.pbmode.enabled", true);
+user_pref("privacy.trackingprotection.introCount", 20);
 
-// Disable Crash Reporter.
-user_pref("breakpad.reportURL", "");
-user_pref("browser.tabs.crashReporting.sendReport", false);
-user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
-user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+// Enable DNT (Do Not Track) HTTP header.
+user_pref("privacy.donottrackheader.enabled", true);
+
+// Hide Content Blocking notification.
+user_pref("browser.contentblocking.introCount", 20);
 
 // Disable Telemetry.
-user_pref("toolkit.telemetry.enabled", false);
 user_pref("toolkit.telemetry.unified", false);
-user_pref("toolkit.telemetry.archive.enabled", false);
+user_pref("toolkit.telemetry.enabled", false);
 user_pref("toolkit.telemetry.cachedClientID", "");
 user_pref("toolkit.telemetry.server", "data:,");
-user_pref("toolkit.telemetry.newProfilePing.enabled", false);
-user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
-user_pref("toolkit.telemetry.updatePing.enabled", false);
+user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.bhrPing.enabled", false);
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 user_pref("toolkit.telemetry.hybridContent.enabled", false);
+user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+user_pref("toolkit.telemetry.updatePing.enabled", false);
 
 // Disable Telemetry Coverage.
 user_pref("toolkit.telemetry.coverage.opt-out", true);
 user_pref("toolkit.coverage.opt-out", true);
 user_pref("toolkit.coverage.endpoint.base", "");
 
-// Disable Normandy and Shield (telemetry system).
+// Disable Health Report.
+user_pref("datareporting.healthreport.uploadEnabled", false);
+user_pref("datareporting.policy.dataSubmissionEnabled", false);
+
+// Disallow Firefox to install and run studies.
+user_pref("app.shield.optoutstudies.enabled", false);
+
+// Disallow Firefox to make personalized extension recommendations.
+user_pref("browser.discovery.enabled", false);
+
+// Disable Crash Reports.
+user_pref("breakpad.reportURL", "");
+user_pref("browser.tabs.crashReporting.sendReport", false);
+user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
+user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+
+// Disable Captive Portal detection.
+user_pref("captivedetect.canonicalURL", "");
+user_pref("network.captive-portal-service.enabled", false);
+
+// Disable Normandy/Shield (telemetry system).
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
-user_pref("app.shield.optoutstudies.enabled", false);
 
 // Disable Ping-centre telemetry.
 user_pref("browser.ping-centre.telemetry", false);
-
-// Disable prefetching.
-user_pref("network.prefetch-next", false);
-user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true);
-user_pref("network.predictor.enable-prefetch", false);
-
-// Disable Seer/Necko.
-user_pref("network.predictor.enabled", false);
-user_pref("network.captive-portal-service.enabled", false);
-user_pref("captivedetect.canonicalURL", "");
-
-// Disable Network Connectivity Services.
-user_pref("network.connectivity-service.enabled", false);
-
-// Disable opening connection to links when mouseover.
-user_pref("network.http.speculative-parallel-limit", 0);
-
-// Disable pings but enforce same host in case.
-user_pref("browser.send_pings", false);
-user_pref("browser.send_pings.require_same_host", true);
-
-// Disable Web Beacon.
-user_pref("beacon.enabled", false);
 
 // -----------------------------------------------------------------------------
 // Security
 // -----------------------------------------------------------------------------
 
 // Enable Safe Browsing.
-user_pref("browser.safebrowsing.phishing.enabled", true);
 user_pref("browser.safebrowsing.malware.enabled", true);
+user_pref("browser.safebrowsing.phishing.enabled", true);
 user_pref("browser.safebrowsing.downloads.enabled", true);
 
 // Disable saving passwords.
 user_pref("signon.rememberSignons", false);
 
-// Enable OCSP stapling.
+// Enforce OCSP (Online Certificate Status Protocol) stapling.
 user_pref("security.ssl.enable_ocsp_stapling", true);
 user_pref("security.OCSP.enabled", 1);
 user_pref("security.OCSP.require", true);
 
-// Enable CSP (Content Security Policy).
+// Enable Content Security Policy.
 user_pref("security.csp.enable", true);
 user_pref("security.csp.experimentalEnabled", true);
-
-// Skip the security delay on "Install" and "Open/Save" dialogs.
-user_pref("security.dialog_enable_delay", 0);
-
-// Disable Windows Family Safety Mode.
-user_pref("security.family_safety.mode", 0);
 
 // Disable insecure active content on HTTPS pages.
 user_pref("security.mixed_content.block_active_content", true);
 user_pref("security.mixed_content.block_display_content", true);
 user_pref("security.mixed_content.block_object_subrequest", true);
 
-// Disallow cross-origin sub-resources to open HTTP authentication dialogs.
-user_pref("network.auth.subresource-http-auth-allow", 1);
+// Disable Windows Family Safety mode.
+user_pref("security.family_safety.mode", 0);
 
 // -----------------------------------------------------------------------------
 // Features
 // -----------------------------------------------------------------------------
 
+// Let me choose when to install Firefox updates.
+user_pref("app.update.auto", false);
+user_pref("app.update.service.enabled", false);
+user_pref("app.update.staging.enabled", false);
+user_pref("app.update.silent", false);
+
 // Disable Firefox Accounts and Sync.
 user_pref("identity.fxaccounts.enabled", false);
+
+// Disable disk cache.
+user_pref("browser.cache.disk.enable", false);
+user_pref("browser.cache.disk.capacity", 0);
+user_pref("browser.cache.disk.smart_size.enabled", false);
+user_pref("browser.cache.disk.smart_size.first_run", false);
+user_pref("browser.cache.disk_cache_ssl", false);
+
+// Disable offline cache.
+user_pref("browser.cache.offline.enable", false);
+user_pref("browser.cache.offline.insecure.enable", false);
+user_pref("offline-apps.allow_by_default", false);
+
+// Disable Reader View.
+user_pref("reader.parse-on-load.enabled", false);
 
 // Disable UITour backend.
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.uitour.url", "");
-
-// Disable Reader View.
-user_pref("reader.parse-on-load.enabled", false);
 
 // Disable various developer tools.
 user_pref("devtools.chrome.enabled", false);
@@ -271,19 +290,22 @@ user_pref("devtools.debugger.remote-enabled", false);
 user_pref("devtools.webide.enabled", false);
 user_pref("devtools.webide.autoinstallADBExtension", false);
 
+// Prevent accessibility services from accessing my browser.
+user_pref("accessibility.force_disabled", 1);
+
 // -----------------------------------------------------------------------------
 // Add-ons
 // -----------------------------------------------------------------------------
 
-// Disable "Get Add-ons" pane.
+// Disable signature enforcement for Nightly and ESR.
+user_pref("xpinstall.signatures.required", false);
+
+// Warn me when websites try to install add-ons.
+user_pref("xpinstall.whitelist.required", true);
+
+// Disable "Get Add-ons" panel.
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.webservice.discoverURL", "");
-
-// Disable personalized extension recommendations.
-user_pref("browser.discovery.enabled", false);
-
-// Disable Contextual Feature Recommendation (CFR).
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
 
 // Disable Form Autofill.
 user_pref("extensions.formautofill.available", "off");
@@ -318,39 +340,41 @@ user_pref("media.gmp-manager.url", "data:text/plain,");
 user_pref("media.gmp-manager.url.override", "data:text/plain,");
 user_pref("media.gmp.trial-create.enabled", false);
 
-// Disable widevine CDM.
+// Disable widevine CDM (Content Decryption Module).
 user_pref("media.gmp-widevinecdm.enabled", false);
 user_pref("media.gmp-widevinecdm.visible", false);
 user_pref("media.gmp-widevinecdm.autoupdate", false);
 
-// Disable all DRM content.
+// Disable all DRM-controlled content.
 user_pref("media.eme.enabled", false);
 
 // Disable OpenH264 Video Codec by Cisco.
 user_pref("media.gmp-gmpopenh264.enabled", false);
 user_pref("media.gmp-gmpopenh264.autoupdate", false);
 
-// Warn me when websites try to install add-ons.
-user_pref("xpinstall.whitelist.required", true);
+// -----------------------------------------------------------------------------
+// Appearance
+// -----------------------------------------------------------------------------
 
-// Disable signature enforcement for Nightly and ESR.
-user_pref("xpinstall.signatures.required", false);
+// Disable UI animation.
+user_pref("toolkit.cosmeticAnimations.enabled", false);
+
+// Display download button on toolbar.
+user_pref("browser.download.autohideButton", false);
+
+// Display insecure icon on HTTP sites.
+user_pref("security.insecure_connection_icon.enabled", true);
+user_pref("security.insecure_connection_icon.pbmode.enabled", true);
+
+// Disable site-specified zoom.
+user_pref("browser.zoom.siteSpecific", false);
 
 // -----------------------------------------------------------------------------
-// Others
+// Miscellaneous
 // -----------------------------------------------------------------------------
 
 // Disable `about:config` warning.
 user_pref("general.warnOnAboutConfig", false);
-
-// Let me choose to install Firefox updates.
-user_pref("app.update.auto", false);
-user_pref("app.update.service.enabled", false);
-user_pref("app.update.staging.enabled", false);
-user_pref("app.update.silent", false);
-
-// Prevent accessibility services from accessing my browser.
-user_pref("accessibility.force_disabled", 1);
 
 // Always ask me where to save download files.
 user_pref("browser.download.useDownloadDir", false);
@@ -358,22 +382,8 @@ user_pref("browser.download.useDownloadDir", false);
 // Disable downloading on desktop.
 user_pref("browser.download.folderList", 2);
 
-// Always display download button on toolbar.
-user_pref("browser.download.autohideButton", false);
-
 // Disable "Open with" in download dialog.
 user_pref("browser.download.forbid_open_with", true);
-
-// Disable disk cache.
-user_pref("browser.cache.disk.enable", false);
-user_pref("browser.cache.disk.smart_size.enabled", false);
-user_pref("browser.cache.disk.smart_size.first_run", false);
-user_pref("browser.cache.disk.capacity", 0);
-user_pref("browser.cache.disk_cache_ssl", false);
-
-// Disable offline cache.
-user_pref("browser.cache.offline.enable", false);
-user_pref("browser.cache.offline.insecure.enable", false);
 
 // Set the minimum interval between session save operations.
 user_pref("browser.sessionstore.interval", 60000);
@@ -393,12 +403,6 @@ user_pref("browser.urlbar.oneOffSearches", false);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
 
-// Display the raw Punycode in the location bar.
-user_pref("network.IDN_show_punycode", true);
-
-// Disable closing browser with last tab.
-user_pref("browser.tabs.closeWindowWithLastTab", false);
-
 // Disable privacy items in Windows Taskbar Jump List.
 user_pref("browser.taskbar.lists.frequent.enabled", false);
 user_pref("browser.taskbar.lists.recent.enabled", false);
@@ -406,11 +410,14 @@ user_pref("browser.taskbar.lists.recent.enabled", false);
 // Disable capturing page thumbnails.
 user_pref("browser.pagethumbnails.capturing_disabled", true);
 
-// Disable site specific zoom.
-user_pref("browser.zoom.siteSpecific", false);
+// Display the raw Punycode in the location bar.
+user_pref("network.IDN_show_punycode", true);
 
-// Disable UI animation.
-user_pref("toolkit.cosmeticAnimations.enabled", false);
+// Disable closing browser with last tab.
+user_pref("browser.tabs.closeWindowWithLastTab", false);
+
+// Skip the security delay on "Install" and "Open/Save" dialogs.
+user_pref("security.dialog_enable_delay", 0);
 
 // Disable automatic start and session restore after Windows reboot.
 user_pref("toolkit.winRegisterApplicationRestart", false);
@@ -424,9 +431,9 @@ user_pref("ui.key.menuAccessKey", 0);
 
 // Disable experiments.
 user_pref("experiments.enabled", false);
-user_pref("experiments.manifest.uri", "");
 user_pref("experiments.supported", false);
 user_pref("experiments.activeExperiment", false);
+user_pref("experiments.manifest.uri", "");
 user_pref("network.allow-experiments", false);
 
 // Disable GeoIP-based search results.
@@ -441,9 +448,9 @@ user_pref("shield.savant.enabled", false);
 // Disable Onboarding
 user_pref("browser.onboarding.enabled", false);
 
-// Disable WebIDE ADB extension downloads.
-user_pref("devtools.webide.autoinstallADBHelper", false);
+// Disable various developer tools.
 user_pref("devtools.webide.adbAddonURL", "");
+user_pref("devtools.webide.autoinstallADBHelper", false);
 
 // Disable Browser Error Reporter.
 user_pref("browser.chrome.errorReporter.enabled", false);
