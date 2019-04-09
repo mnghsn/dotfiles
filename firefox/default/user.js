@@ -445,7 +445,7 @@ user_pref("app.update.enabled", false);
 // Disable "Savant" Shield study.
 user_pref("shield.savant.enabled", false);
 
-// Disable Onboarding
+// Disable Onboarding.
 user_pref("browser.onboarding.enabled", false);
 
 // Disable various developer tools.
