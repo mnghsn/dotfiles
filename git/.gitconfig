@@ -63,6 +63,9 @@
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
 
+[diff]
+  algorithm = patience
+
 [merge]
   ff = false
 
