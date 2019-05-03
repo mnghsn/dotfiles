@@ -52,15 +52,15 @@ prompt_git() {
 # Sets Bash prompt.
 #######################################
 set_prompts() {
-  local black='\033[1;30m'
-  local red='\033[1;31m'
-  local green='\033[1;32m'
-  local yellow='\033[1;33m'
-  local blue='\033[1;34m'
-  local purple='\033[1;35m'
-  local cyan='\033[1;36m'
-  local white='\033[1;37m'
-  local reset='\033[0m'
+  local black='\[\033[1;30m\]'
+  local red='\[\033[1;31m\]'
+  local green='\[\033[1;32m\]'
+  local yellow='\[\033[1;33m\]'
+  local blue='\[\033[1;34m\]'
+  local purple='\[\033[1;35m\]'
+  local cyan='\[\033[1;36m\]'
+  local white='\[\033[1;37m\]'
+  local reset='\[\033[0m\]'
 
   local name_color=''
 
@@ -80,15 +80,15 @@ set_prompts() {
   #   $
   #   >
   PS1+='\n'
-  PS1+="\[${name_color}\]\u@\h"
-  PS1+="\[${black}\]: "
-  PS1+="\[${blue}\]\w"
+  PS1+="${name_color}\u@\h"
+  PS1+="${black}: "
+  PS1+="${blue}\w"
   PS1+="\$(prompt_git ' ${purple}[' ']')"$'\n'
-  PS1+="\[${black}\]\\$ "
-  PS1+="\[${reset}\]"
+  PS1+="${black}\\$ "
+  PS1+="${reset}"
 
-  PS2="\[${black}\]> "
-  PS2+="\[${reset}\]"
+  PS2="${black}> "
+  PS2+="${reset}"
 
   export PS1
   export PS2
