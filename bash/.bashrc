@@ -16,6 +16,7 @@ declare -a bash_files=(
   "${HOME}/.bash_functions"
   "${HOME}/.bash_prompt"
   "${HOME}/.bash_paths"
+  "${HOME}/.bash_load"
   "${HOME}/.bash_completion"
   '/usr/share/bash-completion/bash_completion'
   '/etc/bash_completion'

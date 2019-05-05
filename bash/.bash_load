@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# ~/.bash_load
+
+# Load nvm (Node Version Manager).
+# https://github.com/nvm-sh/nvm
+if [[ -s '/usr/share/nvm/nvm.sh' ]]; then
+  # Load nvm from AUR package.
+  export NVM_DIR="${HOME}/.nvm"
+  export NVM_SOURCE='/usr/share/nvm'
+  source "${NVM_SOURCE}/nvm.sh" --no-use
+elif [[ -s "${HOME}/.nvm/nvm.sh" ]]; then
+  # Load nvm from home directory.
+  export NVM_DIR="${HOME}/.nvm"
+  source "${NVM_DIR}/nvm.sh" --no-use
+fi
+
+# Load RVM (Ruby Version Manager).
+# https://rvm.io/
+if [[ -s "${HOME}/.rvm/scripts/rvm" ]]; then
+  export PATH="${PATH}:${HOME}/.rvm/bin"
+  source "${HOME}/.rvm/scripts/rvm"
+fi
