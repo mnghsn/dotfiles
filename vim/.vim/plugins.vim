@@ -77,7 +77,7 @@ let g:airline#extensions#tabline#enabled = 1
 " Show only file name in tabline.
 let g:airline#extensions#tabline#fnamemod = ':t'
 " Use Powerline fonts.
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = $HAS_POWERLINE_FONT
 
 " Use <Tab> to switch to next buffer in NORMAL mode.
 nmap <Tab> :bn!<CR>
