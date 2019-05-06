@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# ~/.bash_load
+# ~/.bash_misc
 
 # Load nvm (Node Version Manager).
 # https://github.com/nvm-sh/nvm
