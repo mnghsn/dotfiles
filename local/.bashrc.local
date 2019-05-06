@@ -1,7 +1,0 @@
-#!/bin/bash
-#
-# ~/.bashrc.local
-
-# Declare that the Powerline fonts are available.
-# https://github.com/powerline/fonts
-export HAS_POWERLINE_FONT=1

@@ -1,7 +1,0 @@
-[user]
-  name = Jimmy Lin
-  email = jmlntw@gmail.com
-  signingkey = 6E108E5E
-
-[tag]
-  forceSignAnnotated = true
