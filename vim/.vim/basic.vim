@@ -25,8 +25,8 @@ if !isdirectory(glob('$HOME/.vim/undo'))
 endif
 set undodir=$HOME/.vim/undo
 
-" Set the location of `.viminfo` file.
-set viminfo+=n$HOME/.vim/.viminfo
+" Set the location of `viminfo` file.
+set viminfo+=n$HOME/.vim/viminfo
 
 """""""""""""""""""""""""""""""""""""""
 " Interface
