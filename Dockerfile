@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 RUN apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y build-essential bash-completion sudo curl wget git vim
+  && apt-get install -y build-essential bash-completion sudo curl wget git vim tmux
 
 RUN useradd --user-group --create-home --shell /bin/bash user \
   && echo "user ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
