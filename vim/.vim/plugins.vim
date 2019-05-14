@@ -18,13 +18,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color', { 'for': 'css' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'jacoborus/tender.vim'
-Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
-Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
