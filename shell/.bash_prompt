@@ -79,11 +79,12 @@ set_prompts() {
   #   user@hostname: ~/.dotfiles [master +!?$]
   #   $
   #   >
-  PS1+='\n'
+  PS1+=$'\n'
   PS1+="${name_color}\u@\h"
   PS1+="${black}: "
   PS1+="${blue}\w"
-  PS1+="\$(prompt_git ' ${purple}[' ']')"$'\n'
+  PS1+="\$(prompt_git ' ${purple}[' ']')"
+  PS1+=$'\n'
   PS1+="${black}\\$ "
   PS1+="${reset}"
 
