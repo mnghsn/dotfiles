@@ -81,25 +81,3 @@ nmap <Tab> :bn!<CR>
 nmap ` :bp!<CR>
 " Use <Leader>-<D> to close current buffer.
 nmap <Leader>d :bd<CR>
-
-"""""""""""""""""""""""""""""""""""""""
-" Plugin: vim-json
-"""""""""""""""""""""""""""""""""""""""
-
-" Disable concealing.
-let g:vim_json_syntax_conceal = 0
-
-"""""""""""""""""""""""""""""""""""""""
-" Plugin: vim-markdown
-"""""""""""""""""""""""""""""""""""""""
-
-" Disable folding.
-let g:vim_markdown_folding_disabled = 1
-" Disable concealing.
-let g:vim_markdown_conceal = 0
-" Enable YAML front matter.
-let g:vim_markdown_frontmatter = 1
-" Enable JSON front matter.
-let g:vim_markdown_json_frontmatter = 1
-" Set new list item indentation to 2 spaces.
-let g:vim_markdown_new_list_item_indent = 2
