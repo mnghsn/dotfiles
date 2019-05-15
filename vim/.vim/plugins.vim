@@ -15,17 +15,17 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Load plugins.
-Plug 'airblade/vim-gitgutter'
-Plug 'ap/vim-css-color', { 'for': 'css' }
-Plug 'editorconfig/editorconfig-vim'
 Plug 'jacoborus/tender.vim'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-Plug 'sheerun/vim-polyglot'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'Yggdroot/indentLine'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-Plug 'Yggdroot/indentLine'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 
@@ -37,13 +37,6 @@ call plug#end()
 silent! colorscheme tender
 " Set vim-airline theme.
 let g:airline_theme = 'tender'
-
-"""""""""""""""""""""""""""""""""""""""
-" Plugin: indentLine
-"""""""""""""""""""""""""""""""""""""""
-
-" Set conceal color.
-let g:indentLine_color_term = 239
 
 """""""""""""""""""""""""""""""""""""""
 " Plugin: NERDTree
