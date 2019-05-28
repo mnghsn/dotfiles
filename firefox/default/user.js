@@ -368,6 +368,9 @@ user_pref("browser.sessionstore.interval", 60000);
 // Disable location bar domain guessing.
 user_pref("browser.fixup.alternate.enabled", false);
 
+// Copy unicode characters from location bar as is.
+user_pref("browser.urlbar.decodeURLsOnCopy", true);
+
 // Display all parts of the URL in the location bar.
 user_pref("browser.urlbar.trimURLs", false);
 
