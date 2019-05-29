@@ -19,6 +19,7 @@
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "update.enableWindowsBackgroundUpdates": false,
+  "update.mode": "manual",
   "window.newWindowDimensions": "inherit",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.enableExperiments": false,
