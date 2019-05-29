@@ -20,6 +20,8 @@
   "telemetry.enableTelemetry": false,
   "update.enableWindowsBackgroundUpdates": false,
   "update.mode": "manual",
+  "vsicons.dontShowNewVersionMessage": true,
+  "vsicons.presets.foldersAllDefaultIcon": true,
   "window.newWindowDimensions": "inherit",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.enableExperiments": false,
