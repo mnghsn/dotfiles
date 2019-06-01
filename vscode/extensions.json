@@ -1,6 +1,7 @@
 {
   "extensions": [
     "EditorConfig.EditorConfig",
+    "stkb.rewrap",
     "vscode-icons-team.vscode-icons"
   ]
 }
