@@ -309,6 +309,9 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.webservice.discoverURL", "");
 
+// Allow all extensions to run in private browsing mode by default.
+user_pref("extensions.allowPrivateBrowsingByDefault", true);
+
 // Disable Form Autofill.
 user_pref("extensions.formautofill.available", "off");
 user_pref("extensions.formautofill.addresses.enabled", false);
