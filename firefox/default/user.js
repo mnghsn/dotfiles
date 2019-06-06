@@ -377,6 +377,9 @@ user_pref("browser.zoom.siteSpecific", false);
 user_pref("general.warnOnAboutConfig", false);
 user_pref("browser.aboutConfig.showWarning", false);
 
+// Set the number of bookmarks backups.
+user_pref("browser.bookmarks.max_backups", 5);
+
 // Always ask me where to save download files.
 user_pref("browser.download.useDownloadDir", false);
 
