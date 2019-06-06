@@ -169,6 +169,8 @@ user_pref("privacy.firstparty.isolate.restrict_opener_access", true);
 // Enable Tracking Protection in all windows.
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
+user_pref("privacy.trackingprotection.cryptomining.enabled", true);
+user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
 user_pref("privacy.trackingprotection.introCount", 20);
 
 // Enable DNT (Do Not Track) HTTP header.
