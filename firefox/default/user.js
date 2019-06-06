@@ -110,6 +110,7 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 // Limit pop-up window events.
 user_pref("dom.disable_open_during_load", true);
 user_pref("dom.popup_allowed_events", "click dblclick mouseup");
+user_pref("dom.popup_maximum", 2);
 
 // Enable window.opener protection.
 user_pref("dom.targetBlankNoOpener.enabled", true);
@@ -256,16 +257,23 @@ user_pref("security.family_safety.mode", 0);
 
 // Let me choose when to install Firefox updates.
 user_pref("app.update.auto", false);
+user_pref("app.update.service.enabled", false);
+user_pref("app.update.staging.enabled", false);
+user_pref("app.update.silent", false);
 
 // Disable Firefox Accounts and Sync.
 user_pref("identity.fxaccounts.enabled", false);
 
 // Disable disk cache.
 user_pref("browser.cache.disk.enable", false);
+user_pref("browser.cache.disk.capacity", 0);
+user_pref("browser.cache.disk.smart_size.enabled", false);
+user_pref("browser.cache.disk.smart_size.first_run", false);
 user_pref("browser.cache.disk_cache_ssl", false);
 
 // Disable offline cache.
 user_pref("browser.cache.offline.enable", false);
+user_pref("browser.cache.offline.insecure.enable", false);
 user_pref("offline-apps.allow_by_default", false);
 
 // Disable Reader View.
@@ -314,19 +322,35 @@ user_pref("extensions.screenshots.upload-disabled", true);
 // Disable Web Compatibility Reporter.
 user_pref("extensions.webcompat-reporter.enabled", false);
 
+// Disable all plugins by default.
+user_pref("plugin.default.state", 0);
+user_pref("plugin.defaultXpi.state", 0);
+
 // Enable click-to-play and set the session permission.
 user_pref("plugins.click_to_play", true);
 user_pref("plugin.sessionPermissionNow.intervalInMinutes", 0);
 
+// Disable scanning plugins on Windows.
+user_pref("plugin.scan.plid.all", false);
+
 // Disable all GMP (Gecko Media Plugins).
 user_pref("media.gmp-provider.enabled", false);
+user_pref("media.gmp-manager.updateEnabled", false);
+user_pref("media.gmp-manager.url", "data:text/plain,");
+user_pref("media.gmp-manager.url.override", "data:text/plain,");
+user_pref("media.gmp.trial-create.enabled", false);
 
 // Disable widevine CDM (Content Decryption Module).
 user_pref("media.gmp-widevinecdm.enabled", false);
 user_pref("media.gmp-widevinecdm.visible", false);
+user_pref("media.gmp-widevinecdm.autoupdate", false);
 
 // Disable all DRM-controlled content.
 user_pref("media.eme.enabled", false);
+
+// Disable OpenH264 Video Codec by Cisco.
+user_pref("media.gmp-gmpopenh264.enabled", false);
+user_pref("media.gmp-gmpopenh264.autoupdate", false);
 
 // -----------------------------------------------------------------------------
 // Appearance
