@@ -70,7 +70,7 @@
   ff = false
 
 [pull]
-  rebase = merges
+  rebase = preserve
 
 [url "git@github.com:"]
   pushInsteadOf = git://github.com/
