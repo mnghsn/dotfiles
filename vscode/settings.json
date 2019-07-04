@@ -22,6 +22,7 @@
   "update.mode": "manual",
   "vsicons.dontShowNewVersionMessage": true,
   "vsicons.presets.foldersAllDefaultIcon": true,
+  "window.customMenuBarAltFocus": false,
   "window.newWindowDimensions": "inherit",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.enableExperiments": false,
@@ -30,6 +31,5 @@
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.settings.useSplitJSON": true,
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.feedback.visible": false,
   "workbench.tips.enabled": false
 }
