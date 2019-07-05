@@ -23,7 +23,7 @@ fi
 # List directory.
 alias l='ls -CF'
 alias la='ls -A --group-directories-first'
-alias ll='ls -alF --group-directories-first'
+alias ll='ls -alF --group-directories-first --time-style=iso'
 
 # Clear screen like Windows.
 alias cls='clear'
