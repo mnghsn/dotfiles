@@ -305,9 +305,14 @@ user_pref("xpinstall.signatures.required", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 
-// Disable "Get Add-ons" panel.
+// Disable "Recommendations pane" (previously "Get Add-ons").
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.webservice.discoverURL", "");
+
+// Disable recommendations in Extensions and Themes panes.
+user_pref("extensions.getAddons.discovery.api_url", "");
+user_pref("extensions.htmlaboutaddons.discover.enabled", false);
+user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
 // Allow all extensions to run in private browsing mode by default.
 user_pref("extensions.allowPrivateBrowsingByDefault", true);
