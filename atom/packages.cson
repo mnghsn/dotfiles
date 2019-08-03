@@ -23,6 +23,7 @@ packages: [
   "minimap"
   "omni-ruler"
   "package-sync"
+  "permanent-delete"
   "pigments"
   "platformio-ide-terminal"
   "pretty-json"
