@@ -42,7 +42,6 @@ install_dotfiles() {
   link_file 'shell/.bash_aliases'   '.bash_aliases'
   link_file 'shell/.bash_exports'   '.bash_exports'
   link_file 'shell/.bash_functions' '.bash_functions'
-  link_file 'shell/.bash_misc'      '.bash_misc'
   link_file 'shell/.bash_options'   '.bash_options'
   link_file 'shell/.bash_paths'     '.bash_paths'
   link_file 'shell/.bash_prompt'    '.bash_prompt'
