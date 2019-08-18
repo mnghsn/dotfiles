@@ -16,6 +16,8 @@
   "file-icons":
     forceShow: true
     onChanges: true
+  "highlight-selected":
+    onlyHighlightWholeWords: false
   "line-ending-selector":
     defaultLineEnding: "LF"
   linter:
