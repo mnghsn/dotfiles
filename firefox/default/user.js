@@ -180,7 +180,6 @@ user_pref("browser.contentblocking.introCount", 20);
 // Disable Telemetry.
 user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.enabled", false);
-user_pref("toolkit.telemetry.cachedClientID", "");
 user_pref("toolkit.telemetry.server", "data:,");
 user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.bhrPing.enabled", false);
@@ -234,14 +233,12 @@ user_pref("browser.safebrowsing.downloads.enabled", true);
 // Disable saving passwords.
 user_pref("signon.rememberSignons", false);
 
-// Enforce OCSP (Online Certificate Status Protocol) stapling.
+// Enable OCSP (Online Certificate Status Protocol) stapling.
 user_pref("security.ssl.enable_ocsp_stapling", true);
 user_pref("security.OCSP.enabled", 1);
-user_pref("security.OCSP.require", true);
 
 // Enable Content Security Policy.
 user_pref("security.csp.enable", true);
-user_pref("security.csp.experimentalEnabled", true);
 
 // Disable insecure active content on HTTPS pages.
 user_pref("security.mixed_content.block_active_content", true);
@@ -266,9 +263,6 @@ user_pref("identity.fxaccounts.enabled", false);
 
 // Disable disk cache.
 user_pref("browser.cache.disk.enable", false);
-user_pref("browser.cache.disk.capacity", 0);
-user_pref("browser.cache.disk.smart_size.enabled", false);
-user_pref("browser.cache.disk.smart_size.first_run", false);
 user_pref("browser.cache.disk_cache_ssl", false);
 
 // Disable offline cache.
@@ -303,7 +297,7 @@ user_pref("xpinstall.signatures.required", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 
-// Disable "Recommendations pane" (previously "Get Add-ons").
+// Disable Recommendations pane.
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.webservice.discoverURL", "");
 
@@ -338,9 +332,6 @@ user_pref("plugin.defaultXpi.state", 0);
 user_pref("plugins.click_to_play", true);
 user_pref("plugin.sessionPermissionNow.intervalInMinutes", 0);
 
-// Disable scanning plugins on Windows.
-user_pref("plugin.scan.plid.all", false);
-
 // Disable all GMP (Gecko Media Plugins).
 user_pref("media.gmp-provider.enabled", false);
 user_pref("media.gmp-manager.updateEnabled", false);
@@ -351,7 +342,6 @@ user_pref("media.gmp.trial-create.enabled", false);
 // Disable widevine CDM (Content Decryption Module).
 user_pref("media.gmp-widevinecdm.enabled", false);
 user_pref("media.gmp-widevinecdm.visible", false);
-user_pref("media.gmp-widevinecdm.autoupdate", false);
 
 // Disable all DRM-controlled content.
 user_pref("media.eme.enabled", false);
@@ -385,17 +375,8 @@ user_pref("browser.zoom.siteSpecific", false);
 user_pref("general.warnOnAboutConfig", false);
 user_pref("browser.aboutConfig.showWarning", false);
 
-// Set the number of bookmarks backups.
-user_pref("browser.bookmarks.max_backups", 5);
-
 // Always ask me where to save download files.
 user_pref("browser.download.useDownloadDir", false);
-
-// Disable downloading on desktop.
-user_pref("browser.download.folderList", 2);
-
-// Disable "Open with" in download dialog.
-user_pref("browser.download.forbid_open_with", true);
 
 // Set the minimum interval between session save operations.
 user_pref("browser.sessionstore.interval", 60000);
@@ -477,3 +458,6 @@ user_pref("browser.chrome.errorReporter.submitUrl", "");
 
 // Disable Contextual Feature Recommender.
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
+
+// Enable Content Security Policy.
+user_pref("security.csp.experimentalEnabled", true);
