@@ -1,5 +1,6 @@
 "*":
   core:
+    automaticallyUpdate: false
     disabledPackages: [
       "background-tips"
       "exception-reporting"
@@ -9,6 +10,7 @@
       "welcome"
     ]
     telemetryConsent: "no"
+    uriHandlerRegistration: "never"
   editor:
     invisibles: {}
     showIndentGuide: true
