@@ -53,13 +53,6 @@ user_pref("browser.search.geoSpecificDefaults.url", "");
 // Content
 // -----------------------------------------------------------------------------
 
-// Set minimum font size.
-user_pref("font.minimum-size.ja", 10);
-user_pref("font.minimum-size.ko", 10);
-user_pref("font.minimum-size.zh-CN", 10);
-user_pref("font.minimum-size.zh-HK", 10);
-user_pref("font.minimum-size.zh-TW", 10);
-
 // Disable Geolocation.
 user_pref("geo.enabled", false);
 user_pref("geo.wifi.uri", "");
@@ -75,13 +68,15 @@ user_pref("beacon.enabled", false);
 // Disable Notifications API.
 user_pref("dom.webnotifications.enabled", false);
 user_pref("dom.webnotifications.serviceworker.enabled", false);
-user_pref("permissions.default.desktop-notification", 2);
 
 // Disable Push API.
 user_pref("dom.push.enabled", false);
 user_pref("dom.push.connection.enabled", false);
 user_pref("dom.push.serverURL", "");
 user_pref("dom.push.userAgentID", "");
+
+// Block notification permission.
+user_pref("permissions.default.desktop-notification", 2);
 
 // Disable WebRTC.
 user_pref("media.peerconnection.enabled", false);
@@ -126,7 +121,7 @@ user_pref("dom.disable_window_open_feature.titlebar", true);
 user_pref("dom.disable_window_open_feature.toolbar", true);
 
 // -----------------------------------------------------------------------------
-// Connection
+// Network
 // -----------------------------------------------------------------------------
 
 // Disable prefetching.
@@ -142,9 +137,6 @@ user_pref("network.http.speculative-parallel-limit", 0);
 // Disable pings but enforce same host in case.
 user_pref("browser.send_pings", false);
 user_pref("browser.send_pings.require_same_host", true);
-
-// Disable Network Connectivity checks.
-user_pref("network.connectivity-service.enabled", false);
 
 // Disallow cross-origin sub-resources to open HTTP authentication dialogs.
 user_pref("network.auth.subresource-http-auth-allow", 1);
@@ -198,37 +190,19 @@ user_pref("toolkit.coverage.endpoint.base", "");
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 
-// Disallow Firefox to install and run studies.
-user_pref("app.shield.optoutstudies.enabled", false);
-
-// Disallow Firefox to make personalized extension recommendations.
-user_pref("browser.discovery.enabled", false);
-
 // Disable Crash Reports.
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
-// Disable Captive Portal detection.
-user_pref("captivedetect.canonicalURL", "");
-user_pref("network.captive-portal-service.enabled", false);
-
 // Disable Normandy/Shield (telemetry system).
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 
-// Disable Ping-centre telemetry.
-user_pref("browser.ping-centre.telemetry", false);
-
 // -----------------------------------------------------------------------------
 // Security
 // -----------------------------------------------------------------------------
-
-// Enable Safe Browsing.
-user_pref("browser.safebrowsing.malware.enabled", true);
-user_pref("browser.safebrowsing.phishing.enabled", true);
-user_pref("browser.safebrowsing.downloads.enabled", true);
 
 // Disable saving passwords.
 user_pref("signon.rememberSignons", false);
@@ -254,9 +228,6 @@ user_pref("security.family_safety.mode", 0);
 
 // Let me choose when to install Firefox updates.
 user_pref("app.update.auto", false);
-user_pref("app.update.service.enabled", false);
-user_pref("app.update.staging.enabled", false);
-user_pref("app.update.silent", false);
 
 // Disable Firefox Accounts and Sync.
 user_pref("identity.fxaccounts.enabled", false);
@@ -334,10 +305,6 @@ user_pref("plugin.sessionPermissionNow.intervalInMinutes", 0);
 
 // Disable all GMP (Gecko Media Plugins).
 user_pref("media.gmp-provider.enabled", false);
-user_pref("media.gmp-manager.updateEnabled", false);
-user_pref("media.gmp-manager.url", "data:text/plain,");
-user_pref("media.gmp-manager.url.override", "data:text/plain,");
-user_pref("media.gmp.trial-create.enabled", false);
 
 // Disable widevine CDM (Content Decryption Module).
 user_pref("media.gmp-widevinecdm.enabled", false);
@@ -392,7 +359,6 @@ user_pref("browser.urlbar.trimURLs", false);
 
 // Disable search suggestions in the location bar.
 user_pref("browser.urlbar.suggest.searches", false);
-user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
 user_pref("browser.urlbar.oneOffSearches", false);
 
 // Disable location bar making speculative connections.
@@ -425,10 +391,6 @@ user_pref("ui.key.menuAccessKey", 0);
 // ESR
 // -----------------------------------------------------------------------------
 
-// Disable Activity Stream.
-user_pref("browser.aboutHomeSnippets.updateUrl", "");
-user_pref("browser.newtabpage.activity-stream.disableSnippets", true);
-
 // Disable experiments.
 user_pref("experiments.enabled", false);
 user_pref("experiments.supported", false);
@@ -458,6 +420,10 @@ user_pref("browser.chrome.errorReporter.submitUrl", "");
 
 // Disable Contextual Feature Recommender.
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
+
+// Disable Activity Stream.
+user_pref("browser.aboutHomeSnippets.updateUrl", "");
+user_pref("browser.newtabpage.activity-stream.disableSnippets", true);
 
 // Enable Content Security Policy.
 user_pref("security.csp.experimentalEnabled", true);
