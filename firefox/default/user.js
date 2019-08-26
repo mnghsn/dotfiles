@@ -53,6 +53,13 @@ user_pref("browser.search.geoSpecificDefaults.url", "");
 // Content
 // -----------------------------------------------------------------------------
 
+// Set minimum font size.
+user_pref("font.minimum-size.ja", 10);
+user_pref("font.minimum-size.ko", 10);
+user_pref("font.minimum-size.zh-CN", 10);
+user_pref("font.minimum-size.zh-HK", 10);
+user_pref("font.minimum-size.zh-TW", 10);
+
 // Disable Geolocation.
 user_pref("geo.enabled", false);
 user_pref("geo.wifi.uri", "");
