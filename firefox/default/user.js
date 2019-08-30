@@ -17,8 +17,10 @@ user_pref("browser.newtabpage.enabled", false);
 user_pref("browser.newtab.preload", false);
 
 // Disable Activity Stream.
+user_pref("browser.aboutHomeSnippets.updateUrl", "");
 user_pref("browser.library.activity-stream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "");
+user_pref("browser.newtabpage.activity-stream.disableSnippets", true);
 user_pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
