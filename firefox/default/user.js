@@ -69,7 +69,7 @@ user_pref("geo.provider.use_corelocation", false);
 user_pref("geo.provider.use_gpsd", false);
 user_pref("permissions.default.geo", 2);
 
-// Disable Notification API.
+// Disable Notifications API.
 user_pref("dom.webnotifications.enabled", false);
 user_pref("dom.webnotifications.serviceworker.enabled", false);
 
@@ -104,9 +104,9 @@ user_pref("media.webspeech.synth.enabled", false);
 user_pref("media.peerconnection.enabled", false);
 user_pref("media.peerconnection.ice.default_address_only", true);
 user_pref("media.peerconnection.ice.no_host", true);
-user_pref("media.getusermedia.screensharing.enabled", false);
-user_pref("media.getusermedia.browser.enabled", false);
 user_pref("media.getusermedia.audiocapture.enabled", false);
+user_pref("media.getusermedia.browser.enabled", false);
+user_pref("media.getusermedia.screensharing.enabled", false);
 
 // Disable media device enumeration.
 user_pref("media.navigator.enabled", false);
@@ -254,7 +254,7 @@ user_pref("app.normandy.api_url", "");
 // Security
 // -----------------------------------------------------------------------------
 
-// Disable saving password.
+// Disable saving passwords.
 user_pref("signon.rememberSignons", false);
 
 // Enable OCSP (Online Certificate Status Protocol) stapling.
