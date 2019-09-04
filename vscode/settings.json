@@ -15,6 +15,8 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "git.promptToSaveFilesBeforeCommit": "staged",
+  "git.supportCancellation": true,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "update.enableWindowsBackgroundUpdates": false,
