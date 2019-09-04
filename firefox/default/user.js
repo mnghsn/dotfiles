@@ -118,7 +118,8 @@ user_pref("media.ondevicechange.enabled", false);
 user_pref("permissions.default.camera", 2);
 user_pref("permissions.default.microphone", 2);
 
-// Disable autoplaying media unless the user has interacted with the page.
+// Disable autoplaying non-muted media unless the user has interacted with the
+// page.
 user_pref("media.autoplay.default", 1);
 user_pref("media.autoplay.enabled.user-gestures-needed", true);
 user_pref("media.block-autoplay-until-in-foreground", true);
@@ -209,6 +210,7 @@ user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
+user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.trackingprotection.introCount", 20);
 
 // Hide Content Blocking notification.
@@ -344,14 +346,6 @@ user_pref("extensions.webcompat-reporter.enabled", false);
 // Disable sending plugins crash reports.
 user_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled", false);
 user_pref("dom.ipc.plugins.reportCrashURL", false);
-
-// Disable all plugins by default.
-user_pref("plugin.default.state", 0);
-user_pref("plugin.defaultXpi.state", 0);
-
-// Enable click-to-play and set the interval of session permission.
-user_pref("plugins.click_to_play", true);
-user_pref("plugin.sessionPermissionNow.intervalInMinutes", 0);
 
 // Disable GMP (Gecko Media Plugins).
 user_pref("media.gmp-provider.enabled", false);
@@ -493,3 +487,4 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
 user_pref("browser.aboutHomeSnippets.updateUrl", "");
 user_pref("browser.newtabpage.activity-stream.disableSnippets", true);
 user_pref("security.csp.experimentalEnabled", true);
+user_pref("plugins.click_to_play", true);
