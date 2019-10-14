@@ -1,5 +1,4 @@
 {
-  "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.copyWithSyntaxHighlighting": false,
   "editor.minimap.renderCharacters": false,
   "editor.multiCursorModifier": "ctrlCmd",
@@ -16,7 +15,7 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "git.promptToSaveFilesBeforeCommit": "staged",
-  "git.supportCancellation": true,
+  "scm.defaultViewMode": "tree",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "update.enableWindowsBackgroundUpdates": false,
