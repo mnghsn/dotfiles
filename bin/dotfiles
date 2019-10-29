@@ -72,7 +72,6 @@ install_dotfiles() {
   link_file 'fontconfig/69-language-selector-zh-cn.conf' '.config/fontconfig/conf.d/69-language-selector-zh-cn.conf'
   link_file 'fontconfig/69-language-selector-zh-hk.conf' '.config/fontconfig/conf.d/69-language-selector-zh-hk.conf'
   link_file 'fontconfig/69-language-selector-zh-tw.conf' '.config/fontconfig/conf.d/69-language-selector-zh-tw.conf'
-  link_file 'fontconfig/70-reject.conf'                  '.config/fontconfig/conf.d/70-reject.conf'
 
   # Mozilla Firefox
   copy_file 'firefox/profiles.ini'              '.mozilla/firefox/profiles.ini'
