@@ -63,8 +63,7 @@ install_dotfiles() {
   link_file 'vim/.vim/plugins.vim'  '.vim/plugins.vim'
 
   # Fontconfig
-  link_file 'fontconfig/30-cjk-aliases.conf'             '.config/fontconfig/conf.d/30-cjk-aliases.conf'
-  link_file 'fontconfig/30-latin-aliases.conf'           '.config/fontconfig/conf.d/30-latin-aliases.conf'
+  link_file 'fontconfig/30-aliases.conf'                 '.config/fontconfig/conf.d/30-aliases.conf'
   link_file 'fontconfig/40-generic.conf'                 '.config/fontconfig/conf.d/40-generic.conf'
   link_file 'fontconfig/60-generic.conf'                 '.config/fontconfig/conf.d/60-generic.conf'
   link_file 'fontconfig/69-language-selector-ja.conf'    '.config/fontconfig/conf.d/69-language-selector-ja.conf'
