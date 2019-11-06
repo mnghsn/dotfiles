@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 #
 # Starts an HTTP server from the current directory, optionally specifying the
 # port.
