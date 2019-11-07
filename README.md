@@ -22,9 +22,9 @@ Options:
   --no-sync     Suppress pulling from the remote repository.
 ```
 
-## Acknowledgements
+## Acknowledgments
 
-Inspiration and code was taken from many sources, including:
+Inspiration and code were taken from many sources, including:
 
 * [dotfiles](https://github.com/necolas/dotfiles) by [@necolas](https://github.com/necolas)
 * [dotfiles](https://github.com/isaacs/dotfiles) by [@isaacs](https://github.com/isaacs)
