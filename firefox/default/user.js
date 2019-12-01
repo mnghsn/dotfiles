@@ -457,27 +457,5 @@ user_pref("ui.key.menuAccessKey", 0);
 // ESR
 // -----------------------------------------------------------------------------
 
-// ESR 60.x
-user_pref("app.update.enabled", false);
-user_pref("browser.aboutHomeSnippets.updateUrl", "");
-user_pref("browser.chrome.errorReporter.enabled", false);
-user_pref("browser.chrome.errorReporter.submitUrl", "");
-user_pref("browser.fixup.hide_user_pass", true);
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
-user_pref("browser.newtabpage.activity-stream.disableSnippets", true);
-user_pref("browser.onboarding.enabled", false);
-user_pref("browser.search.countryCode", "JP");
-user_pref("devtools.webide.adbAddonURL", "");
-user_pref("devtools.webide.autoinstallADBHelper", false);
-user_pref("experiments.activeExperiment", false);
-user_pref("experiments.enabled", false);
-user_pref("experiments.manifest.uri", "");
-user_pref("experiments.supported", false);
-user_pref("media.autoplay.enabled", false);
-user_pref("network.allow-experiments", false);
-user_pref("security.csp.enable_violation_events", false);
-user_pref("security.csp.experimentalEnabled", true);
-user_pref("shield.savant.enabled", false);
-
 // ESR 68.x
 user_pref("plugins.click_to_play", true);
