@@ -75,8 +75,6 @@ user_pref("dom.webnotifications.serviceworker.enabled", false);
 
 // Disable Push API.
 user_pref("dom.push.enabled", false);
-user_pref("dom.push.connection.enabled", false);
-user_pref("dom.push.serverURL", "");
 user_pref("dom.push.userAgentID", "");
 
 // Block notification permission.
@@ -104,6 +102,7 @@ user_pref("media.webspeech.synth.enabled", false);
 user_pref("media.peerconnection.enabled", false);
 user_pref("media.peerconnection.ice.default_address_only", true);
 user_pref("media.peerconnection.ice.no_host", true);
+user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 user_pref("media.getusermedia.audiocapture.enabled", false);
 user_pref("media.getusermedia.browser.enabled", false);
 user_pref("media.getusermedia.screensharing.enabled", false);
@@ -315,18 +314,14 @@ user_pref("xpinstall.signatures.required", false);
 // Allow all extensions to run in private browsing mode by default.
 user_pref("extensions.allowPrivateBrowsingByDefault", true);
 
+// Disable recommendations.
+user_pref("extensions.getAddons.showPane", false);
+user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
+user_pref("network.manage-offline-status", false);
+
 // Disable CFR (Contextual Feature Recommender).
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
-
-// Disable Recommendations pane in "about:addons".
-user_pref("extensions.getAddons.showPane", false);
-user_pref("extensions.webservice.discoverURL", "");
-
-// Disable recommendations in Extensions and Themes panes in "about:addons".
-user_pref("extensions.getAddons.discovery.api_url", "");
-user_pref("extensions.htmlaboutaddons.discover.enabled", false);
-user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
 // Disable Form Autofill.
 user_pref("extensions.formautofill.available", "off");
@@ -336,9 +331,6 @@ user_pref("extensions.formautofill.heuristics.enabled", false);
 
 // Disable Pocket.
 user_pref("extensions.pocket.enabled", false);
-
-// Disable uploading screenshots to the Screenshots server.
-user_pref("extensions.screenshots.upload-disabled", true);
 
 // Disable Web Compatibility Reporter.
 user_pref("extensions.webcompat-reporter.enabled", false);
@@ -370,6 +362,9 @@ user_pref("toolkit.cosmeticAnimations.enabled", false);
 
 // Display download button on toolbar.
 user_pref("browser.download.autohideButton", false);
+
+// Disable "What's New" icons.
+user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 // Display advanced information on insecure connection warning pages.
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
@@ -431,9 +426,6 @@ user_pref("browser.taskbar.lists.enabled", true);
 user_pref("browser.taskbar.lists.frequent.enabled", false);
 user_pref("browser.taskbar.lists.recent.enabled", false);
 user_pref("browser.taskbar.lists.tasks.enabled", true);
-
-// Limit history leaks via enumeration.
-user_pref("browser.sessionhistory.max_entries", 10);
 
 // Set the minimum interval between session save operations.
 user_pref("browser.sessionstore.interval", 60000);
