@@ -414,6 +414,9 @@ user_pref("browser.urlbar.decodeURLsOnCopy", true);
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.oneOffSearches", false);
 
+// Enable search bar suggestions in private browsing mode.
+user_pref("browser.search.suggest.enabled.private", true);
+
 // Disable location bar making speculative connections.
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
