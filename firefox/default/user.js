@@ -190,8 +190,9 @@ user_pref("network.connectivity-service.enabled", false);
 // Privacy
 // -----------------------------------------------------------------------------
 
-// Block all third-party cookies.
+// Block third-party cookies and site data.
 user_pref("network.cookie.cookieBehavior", 1);
+user_pref("browser.contentblocking.category", "custom");
 
 // Set third-party cookies to session-only.
 user_pref("network.cookie.thirdparty.sessionOnly", true);
@@ -285,11 +286,9 @@ user_pref("identity.fxaccounts.enabled", false);
 
 // Disable disk cache.
 user_pref("browser.cache.disk.enable", false);
-user_pref("browser.cache.disk_cache_ssl", false);
 
 // Disable offline cache.
 user_pref("browser.cache.offline.enable", false);
-user_pref("offline-apps.allow_by_default", false);
 
 // Disable Reader View.
 user_pref("reader.parse-on-load.enabled", false);
@@ -301,8 +300,6 @@ user_pref("browser.uitour.url", "");
 // Disable various developer tools.
 user_pref("devtools.chrome.enabled", false);
 user_pref("devtools.debugger.remote-enabled", false);
-user_pref("devtools.webide.enabled", false);
-user_pref("devtools.webide.autoinstallADBExtension", false);
 
 // -----------------------------------------------------------------------------
 // Add-ons
@@ -452,5 +449,8 @@ user_pref("ui.key.menuAccessKey", 0);
 // ESR
 // -----------------------------------------------------------------------------
 
-// ESR 68.x
-user_pref("plugins.click_to_play", true);
+// ESR 68.*
+user_pref("media.autoplay.allow-muted", false);
+user_pref("devtools.webide.enabled", false);
+user_pref("devtools.webide.autoinstallADBExtension", false);
+user_pref("offline-apps.allow_by_default", false);
