@@ -117,11 +117,9 @@ user_pref("media.ondevicechange.enabled", false);
 user_pref("permissions.default.camera", 2);
 user_pref("permissions.default.microphone", 2);
 
-// Disable autoplaying non-muted media unless the user has interacted with the
-// page.
-user_pref("media.autoplay.default", 1);
+// Disable autoplaying media unless the user has interacted with the page.
+user_pref("media.autoplay.default", 5);
 user_pref("media.autoplay.enabled.user-gestures-needed", true);
-user_pref("media.block-autoplay-until-in-foreground", true);
 
 // Disable video statistics.
 user_pref("media.video_stats.enabled", false);
