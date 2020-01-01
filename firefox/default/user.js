@@ -192,10 +192,6 @@ user_pref("network.connectivity-service.enabled", false);
 user_pref("network.cookie.cookieBehavior", 1);
 user_pref("browser.contentblocking.category", "custom");
 
-// Set third-party cookies to session-only.
-user_pref("network.cookie.thirdparty.sessionOnly", true);
-user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
-
 // Enable DNT (Do Not Track) HTTP header.
 user_pref("privacy.donottrackheader.enabled", true);
 
@@ -312,7 +308,6 @@ user_pref("extensions.allowPrivateBrowsingByDefault", true);
 // Disable recommendations.
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
-user_pref("network.manage-offline-status", false);
 
 // Disable CFR (Contextual Feature Recommender).
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
@@ -363,12 +358,6 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 // Display advanced information on insecure connection warning pages.
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
-
-// Display insecure icon on HTTP sites.
-user_pref("security.insecure_connection_icon.enabled", true);
-user_pref("security.insecure_connection_text.enabled", false);
-user_pref("security.insecure_connection_icon.pbmode.enabled", true);
-user_pref("security.insecure_connection_text.pbmode.enabled", false);
 
 // Disable site-specified zoom.
 user_pref("browser.zoom.siteSpecific", false);
