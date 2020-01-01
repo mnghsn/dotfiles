@@ -136,7 +136,7 @@ user_pref("dom.disable_window_open_feature.status", true);
 user_pref("dom.disable_window_open_feature.titlebar", true);
 user_pref("dom.disable_window_open_feature.toolbar", true);
 
-// Disable links opening in a new window.
+// Open links targeting new windows in a new tab instead.
 user_pref("browser.link.open_newwindow", 3);
 user_pref("browser.link.open_newwindow.restriction", 0);
 
@@ -161,13 +161,13 @@ user_pref("network.predictor.enable-prefetch", false);
 // Disable opening connection to links when mouseover.
 user_pref("network.http.speculative-parallel-limit", 0);
 
-// Disable cross-origin sub-resources to open HTTP authentication dialogs.
+// Disallow cross-origin sub-resources to open HTTP authentication credentials dialogs.
 user_pref("network.auth.subresource-http-auth-allow", 1);
 
 // Set the maximum number of redirects to follow per request.
 user_pref("network.http.redirection-limit", 10);
 
-// Disable pings but enforce same host in case.
+// Disable Hyperlink Auditing and enforce same host in case.
 user_pref("browser.send_pings", false);
 user_pref("browser.send_pings.require_same_host", true);
 
@@ -419,7 +419,7 @@ user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
 // Disable closing browser with last tab.
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 
-// Set items in Windows Taskbar Jump List.
+// Hide privacy items in Windows Taskbar Jump List.
 user_pref("browser.taskbar.lists.enabled", true);
 user_pref("browser.taskbar.lists.frequent.enabled", false);
 user_pref("browser.taskbar.lists.recent.enabled", false);
