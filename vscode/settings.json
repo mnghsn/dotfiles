@@ -1,6 +1,6 @@
 {
-  "editor.copyWithSyntaxHighlighting": false,
   "editor.minimap.renderCharacters": false,
+  "editor.minimap.showSlider": "always",
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderControlCharacters": true,
   "editor.renderWhitespace": "boundary",
@@ -22,8 +22,8 @@
   "update.mode": "manual",
   "vsicons.dontShowNewVersionMessage": true,
   "vsicons.presets.foldersAllDefaultIcon": true,
-  "window.customMenuBarAltFocus": false,
   "window.newWindowDimensions": "inherit",
+  "window.restoreWindows": "folders",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.enableExperiments": false,
   "workbench.iconTheme": "vscode-icons",
