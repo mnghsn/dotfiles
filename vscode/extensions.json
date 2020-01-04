@@ -1,6 +1,8 @@
 {
   "extensions": [
-    "EditorConfig.EditorConfig",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "mhutchie.git-graph",
     "stkb.rewrap",
     "vscode-icons-team.vscode-icons"
   ]
