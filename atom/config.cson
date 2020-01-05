@@ -22,8 +22,6 @@
     onlyHighlightWholeWords: false
   "line-ending-selector":
     defaultLineEnding: "LF"
-  linter:
-    lintOnChange: false
   "markdown-preview":
     useGitHubStyle: true
   "omni-ruler":
