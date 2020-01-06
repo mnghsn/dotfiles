@@ -1,4 +1,5 @@
 {
+  "editor.fontSize": 12,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.showSlider": "always",
   "editor.multiCursorModifier": "ctrlCmd",
@@ -18,6 +19,7 @@
   "scm.defaultViewMode": "tree",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
+  "terminal.integrated.fontSize": 12,
   "update.enableWindowsBackgroundUpdates": false,
   "update.mode": "manual",
   "vsicons.dontShowNewVersionMessage": true,
