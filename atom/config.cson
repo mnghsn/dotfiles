@@ -12,7 +12,6 @@
     telemetryConsent: "no"
     uriHandlerRegistration: "never"
   editor:
-    fontSize: 12
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
