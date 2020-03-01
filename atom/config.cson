@@ -1,6 +1,5 @@
 "*":
   core:
-    automaticallyUpdate: false
     disabledPackages: [
       "background-tips"
       "dalek"
@@ -18,7 +17,6 @@
     telemetryConsent: "no"
     uriHandlerRegistration: "never"
   editor:
-    invisibles: {}
     showIndentGuide: true
     showInvisibles: true
   "file-icons":
