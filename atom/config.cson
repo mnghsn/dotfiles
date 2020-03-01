@@ -3,10 +3,16 @@
     automaticallyUpdate: false
     disabledPackages: [
       "background-tips"
+      "dalek"
+      "deprecation-cop"
+      "dev-live-reload"
       "exception-reporting"
+      "incompatible-packages"
       "metrics"
+      "package-generator"
       "styleguide"
       "timecop"
+      "update-package-dependencies"
       "welcome"
     ]
     telemetryConsent: "no"
