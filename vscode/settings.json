@@ -17,6 +17,8 @@
   "files.trimTrailingWhitespace": true,
   "git.autoRepositoryDetection": "subFolders",
   "git.promptToSaveFilesBeforeCommit": "staged",
+  "git-graph.dateFormat": "ISO Date & Time",
+  "git-graph.dateType": "Commit Date",
   "scm.defaultViewMode": "tree",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
