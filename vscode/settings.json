@@ -18,8 +18,6 @@
   "scm.defaultViewMode": "tree",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "update.enableWindowsBackgroundUpdates": false,
-  "update.mode": "manual",
   "vsicons.dontShowNewVersionMessage": true,
   "vsicons.presets.foldersAllDefaultIcon": true,
   "window.newWindowDimensions": "inherit",
