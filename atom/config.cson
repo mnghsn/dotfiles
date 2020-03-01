@@ -22,10 +22,8 @@
     showIndentGuide: true
     showInvisibles: true
   "file-icons":
-    forceShow: true
+    coloured: false
     onChanges: true
-  "highlight-selected":
-    onlyHighlightWholeWords: false
   "omni-ruler":
     columns: [
       "80"
@@ -34,8 +32,10 @@
       "200"
     ]
   pigments:
-    markerType: "native-dot"
     mergeColorDuplicates: true
+  "platformio-ide-terminal":
+    toggles:
+      autoClose: true
   "spell-check":
     locales: [
       "en-US"
