@@ -84,7 +84,6 @@ install_dotfiles() {
   # Visual Studio Code
   link_file 'vscode/settings.json'             '.config/Code/User/settings.json'
   link_file 'vscode/extensions.json'           '.config/Code/User/extensions.json'
-  copy_file 'vscode/globalStorage/state.vscdb' '.config/Code/User/globalStorage/state.vscdb'
 }
 
 #######################################
