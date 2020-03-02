@@ -16,8 +16,6 @@ call plug#begin('~/.vim/plugged')
 
 " Load plugins.
 Plug 'jacoborus/tender.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
@@ -37,15 +35,3 @@ call plug#end()
 silent! colorscheme tender
 " Set vim-airline theme.
 let g:airline_theme = 'tender'
-
-"""""""""""""""""""""""""""""""""""""""
-" Plugin: NERDTree
-"""""""""""""""""""""""""""""""""""""""
-
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeQuitOpen = 0
-let NERDTreeShowHidden = 1
-
-" Use <Ctrl>-<M> to toggle NERDTree.
-nmap <C-M> :NERDTreeToggle<CR>
