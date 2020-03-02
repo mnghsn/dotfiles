@@ -18,7 +18,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'jacoborus/tender.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'terryma/vim-multiple-cursors'
@@ -49,28 +49,3 @@ let NERDTreeShowHidden = 1
 
 " Use <Ctrl>-<M> to toggle NERDTree.
 nmap <C-M> :NERDTreeToggle<CR>
-
-"""""""""""""""""""""""""""""""""""""""
-" Plugin: vim-airline
-"""""""""""""""""""""""""""""""""""""""
-
-" Always show status line.
-set laststatus=2
-
-" Set vim-airline theme.
-"let g:airline_theme = 'dark'
-" Show a clock at section x.
-let g:airline_section_x = '%{strftime("%m/%d %H:%M")}% '
-" Enable tabline.
-let g:airline#extensions#tabline#enabled = 1
-" Show only file name in tabline.
-let g:airline#extensions#tabline#fnamemod = ':t'
-" Use Powerline fonts.
-let g:airline_powerline_fonts = $HAS_POWERLINE_FONT
-
-" Use <Tab> to switch to next buffer in NORMAL mode.
-nmap <Tab> :bn!<CR>
-" Use <`> to switch to previous buffer in NORMAL mode.
-nmap ` :bp!<CR>
-" Use <Leader>-<D> to close current buffer.
-nmap <Leader>d :bd<CR>
