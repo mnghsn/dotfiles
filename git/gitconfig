@@ -1,3 +1,8 @@
+# Git Configuration
+# https://git-scm.com/docs/git-config
+#
+# ~/.gitconfig
+
 [alias]
   # Shortcuts
   aa = add --all
