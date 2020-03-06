@@ -49,7 +49,7 @@ install_dotfiles() {
   link_file 'shell/.curlrc'         '.curlrc'
 
   # tmux
-  link_file 'tmux/.tmux.conf' '.tmux.conf'
+  link_file 'tmux/tmux.conf' '.tmux.conf'
 
   # Git
   link_file 'git/.gitconfig' '.gitconfig'
