@@ -52,8 +52,8 @@ install_dotfiles() {
   link_file 'tmux/tmux.conf' '.tmux.conf'
 
   # Git
-  link_file 'git/.gitconfig' '.gitconfig'
-  link_file 'git/.gitignore' '.gitignore'
+  link_file 'git/gitconfig' '.gitconfig'
+  link_file 'git/gitignore' '.gitignore'
 
   # Vim
   link_file 'vim/vimrc'            '.vimrc'
