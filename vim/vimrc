@@ -187,10 +187,10 @@ silent! colorscheme tender
 let g:lightline = { 'colorscheme': 'tender' }
 
 " ------------------------------------------------------------------------------
-" Local Settings
+" Local Configuration
 " ------------------------------------------------------------------------------
 
-" Load local settings if exist.
+" Load local configuration if exists.
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
