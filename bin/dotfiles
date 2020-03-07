@@ -45,7 +45,7 @@ install_dotfiles() {
   link_file 'shell/.bash_options'   '.bash_options'
   link_file 'shell/.bash_paths'     '.bash_paths'
   link_file 'shell/.bash_prompt'    '.bash_prompt'
-  link_File 'shell/.bash_logout'    '.bash_logout'
+  link_file 'shell/.bash_logout'    '.bash_logout'
   link_file 'shell/.inputrc'        '.inputrc'
   link_file 'shell/.curlrc'         '.curlrc'
 
