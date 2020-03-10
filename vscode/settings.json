@@ -27,6 +27,7 @@
   "window.newWindowDimensions": "inherit",
   "window.restoreWindows": "folders",
   "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.untitled.labelFormat": "name",
   "workbench.enableExperiments": false,
   "workbench.iconTheme": "vscode-icons",
   "workbench.settings.editor": "json",
