@@ -59,7 +59,7 @@ user_pref("font.minimum-size.zh-CN", 10);
 user_pref("font.minimum-size.zh-HK", 10);
 user_pref("font.minimum-size.zh-TW", 10);
 
-// Disable Location-Aware Browsing.
+// Disable Geolocation API.
 user_pref("geo.enabled", false);
 
 // Disable Notifications API.
@@ -85,6 +85,7 @@ user_pref("permissions.default.geo", 2);
 user_pref("permissions.default.camera", 2);
 user_pref("permissions.default.microphone", 2);
 user_pref("permissions.default.desktop-notification", 2);
+user_pref("permissions.default.xr", 2);
 
 // Disallow JavaScript to change the new window.
 user_pref("dom.disable_window_move_resize", true);
@@ -102,7 +103,7 @@ user_pref("dom.disable_window_open_feature.toolbar", true);
 user_pref("browser.link.open_newwindow", 3);
 user_pref("browser.link.open_newwindow.restriction", 0);
 
-// Limit pop-up window events.
+// Block popup window events and limit events that can cause a popup.
 user_pref("dom.disable_open_during_load", true);
 user_pref("dom.popup_allowed_events", "click dblclick mouseup");
 
@@ -137,7 +138,7 @@ user_pref("browser.send_pings.require_same_host", true);
 // Privacy
 // -----------------------------------------------------------------------------
 
-// Block third-party cookies and site data.
+// Block all third-party cookies and site data.
 user_pref("network.cookie.cookieBehavior", 1);
 user_pref("browser.contentblocking.category", "custom");
 
@@ -203,6 +204,7 @@ user_pref("signon.rememberSignons", false);
 // Enable OCSP (Online Certificate Status Protocol) stapling.
 user_pref("security.ssl.enable_ocsp_stapling", true);
 user_pref("security.OCSP.enabled", 1);
+user_pref("security.OCSP.require", true);
 
 // Enable CSP (Content Security Policy).
 user_pref("security.csp.enable", true);
@@ -249,7 +251,7 @@ user_pref("xpinstall.signatures.required", false);
 // Allow all extensions to run in private browsing mode by default.
 user_pref("extensions.allowPrivateBrowsingByDefault", true);
 
-// Disable recommendations.
+// Disable extension recommendations.
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
@@ -294,8 +296,11 @@ user_pref("media.gmp-gmpopenh264.autoupdate", false);
 // Disable UI animation.
 user_pref("toolkit.cosmeticAnimations.enabled", false);
 
-// Display download button on toolbar.
+// Add download button to toolbar.
 user_pref("browser.download.autohideButton", false);
+
+// Add search bar to toolbar.
+user_pref("browser.search.widget.inNavBar", true);
 
 // Disable "What's New" icons.
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
@@ -335,11 +340,12 @@ user_pref("network.IDN_show_punycode", true);
 // Copy unicode characters from location bar as is.
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
-// Disable search suggestions in the location bar.
+// Disable live search suggestions in the location bar.
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.oneOffSearches", false);
 
-// Enable search bar suggestions in private browsing mode.
+// Enable live search suggestions in the search bar.
+user_pref("browser.search.suggest.enabled", true);
 user_pref("browser.search.suggest.enabled.private", true);
 
 // Disable location bar making speculative connections.
