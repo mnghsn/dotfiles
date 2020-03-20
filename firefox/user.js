@@ -61,12 +61,6 @@ user_pref("font.minimum-size.zh-TW", 10);
 
 // Disable Location-Aware Browsing.
 user_pref("geo.enabled", false);
-user_pref("geo.provider.network.url", "");
-user_pref("geo.provider.network.logging.enabled", false);
-user_pref("geo.provider.ms-windows-location", false);
-user_pref("geo.provider.use_corelocation", false);
-user_pref("geo.provider.use_gpsd", false);
-user_pref("permissions.default.geo", 2);
 
 // Disable Notifications API.
 user_pref("dom.webnotifications.enabled", false);
@@ -76,52 +70,21 @@ user_pref("dom.webnotifications.serviceworker.enabled", false);
 user_pref("dom.push.enabled", false);
 user_pref("dom.push.userAgentID", "");
 
-// Block notification permission.
-user_pref("permissions.default.desktop-notification", 2);
-
-// Disable Beacon API.
-user_pref("beacon.enabled", false);
-
-// Disable Gamepad API.
-user_pref("dom.gamepad.enabled", false);
-
-// Disable Sensor API.
-user_pref("device.sensors.enabled", false);
-
-// Disable Vibration API.
-user_pref("dom.vibrator.enabled", false);
-
-// Disable Web Audio API.
-user_pref("dom.webaudio.enabled", false);
-
-// Disable Text-to-Speech part of the Web Speech API.
-user_pref("media.webspeech.synth.enabled", false);
-
 // Disable WebRTC.
 user_pref("media.peerconnection.enabled", false);
 user_pref("media.peerconnection.ice.default_address_only", true);
 user_pref("media.peerconnection.ice.no_host", true);
 user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
-user_pref("media.getusermedia.audiocapture.enabled", false);
-user_pref("media.getusermedia.browser.enabled", false);
-user_pref("media.getusermedia.screensharing.enabled", false);
-
-// Disable media device enumeration.
-user_pref("media.navigator.enabled", false);
-
-// Disable media device change detection.
-user_pref("media.ondevicechange.enabled", false);
-
-// Block camera and microphone permissions.
-user_pref("permissions.default.camera", 2);
-user_pref("permissions.default.microphone", 2);
 
 // Disable autoplaying media unless the user has interacted with the page.
 user_pref("media.autoplay.default", 5);
 user_pref("media.autoplay.enabled.user-gestures-needed", true);
 
-// Disable video statistics.
-user_pref("media.video_stats.enabled", false);
+// Block new requests asking permissions.
+user_pref("permissions.default.geo", 2);
+user_pref("permissions.default.camera", 2);
+user_pref("permissions.default.microphone", 2);
+user_pref("permissions.default.desktop-notification", 2);
 
 // Disallow JavaScript to change the new window.
 user_pref("dom.disable_window_move_resize", true);
@@ -170,19 +133,6 @@ user_pref("network.http.redirection-limit", 10);
 user_pref("browser.send_pings", false);
 user_pref("browser.send_pings.require_same_host", true);
 
-// Enforce the proxy server to do any DNS lookups when using SOCKS.
-user_pref("network.proxy.socks_remote_dns", true);
-
-// Disable GIO as a potential proxy bypass vector.
-user_pref("network.gio.supported-protocols", "");
-
-// Disable Captive Portal detection.
-user_pref("captivedetect.canonicalURL", "");
-user_pref("network.captive-portal-service.enabled", false);
-
-// Disable Network Connectivity checks.
-user_pref("network.connectivity-service.enabled", false);
-
 // -----------------------------------------------------------------------------
 // Privacy
 // -----------------------------------------------------------------------------
@@ -204,10 +154,6 @@ user_pref("privacy.trackingprotection.pbmode.enabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
-user_pref("privacy.trackingprotection.introCount", 20);
-
-// Hide Content Blocking notification.
-user_pref("browser.contentblocking.introCount", 20);
 
 // Disable Telemetry.
 user_pref("toolkit.telemetry.unified", false);
@@ -260,9 +206,6 @@ user_pref("security.OCSP.enabled", 1);
 
 // Enable CSP (Content Security Policy).
 user_pref("security.csp.enable", true);
-
-// Disable Windows Family Safety cert.
-user_pref("security.family_safety.mode", 0);
 
 // Disable insecure content on HTTPS pages.
 user_pref("security.mixed_content.block_active_content", true);
@@ -380,9 +323,6 @@ user_pref("browser.download.useDownloadDir", false);
 // Disable adding downloads to "Recent Documents" list.
 user_pref("browser.download.manager.addToRecentDocs", false);
 
-// Disable hiding MIME types not associated with a plugin.
-user_pref("browser.download.hide_plugins_without_extensions", false);
-
 // Disable location bar domain guessing.
 user_pref("browser.fixup.alternate.enabled", false);
 
@@ -410,19 +350,14 @@ user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 // Hide privacy items in Windows Taskbar Jump List.
-user_pref("browser.taskbar.lists.enabled", true);
 user_pref("browser.taskbar.lists.frequent.enabled", false);
 user_pref("browser.taskbar.lists.recent.enabled", false);
-user_pref("browser.taskbar.lists.tasks.enabled", true);
 
 // Set the minimum interval between session save operations.
 user_pref("browser.sessionstore.interval", 60000);
 
 // Disable capturing page thumbnails.
 user_pref("browser.pagethumbnails.capturing_disabled", true);
-
-// Disable middlemouse paste leaking clipboard content on Linux.
-user_pref("middlemouse.paste", false);
 
 // Skip the security delay on "Install" and "Open/Save" dialogs.
 user_pref("security.dialog_enable_delay", 0);
@@ -444,5 +379,3 @@ user_pref("devtools.webide.autoinstallADBExtension", false);
 user_pref("offline-apps.allow_by_default", false);
 user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint", "");
 user_pref("toolkit.telemetry.hybridContent.enabled", false);
-user_pref("geo.wifi.uri", "");
-user_pref("geo.wifi.logging.enabled", false);
