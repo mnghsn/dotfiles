@@ -32,7 +32,6 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited"
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint", "");
 
 // -----------------------------------------------------------------------------
 // Localization
@@ -62,8 +61,8 @@ user_pref("font.minimum-size.zh-TW", 10);
 
 // Disable Location-Aware Browsing.
 user_pref("geo.enabled", false);
-user_pref("geo.wifi.uri", "");
-user_pref("geo.wifi.logging.enabled", false);
+user_pref("geo.provider.network.url", "");
+user_pref("geo.provider.network.logging.enabled", false);
 user_pref("geo.provider.ms-windows-location", false);
 user_pref("geo.provider.use_corelocation", false);
 user_pref("geo.provider.use_gpsd", false);
@@ -217,7 +216,6 @@ user_pref("toolkit.telemetry.server", "data:,");
 user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.bhrPing.enabled", false);
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
-user_pref("toolkit.telemetry.hybridContent.enabled", false);
 user_pref("toolkit.telemetry.newProfilePing.enabled", false);
 user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
 user_pref("toolkit.telemetry.updatePing.enabled", false);
@@ -230,6 +228,9 @@ user_pref("toolkit.coverage.endpoint.base", "");
 // Disable Health Report.
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
+
+// Disable Studies.
+user_pref("app.shield.optoutstudies.enabled", false);
 
 // Disable Crash Reporting.
 user_pref("breakpad.reportURL", "");
@@ -441,3 +442,7 @@ user_pref("media.autoplay.allow-muted", false);
 user_pref("devtools.webide.enabled", false);
 user_pref("devtools.webide.autoinstallADBExtension", false);
 user_pref("offline-apps.allow_by_default", false);
+user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint", "");
+user_pref("toolkit.telemetry.hybridContent.enabled", false);
+user_pref("geo.wifi.uri", "");
+user_pref("geo.wifi.logging.enabled", false);
