@@ -4,7 +4,5 @@
 
 # Clear console on exit.
 if [[ "${SHLVL}" -eq 1 ]]; then
-  if command -v clear &> /dev/null; then
-    clear
-  fi
+  [[ -x '/usr/bin/clear_console' ]] && /usr/bin/clear_console -q
 fi
