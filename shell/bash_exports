@@ -30,4 +30,6 @@ export HISTTIMEFORMAT='%F %T '
 export PROMPT_DIRTRIM=2
 
 # Make new shells get the history lines from all previous shells.
-export PROMPT_COMMAND="history -a; ${PROMPT_COMMAND}"
+if [[ ! "${PROMPT_COMMAND}" =~ 'history -a;' ]]; then
+  export PROMPT_COMMAND="history -a; ${PROMPT_COMMAND}"
+fi
