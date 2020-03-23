@@ -27,7 +27,7 @@ export HISTIGNORE='&:bg:fg'
 export HISTTIMEFORMAT='%F %T '
 
 # Shorten paths in the Bash prompt. (Bash >= 4.0)
-export PROMPT_DIRTRIM=2
+export PROMPT_DIRTRIM=3
 
 # Make new shells get the history lines from all previous shells.
 if [[ ! "${PROMPT_COMMAND}" =~ 'history -a;' ]]; then
