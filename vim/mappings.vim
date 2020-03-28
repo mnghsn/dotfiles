@@ -19,3 +19,10 @@ nnoremap <C-s> :update<CR>
 
 " `:W` to save file as sudo.
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+
+" <Tab> to switch to next buffer.
+nmap <Tab> :bnext!<CR>
+" <`> to switch to previous buffer.
+nmap ` :bprevious!<CR>
+" <Ctrl>-<W> to close current buffer.
+nmap <C-w> :bdelete<CR>
