@@ -1,5 +1,9 @@
 " ~/.vim/plugins.vim
 
+" ------------------------------------------------------------------------------
+" Plugin Manager
+" ------------------------------------------------------------------------------
+
 " Install vim-plug and plugins.
 " https://github.com/junegunn/vim-plug/wiki/tips
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -17,6 +21,10 @@ Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
+
+" ------------------------------------------------------------------------------
+" Plugin Configuration
+" ------------------------------------------------------------------------------
 
 " Plugin: jacoborus/tender.vim
 silent! colorscheme tender

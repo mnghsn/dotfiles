@@ -1,5 +1,9 @@
 " ~/.vim/mappings.vim
 
+" ------------------------------------------------------------------------------
+" Mappings
+" ------------------------------------------------------------------------------
+
 " <Shift>-<Arrows> to select the active split.
 nnoremap <S-Left> <C-W><C-H>
 nnoremap <S-Right> <C-W><C-L>
