@@ -23,7 +23,7 @@ if !isdirectory(expand(&undodir))
 endif
 
 " Set the location of `viminfo` file.
-set viminfo+=n$HOME/.vim/viminfo
+set viminfo+=n~/.vim/viminfo
 
 " ------------------------------------------------------------------------------
 " Interface
