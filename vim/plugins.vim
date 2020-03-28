@@ -29,5 +29,5 @@ call plug#end()
 " Plugin: jacoborus/tender.vim
 silent! colorscheme tender
 
-" Plugin: tchyny/lightline.vim
+" Plugin: itchyny/lightline.vim
 let g:lightline = { 'colorscheme': 'tender' }
