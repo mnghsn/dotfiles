@@ -33,3 +33,11 @@ export PROMPT_DIRTRIM=3
 if [[ ! "${PROMPT_COMMAND}" =~ 'history -a;' ]]; then
   export PROMPT_COMMAND="history -a; ${PROMPT_COMMAND}"
 fi
+
+# Enable 256 color terminal.
+if [[ "${COLORTERM}" == gnome-* && "${TERM}" == xterm ]] \
+  && infocmp gnome-256color &> /dev/null; then
+  export TERM='gnome-256color'
+elif infocmp xterm-256color &> /dev/null; then
+  export TERM='xterm-256color'
+fi
