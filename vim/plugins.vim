@@ -78,8 +78,10 @@ let NERDTreeMinimalUI = 1
 " Show hidden files.
 let NERDTreeShowHidden = 1
 
-" <Ctrl>-<N> to open NERDTree.
-nmap <C-n> :NERDTreeToggle<CR>
+" Configurate key mappings.
+nnoremap <Leader>nn :NERDTreeToggle<CR>
+nnoremap <Leader>nb :NERDTreeFromBookmark<Space>
+nnoremap <Leader>nf :NERDTreeFind<CR>
 
 " Open NERDTree automatically when vim starts up on opening a directory.
 autocmd StdinReadPre * let s:std_in=1
