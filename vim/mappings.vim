@@ -21,8 +21,8 @@ nnoremap <C-s> :update<CR>
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
 " <Tab> to switch to next buffer.
-nmap <Tab> :bnext!<CR>
+nnoremap <Tab> :bnext!<CR>
 " <`> to switch to previous buffer.
-nmap ` :bprevious!<CR>
-" <Ctrl>-<W> to close current buffer.
-nmap <C-w> :bdelete<CR>
+nnoremap ` :bprevious!<CR>
+" <Leader><D> to delete current buffer.
+nnoremap <Leader>d :bdelete<CR>
