@@ -47,28 +47,22 @@ set showtabline=2
 " Configurate lightline.
 let g:lightline = {
   \ 'colorscheme': 'tender',
-  \
   \ 'active': {
   \   'left': [
   \     [ 'mode', 'paste' ],
-  \     [ 'filename', 'readonly', 'modified' ],
-  \     [ 'gitbranch' ],
+  \     [ 'gitbranch', 'readonly', 'filename', 'modified' ],
   \   ],
   \ },
-  \
   \ 'tabline': {
   \   'left': [ [ 'buffers' ] ],
   \   'right': [ [ 'close' ] ],
   \ },
-  \
   \ 'component_function': {
   \   'gitbranch': 'FugitiveHead',
   \ },
-  \
   \ 'component_expand': {
   \   'buffers': 'lightline#bufferline#buffers',
   \ },
-  \
   \ 'component_type': {
   \   'buffers': 'tabsel',
   \ },
