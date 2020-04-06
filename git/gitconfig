@@ -57,9 +57,6 @@
   # Usage: `git gh-pr 123` or `git gh-pr 123 upstream`
   gh-pr = "!f(){ git fetch -fu ${2:-origin} refs/pull/$1/head:gh-pr/$1 && git checkout gh-pr/$1; };f"
 
-[color]
-  ui = auto
-
 [core]
   autocrlf = input
   excludesfile = ~/.gitignore
