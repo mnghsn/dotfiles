@@ -11,6 +11,7 @@
   cb = checkout -b
   cp = cherry-pick
   dc = diff --cached
+  ds = diff --stat
   lg = log --graph
   lo = log --oneline
   rc = rebase --continue
@@ -83,6 +84,9 @@
 [url "git@gitlab.com:"]
   pushInsteadOf = git://gitlab.com/
   pushInsteadOf = https://gitlab.com/
+
+[user]
+  useConfigOnly = true
 
 [include]
   path = ~/.gitconfig.local
