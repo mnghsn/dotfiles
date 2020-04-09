@@ -64,8 +64,8 @@
 
 [core]
   autocrlf = input
-  excludesfile = ~/.gitignore
-  attributesfile = ~/.gitattributes
+  excludesFile = ~/.gitignore
+  attributesFile = ~/.gitattributes
 
 [diff]
   algorithm = histogram
@@ -81,7 +81,7 @@
   # rebase = merges
 
 [rebase]
-  autosquash = true
+  autoSquash = true
 
 [url "git@github.com:"]
   pushInsteadOf = git://github.com/
