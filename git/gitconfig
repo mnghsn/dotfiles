@@ -58,6 +58,10 @@
   # Usage: `git gh-pr 123` or `git gh-pr 123 upstream`
   gh-pr = "!f(){ git fetch -fu ${2:-origin} refs/pull/$1/head:gh-pr/$1 && git checkout gh-pr/$1; };f"
 
+  # Fetch and checkout a GitLab merge request from a remote (defaults to `origin`)
+  # Usage: `git gl-mr 123` or `git gl-mr 123 upstream`
+  gl-mr = "!f(){ git fetch -fu ${2:-origin} merge-requests/$1/head:gl-mr/$1 && git checkout gl-mr/$1; };f"
+
 [core]
   autocrlf = input
   excludesfile = ~/.gitignore
