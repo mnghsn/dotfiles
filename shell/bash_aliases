@@ -27,7 +27,7 @@ alias la='ls -A --group-directories-first'
 alias ll='ls -alF --group-directories-first --time-style=iso'
 
 # Concatenate and print content of files with line numbers.
-alias catn="cat -n"
+alias catn='cat -n'
 
 # Clear screen like Windows.
 alias cls='clear'

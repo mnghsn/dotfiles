@@ -12,7 +12,7 @@ export LC_COLLATE='C'
 export EDITOR='vim'
 
 # Ignore spaced commands and prevent storing duplicated commands.
-export HISTCONTROL=ignoreboth
+export HISTCONTROL='ignoreboth'
 
 # Set the maximum number of lines contained in history file. (Default is 500)
 export HISTFILESIZE=1000
