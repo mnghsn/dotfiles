@@ -14,6 +14,8 @@
   ds = diff --stat
   lg = log --graph
   lo = log --oneline
+  rb = rebase
+  ri = rebase --interactive
   rc = rebase --continue
   rs = rebase --skip
   st = status
