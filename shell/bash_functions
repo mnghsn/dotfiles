@@ -10,16 +10,24 @@ list_functions() {
 }
 
 #######################################
-# Creates a new directory and then
-# enters it.
+# Creates new directories and then enters the last one.
+# Arguments:
+#   Directories to create.
+# Returns:
+#   0 on success, non-zero on error.
 #######################################
 mkd() {
   mkdir -p "$@" && cd "$_"
 }
 
 #######################################
-# Converts `CRLF` (Windows) line
-# endings to `LF` (Unix).
+# Converts text files with DOS line endings to Unix line endings.
+# Arguments:
+#   Files to convert.
+# Inputs:
+#   Reads text from stdin if no argument is given.
+# Outputs:
+#   Writes converted text to stdout.
 #######################################
 crlf2lf() {
   if [[ $# -eq 0 ]]; then
@@ -36,8 +44,13 @@ crlf2lf() {
 }
 
 #######################################
-# Converts `LF` (Unix) line endings to
-# `CRLF` (Windows).
+# Converts text files with Unix line endings to DOS line endings.
+# Arguments:
+#   Files to convert.
+# Inputs:
+#   Reads text from stdin if no argument is given.
+# Outputs:
+#   Writes converted text to stdout.
 #######################################
 lf2crlf() {
   if [[ $# -eq 0 ]]; then
@@ -54,8 +67,7 @@ lf2crlf() {
 }
 
 #######################################
-# Runs `git pull` on every directory
-# within the current directory.
+# Runs `git pull` on every directory within the current directory.
 #######################################
 git-updateall() {
   find . \

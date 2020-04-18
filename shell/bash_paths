@@ -3,8 +3,11 @@
 # ~/.bash_paths
 
 #######################################
-# Tests whether a directory can be
-# added into `$PATH`.
+# Tests whether a directory can be added into `$PATH`.
+# Arguments:
+#   Directory to test.
+# Returns:
+#   0 if yes, non-zero if no.
 #######################################
 test_path() {
   if [[ ! -d "${1}" ]] || [[ ":${PATH}:" = *":${1}:"* ]]; then
