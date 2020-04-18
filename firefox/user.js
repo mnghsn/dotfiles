@@ -302,6 +302,13 @@ user_pref("browser.download.autohideButton", false);
 // Add search bar to toolbar.
 user_pref("browser.search.widget.inNavBar", true);
 
+// Disable revamped location bar.
+user_pref("browser.urlbar.openViewOnFocus", false);
+user_pref("browser.urlbar.update1", false);
+user_pref("browser.urlbar.update1.interventions", false);
+user_pref("browser.urlbar.update1.searchTips", false);
+user_pref("browser.urlbar.update1.view.stripHttps", false);
+
 // Disable "What's New" icons.
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
