@@ -21,10 +21,10 @@ if [[ -x '/usr/bin/dircolors' ]]; then
   alias egrep='egrep --color=auto'
 fi
 
-# List directory.
+# List directory contents.
 alias l='ls -CF'
 alias la='ls -A --group-directories-first'
-alias ll='ls -alF --group-directories-first --time-style=iso'
+alias ll='ls -lah --group-directories-first --time-style=iso'
 
 # Concatenate and print content of files with line numbers.
 alias catn='cat -n'
