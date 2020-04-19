@@ -10,31 +10,30 @@
 #   Writes Git branch name and status to stdout.
 #######################################
 prompt_git() {
-  local s=''
   local branch_name=''
+  local status=''
 
   # Check if the current directory is in a Git repository.
-  if [[ $(git rev-parse --is-inside-work-tree &>/dev/null; printf '%s' $?) == 0 ]]; then
-    # Check if the current directory is in `.git` before running Git checks.
+  if [[ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" == 'true' ]]; then
+    # Check if the current directory is not in `.git`.
     if [[ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]]; then
       # Ensure index is up to date.
-      git update-index --really-refresh -q &>/dev/null
-
+      git update-index --really-refresh -q &> /dev/null
       # Check for uncommitted changes.
-      if ! $(git diff --quiet --ignore-submodules --cached); then
-        s="${s}+"
+      if ! git diff --quiet --ignore-submodules --cached; then
+        status="${status}+"
       fi
       # Check for unstaged changes.
-      if ! $(git diff-files --quiet --ignore-submodules --); then
-        s="${s}!"
+      if ! git diff-files --quiet --ignore-submodules --; then
+        status="${status}!"
       fi
       # Check for untracked files.
       if [[ -n "$(git ls-files --others --exclude-standard)" ]]; then
-        s="${s}?"
+        status="${status}?"
       fi
       # Check for stashed files.
-      if $(git rev-parse --verify refs/stash &>/dev/null); then
-        s="${s}$"
+      if git rev-parse --verify refs/stash &> /dev/null; then
+        status="${status}$"
       fi
     fi
 
@@ -44,16 +43,17 @@ prompt_git() {
                     || git rev-parse --short HEAD 2> /dev/null \
                     || printf '(unknown)')"
 
-    [[ -n "${s}" ]] && s=" ${s}"
+    if [[ -n "${status}" ]]; then
+      status=" ${status}"
+    fi
 
-    printf '%s' "${1}${branch_name}${s}${2}"
-  else
-    return
+    printf '%s' "${1}${branch_name}${status}${2}"
   fi
 }
 
 #######################################
 # Sets Bash prompt.
+# shellcheck disable=2034
 #######################################
 set_prompts() {
   local black='\[\033[1;30m\]'
