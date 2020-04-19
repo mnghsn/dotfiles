@@ -51,6 +51,26 @@ qt() {
 }
 
 #######################################
+# Calculates a math expression.
+# Arguments:
+#   Expression to calculate.
+# Outputs:
+#   Writes the result to stdout.
+#######################################
+calc() {
+  local result=''
+  result="$(printf 'scale=10;%s\n' "$*" | bc --mathlib | tr -d '\\\n')"
+
+  if [[ "${result}" == *.* ]]; then
+    printf '%s' "${result}" \
+      | sed -e 's/^\./0./' -e 's/^-\./-0./' -e 's/0*$//;s/\.$//'
+  else
+    printf '%s' "${result}"
+  fi
+  printf '\n'
+}
+
+#######################################
 # Converts text files with DOS line endings to Unix line endings.
 # Arguments:
 #   Files to convert.
