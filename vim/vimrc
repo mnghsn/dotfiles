@@ -1,8 +1,8 @@
 " ~/.vim/vimrc
 
-"
+"""""""""""""""""""""""""""""""""""""""
 " Loads configuration file if exists.
-"
+"""""""""""""""""""""""""""""""""""""""
 function! s:load_config(file)
   if filereadable(expand(a:file))
     execute 'source' a:file

@@ -30,16 +30,16 @@ call plug#end()
 " Plugin Configuration
 " ------------------------------------------------------------------------------
 
-"
+"""""""""""""""""""""""""""""""""""""""
 " Plugin: jacoborus/tender.vim
-"
+"""""""""""""""""""""""""""""""""""""""
 
 " Set color scheme.
 silent! colorscheme tender
 
-"
+"""""""""""""""""""""""""""""""""""""""
 " Plugin: itchyny/lightline.vim
-"
+"""""""""""""""""""""""""""""""""""""""
 
 " Always show the tabline.
 set showtabline=2
@@ -68,9 +68,9 @@ let g:lightline = {
   \ },
   \ }
 
-"
+"""""""""""""""""""""""""""""""""""""""
 " Plugin: preservim/nerdtree
-"
+"""""""""""""""""""""""""""""""""""""""
 
 " Disable the "Bookmarks" label and "Press ? for help" text.
 let NERDTreeMinimalUI = 1
@@ -90,9 +90,9 @@ autocmd VimEnter *
   \   exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] |
   \ endif
 
-"
+"""""""""""""""""""""""""""""""""""""""
 " Plugin: Yggdroot/indentLine
-"
+"""""""""""""""""""""""""""""""""""""""
 
 " Disable indent line and concealing for those file types.
 let g:indentLine_fileTypeExclude = [ 'help', 'markdown' ]
