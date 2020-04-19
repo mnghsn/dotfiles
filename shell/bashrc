@@ -27,4 +27,4 @@ for index in ${!bash_files[*]}; do
   fi
 done
 
-unset bash_files
+unset -v bash_files

@@ -41,8 +41,8 @@ for index in ${!append_dirs[*]}; do
   fi
 done
 
-unset test_path
-unset prepend_dirs
-unset append_dirs
+unset -f test_path
+unset -v prepend_dirs
+unset -v append_dirs
 
 export PATH
