@@ -11,5 +11,5 @@ set show-all-if-ambiguous on
 # Use the string that has already been typed as the prefix for searching through
 # commands.
 # Use Ctrl+P and Ctrl+N to walk through history the default way.
-"\e[B": history-search-forward
 "\e[A": history-search-backward
+"\e[B": history-search-forward
