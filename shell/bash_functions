@@ -21,6 +21,36 @@ mkd() {
 }
 
 #######################################
+# Searches for text within Bash history.
+# Arguments:
+#   Text to search.
+# Outputs:
+#   Writes search results to stdout.
+#######################################
+qh() {
+  grep \
+    --color=always \
+    --ignore-case \
+    "$*" "${HISTFILE}" | less -RX
+}
+
+#######################################
+# Searches for text within the current directory.
+# Arguments:
+#   Text to search.
+# Outputs:
+#   Writes search results to stdout.
+#######################################
+qt() {
+  grep \
+    --color=always \
+    --ignore-case \
+    --recursive \
+    --exclude-dir={.git,node_modules} \
+    "$*" "${PWD}" | less -RX
+}
+
+#######################################
 # Converts text files with DOS line endings to Unix line endings.
 # Arguments:
 #   Files to convert.
