@@ -3,10 +3,9 @@
 # ~/.bashrc
 
 # If not running interactively, don't do anything.
-case $- in
-  *i*) ;;
-    *) return;;
-esac
+if [[ -z "${PS1}" ]]; then
+  return
+fi
 
 # Load Bash configuration files.
 declare -a bash_files=(
@@ -23,7 +22,7 @@ declare -a bash_files=(
 )
 
 for index in ${!bash_files[*]}; do
-  if [[ -r "${bash_files[$index]}" ]]; then
+  if [[ -f "${bash_files[$index]}" ]]; then
     source "${bash_files[$index]}"
   fi
 done
