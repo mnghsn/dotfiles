@@ -17,7 +17,7 @@ list_functions() {
 #   0 on success, non-zero on error.
 #######################################
 mkd() {
-  mkdir -p "$@" && cd "$_"
+  mkdir -p "$@" && cd "$_" || exit 1
 }
 
 #######################################
@@ -30,17 +30,7 @@ mkd() {
 #   Writes converted text to stdout.
 #######################################
 crlf2lf() {
-  if [[ $# -eq 0 ]]; then
-    cat <&0
-  elif [[ $# -eq 1 ]]; then
-    if [[ -f "${1}" ]] && [[ -r "${1}" ]]; then
-      cat "${1}"
-    else
-      echo "${1}"
-    fi
-  else
-    return 1
-  fi | sed -e "s/$(printf '\r')//g"
+  cat "$@" <&0 | sed -e 's/\r$//g'
 }
 
 #######################################
@@ -53,17 +43,7 @@ crlf2lf() {
 #   Writes converted text to stdout.
 #######################################
 lf2crlf() {
-  if [[ $# -eq 0 ]]; then
-    cat <&0
-  elif [[ $# -eq 1 ]]; then
-    if [[ -f "${1}" ]] && [[ -r "${1}" ]]; then
-      cat "${1}"
-    else
-      echo "${1}"
-    fi
-  else
-    return 1
-  fi | sed -e "s/$/$(printf '\r')/g"
+  cat "$@" <&0 | sed -e 's/$/\r/g'
 }
 
 #######################################
