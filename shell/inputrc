@@ -15,5 +15,5 @@ set show-all-if-ambiguous on
 "\e[B": history-search-forward
 
 # Make Ctrl+Left and Ctrl+Right jump the cursor over words.
-"\e[1;5D": backward-word
 "\e[1;5C": forward-word
+"\e[1;5D": backward-word
