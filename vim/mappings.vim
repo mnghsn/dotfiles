@@ -4,6 +4,9 @@
 " Mappings
 " ------------------------------------------------------------------------------
 
+" Set <Leader> to comma.
+let mapleader = ','
+
 " <Shift>-<Arrows> to select the active split.
 nnoremap <S-Left> <C-W><C-H>
 nnoremap <S-Right> <C-W><C-L>
