@@ -2,13 +2,13 @@
   "bracket-matcher":
     highlightMatchingLineNumber: true
   core:
+    audioBeep: false
     disabledPackages: [
       "background-tips"
       "dalek"
       "deprecation-cop"
       "dev-live-reload"
       "exception-reporting"
-      "incompatible-packages"
       "metrics"
       "package-generator"
       "styleguide"
@@ -42,5 +42,7 @@
     ]
   tabs:
     enableVcsColoring: true
+  "tree-view":
+    hideIgnoredNames: true
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
