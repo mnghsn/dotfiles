@@ -1,5 +1,6 @@
 {
   "breadcrumbs.enabled": false,
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.copyWithSyntaxHighlighting": false,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.showSlider": "always",
@@ -20,6 +21,7 @@
   "git-graph.dateFormat": "ISO Date & Time",
   "git-graph.dateType": "Commit Date",
   "scm.defaultViewMode": "tree",
+  "scm.inputFontFamily": "editor",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "vsicons.dontShowNewVersionMessage": true,
