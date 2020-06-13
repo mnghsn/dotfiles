@@ -293,8 +293,12 @@ user_pref("media.gmp-gmpopenh264.autoupdate", false);
 // Appearance
 // -----------------------------------------------------------------------------
 
+// Allow userChrome.css and userContent.css.
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
 // Disable UI animation.
 user_pref("toolkit.cosmeticAnimations.enabled", false);
+user_pref("ui.prefersReducedMotion", 1);
 
 // Add download button to toolbar.
 user_pref("browser.download.autohideButton", false);
