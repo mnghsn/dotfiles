@@ -1,0 +1,30 @@
+/* Mozilla Firefox userChrome.css */
+
+/* Disable revamped address bar. */
+#urlbar[breakout][breakout-extend] {
+  top: 5px !important;
+  left: 0 !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+[uidensity="compact"] #urlbar[breakout][breakout-extend] {
+  top: 3px !important;
+}
+[uidensity="touch"] #urlbar[breakout][breakout-extend] {
+  top: 4px !important;
+}
+#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+  height: var(--urlbar-height) !important;
+  padding: 0 !important;
+}
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+  animation: none !important;
+  box-shadow: none !important;
+}
+#urlbar-results {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.urlbarView-body-inner {
+  border-top: 0px !important;
+}
