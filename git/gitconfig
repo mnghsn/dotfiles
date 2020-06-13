@@ -79,8 +79,7 @@
   ff = false
 
 [pull]
-  rebase = preserve
-  # rebase = merges
+  rebase = merges
 
 [rebase]
   autoSquash = true
