@@ -16,7 +16,7 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "git.autoRepositoryDetection": "subFolders",
+  "git.autoRepositoryDetection": "openEditors",
   "git.promptToSaveFilesBeforeCommit": "staged",
   "git-graph.dateFormat": "ISO Date & Time",
   "git-graph.dateType": "Commit Date",
@@ -36,7 +36,5 @@
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.settings.useSplitJSON": true,
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.tips.enabled": false,
-  "workbench.tree.indent": 16,
-  "workbench.tree.renderIndentGuides": "always"
+  "workbench.tips.enabled": false
 }
