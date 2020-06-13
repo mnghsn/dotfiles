@@ -64,7 +64,9 @@ install_dotfiles() {
   link_file 'vim/plugins.vim'   '.vim/plugins.vim'
 
   # Mozilla Firefox
-  link_file 'firefox/user.js'           '.mozilla/firefox/default/user.js'
+  copy_file 'firefox/profiles.ini'              '.mozilla/firefox/profiles.ini'
+  copy_file 'firefox/default/compatibility.ini' '.mozilla/firefox/default/compatibility.ini'
+  link_file 'firefox/default/user.js'           '.mozilla/firefox/default/user.js'
 
   # Atom
   link_file 'atom/config.cson'   '.atom/config.cson'
