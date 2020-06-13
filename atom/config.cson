@@ -33,9 +33,6 @@
     ]
   pigments:
     mergeColorDuplicates: true
-  "platformio-ide-terminal":
-    toggles:
-      autoClose: true
   "spell-check":
     locales: [
       "en-US"
@@ -46,3 +43,9 @@
     hideIgnoredNames: true
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
+  "x-terminal":
+    spawnPtySettings:
+      projectCwd: true
+    terminalSettings:
+      defaultOpenPosition: "Bottom Dock"
+      leaveOpenAfterExit: false

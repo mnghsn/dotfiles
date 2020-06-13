@@ -6,7 +6,7 @@ packages: [
   "omni-ruler"
   "permanent-delete"
   "pigments"
-  "platformio-ide-terminal"
   "pretty-json"
   "sort-lines"
+  "x-terminal"
 ]
