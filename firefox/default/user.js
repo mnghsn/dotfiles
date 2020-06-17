@@ -303,6 +303,9 @@ user_pref("ui.prefersReducedMotion", 1);
 // Add download button to toolbar.
 user_pref("browser.download.autohideButton", false);
 
+// Add search bar to toolbar.
+user_pref("browser.search.widget.inNavBar", true);
+
 // Disable revamped location bar.
 user_pref("browser.urlbar.openViewOnFocus", false);
 user_pref("browser.urlbar.update1", false);

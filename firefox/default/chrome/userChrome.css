@@ -21,18 +21,10 @@
   animation: none !important;
   box-shadow: none !important;
 }
-#urlbar-results {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-.urlbarView-body-inner {
-  border-top: 0px !important;
-}
 
-/* Minimize One-Off Searches in address bar. */
+/* Disable One-Off Searches in address bar. */
 #urlbar .search-one-offs:not([hidden]) {
-  display: flex !important;
-  padding-block: 6px !important;
+  display: none !important;
 }
 #urlbar .search-one-offs .search-panel-header {
   display: none !important;
