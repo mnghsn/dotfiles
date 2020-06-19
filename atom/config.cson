@@ -3,6 +3,8 @@
     highlightMatchingLineNumber: true
   core:
     audioBeep: false
+    automaticallyUpdate: false
+    closeEmptyWindows: false
     disabledPackages: [
       "background-tips"
       "dalek"
@@ -21,6 +23,7 @@
   editor:
     showIndentGuide: true
     showInvisibles: true
+    zoomFontWhenCtrlScrolling: false
   "file-icons":
     coloured: false
     onChanges: true
