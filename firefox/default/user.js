@@ -86,6 +86,7 @@ user_pref("permissions.default.camera", 2);
 user_pref("permissions.default.microphone", 2);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.xr", 2);
+user_pref("permissions.default.shortcuts", 2);
 
 // Disallow JavaScript to change the new window.
 user_pref("dom.disable_window_move_resize", true);
@@ -133,6 +134,9 @@ user_pref("network.http.redirection-limit", 10);
 // Disable Hyperlink Auditing and enforce same host in case.
 user_pref("browser.send_pings", false);
 user_pref("browser.send_pings.require_same_host", true);
+
+// Disable sending additional analytics to web servers.
+user_pref("beacon.enabled", false);
 
 // -----------------------------------------------------------------------------
 // Privacy
@@ -315,6 +319,10 @@ user_pref("browser.urlbar.update1.view.stripHttps", false);
 
 // Disable "What's New" icons.
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
+
+// Display warning on the padlock for weak encryption.
+user_pref("security.ssl.require_safe_negotiation", false);
+user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 
 // Display advanced information on insecure connection warning pages.
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
