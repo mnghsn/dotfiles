@@ -33,8 +33,8 @@ install_dotfiles() {
   e_header 'Installing...'
 
   # Executable files
-  link_file 'bin/dotfiles'          '.local/bin/dotfiles'
-  link_file 'bin/pyserver'          '.local/bin/pyserver'
+  link_file 'bin/dotfiles' '.local/bin/dotfiles'
+  link_file 'bin/pyserver' '.local/bin/pyserver'
 
   # Shell
   link_file 'shell/bashrc'         '.bashrc'
@@ -57,17 +57,17 @@ install_dotfiles() {
   link_file 'git/gitignore' '.gitignore'
 
   # Vim
-  link_file 'vim/vimrc'         '.vim/vimrc'
-  link_file 'vim/basic.vim'     '.vim/basic.vim'
-  link_file 'vim/colors.vim'    '.vim/colors.vim'
-  link_file 'vim/mappings.vim'  '.vim/mappings.vim'
-  link_file 'vim/plugins.vim'   '.vim/plugins.vim'
+  link_file 'vim/vimrc'        '.vim/vimrc'
+  link_file 'vim/basic.vim'    '.vim/basic.vim'
+  link_file 'vim/colors.vim'   '.vim/colors.vim'
+  link_file 'vim/mappings.vim' '.vim/mappings.vim'
+  link_file 'vim/plugins.vim'  '.vim/plugins.vim'
 
   # Mozilla Firefox
-  copy_file 'firefox/profiles.ini'              '.mozilla/firefox/profiles.ini'
-  copy_file 'firefox/default/compatibility.ini' '.mozilla/firefox/default/compatibility.ini'
-  link_file 'firefox/default/user.js'           '.mozilla/firefox/default/user.js'
-  link_file 'firefox/default/chrome/userChrome.css' '.mozilla/firefox/default/chrome/userChrome.css'
+  copy_file 'firefox/profiles.ini'                   '.mozilla/firefox/profiles.ini'
+  copy_file 'firefox/default/compatibility.ini'      '.mozilla/firefox/default/compatibility.ini'
+  link_file 'firefox/default/user.js'                '.mozilla/firefox/default/user.js'
+  link_file 'firefox/default/chrome/userChrome.css'  '.mozilla/firefox/default/chrome/userChrome.css'
   link_file 'firefox/default/chrome/userContent.css' '.mozilla/firefox/default/chrome/userContent.css'
 
   # Atom
@@ -75,8 +75,8 @@ install_dotfiles() {
   link_file 'atom/packages.cson' '.atom/packages.cson'
 
   # Visual Studio Code
-  link_file 'vscode/settings.json'             '.config/Code/User/settings.json'
-  link_file 'vscode/extensions.json'           '.config/Code/User/extensions.json'
+  link_file 'vscode/settings.json'   '.config/Code/User/settings.json'
+  link_file 'vscode/extensions.json' '.config/Code/User/extensions.json'
 }
 
 #######################################
