@@ -68,6 +68,7 @@ install_dotfiles() {
   copy_file 'firefox/default/compatibility.ini' '.mozilla/firefox/default/compatibility.ini'
   link_file 'firefox/default/user.js'           '.mozilla/firefox/default/user.js'
   link_file 'firefox/default/chrome/userChrome.css' '.mozilla/firefox/default/chrome/userChrome.css'
+  link_file 'firefox/default/chrome/userContent.css' '.mozilla/firefox/default/chrome/userContent.css'
 
   # Atom
   link_file 'atom/config.cson'   '.atom/config.cson'
