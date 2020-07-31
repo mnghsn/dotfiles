@@ -356,13 +356,12 @@ user_pref("network.IDN_show_punycode", true);
 // Copy unicode characters from location bar as is.
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
-// Disable live search suggestions in the location bar.
-user_pref("browser.urlbar.suggest.searches", false);
-user_pref("browser.urlbar.oneOffSearches", false);
-
-// Enable live search suggestions in the search bar.
+// Enable search suggestions in normal and private window.
 user_pref("browser.search.suggest.enabled", true);
 user_pref("browser.search.suggest.enabled.private", true);
+
+// Show search suggestions after other suggestions.
+user_pref("browser.urlbar.matchBuckets", "general:5,suggestion:Infinity");
 
 // Disable location bar making speculative connections.
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
