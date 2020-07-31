@@ -22,9 +22,10 @@
   box-shadow: none !important;
 }
 
-/* Disable One-Off Searches in address bar. */
+/* Minimize One-Off Searches in address bar. */
 #urlbar .search-one-offs:not([hidden]) {
-  display: none !important;
+  display: flex !important;
+  padding-block: 7px !important;
 }
 #urlbar .search-one-offs .search-panel-header {
   display: none !important;
