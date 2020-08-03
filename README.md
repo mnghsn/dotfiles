@@ -1,7 +1,5 @@
 # dotfiles
 
-[![Build Status](https://travis-ci.org/jmlntw/dotfiles.svg?branch=master)](https://travis-ci.org/jmlntw/dotfiles)
-
 My personal configuration files.
 
 ## Installation
