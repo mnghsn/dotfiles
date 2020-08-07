@@ -1,4 +1,4 @@
-// Mozilla Firefox User Preferences
+// Firefox user.js
 
 // -----------------------------------------------------------------------------
 // Startup
