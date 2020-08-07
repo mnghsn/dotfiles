@@ -78,7 +78,7 @@ user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 
 // Disable autoplaying media unless the user has interacted with the page.
 user_pref("media.autoplay.default", 5);
-user_pref("media.autoplay.enabled.user-gestures-needed", true);
+user_pref("media.autoplay.blocking_policy", 2);
 
 // Block new requests asking permissions.
 user_pref("permissions.default.geo", 2);
@@ -301,7 +301,6 @@ user_pref("media.gmp-gmpopenh264.autoupdate", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // Disable UI animation.
-user_pref("toolkit.cosmeticAnimations.enabled", false);
 user_pref("ui.prefersReducedMotion", 1);
 
 // Add download button to toolbar.
@@ -363,9 +362,11 @@ user_pref("browser.search.suggest.enabled.private", true);
 // Show search suggestions after other suggestions.
 user_pref("browser.urlbar.matchBuckets", "general:5,suggestion:Infinity");
 
+// Disable location bar leaking single words to a DNS provider
+user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
+
 // Disable location bar making speculative connections.
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
-user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
 
 // Disable closing browser with last tab.
 user_pref("browser.tabs.closeWindowWithLastTab", false);
@@ -400,3 +401,6 @@ user_pref("devtools.webide.autoinstallADBExtension", false);
 user_pref("offline-apps.allow_by_default", false);
 user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint", "");
 user_pref("toolkit.telemetry.hybridContent.enabled", false);
+user_pref("browser.urlbar.oneOffSearches", false);
+user_pref("media.autoplay.enabled.user-gestures-needed", true);
+user_pref("toolkit.cosmeticAnimations.enabled", false);
