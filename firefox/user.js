@@ -78,7 +78,7 @@ user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 
 // Disable autoplaying media unless the user has interacted with the page.
 user_pref("media.autoplay.default", 5);
-user_pref("media.autoplay.blocking_policy", 2);
+user_pref("media.autoplay.blocking_policy", 1);
 
 // Block new requests asking permissions.
 user_pref("permissions.default.geo", 2);
