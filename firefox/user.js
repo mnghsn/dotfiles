@@ -19,6 +19,7 @@ user_pref("browser.newtab.preload", false);
 // Disable Activity Stream.
 user_pref("browser.library.activity-stream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "");
+user_pref("browser.newtabpage.activity-stream.default.sites", "");
 user_pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
@@ -39,10 +40,6 @@ user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
 // Set preferred languages for displaying pages.
 user_pref("intl.accept_languages", "ja, zh-tw, zh, en-us, en");
-
-// Disable GeoIP-based search results.
-user_pref("browser.search.region", "JP");
-user_pref("browser.search.geoip.url", "");
 
 // Disable geographically specific results/search engines.
 user_pref("browser.search.geoSpecificDefaults", false);
@@ -152,6 +149,9 @@ user_pref("privacy.donottrackheader.enabled", true);
 // Enable First Party Isolation.
 user_pref("privacy.firstparty.isolate", true);
 user_pref("privacy.firstparty.isolate.restrict_opener_access", true);
+
+// Enable site partition.
+user_pref("privacy.partition.network_state", true);
 
 // Enable Tracking Protection in all windows.
 user_pref("privacy.trackingprotection.enabled", true);
