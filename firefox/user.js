@@ -26,10 +26,6 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
@@ -148,7 +144,6 @@ user_pref("privacy.donottrackheader.enabled", true);
 
 // Enable First Party Isolation.
 user_pref("privacy.firstparty.isolate", true);
-user_pref("privacy.firstparty.isolate.restrict_opener_access", true);
 
 // Enable site partition.
 user_pref("privacy.partition.network_state", true);
@@ -156,9 +151,6 @@ user_pref("privacy.partition.network_state", true);
 // Enable Tracking Protection in all windows.
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
-user_pref("privacy.trackingprotection.cryptomining.enabled", true);
-user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
-user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 
 // Disable Telemetry.
 user_pref("toolkit.telemetry.unified", false);
@@ -212,11 +204,6 @@ user_pref("security.OCSP.require", true);
 
 // Enable CSP (Content Security Policy).
 user_pref("security.csp.enable", true);
-
-// Disable insecure content on HTTPS pages.
-user_pref("security.mixed_content.block_active_content", true);
-user_pref("security.mixed_content.block_display_content", true);
-user_pref("security.mixed_content.block_object_subrequest", true);
 
 // -----------------------------------------------------------------------------
 // Features
