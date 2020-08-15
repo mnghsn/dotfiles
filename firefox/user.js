@@ -41,6 +41,10 @@ user_pref("intl.accept_languages", "ja, zh-tw, zh, en-us, en");
 user_pref("browser.search.geoSpecificDefaults", false);
 user_pref("browser.search.geoSpecificDefaults.url", "");
 
+// Disable region updates.
+user_pref("browser.region.update.enabled", false);
+user_pref("browser.region.network.url", "");
+
 // -----------------------------------------------------------------------------
 // Content
 // -----------------------------------------------------------------------------
