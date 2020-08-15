@@ -128,9 +128,6 @@ user_pref("beacon.enabled", false);
 user_pref("network.cookie.cookieBehavior", 1);
 user_pref("browser.contentblocking.category", "custom");
 
-// Enable DNT (Do Not Track) HTTP header.
-user_pref("privacy.donottrackheader.enabled", true);
-
 // Enable First Party Isolation.
 user_pref("privacy.firstparty.isolate", true);
 
