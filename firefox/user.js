@@ -52,17 +52,6 @@ user_pref("font.minimum-size.zh-CN", 10);
 user_pref("font.minimum-size.zh-HK", 10);
 user_pref("font.minimum-size.zh-TW", 10);
 
-// Disable Geolocation API.
-user_pref("geo.enabled", false);
-
-// Disable Notifications API.
-user_pref("dom.webnotifications.enabled", false);
-user_pref("dom.webnotifications.serviceworker.enabled", false);
-
-// Disable Push API.
-user_pref("dom.push.enabled", false);
-user_pref("dom.push.userAgentID", "");
-
 // Disable WebRTC.
 user_pref("media.peerconnection.enabled", false);
 user_pref("media.peerconnection.ice.default_address_only", true);
