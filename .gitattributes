@@ -1,6 +1,6 @@
 # explicit language override
-git/gitconfig linguist-language=gitconfig
-git/gitignore linguist-language=gitignore
+git/_gitconfig linguist-language=gitconfig
+git/_gitignore linguist-language=gitignore
 shell/curlrc linguist-language=curlrc
 shell/inputrc linguist-language=inputrc
 tmux/tmux.conf linguist-language=sh
