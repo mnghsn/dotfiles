@@ -20,8 +20,9 @@
   st = status
   ss = status --short
 
-  # Log
-  graph = log --graph --all --decorate --oneline
+  # Graph
+  graph = log --graph --oneline --decorate
+  grapha = log --graph --oneline --decorate --all
 
   # Lookup
   authors = !git log --pretty=format:'%an <%ae>' | sort -u
