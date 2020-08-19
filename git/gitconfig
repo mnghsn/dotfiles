@@ -28,16 +28,6 @@
   # Lookup
   authors = !git log --pretty=format:'%an <%ae>' | sort -u
   whorank = shortlog --numbered --summary --email --no-merges
-  count = rev-list --all --count
-  size = count-objects --verbose --human-readable
-
-  # Sync
-  sync = !git pull --rebase && git submodule update --init --recursive
-
-  # Publish
-  branch-name = rev-parse --abbrev-ref HEAD
-  publish = !git push --set-upstream origin "$(git branch-name)"
-  unpublish = !git push origin :"$(git branch-name)"
 
   # Snapshot
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
