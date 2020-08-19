@@ -78,5 +78,8 @@
 [user]
   useConfigOnly = true
 
+  # Do not store sensitive information such as `name`, `email` or `signingKey`
+  # in this file, add them in `~/.gitconfig.local`.
+
 [include]
   path = ~/.gitconfig.local
