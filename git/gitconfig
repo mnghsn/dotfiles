@@ -63,18 +63,6 @@
 [diff]
   algorithm = histogram
 
-[fetch]
-  prune = true
-
-[merge]
-  ff = false
-
-[pull]
-  rebase = merges
-
-[rebase]
-  autoSquash = true
-
 [url "git@github.com:"]
   pushInsteadOf = git://github.com/
   pushInsteadOf = https://github.com/
