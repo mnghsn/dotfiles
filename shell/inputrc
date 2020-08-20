@@ -8,6 +8,16 @@ set completion-ignore-case on
 # Auto list tab completions (use instead of TAB-cycling).
 set show-all-if-ambiguous on
 
+# Perform partial completion on the first Tab press, and only start cycling full
+# results on the second Tab press.
+set menu-complete-display-prefix on
+
+# Make Tab cycle through possible completions.
+"\t": menu-complete
+
+# Make Shift+Tab reverse cycle through possible completions.
+"\e[Z": "\e-1\C-i"
+
 # Use the string that has already been typed as the prefix for searching through
 # commands.
 # Use Ctrl+P and Ctrl+N to walk through history the default way.
