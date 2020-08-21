@@ -2,6 +2,9 @@
 #
 # ~/.inputrc
 
+# Disable beeping and window flashing.
+set bell-style none
+
 # Use case-insensitive tab autocompletion.
 set completion-ignore-case on
 
