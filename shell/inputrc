@@ -30,3 +30,6 @@ set menu-complete-display-prefix on
 # Make Ctrl+Left and Ctrl+Right jump the cursor over words.
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
+
+# Make Alt+S prefix the current line with `sudo`.
+"\es": "\C-asudo \C-e"
