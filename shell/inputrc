@@ -1,35 +1,26 @@
-#!/bin/bash
-#
 # ~/.inputrc
 
 # Disable beeping and window flashing.
 set bell-style none
 
-# Use case-insensitive tab autocompletion.
+# Use case-insensitive filename matching and completion.
 set completion-ignore-case on
 
-# Auto list tab completions (use instead of TAB-cycling).
-set show-all-if-ambiguous on
-
-# Perform partial completion on the first Tab press, and only start cycling full
-# results on the second Tab press.
+# Show partial completion before cycling through the list.
 set menu-complete-display-prefix on
 
-# Make Tab cycle through possible completions.
-"\t": menu-complete
+# Show all possible completions instead of beeping.
+set show-all-if-ambiguous on
 
-# Make Shift+Tab reverse cycle through possible completions.
+# Use Tab and Shift+Tab to cycle through possible completions.
+"\t": menu-complete
 "\e[Z": "\e-1\C-i"
 
 # Use the string that has already been typed as the prefix for searching through
 # commands.
-# Use Ctrl+P and Ctrl+N to walk through history the default way.
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
-# Make Ctrl+Left and Ctrl+Right jump the cursor over words.
+# Use Ctrl+Left and Ctrl+Right to move the cursor between words.
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
-
-# Make Alt+S prefix the current line with `sudo`.
-"\es": "\C-asudo \C-e"
