@@ -1,5 +1,8 @@
 # ~/.inputrc
 
+# Include system-wide bindings and variable assignments.
+$include /etc/inputrc
+
 # Disable beeping and window flashing.
 set bell-style none
 
