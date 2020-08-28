@@ -155,7 +155,6 @@ prompt_git() {
   if [[ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" != 'true' ]]; then
     return
   fi
-
   # Do nothing if the current directory is inside `.git`.
   if [[ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'true' ]]; then
     return
@@ -192,6 +191,7 @@ prompt_git() {
 
 #
 # Sets the prompt statement variables.
+# shellcheck disable=SC2034
 #
 set_prompts() {
   local reset='\[\033[0m\]'
@@ -211,7 +211,6 @@ set_prompts() {
   # Set the default interactive prompt.
   #   user@hostname: ~ [master +!?$]
   #   $ ...
-  #   > ...
   PS1+=$'\n'
   PS1+="${green}\u@\h"
   PS1+="${gray}: "
@@ -222,6 +221,7 @@ set_prompts() {
   PS1+="${reset}"
 
   # Set the continuation interactive prompt.
+  #   > ...
   PS2="${gray}> "
   PS2+="${reset}"
 
