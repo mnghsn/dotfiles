@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM debian:testing
 
 RUN apt-get update \
   && apt-get upgrade -y \
