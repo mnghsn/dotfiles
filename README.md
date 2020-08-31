@@ -24,18 +24,17 @@ Options:
 
 Inspiration and code were taken from many sources, including:
 
-* [dotfiles](https://github.com/necolas/dotfiles) by [@necolas](https://github.com/necolas)
-* [dotfiles](https://github.com/isaacs/dotfiles) by [@isaacs](https://github.com/isaacs)
-* [dotfiles](https://github.com/eed3si9n/dotfiles) by [@eed3si9n](https://github.com/eed3si9n)
-* [dotfiles](https://github.com/b4b4r07/dotfiles) by [@b4b4r07](https://github.com/b4b4r07)
-* [dotfiles](https://github.com/danmelton/dotfiles) by [@danmelton](https://github.com/danmelton)
-* [ssarcandy-vim](https://github.com/SSARCandy/ssarcandy-vim) by [@SSARCandy](https://github.com/SSARCandy)
-* [vim-opinion](https://github.com/rstacruz/vim-opinion) by [@rstacruz](https://github.com/rstacruz)
-* [.tmux](https://github.com/gpakosz/.tmux) by [@gpakosz](https://github.com/gpakosz)
-* [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js) by [@ghacksuserjs](https://github.com/ghacksuserjs)
-* [user.js](https://github.com/pyllyukko/user.js) by [@pyllyukko](https://github.com/pyllyukko)
-* [The Ultimate Bashrc File GNOME-Look.org](https://gnome-look.org/content/show.php/Ultimate+Bashrc+File?content=129746)
-* [Font configuration - ArchWiki](https://wiki.archlinux.org/index.php/font_configuration)
+- [dotfiles](https://github.com/necolas/dotfiles) by [@necolas](https://github.com/necolas)
+- [dotfiles](https://github.com/alrra/dotfiles) by [@alrra](https://github.com/alrra)
+- [dotfiles](https://github.com/isaacs/dotfiles) by [@isaacs](https://github.com/isaacs)
+- [dotfiles](https://github.com/eed3si9n/dotfiles) by [@eed3si9n](https://github.com/eed3si9n)
+- [dotfiles](https://github.com/b4b4r07/dotfiles) by [@b4b4r07](https://github.com/b4b4r07)
+- [ssarcandy-vim](https://github.com/SSARCandy/ssarcandy-vim) by [@SSARCandy](https://github.com/SSARCandy)
+- [vim-opinion](https://github.com/rstacruz/vim-opinion) by [@rstacruz](https://github.com/rstacruz)
+- [.tmux](https://github.com/gpakosz/.tmux) by [@gpakosz](https://github.com/gpakosz)
+- [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js) by [@ghacksuserjs](https://github.com/ghacksuserjs)
+- [The Ultimate Bashrc File GNOME-Look.org](https://gnome-look.org/content/show.php/Ultimate+Bashrc+File?content=129746)
+- [Font configuration - ArchWiki](https://wiki.archlinux.org/index.php/font_configuration)
 
 ## License
 
