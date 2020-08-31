@@ -40,11 +40,7 @@ install_dotfiles() {
   link_file 'shell/bashrc'         '.bashrc'
   link_file 'shell/bash_profile'   '.bash_profile'
   link_file 'shell/bash_aliases'   '.bash_aliases'
-  link_file 'shell/bash_exports'   '.bash_exports'
   link_file 'shell/bash_functions' '.bash_functions'
-  link_file 'shell/bash_options'   '.bash_options'
-  link_file 'shell/bash_paths'     '.bash_paths'
-  link_file 'shell/bash_prompt'    '.bash_prompt'
   link_file 'shell/bash_logout'    '.bash_logout'
   link_file 'shell/inputrc'        '.inputrc'
   link_file 'shell/curlrc'         '.curlrc'
@@ -57,22 +53,12 @@ install_dotfiles() {
   link_file 'git/gitignore' '.gitignore'
 
   # Vim
-  link_file 'vim/vimrc'        '.vim/vimrc'
-  link_file 'vim/basic.vim'    '.vim/basic.vim'
-  link_file 'vim/colors.vim'   '.vim/colors.vim'
-  link_file 'vim/mappings.vim' '.vim/mappings.vim'
-  link_file 'vim/plugins.vim'  '.vim/plugins.vim'
+  link_file 'vim/vimrc' '.vim/vimrc'
 
   # Mozilla Firefox
-  copy_file 'firefox/profiles.ini'                   '.mozilla/firefox/profiles.ini'
-  copy_file 'firefox/default/compatibility.ini'      '.mozilla/firefox/default/compatibility.ini'
-  link_file 'firefox/default/user.js'                '.mozilla/firefox/default/user.js'
-  link_file 'firefox/default/chrome/userChrome.css'  '.mozilla/firefox/default/chrome/userChrome.css'
-  link_file 'firefox/default/chrome/userContent.css' '.mozilla/firefox/default/chrome/userContent.css'
-
-  # Atom
-  link_file 'atom/config.cson'   '.atom/config.cson'
-  link_file 'atom/packages.cson' '.atom/packages.cson'
+  link_file 'firefox/user.js'                '.mozilla/firefox/default/user.js'
+  link_file 'firefox/chrome/userChrome.css'  '.mozilla/firefox/default/chrome/userChrome.css'
+  link_file 'firefox/chrome/userContent.css' '.mozilla/firefox/default/chrome/userContent.css'
 
   # Visual Studio Code
   link_file 'vscode/settings.json'   '.config/Code/User/settings.json'
