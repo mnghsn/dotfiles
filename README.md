@@ -5,7 +5,7 @@ My personal configuration files.
 ## Installation
 
 ```bash
-$ curl -fsSL https://raw.githubusercontent.com/jmlntw/dotfiles/master/bin/dotfiles | bash
+$ curl -fsSL https://raw.githubusercontent.com/jmlntw/dotfiles/main/bin/dotfiles | bash
 ```
 
 **N.B.** If you want to fork this repository and maintain your own dotfiles, you must substitute my user name and repository name for your own in the above command and the two variables found at the top of `bin/dotfiles` script. Use at your own risk.
