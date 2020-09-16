@@ -7,6 +7,7 @@ RUN apt-get update \
   && apt-get install -y build-essential bash-completion sudo curl wget git vim tmux
 
 RUN useradd --user-group --create-home --shell /bin/bash user \
+  && echo "user:user" | chpasswd \
   && echo "user ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 USER user
