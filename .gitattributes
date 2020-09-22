@@ -1,4 +1,5 @@
-# explicit language override
+* text=auto
+
 git/gitconfig linguist-language=gitconfig
 git/gitignore linguist-language=gitignore
 shell/curlrc linguist-language=curlrc
