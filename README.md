@@ -32,7 +32,7 @@ Inspiration and code were taken from many sources, including:
 - [ssarcandy-vim](https://github.com/SSARCandy/ssarcandy-vim) by [@SSARCandy](https://github.com/SSARCandy)
 - [vim-opinion](https://github.com/rstacruz/vim-opinion) by [@rstacruz](https://github.com/rstacruz)
 - [.tmux](https://github.com/gpakosz/.tmux) by [@gpakosz](https://github.com/gpakosz)
-- [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js) by [@ghacksuserjs](https://github.com/ghacksuserjs)
+- [user.js](https://github.com/arkenfox/user.js) by [@arkenfox](https://github.com/arkenfox)
 - [The Ultimate Bashrc File GNOME-Look.org](https://gnome-look.org/content/show.php/Ultimate+Bashrc+File?content=129746)
 - [Font configuration - ArchWiki](https://wiki.archlinux.org/index.php/font_configuration)
 
