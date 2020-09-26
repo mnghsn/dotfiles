@@ -30,3 +30,15 @@
 #urlbar .search-one-offs .search-panel-header {
   display: none !important;
 }
+
+/* Hide application menu items. */
+#appMenu-fxa-container,
+#appMenu-fxa-container + toolbarseparator,
+#appMenu-fxa-status,
+#appMenu-fxa-status + toolbarseparator,
+#appMenu-tp-button,
+#appMenu-protection-report-button,
+#appMenu-tp-separator,
+#appMenu-logins-button {
+  display: none !important;
+}
