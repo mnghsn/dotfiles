@@ -362,18 +362,3 @@ user_pref("toolkit.winRegisterApplicationRestart", false);
 
 // Disable Alt key toggling menu bar.
 user_pref("ui.key.menuAccessKey", 0);
-
-// -----------------------------------------------------------------------------
-// ESR
-// -----------------------------------------------------------------------------
-
-// ESR 68.* uses the following preferences.
-user_pref("media.autoplay.allow-muted", false);
-user_pref("devtools.webide.enabled", false);
-user_pref("devtools.webide.autoinstallADBExtension", false);
-user_pref("offline-apps.allow_by_default", false);
-user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint", "");
-user_pref("toolkit.telemetry.hybridContent.enabled", false);
-user_pref("browser.urlbar.oneOffSearches", false);
-user_pref("media.autoplay.enabled.user-gestures-needed", true);
-user_pref("toolkit.cosmeticAnimations.enabled", false);

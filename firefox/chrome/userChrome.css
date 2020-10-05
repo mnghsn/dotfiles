@@ -32,11 +32,8 @@
 }
 
 /* Hide application menu items. */
-#appMenu-fxa-container,
-#appMenu-fxa-container + toolbarseparator,
 #appMenu-fxa-status,
 #appMenu-fxa-status + toolbarseparator,
-#appMenu-tp-button,
 #appMenu-protection-report-button,
 #appMenu-tp-separator,
 #appMenu-logins-button {
