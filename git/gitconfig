@@ -63,6 +63,9 @@
 [diff]
   algorithm = histogram
 
+[init]
+  defaultBranch = main
+
 [url "git@github.com:"]
   pushInsteadOf = git://github.com/
   pushInsteadOf = https://github.com/
