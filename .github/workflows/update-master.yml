@@ -1,0 +1,20 @@
+name: Update master branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-ref:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v3
+        with:
+          script: |
+            github.git.updateRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'heads/master',
+              sha: context.sha,
+            })
