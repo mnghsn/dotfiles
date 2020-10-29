@@ -1,5 +1,8 @@
 * text=auto
 
+.gitattributes export-ignore
+.github/ export-ignore
+
 git/gitconfig linguist-language=gitconfig
 git/gitignore linguist-language=gitignore
 shell/curlrc linguist-language=curlrc
