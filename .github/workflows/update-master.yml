@@ -13,7 +13,7 @@ jobs:
         with:
           ref: main
       - run: |
-          git fetch origin
-          git branch master origin/master
+          git fetch
+          git checkout master
           git update-ref refs/heads/master "${GITHUB_SHA}"
           git push origin master
