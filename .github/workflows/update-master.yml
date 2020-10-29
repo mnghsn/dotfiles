@@ -9,11 +9,13 @@ jobs:
   update-ref:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/github-script@v3
         with:
-          ref: main
-      - run: |
-          git fetch
-          git checkout master
-          git update-ref refs/heads/master "${GITHUB_SHA}"
-          git push origin master
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.git.updateRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'heads/master',
+              sha: context.sha,
+            })
