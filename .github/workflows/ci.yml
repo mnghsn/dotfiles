@@ -1,15 +1,24 @@
-name: Update master branch
+name: CI
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   update-ref:
-    runs-on: ubuntu-latest
+    name: Update master branch
+    if: |
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/main'
+    runs-on:
+      - ubuntu-latest
     steps:
-      - uses: actions/github-script@v3
+      - name: Run GitHub script
+        uses: actions/github-script@v3
         with:
           script: |
             github.git.updateRef({
