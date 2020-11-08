@@ -42,6 +42,8 @@ jobs:
 
   update-ref:
     name: Update master branch
+    needs:
+      - test
     if: |
       github.event_name == 'push' &&
       github.ref == 'refs/heads/main'
