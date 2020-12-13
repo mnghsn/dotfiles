@@ -31,11 +31,12 @@
   display: none !important;
 }
 
-/* Hide application menu items. */
+/* Hide items from application menu. */
 #appMenu-fxa-status,
 #appMenu-fxa-status + toolbarseparator,
 #appMenu-protection-report-button,
 #appMenu-tp-separator,
-#appMenu-logins-button {
+#appMenu-logins-button,
+#appMenu-whatsnew-button {
   display: none !important;
 }
