@@ -36,10 +36,6 @@ user_pref("browser.newtabpage.activity-stream.telemetry", false);
 // Set preferred languages for displaying pages.
 user_pref("intl.accept_languages", "ja,zh-tw,zh,en-us,en");
 
-// Disable geographically specific search engines and results.
-user_pref("browser.search.geoSpecificDefaults", false);
-user_pref("browser.search.geoSpecificDefaults.url", "");
-
 // Disable region updates.
 user_pref("browser.region.update.enabled", false);
 user_pref("browser.region.network.url", "");
@@ -77,15 +73,6 @@ user_pref("permissions.default.shortcuts", 2);
 
 // Disallow JavaScript to change new window appearance.
 user_pref("dom.disable_window_move_resize", true);
-user_pref("dom.disable_window_open_feature.close", true);
-user_pref("dom.disable_window_open_feature.location", true);
-user_pref("dom.disable_window_open_feature.menubar", true);
-user_pref("dom.disable_window_open_feature.minimizable", true);
-user_pref("dom.disable_window_open_feature.personalbar", true);
-user_pref("dom.disable_window_open_feature.resizable", true);
-user_pref("dom.disable_window_open_feature.status", true);
-user_pref("dom.disable_window_open_feature.titlebar", true);
-user_pref("dom.disable_window_open_feature.toolbar", true);
 
 // Make all links targeting new window open in a new tab.
 user_pref("browser.link.open_newwindow", 3);
@@ -136,7 +123,6 @@ user_pref("browser.contentblocking.category", "custom");
 
 // Enable first-party isolation.
 user_pref("privacy.firstparty.isolate", true);
-user_pref("privacy.partition.network_state", true);
 
 // Enable enhanced tracking protection in all windows.
 user_pref("privacy.trackingprotection.enabled", true);
@@ -247,7 +233,7 @@ user_pref("media.gmp-provider.enabled", false);
 user_pref("media.gmp-widevinecdm.enabled", false);
 user_pref("media.gmp-widevinecdm.visible", false);
 user_pref("media.gmp-gmpopenh264.enabled", false);
-user_pref("media.gmp-gmpopenh264.autoupdate", false);
+user_pref("media.gmp-gmpopenh264.visible", false);
 
 // Disable Encrypted Media Extension (DRM-controlled content).
 user_pref("media.eme.enabled", false);
@@ -259,18 +245,8 @@ user_pref("media.eme.enabled", false);
 // Enable userChrome.css and userContent.css customizations.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-// Disable UI animation.
-user_pref("ui.prefersReducedMotion", 1);
-
 // Disable site-specific zoom level.
 user_pref("browser.zoom.siteSpecific", false);
-
-// Disable revamped address bar.
-user_pref("browser.urlbar.openViewOnFocus", false);
-user_pref("browser.urlbar.update1", false);
-user_pref("browser.urlbar.update1.interventions", false);
-user_pref("browser.urlbar.update1.searchTips", false);
-user_pref("browser.urlbar.update1.view.stripHttps", false);
 
 // Show download button on toolbar.
 user_pref("browser.download.autohideButton", false);
@@ -280,10 +256,6 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 // Hide “Recent Highlights” in Library.
 user_pref("browser.library.activity-stream.enabled", false);
-
-// Hide “Frequent” and “Recent” in Windows taskbar.
-user_pref("browser.taskbar.lists.frequent.enabled", false);
-user_pref("browser.taskbar.lists.recent.enabled", false);
 
 // Show weak encryption warning on address bar.
 user_pref("security.ssl.require_safe_negotiation", false);
@@ -362,3 +334,11 @@ user_pref("toolkit.winRegisterApplicationRestart", false);
 
 // Disable Alt key toggling menu bar.
 user_pref("ui.key.menuAccessKey", 0);
+
+// -----------------------------------------------------------------------------
+// ESR
+// -----------------------------------------------------------------------------
+
+// ESR 78.* still uses the following preferences.
+user_pref("browser.search.geoSpecificDefaults", false);
+user_pref("browser.search.geoSpecificDefaults.url", "");
