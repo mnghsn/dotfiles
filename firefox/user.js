@@ -62,6 +62,7 @@ user_pref("media.navigator.enabled", false);
 
 // Block all audio and video autoplay.
 user_pref("media.autoplay.default", 5);
+user_pref("media.autoplay.blocking_policy", 0);
 
 // Block new requests asking for permissions.
 user_pref("permissions.default.geo", 2);
@@ -84,6 +85,9 @@ user_pref("dom.popup_allowed_events", "click dblclick mouseup");
 
 // Enable reverse tabnabbing protection.
 user_pref("dom.targetBlankNoOpener.enabled", true);
+
+// Enable window.name protection.
+user_pref("privacy.window.name.update.enabled", true);
 
 // -----------------------------------------------------------------------------
 // Network
@@ -113,6 +117,16 @@ user_pref("network.http.redirection-limit", 10);
 // dialogs.
 user_pref("network.auth.subresource-http-auth-allow", 1);
 
+// Disable Captive Portal detection.
+user_pref("captivedetect.canonicalURL", "");
+user_pref("network.captive-portal-service.enabled", false);
+
+// Disable Network Connectivity checks.
+user_pref("network.connectivity-service.enabled", false);
+
+// Enable Proxy DNS when using SOCKS v5.
+user_pref("network.proxy.socks_remote_dns", true);
+
 // -----------------------------------------------------------------------------
 // Privacy
 // -----------------------------------------------------------------------------
@@ -127,6 +141,9 @@ user_pref("privacy.firstparty.isolate", true);
 // Enable enhanced tracking protection in all windows.
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
+
+// Enable DNT (Do Not Track) HTTP header.
+user_pref("privacy.donottrackheader.enabled", true);
 
 // Disable Telemetry.
 user_pref("toolkit.telemetry.unified", false);
@@ -219,6 +236,7 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 // Disable Form Autofill.
 user_pref("extensions.formautofill.available", "off");
 user_pref("extensions.formautofill.addresses.enabled", false);
+user_pref("extensions.formautofill.creditCards.available", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
 user_pref("extensions.formautofill.heuristics.enabled", false);
 
@@ -310,6 +328,12 @@ user_pref("browser.urlbar.suggest.searches", true);
 // Show search suggestions after other suggestions.
 user_pref("browser.urlbar.matchBuckets", "general:5,suggestion:Infinity");
 
+// Set address bar suggestion types.
+user_pref("browser.urlbar.suggest.history", false);
+user_pref("browser.urlbar.suggest.bookmark", true);
+user_pref("browser.urlbar.suggest.openpage", true);
+user_pref("browser.urlbar.suggest.topsites", false);
+
 // Disable saving form and search history.
 user_pref("browser.formfill.enable", false);
 
@@ -319,6 +343,8 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 // Disable disk cache.
 user_pref("browser.cache.disk.enable", false);
 user_pref("browser.cache.offline.enable", false);
+user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
+user_pref("media.memory_cache_max_size", 65536);
 
 // Disable capturing page thumbnails.
 user_pref("browser.pagethumbnails.capturing_disabled", true);
