@@ -172,6 +172,10 @@ user_pref("datareporting.policy.dataSubmissionEnabled", false);
 // Disable installing and running studies.
 user_pref("app.shield.optoutstudies.enabled", false);
 
+// Disable Google Safe Browsing checks.
+user_pref("browser.safebrowsing.downloads.remote.enabled", false);
+user_pref("browser.safebrowsing.downloads.remote.url", "");
+
 // Disable sending browser crash reports.
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
@@ -197,6 +201,9 @@ user_pref("security.OCSP.require", true);
 // Enable CSP (Content Security Policy).
 user_pref("security.csp.enable", true);
 
+// Enforce Firefox blocklist.
+user_pref("extensions.blocklist.enabled", true);
+
 // -----------------------------------------------------------------------------
 // Features
 // -----------------------------------------------------------------------------
@@ -210,10 +217,6 @@ user_pref("reader.parse-on-load.enabled", false);
 // Disable UITour backend.
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.uitour.url", "");
-
-// Disable various developer tools.
-user_pref("devtools.chrome.enabled", false);
-user_pref("devtools.debugger.remote-enabled", false);
 
 // -----------------------------------------------------------------------------
 // Add-ons
@@ -302,6 +305,9 @@ user_pref("browser.download.useDownloadDir", false);
 // Disable adding downloads to recent documents list.
 user_pref("browser.download.manager.addToRecentDocs", false);
 
+// Disable hiding MIME types not associated with a plugin.
+user_pref("browser.download.hide_plugins_without_extensions", false);
+
 // Disable address bar guessing domain.
 user_pref("browser.fixup.alternate.enabled", false);
 
@@ -349,6 +355,12 @@ user_pref("media.memory_cache_max_size", 65536);
 // Disable capturing page thumbnails.
 user_pref("browser.pagethumbnails.capturing_disabled", true);
 
+// Disable favicons in shortcuts.
+user_pref("browser.shell.shortcutFavicons", false);
+
+// Set the maximum number of bookmark backups to keep.
+user_pref("browser.bookmarks.max_backups", 5);
+
 // Set the minimum interval between session save operations.
 user_pref("browser.sessionstore.interval", 60000);
 
@@ -358,8 +370,14 @@ user_pref("security.dialog_enable_delay", 500);
 // Disable automatic start and session restore after Windows reboot.
 user_pref("toolkit.winRegisterApplicationRestart", false);
 
+// Disable Backspace key navigation.
+user_pref("browser.backspace_action", 2);
+
 // Disable Alt key toggling menu bar.
 user_pref("ui.key.menuAccessKey", 0);
+
+// Disable selecting extra space when double-clicking text.
+user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // -----------------------------------------------------------------------------
 // ESR
