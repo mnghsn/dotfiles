@@ -4,7 +4,7 @@
 // Startup
 // -----------------------------------------------------------------------------
 
-// Show a blank page when Firefox starts.
+// Show a blank page when opening homepage and new window.
 user_pref("browser.startup.page", 0);
 user_pref("browser.startup.homepage", "about:blank");
 user_pref("browser.startup.homepage_override.mstone", "ignore");
@@ -16,7 +16,7 @@ user_pref("startup.homepage_override_url", "");
 user_pref("browser.newtabpage.enabled", false);
 user_pref("browser.newtab.preload", false);
 
-// Disable Firefox Home.
+// Disable Activity Stream.
 user_pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "{}");
 user_pref("browser.newtabpage.activity-stream.default.sites", "");
 user_pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false);
@@ -33,7 +33,7 @@ user_pref("browser.newtabpage.activity-stream.telemetry", false);
 // Localization
 // -----------------------------------------------------------------------------
 
-// Set preferred languages for displaying pages.
+// Set preferred language for displaying pages.
 user_pref("intl.accept_languages", "ja,zh-tw,zh,en-us,en");
 
 // Disable region updates.
@@ -72,10 +72,10 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.xr", 2);
 user_pref("permissions.default.shortcuts", 2);
 
-// Disallow JavaScript to change new window appearance.
+// Disallow JavaScript to move and resize window.
 user_pref("dom.disable_window_move_resize", true);
 
-// Make all links targeting new window open in a new tab.
+// Open links in tabs instead of new windows.
 user_pref("browser.link.open_newwindow", 3);
 user_pref("browser.link.open_newwindow.restriction", 0);
 
@@ -83,7 +83,7 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("dom.disable_open_during_load", true);
 user_pref("dom.popup_allowed_events", "click dblclick mouseup");
 
-// Enable reverse tabnabbing protection.
+// Enable window.target protection.
 user_pref("dom.targetBlankNoOpener.enabled", true);
 
 // Enable window.name protection.
@@ -103,7 +103,7 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true);
 // Disable opening connection to links when mouseover.
 user_pref("network.http.speculative-parallel-limit", 0);
 
-// Disable click tracking and enforce same host in case.
+// Disable hyperlink auditing.
 user_pref("browser.send_pings", false);
 user_pref("browser.send_pings.require_same_host", true);
 
@@ -124,7 +124,7 @@ user_pref("network.captive-portal-service.enabled", false);
 // Disable Network Connectivity checks.
 user_pref("network.connectivity-service.enabled", false);
 
-// Enable Proxy DNS when using SOCKS v5.
+// Enable proxying DNS when using SOCKS v5.
 user_pref("network.proxy.socks_remote_dns", true);
 
 // -----------------------------------------------------------------------------
@@ -135,10 +135,10 @@ user_pref("network.proxy.socks_remote_dns", true);
 user_pref("network.cookie.cookieBehavior", 1);
 user_pref("browser.contentblocking.category", "custom");
 
-// Enable first-party isolation.
+// Enable FPI (First-Party Isolation).
 user_pref("privacy.firstparty.isolate", true);
 
-// Enable enhanced tracking protection in all windows.
+// Enable Enhanced Tracking Protection in all windows.
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
 
@@ -161,16 +161,16 @@ user_pref("toolkit.telemetry.coverage.opt-out", true);
 user_pref("toolkit.coverage.opt-out", true);
 user_pref("toolkit.coverage.endpoint.base", "");
 
-// Disable Normandy and Shield.
-user_pref("app.normandy.enabled", false);
-user_pref("app.normandy.api_url", "");
-
-// Disable sending technical and interaction data.
+// Disable Health Report.
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 
-// Disable installing and running studies.
+// Disable Shield Studies.
 user_pref("app.shield.optoutstudies.enabled", false);
+
+// Disable Normandy Telemetry.
+user_pref("app.normandy.enabled", false);
+user_pref("app.normandy.api_url", "");
 
 // Disable Google Safe Browsing checks.
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
@@ -225,7 +225,7 @@ user_pref("browser.uitour.url", "");
 // Disable enforced extension signing for ESR and Nightly.
 user_pref("xpinstall.signatures.required", false);
 
-// Enable all extensions running in private window by default.
+// Enable all extensions in Private Browsing windows by default.
 user_pref("extensions.allowPrivateBrowsingByDefault", true);
 
 // Disable extension recommendations in about:addons.
@@ -251,10 +251,10 @@ user_pref("extensions.webcompat-reporter.enabled", false);
 
 // Disable Gecko Media Plugins.
 user_pref("media.gmp-provider.enabled", false);
-user_pref("media.gmp-widevinecdm.enabled", false);
-user_pref("media.gmp-widevinecdm.visible", false);
 user_pref("media.gmp-gmpopenh264.enabled", false);
 user_pref("media.gmp-gmpopenh264.visible", false);
+user_pref("media.gmp-widevinecdm.enabled", false);
+user_pref("media.gmp-widevinecdm.visible", false);
 
 // Disable Encrypted Media Extension (DRM-controlled content).
 user_pref("media.eme.enabled", false);
@@ -263,19 +263,19 @@ user_pref("media.eme.enabled", false);
 // Appearance
 // -----------------------------------------------------------------------------
 
-// Enable userChrome.css and userContent.css customizations.
+// Enable userChrome/userContent.css customizations.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // Disable site-specific zoom level.
 user_pref("browser.zoom.siteSpecific", false);
 
-// Show download button on toolbar.
+// Show "Downloads" button on toolbar.
 user_pref("browser.download.autohideButton", false);
 
-// Hide “What's New” icon and panel.
+// Hide "What's New" icon and panel.
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
-// Hide “Recent Highlights” in Library.
+// Hide "Recent Highlights" in Library.
 user_pref("browser.library.activity-stream.enabled", false);
 
 // Show weak encryption warning on address bar.
@@ -329,12 +329,12 @@ user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 // Enable search suggestions in all windows.
 user_pref("browser.search.suggest.enabled", true);
 user_pref("browser.search.suggest.enabled.private", true);
-user_pref("browser.urlbar.suggest.searches", true);
 
 // Show search suggestions after other suggestions.
 user_pref("browser.urlbar.matchBuckets", "general:5,suggestion:Infinity");
 
 // Set address bar suggestion types.
+user_pref("browser.urlbar.suggest.searches", true);
 user_pref("browser.urlbar.suggest.history", false);
 user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.openpage", true);
@@ -343,7 +343,7 @@ user_pref("browser.urlbar.suggest.topsites", false);
 // Disable saving form and search history.
 user_pref("browser.formfill.enable", false);
 
-// Disable closing window when closing last tab.
+// Disable closing window with last tab.
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 // Disable disk cache.
@@ -352,7 +352,7 @@ user_pref("browser.cache.offline.enable", false);
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 user_pref("media.memory_cache_max_size", 65536);
 
-// Disable capturing page thumbnails.
+// Disable page thumbnail collection.
 user_pref("browser.pagethumbnails.capturing_disabled", true);
 
 // Disable favicons in shortcuts.
