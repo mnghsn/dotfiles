@@ -72,7 +72,7 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.xr", 2);
 user_pref("permissions.default.shortcuts", 2);
 
-// Disallow JavaScript to move and resize window.
+// Disallow JavaScript to move and resize windows.
 user_pref("dom.disable_window_move_resize", true);
 
 // Open links in tabs instead of new windows.
@@ -135,7 +135,7 @@ user_pref("network.proxy.socks_remote_dns", true);
 user_pref("network.cookie.cookieBehavior", 1);
 user_pref("browser.contentblocking.category", "custom");
 
-// Enable FPI (First-Party Isolation).
+// Enable First-Party Isolation.
 user_pref("privacy.firstparty.isolate", true);
 
 // Enable Enhanced Tracking Protection in all windows.
@@ -193,12 +193,12 @@ user_pref("dom.ipc.plugins.reportCrashURL", false);
 // Disable saving logins and passwords for websites.
 user_pref("signon.rememberSignons", false);
 
-// Enable OCSP (Online Certificate Status Protocol) stapling.
+// Enforce OCSP (Online Certificate Status Protocol) stapling.
 user_pref("security.ssl.enable_ocsp_stapling", true);
 user_pref("security.OCSP.enabled", 1);
 user_pref("security.OCSP.require", true);
 
-// Enable CSP (Content Security Policy).
+// Enforce CSP (Content Security Policy).
 user_pref("security.csp.enable", true);
 
 // Enforce Firefox blocklist.
@@ -261,7 +261,7 @@ user_pref("extensions.formautofill.heuristics.enabled", false);
 // Disable Pocket.
 user_pref("extensions.pocket.enabled", false);
 
-// Disable WebCompat Reporter.
+// Disable Web Compatibility Reporter.
 user_pref("extensions.webcompat-reporter.enabled", false);
 
 // Disable Gecko Media Plugins.
@@ -271,7 +271,7 @@ user_pref("media.gmp-gmpopenh264.visible", false);
 user_pref("media.gmp-widevinecdm.enabled", false);
 user_pref("media.gmp-widevinecdm.visible", false);
 
-// Disable Encrypted Media Extension (DRM-controlled content).
+// Disable DRM-controlled content.
 user_pref("media.eme.enabled", false);
 
 // -----------------------------------------------------------------------------
@@ -280,7 +280,11 @@ user_pref("media.eme.enabled", false);
 
 // Disable disk cache.
 user_pref("browser.cache.disk.enable", false);
+
+// Disable offline cache.
 user_pref("browser.cache.offline.enable", false);
+
+// Disable media cache in Private Browsing windows.
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 user_pref("media.memory_cache_max_size", 65536);
 
@@ -296,10 +300,10 @@ user_pref("browser.bookmarks.max_backups", 5);
 // Set the minimum interval between session save operations.
 user_pref("browser.sessionstore.interval", 60000);
 
-// Disable saving files into the download directory automatically.
+// Always ask where to save files.
 user_pref("browser.download.useDownloadDir", false);
 
-// Disable adding downloads to recent documents list.
+// Disable adding downloaded files to Recent Documents folder.
 user_pref("browser.download.manager.addToRecentDocs", false);
 
 // Disable hiding MIME types not associated with a plugin.
@@ -315,26 +319,26 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 // Disable site-specific zoom level.
 user_pref("browser.zoom.siteSpecific", false);
 
-// Disable address bar hiding protocol and trailing slash behind domain.
+// Show the full URL in address bar.
 user_pref("browser.urlbar.trimURLs", false);
 
-// Disable address bar showing internationalized domain name in Unicode.
+// Show Punycode for IDNs (Internationalized Domain Names) in address bar.
 user_pref("network.IDN_show_punycode", true);
 
-// Show "Downloads" button on toolbar.
+// Show "Downloads" button in toolbar.
 user_pref("browser.download.autohideButton", false);
 
-// Hide "What's New" icon and panel.
+// Hide "What's New" button in toolbar.
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 // Hide "Recent Highlights" in Library.
 user_pref("browser.library.activity-stream.enabled", false);
 
-// Show weak encryption warning on address bar.
+// Show weak encryption warning in address bar.
 user_pref("security.ssl.require_safe_negotiation", false);
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 
-// Show advanced information on insecure connection warning pages.
+// Show advanced information in insecure connection warning pages.
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 
 // -----------------------------------------------------------------------------
@@ -351,7 +355,7 @@ user_pref("app.update.auto", false);
 // Disable accessibility services.
 user_pref("accessibility.force_disabled", 1);
 
-// Disable saving form and search history.
+// Disable search and form history.
 user_pref("browser.formfill.enable", false);
 
 // Disable address bar guessing domain.
