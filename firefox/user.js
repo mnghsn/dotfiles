@@ -205,6 +205,21 @@ user_pref("security.csp.enable", true);
 user_pref("extensions.blocklist.enabled", true);
 
 // -----------------------------------------------------------------------------
+// Search
+// -----------------------------------------------------------------------------
+
+// Enable search suggestions in all windows.
+user_pref("browser.search.suggest.enabled", true);
+user_pref("browser.search.suggest.enabled.private", true);
+user_pref("browser.urlbar.suggest.searches", true);
+
+// Show search suggestions after other suggestions.
+user_pref("browser.urlbar.matchBuckets", "general:5,suggestion:Infinity");
+
+// Disable address bar leaking single words to DNS provider after searching.
+user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
+
+// -----------------------------------------------------------------------------
 // Features
 // -----------------------------------------------------------------------------
 
@@ -260,6 +275,37 @@ user_pref("media.gmp-widevinecdm.visible", false);
 user_pref("media.eme.enabled", false);
 
 // -----------------------------------------------------------------------------
+// Files
+// -----------------------------------------------------------------------------
+
+// Disable disk cache.
+user_pref("browser.cache.disk.enable", false);
+user_pref("browser.cache.offline.enable", false);
+user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
+user_pref("media.memory_cache_max_size", 65536);
+
+// Disable page thumbnail collection.
+user_pref("browser.pagethumbnails.capturing_disabled", true);
+
+// Disable favicons in shortcuts.
+user_pref("browser.shell.shortcutFavicons", false);
+
+// Set the maximum number of bookmark backups to keep.
+user_pref("browser.bookmarks.max_backups", 5);
+
+// Set the minimum interval between session save operations.
+user_pref("browser.sessionstore.interval", 60000);
+
+// Disable saving files into the download directory automatically.
+user_pref("browser.download.useDownloadDir", false);
+
+// Disable adding downloads to recent documents list.
+user_pref("browser.download.manager.addToRecentDocs", false);
+
+// Disable hiding MIME types not associated with a plugin.
+user_pref("browser.download.hide_plugins_without_extensions", false);
+
+// -----------------------------------------------------------------------------
 // Appearance
 // -----------------------------------------------------------------------------
 
@@ -268,6 +314,12 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // Disable site-specific zoom level.
 user_pref("browser.zoom.siteSpecific", false);
+
+// Disable address bar hiding protocol and trailing slash behind domain.
+user_pref("browser.urlbar.trimURLs", false);
+
+// Disable address bar showing internationalized domain name in Unicode.
+user_pref("network.IDN_show_punycode", true);
 
 // Show "Downloads" button on toolbar.
 user_pref("browser.download.autohideButton", false);
@@ -299,23 +351,11 @@ user_pref("app.update.auto", false);
 // Disable accessibility services.
 user_pref("accessibility.force_disabled", 1);
 
-// Disable saving files into the download directory automatically.
-user_pref("browser.download.useDownloadDir", false);
-
-// Disable adding downloads to recent documents list.
-user_pref("browser.download.manager.addToRecentDocs", false);
-
-// Disable hiding MIME types not associated with a plugin.
-user_pref("browser.download.hide_plugins_without_extensions", false);
+// Disable saving form and search history.
+user_pref("browser.formfill.enable", false);
 
 // Disable address bar guessing domain.
 user_pref("browser.fixup.alternate.enabled", false);
-
-// Disable address bar hiding protocol and trailing slash behind domain.
-user_pref("browser.urlbar.trimURLs", false);
-
-// Disable address bar showing internationalized domain name in Unicode.
-user_pref("network.IDN_show_punycode", true);
 
 // Disable address bar encoding Unicode characters when copying URL.
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
@@ -323,52 +363,17 @@ user_pref("browser.urlbar.decodeURLsOnCopy", true);
 // Disable address bar making speculative connections.
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
-// Disable address bar leaking single words to DNS provider after searching.
-user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
-
-// Enable search suggestions in all windows.
-user_pref("browser.search.suggest.enabled", true);
-user_pref("browser.search.suggest.enabled.private", true);
-
-// Show search suggestions after other suggestions.
-user_pref("browser.urlbar.matchBuckets", "general:5,suggestion:Infinity");
-
 // Set address bar suggestion types.
-user_pref("browser.urlbar.suggest.searches", true);
 user_pref("browser.urlbar.suggest.history", false);
 user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.openpage", true);
 user_pref("browser.urlbar.suggest.topsites", false);
 
-// Disable saving form and search history.
-user_pref("browser.formfill.enable", false);
-
-// Disable closing window with last tab.
-user_pref("browser.tabs.closeWindowWithLastTab", false);
-
-// Disable disk cache.
-user_pref("browser.cache.disk.enable", false);
-user_pref("browser.cache.offline.enable", false);
-user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
-user_pref("media.memory_cache_max_size", 65536);
-
-// Disable page thumbnail collection.
-user_pref("browser.pagethumbnails.capturing_disabled", true);
-
-// Disable favicons in shortcuts.
-user_pref("browser.shell.shortcutFavicons", false);
-
-// Set the maximum number of bookmark backups to keep.
-user_pref("browser.bookmarks.max_backups", 5);
-
-// Set the minimum interval between session save operations.
-user_pref("browser.sessionstore.interval", 60000);
-
 // Set the security delay on some confirmation dialogs.
 user_pref("security.dialog_enable_delay", 500);
 
-// Disable automatic start and session restore after Windows reboot.
-user_pref("toolkit.winRegisterApplicationRestart", false);
+// Disable closing window with last tab.
+user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 // Disable Backspace key navigation.
 user_pref("browser.backspace_action", 2);
@@ -378,6 +383,9 @@ user_pref("ui.key.menuAccessKey", 0);
 
 // Disable selecting extra space when double-clicking text.
 user_pref("layout.word_select.eat_space_to_next_word", false);
+
+// Disable automatic start and session restore after Windows reboot.
+user_pref("toolkit.winRegisterApplicationRestart", false);
 
 // -----------------------------------------------------------------------------
 // ESR
