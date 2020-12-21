@@ -69,6 +69,9 @@
 [diff]
   algorithm = histogram
 
+[help]
+  autocorrect = 20
+
 [init]
   defaultBranch = main
 
