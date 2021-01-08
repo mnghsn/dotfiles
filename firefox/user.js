@@ -17,7 +17,6 @@ user_pref("browser.newtabpage.enabled", false);
 user_pref("browser.newtab.preload", false);
 
 // Disable Activity Stream.
-user_pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "{}");
 user_pref("browser.newtabpage.activity-stream.default.sites", "");
 user_pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
@@ -110,6 +109,10 @@ user_pref("browser.send_pings.require_same_host", true);
 // Disable sending additional analytics to websites.
 user_pref("beacon.enabled", false);
 
+// Send minimized HTTP referer only when the full hostnames match.
+user_pref("network.http.referer.XOriginPolicy", 2);
+user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+
 // Set the maximum number of redirects to follow per request.
 user_pref("network.http.redirection-limit", 10);
 
@@ -198,6 +201,10 @@ user_pref("security.ssl.enable_ocsp_stapling", true);
 user_pref("security.OCSP.enabled", 1);
 user_pref("security.OCSP.require", true);
 
+// Enforce CRLite.
+user_pref("security.remote_settings.crlite_filters.enabled", true);
+user_pref("security.pki.crlite_mode", 2);
+
 // Enforce CSP (Content Security Policy).
 user_pref("security.csp.enable", true);
 
@@ -282,7 +289,7 @@ user_pref("media.eme.enabled", false);
 user_pref("browser.cache.disk.enable", false);
 
 // Disable offline cache.
-user_pref("browser.cache.offline.enable", false);
+user_pref("browser.cache.offline.storage.enable", false);
 
 // Disable media cache in Private Browsing windows.
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
