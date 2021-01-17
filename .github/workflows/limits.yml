@@ -1,0 +1,31 @@
+name: Interaction Limits
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  update-limits:
+    name: Update interaction limits
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove interaction limits
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
+          script: |
+            github.interactions.removeRestrictionsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            })
+      - name: Set interaction limits
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
+          script: |
+            github.interactions.setRestrictionsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              limit: 'collaborators_only',
+              expiry: 'one_month',
+            })
