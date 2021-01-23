@@ -26,12 +26,12 @@
   grapha = log --graph --oneline --decorate --all
 
   # Lookup
-  authors = !git log --pretty="format:%aN <%aE>" | sort --unique
+  authors = !git log --pretty='format:%aN <%aE>' | sort --unique
   whorank = shortlog --numbered --summary --email --no-merges
 
   # Snapshot
-  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
-  snapshots = stash list --grep="snapshot"
+  snapshot = !git stash save "snapshot: $(date)" && git stash apply 'stash@{0}'
+  snapshots = stash list --grep=snapshot
 
   # Reset
   discard = checkout --
@@ -50,15 +50,15 @@
   # Fetch and checkout a GitHub pull request from a remote (defaults to `origin`)
   # Usage: `git gh-pr 123` or `git gh-pr 123 upstream`
   gh-pr = "!f() { \
-    git fetch --force --update-head-ok ${2:-origin} refs/pull/$1/head:gh-pr/$1 && \
-    git checkout gh-pr/$1; \
+    git fetch --force --update-head-ok ${2:-origin} refs/pull/${1}/head:gh-pr/${1} && \
+    git checkout gh-pr/${1}; \
   }; f"
 
   # Fetch and checkout a GitLab merge request from a remote (defaults to `origin`)
   # Usage: `git gl-mr 123` or `git gl-mr 123 upstream`
   gl-mr = "!f() { \
-    git fetch --force --update-head-ok ${2:-origin} merge-requests/$1/head:gl-mr/$1 && \
-    git checkout gl-mr/$1; \
+    git fetch --force --update-head-ok ${2:-origin} merge-requests/${1}/head:gl-mr/${1} && \
+    git checkout gl-mr/${1}; \
   }; f"
 
 [core]
