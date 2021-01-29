@@ -113,9 +113,6 @@ user_pref("beacon.enabled", false);
 user_pref("network.http.referer.XOriginPolicy", 2);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
-// Set the maximum number of redirects to follow per request.
-user_pref("network.http.redirection-limit", 10);
-
 // Disallow cross-origin sub-resources to open HTTP authentication credentials
 // dialogs.
 user_pref("network.auth.subresource-http-auth-allow", 1);
@@ -257,6 +254,9 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 // Disable extension recommendations when browsing.
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+
+// Disable third-party extension install prompts.
+user_pref("extensions.postDownloadThirdPartyPrompt", false);
 
 // Disable Form Autofill.
 user_pref("extensions.formautofill.available", "off");
