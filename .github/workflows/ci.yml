@@ -52,7 +52,6 @@ jobs:
       - name: Run GitHub script
         uses: actions/github-script@v3
         with:
-          github-token: ${{ secrets.GH_TOKEN }}
           script: |
             github.git.updateRef({
               owner: context.repo.owner,
