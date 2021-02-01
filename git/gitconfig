@@ -30,7 +30,7 @@
   whorank = shortlog --numbered --summary --email --no-merges
 
   # Snapshot
-  snapshot = !git stash save "snapshot: $(date)" && git stash apply 'stash@{0}'
+  snapshot = !git stash save "snapshot: $(date)" && git stash apply stash@{0}
   snapshots = stash list --grep=snapshot
 
   # Reset
