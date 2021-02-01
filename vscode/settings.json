@@ -1,6 +1,7 @@
 {
   "breadcrumbs.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
+  "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.copyWithSyntaxHighlighting": false,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.showSlider": "always",
