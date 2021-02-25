@@ -109,10 +109,6 @@ user_pref("browser.send_pings.require_same_host", true);
 // Disable sending additional analytics to websites.
 user_pref("beacon.enabled", false);
 
-// Send minimized HTTP referer only when the full hostnames match.
-user_pref("network.http.referer.XOriginPolicy", 2);
-user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
-
 // Disallow cross-origin sub-resources to open HTTP authentication credentials
 // dialogs.
 user_pref("network.auth.subresource-http-auth-allow", 1);
