@@ -1,0 +1,10 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE ItemTable (key TEXT UNIQUE ON CONFLICT REPLACE, value BLOB);
+INSERT INTO ItemTable VALUES('terminal.integrated.showTerminalConfigPrompt','false');
+INSERT INTO ItemTable VALUES('workbench.activity.showAccounts','false');
+INSERT INTO ItemTable VALUES('workbench.explorer.views.state.hidden','[{"id":"outline","isHidden":true},{"id":"timeline","isHidden":true}]');
+INSERT INTO ItemTable VALUES('workbench.statusbar.hidden','["status.feedback"]');
+INSERT INTO ItemTable VALUES('workbench.telemetryOptOutShown','true');
+INSERT INTO ItemTable VALUES('workbench.view.extensions.state.hidden','[{"id":"extensions.recommendedList","isHidden":true}]');
+COMMIT;
