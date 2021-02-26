@@ -1,5 +1,6 @@
 {
   "breadcrumbs.enabled": false,
+  "debug.javascript.codelens.npmScripts": "never",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.copyWithSyntaxHighlighting": false,
