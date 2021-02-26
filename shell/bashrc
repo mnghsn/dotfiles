@@ -182,9 +182,10 @@ prompt_git() {
   fi
 
   # Get the branch name or short commit SHA.
-  branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null \
+  branch="$(printf '%s' "$(git rev-parse --abbrev-ref HEAD 2> /dev/null \
     || git rev-parse --short HEAD 2> /dev/null \
-    || printf '(unknown)')"
+    || printf ' (unknown)')" | \
+    tr -d '\n')"
 
   printf '%s' "${1}${branch}${status}${2}"
 }
