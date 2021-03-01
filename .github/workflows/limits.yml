@@ -12,7 +12,6 @@ jobs:
       - name: Run GitHub script
         uses: actions/github-script@v3
         with:
-          github-token: ${{ secrets.GH_TOKEN }}
           script: |
             await github.interactions.removeRestrictionsForRepo({
               owner: context.repo.owner,
