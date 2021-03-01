@@ -80,7 +80,7 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 
 // Block pop-up windows.
 user_pref("dom.disable_open_during_load", true);
-user_pref("dom.popup_allowed_events", "click dblclick mouseup");
+user_pref("dom.popup_allowed_events", "click dblclick mousedown mouseup pointerdown pointerup");
 
 // Enable window.target protection.
 user_pref("dom.targetBlankNoOpener.enabled", true);
@@ -270,9 +270,7 @@ user_pref("extensions.webcompat-reporter.enabled", false);
 // Disable Gecko Media Plugins.
 user_pref("media.gmp-provider.enabled", false);
 user_pref("media.gmp-gmpopenh264.enabled", false);
-user_pref("media.gmp-gmpopenh264.visible", false);
 user_pref("media.gmp-widevinecdm.enabled", false);
-user_pref("media.gmp-widevinecdm.visible", false);
 
 // Disable DRM-controlled content.
 user_pref("media.eme.enabled", false);
@@ -308,9 +306,6 @@ user_pref("browser.download.useDownloadDir", false);
 
 // Disable adding downloaded files to Recent Documents folder.
 user_pref("browser.download.manager.addToRecentDocs", false);
-
-// Disable hiding MIME types not associated with a plugin.
-user_pref("browser.download.hide_plugins_without_extensions", false);
 
 // -----------------------------------------------------------------------------
 // Appearance
@@ -401,3 +396,4 @@ user_pref("toolkit.winRegisterApplicationRestart", false);
 // ESR 78.* still uses the following preferences.
 user_pref("browser.search.geoSpecificDefaults", false);
 user_pref("browser.search.geoSpecificDefaults.url", "");
+user_pref("browser.download.hide_plugins_without_extensions", false);
