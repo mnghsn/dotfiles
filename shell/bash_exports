@@ -2,6 +2,9 @@
 #
 # ~/.bash_exports
 
+# Set the default collation order as in C.
+export LC_COLLATE=C
+
 # Set the default editor.
 export EDITOR='vim'
 

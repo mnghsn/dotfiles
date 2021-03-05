@@ -27,7 +27,7 @@ qh() {
 # Searches for text within the current directory.
 #######################################
 qt() {
-  grep --color=always --recursive --exclude-dir=.git -- "$*" . | less -RX
+  grep --color=always --ignore-case --recursive --exclude-dir=.git -- "$*" . | less -RX
 }
 
 #######################################
@@ -38,15 +38,8 @@ crlf2lf() {
 }
 
 #######################################
-# Converts (LF) character to (CR)(LF).
+# Converts (LF) characters to (CR)(LF).
 #######################################
 lf2crlf() {
   cat "$@" <&0 | sed 's/$/\r/g'
-}
-
-#######################################
-# Gets the public IP address.
-#######################################
-ip() {
-  dig +short myip.opendns.com @resolver1.opendns.com
 }
