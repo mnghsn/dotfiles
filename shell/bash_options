@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# ~/.bash_options
+
+# Auto correct path typos in a `cd` command.
+shopt -s cdspell
+
+# Check that a command found in the hash table exists before executing it.
+shopt -s checkhash
+
+# Check the window size after each external command.
+shopt -s checkwinsize
+
+# Save all lines of a multiple-line command in the same history entry.
+shopt -s cmdhist
+
+# Include filenames beginning with a dot in the results of pathname expansion.
+shopt -s dotglob
+
+# Enable extended pattern matching features.
+shopt -s extglob
+
+# Append the history list to HISTFILE when the shell exits.
+shopt -s histappend
+
+# Allow the user to re-edit a failed history substitution.
+shopt -s histreedit
+
+# Allow the user to review the results of history substitution.
+shopt -s histverify
+
+# Disable searching for possible completions on an empty line.
+shopt -s no_empty_cmd_completion
+
+# Enable case-insensitive pathname expansion.
+shopt -s nocaseglob

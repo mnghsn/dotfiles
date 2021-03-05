@@ -1,0 +1,53 @@
+#!/bin/bash
+#
+# ~/.bash_paths
+
+#######################################
+# Tests if a directory can be added into PATH.
+#######################################
+test_path() {
+  if [[ -d "${1}" ]] && [[ ":${PATH}:" != *":${1}:"* ]]; then
+    return 0
+  fi
+  return 1
+}
+
+#######################################
+# Prepends directories to PATH.
+#######################################
+prepend_paths() {
+  local -r -a paths=(
+    /usr/local/bin
+  )
+
+  for index in ${!paths[*]}; do
+    if test_path "${paths[$index]}"; then
+      PATH="${paths[$index]}:${PATH}"
+    fi
+  done
+}
+
+#######################################
+# Appends directories to PATH.
+#######################################
+append_paths() {
+  local -r -a paths=(
+    /usr/bin
+    "${HOME}/bin"
+    "${HOME}/.local/bin"
+  )
+
+  for index in ${!paths[*]}; do
+    if test_path "${paths[$index]}"; then
+      PATH="${PATH}:${paths[$index]}"
+    fi
+  done
+}
+
+prepend_paths
+append_paths
+unset -f test_path
+unset -f prepend_paths
+unset -f append_paths
+
+export PATH

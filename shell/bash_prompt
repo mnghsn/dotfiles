@@ -1,0 +1,90 @@
+#!/bin/bash
+#
+# ~/.bash_prompt
+
+#######################################
+# Gets the Git repository details.
+#######################################
+prompt_git() {
+  local branch_name
+  local status
+
+  # Check if the current directory is in a Git repository.
+  if [[ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" != 'true' ]]; then
+    return
+  fi
+  # Check if the current directory is in `.git`.
+  if [[ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'true' ]]; then
+    return
+  fi
+
+  # Check for uncommitted changes.
+  if ! git diff --quiet --ignore-submodules --cached; then
+    status="${status}+"
+  fi
+  # Check for unstaged changes.
+  if ! git diff-files --quiet --ignore-submodules --; then
+    status="${status}!"
+  fi
+  # Check for untracked files.
+  if [[ -n "$(git ls-files --others --exclude-standard)" ]]; then
+    status="${status}?"
+  fi
+  # Check for stashed files.
+  if git rev-parse --verify refs/stash &> /dev/null; then
+    status="${status}$"
+  fi
+
+  if [[ -n "${status}" ]]; then
+    status=" ${status}"
+  fi
+
+  # Get the branch name or short commit SHA.
+  branch_name="$(git symbolic-ref --quiet --short HEAD 2> /dev/null ||
+    git rev-parse --short HEAD 2> /dev/null ||
+    printf '(unknown)')"
+
+  printf '%s[%s%s]%s' "${1}" "${branch_name}" "${status}" "${2}"
+}
+
+#######################################
+# Sets up the Bash prompts.
+# shellcheck disable=SC2034
+#######################################
+set_prompts() {
+  local -r RESET='\[\033[0m\]'
+  local -r BLACK='\[\033[1;30m\]'
+  local -r RED='\[\033[1;31m\]'
+  local -r GREEN='\[\033[1;32m\]'
+  local -r YELLOW='\[\033[1;33m\]'
+  local -r BLUE='\[\033[1;34m\]'
+  local -r PURPLE='\[\033[1;35m\]'
+  local -r CYAN='\[\033[1;36m\]'
+  local -r WHITE='\[\033[1;37m\]'
+
+  # Set the terminal title.
+  #   user@host: ~
+  PS1='\[\033]0;\u@\h: \w\007\]'
+
+  # Set the default interactive prompt.
+  #   user@host: ~ [main +!?$]
+  #   $ ...
+  PS1+=$'\n'
+  PS1+="${GREEN}\u@\h"
+  PS1+="${BLACK}: "
+  PS1+="${BLUE}\w"
+  PS1+="\$(prompt_git \" ${PURPLE}\" \"${RESET}\")"
+  PS1+=$'\n'
+  PS1+="${BLACK}\\$ "
+  PS1+="${RESET}"
+
+  # Set the continuation interactive prompt.
+  #   > ...
+  PS2="${BLACK}> ${RESET}"
+}
+
+set_prompts
+unset -f set_prompts
+
+export PS1
+export PS2

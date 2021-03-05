@@ -1,0 +1,48 @@
+#!/bin/bash
+#
+# ~/.bash_aliases
+
+# Enable color support.
+if [[ -x /usr/bin/dircolors ]]; then
+  if [[ -r "${HOME}/.dircolors" ]]; then
+    eval "$(dircolors --bourne-shell "${HOME}/.dircolors")"
+  fi
+
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+# Allow aliases to be with sudo.
+alias sudo='sudo '
+
+# Easier navigation.
+alias -- -='cd -'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ~='cd ~'
+
+# List directory contents.
+alias l='ls'
+alias la='ls --almost-all --group-directories-first'
+alias ll='ls -l --all --group-directories-first --human-readable --time-style=iso'
+alias lt='ls -l --almost-all --sort=time --human-readable --time-style=iso'
+
+# File operations.
+alias cp='cp --verbose'
+alias mv='mv --verbose'
+alias rm='rm --verbose'
+alias mkdir='mkdir --parents --verbose'
+
+# Clear the screen.
+alias c='clear'
+alias cls='clear'
+
+# Miscellaneous aliases.
+alias e='vim'
+alias g='git'
+alias m='man'
+alias q='exit'
+alias t='tmux'
+alias map='xargs --max-args=1'

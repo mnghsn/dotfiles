@@ -40,8 +40,12 @@ install_dotfiles() {
   link_file 'shell/bashrc'         '.bashrc'
   link_file 'shell/bash_profile'   '.bash_profile'
   link_file 'shell/bash_aliases'   '.bash_aliases'
+  link_file 'shell/bash_exports'   '.bash_exports'
   link_file 'shell/bash_functions' '.bash_functions'
   link_file 'shell/bash_logout'    '.bash_logout'
+  link_file 'shell/bash_options'   '.bash_options'
+  link_file 'shell/bash_paths'     '.bash_paths'
+  link_file 'shell/bash_prompt'    '.bash_prompt'
   link_file 'shell/inputrc'        '.inputrc'
   link_file 'shell/curlrc'         '.curlrc'
 

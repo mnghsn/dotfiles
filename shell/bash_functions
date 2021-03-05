@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+# ~/.bash_functions
+
+#######################################
+# Lists all defined functions.
+#######################################
+list_functions() {
+  declare -F | grep --invert-match '\-f _'
+}
+
+#######################################
+# Creates new directories and enters the last one.
+#######################################
+mkd() {
+  mkdir --parents --verbose -- "$@" && cd "$_" || exit 1
+}
+
+#######################################
+# Searches for text within Bash history.
+#######################################
+qh() {
+  grep --color=always -- "$*" "${HISTFILE}" | less -RX
+}
+
+#######################################
+# Searches for text within the current directory.
+#######################################
+qt() {
+  grep --color=always --recursive --exclude-dir=.git -- "$*" . | less -RX
+}
+
+#######################################
+# Converts (CR)(LF) characters to (LF).
+#######################################
+crlf2lf() {
+  cat "$@" <&0 | sed 's/\r$//g'
+}
+
+#######################################
+# Converts (LF) character to (CR)(LF).
+#######################################
+lf2crlf() {
+  cat "$@" <&0 | sed 's/$/\r/g'
+}
+
+#######################################
+# Gets the public IP address.
+#######################################
+ip() {
+  dig +short myip.opendns.com @resolver1.opendns.com
+}

@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# ~/.bash_profile
+
+# If running Bash, source `~/.bashrc`.
+if [[ -n "${BASH}" ]]; then
+  if [[ -f "${HOME}/.bashrc" ]]; then
+    source "${HOME}/.bashrc"
+  fi
+fi
+
+# Disallow messages from other users to the current terminal.
+mesg n 2> /dev/null || true

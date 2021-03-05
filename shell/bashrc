@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# ~/.bashrc
+
+# If not running interactively, don't do anything.
+if [[ -z "${PS1}" ]]; then
+  return
+fi
+
+#######################################
+# Loads Bash configuration files.
+#######################################
+source_bash_files() {
+  local -r -a bash_files=(
+    bash_options
+    bash_exports
+    bash_paths
+    bash_aliases
+    bash_functions
+    bash_prompt
+    bashrc.local
+  )
+
+  for index in ${!bash_files[*]}; do
+    if [[ -f "${HOME}/.${bash_files[$index]}" ]]; then
+      source "${HOME}/.${bash_files[$index]}"
+    fi
+  done
+
+  if [[ -f /etc/bash_completion ]] && ! shopt -oq posix; then
+    source /etc/bash_completion
+  fi
+}
+
+source_bash_files
+unset -f source_bash_files
