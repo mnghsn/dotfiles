@@ -1,0 +1,70 @@
+#!/bin/bash
+#
+# Prints a bunch of color codes to the terminal to demonstrate its
+# functionality.
+
+# 4-bit (16-color):
+# The normal color escape sequence is `^[<n>m`.
+# The bright color escape sequence is `^[1;<n>m`.
+# The escape sequence `^[0m` returns output to default.
+
+for b in 0 1; do
+  for n in $(seq 0 7); do
+    fg=$((n + 30))
+    bg=$((n + 40))
+    printf '\033[%d;%dm %3s \033[0m' "${b}" "${fg}" "${fg}"
+    printf '\033[%d;%dm %3s \033[0m' "${b}" "${bg}" "${bg}"
+  done
+  printf '\n'
+done
+
+for b in 0 1; do
+  for n in $(seq 0 7); do
+    fg=$((n + 90))
+    bg=$((n + 100))
+    printf '\033[%d;%dm %3s \033[0m' "${b}" "${fg}" "${fg}"
+    printf '\033[%d;%dm %3s \033[0m' "${b}" "${bg}" "${bg}"
+  done
+  printf '\n'
+done
+
+# 8-bit (256-color):
+# The foreground escape sequence is `^[38;5;<n>m`.
+# The background escape sequence is `^[48;5;<n>m`.
+# The escape sequence `^[0m` returns output to default.
+
+for n in $(seq 0 15); do
+  printf '\033[38;5;%dm %3s \033[0m' "${n}" "${n}"
+  printf '\033[48;5;%dm %3s \033[0m' "${n}" "${n}"
+  (((n + 1) % 8 == 0)) && printf '\n'
+done
+
+for n in $(seq 16 231); do
+  printf '\033[38;5;%dm %3s \033[0m' "${n}" "${n}"
+  printf '\033[48;5;%dm %3s \033[0m' "${n}" "${n}"
+  (((n - 15) % 6 == 0)) && printf '\n'
+done
+
+for n in $(seq 232 255); do
+  printf '\033[38;5;%dm %3s \033[0m' "${n}" "${n}"
+  printf '\033[48;5;%dm %3s \033[0m' "${n}" "${n}"
+  (((n - 231) % 6 == 0)) && printf '\n'
+done
+
+# 24-bit (true color):
+# The foreground escape sequence is `^[38;2;<r>;<g>;<b>m`.
+# The background escape sequence is `^[48;2;<r>;<g>;<b>m`.
+# The escape sequence `^[0m` returns output to default.
+
+for s in 38 48; do
+  ((s == 38)) && t=':'
+  ((s == 48)) && t=' '
+  for n in $(seq 0 79); do
+    r=$((255 - (n * 255 / 79)))
+    g=$((n * 510 / 79))
+    b=$((n * 255 / 79))
+    ((g > 255)) && g=$((510 - g))
+    printf '\033[%d;2;%d;%d;%dm%s\033[0m' "${s}" "${r}" "${g}" "${b}" "${t}"
+  done
+  printf '\n'
+done
