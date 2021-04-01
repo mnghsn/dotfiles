@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# Makes shell handle commands containing a leading `$`.
+#
+# Especially when it comes to documentation, shell commands are often specified
+# using a leading `$`. This introduces a minor inconvenience when it comes to
+# copying the commands as the leading `$` will need to be excluded because it
+# won't be understood by shells.
+#
+# This script named `$` runs the arguments passed to it, script that once added
+# to the `PATH` will make the shell "ignore" a leading `$`, thus, removing the
+# need to exclude the `$` when copying shell commands.
+#
+# Ref: https://remysharp.com/links/2020-11-17-92c83571
+
+"$@"
