@@ -43,3 +43,13 @@ crlf2lf() {
 lf2crlf() {
   cat "$@" <&0 | sed 's/$/\r/g'
 }
+
+#######################################
+# Shows a desktop notification when a command finishes.
+#######################################
+alert() {
+  # shellcheck disable=SC2181
+  local -r icon="$([[ $? -eq 0 ]] && echo terminal || echo error)"
+  local -r summary="$(history | tail --lines=1 | sed 's/^\s*[0-9]*\s*//' | sed 's/;\s*alert\s*$//')"
+  notify-send --urgency=low --icon="${icon}" "${summary}"
+}

@@ -18,6 +18,9 @@ prompt_git() {
     return
   fi
 
+  # Ensure index is up-to-date.
+  git update-index --really-refresh -q &> /dev/null
+
   # Check for uncommitted changes.
   if ! git diff --quiet --ignore-submodules --cached; then
     status="${status}+"
@@ -58,7 +61,7 @@ set_prompts() {
   local -r GREEN='\[\033[1;32m\]'
   local -r YELLOW='\[\033[1;33m\]'
   local -r BLUE='\[\033[1;34m\]'
-  local -r PURPLE='\[\033[1;35m\]'
+  local -r MAGENTA='\[\033[1;35m\]'
   local -r CYAN='\[\033[1;36m\]'
   local -r WHITE='\[\033[1;37m\]'
 
@@ -73,7 +76,7 @@ set_prompts() {
   PS1+="${GREEN}\u@\h"
   PS1+="${BLACK}: "
   PS1+="${BLUE}\w"
-  PS1+="\$(prompt_git \" ${PURPLE}\" \"${RESET}\")"
+  PS1+="\$(prompt_git \" ${MAGENTA}\" \"${RESET}\")"
   PS1+=$'\n'
   PS1+="${BLACK}\\$ "
   PS1+="${RESET}"

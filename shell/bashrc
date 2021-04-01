@@ -3,7 +3,7 @@
 # ~/.bashrc
 
 # If not running interactively, don't do anything.
-if [[ -z "${PS1}" ]]; then
+if [[ "$-" != *i* ]]; then
   return
 fi
 
