@@ -32,6 +32,7 @@
   "vsicons.presets.foldersAllDefaultIcon": true,
   "window.newWindowDimensions": "inherit",
   "window.restoreWindows": "folders",
+  "workbench.editor.decorations.badges": false,
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.limit.enabled": true,
   "workbench.editor.untitled.labelFormat": "name",
