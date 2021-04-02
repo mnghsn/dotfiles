@@ -34,7 +34,9 @@ install_dotfiles() {
 
   # Executable files
   link_file 'bin/dotfiles' '.local/bin/dotfiles'
+  link_file 'bin/$'        '.local/bin/$'
   link_file 'bin/pyserver' '.local/bin/pyserver'
+  link_file 'bin/colors'   '.local/bin/colors'
 
   # Shell
   link_file 'shell/bashrc'         '.bashrc'
