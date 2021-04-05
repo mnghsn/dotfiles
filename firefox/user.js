@@ -95,16 +95,10 @@ user_pref("privacy.window.name.update.enabled", true);
 // Disable prefetching.
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
-user_pref("network.predictor.enable-prefetch", false);
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true);
 
 // Disable opening connection to links when mouseover.
 user_pref("network.http.speculative-parallel-limit", 0);
-
-// Disable hyperlink auditing.
-user_pref("browser.send_pings", false);
-user_pref("browser.send_pings.require_same_host", true);
 
 // Disable sending additional analytics to websites.
 user_pref("beacon.enabled", false);
@@ -134,9 +128,12 @@ user_pref("browser.contentblocking.category", "custom");
 // Enable First-Party Isolation.
 user_pref("privacy.firstparty.isolate", true);
 
-// Enable Enhanced Tracking Protection in all windows.
+// Enable Enhanced Tracking Protection.
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
+user_pref("privacy.trackingprotection.socialtracking.enabled", true);
+user_pref("privacy.trackingprotection.cryptomining.enabled", true);
+user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
 
 // Enable DNT (Do Not Track) HTTP header.
 user_pref("privacy.donottrackheader.enabled", true);
@@ -214,7 +211,7 @@ user_pref("browser.search.suggest.enabled.private", true);
 user_pref("browser.urlbar.suggest.searches", true);
 
 // Show search suggestions after other suggestions.
-user_pref("browser.urlbar.matchBuckets", "general:5,suggestion:Infinity");
+user_pref("browser.urlbar.showSearchSuggestionsFirst", false);
 
 // Disable address bar leaking single words to DNS provider after searching.
 user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
@@ -329,9 +326,6 @@ user_pref("browser.download.autohideButton", false);
 // Hide "What's New" button in toolbar.
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
-// Hide "Recent Highlights" in Library.
-user_pref("browser.library.activity-stream.enabled", false);
-
 // Show weak encryption warning in address bar.
 user_pref("security.ssl.require_safe_negotiation", false);
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
@@ -397,3 +391,4 @@ user_pref("toolkit.winRegisterApplicationRestart", false);
 user_pref("browser.search.geoSpecificDefaults", false);
 user_pref("browser.search.geoSpecificDefaults.url", "");
 user_pref("browser.download.hide_plugins_without_extensions", false);
+user_pref("browser.library.activity-stream.enabled", false);
