@@ -186,6 +186,9 @@ user_pref("dom.ipc.plugins.reportCrashURL", false);
 // Disable saving logins and passwords for websites.
 user_pref("signon.rememberSignons", false);
 
+// Enable HTTPS-Only mode.
+user_pref("dom.security.https_only_mode", true);
+
 // Enforce OCSP (Online Certificate Status Protocol) stapling.
 user_pref("security.ssl.enable_ocsp_stapling", true);
 user_pref("security.OCSP.enabled", 1);
