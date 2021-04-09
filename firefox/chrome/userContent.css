@@ -1,5 +1,9 @@
 /* Firefox userContent.css */
 
+/* -------------------------------------------------------------------------- */
+/* Private Browsing Tab                                                       */
+/* -------------------------------------------------------------------------- */
+
 /* Hide elements from new Private Browsing tab. */
 @-moz-document url("about:privatebrowsing") {
   .logo-and-wordmark,

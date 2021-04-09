@@ -1,5 +1,9 @@
 /* Firefox userChrome.css */
 
+/* -------------------------------------------------------------------------- */
+/* Address Bar                                                                */
+/* -------------------------------------------------------------------------- */
+
 /* Disable revamped address bar. */
 #urlbar[breakout][breakout-extend] {
   top: 5px !important;
@@ -31,7 +35,10 @@
   display: none !important;
 }
 
-/* Hide items from application menu. */
+/* -------------------------------------------------------------------------- */
+/* Application Menu                                                           */
+/* -------------------------------------------------------------------------- */
+
 #appMenu-fxa-status,
 #appMenu-fxa-status + toolbarseparator,
 #appMenu-protection-report-button,
