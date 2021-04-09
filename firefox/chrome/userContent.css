@@ -15,6 +15,14 @@
     display: none !important;
   }
 
+  /* Hide private browsing myths link. */
+  #private-browsing-myths {
+    display: none !important;
+  }
+  .info p {
+    margin-bottom: 0 !important;
+  }
+
   /* Hide Mozilla VPN promotional messages. */
   #private-browsing-vpn-text,
   #private-browsing-vpn-link {
