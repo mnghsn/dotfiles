@@ -4,10 +4,18 @@
 /* Private Browsing Tab                                                       */
 /* -------------------------------------------------------------------------- */
 
-/* Hide elements from new Private Browsing tab. */
 @-moz-document url("about:privatebrowsing") {
-  .logo-and-wordmark,
-  .search-inner-wrapper,
+  /* Hide Firefox logo and wordmark. */
+  .logo-and-wordmark {
+    display: none !important;
+  }
+
+  /* Hide search box. */
+  .search-inner-wrapper {
+    display: none !important;
+  }
+
+  /* Hide Mozilla VPN promotional messages. */
   #private-browsing-vpn-text,
   #private-browsing-vpn-link {
     display: none !important;

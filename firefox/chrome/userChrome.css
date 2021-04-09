@@ -39,11 +39,24 @@
 /* Application Menu                                                           */
 /* -------------------------------------------------------------------------- */
 
+/* Hide Firefox Accounts and Sync. */
 #appMenu-fxa-status,
-#appMenu-fxa-status + toolbarseparator,
+#appMenu-fxa-status + toolbarseparator {
+  display: none !important;
+}
+
+/* Hide "Protections Dashboard". */
 #appMenu-protection-report-button,
-#appMenu-tp-separator,
-#appMenu-logins-button,
+#appMenu-tp-separator {
+  display: none !important;
+}
+
+/* Hide "Logins and Passwords". */
+#appMenu-logins-button {
+  display: none !important;
+}
+
+/* Hide "What's New". */
 #appMenu-whatsnew-button {
   display: none !important;
 }
