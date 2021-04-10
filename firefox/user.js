@@ -79,9 +79,6 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("dom.disable_open_during_load", true);
 user_pref("dom.popup_allowed_events", "click dblclick mousedown mouseup pointerdown pointerup");
 
-// Enable window.target protection.
-user_pref("dom.targetBlankNoOpener.enabled", true);
-
 // -----------------------------------------------------------------------------
 // Network
 // -----------------------------------------------------------------------------
@@ -384,6 +381,9 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 // Disable Backspace key navigation.
 user_pref("browser.backspace_action", 2);
 
+// Disable Ctrl+Q quit shortcut.
+user_pref("browser.quitShortcut.disabled", true);
+
 // Disable Alt key toggling menu bar.
 user_pref("ui.key.menuAccessKey", 0);
 
@@ -400,6 +400,5 @@ user_pref("toolkit.winRegisterApplicationRestart", false);
 // ESR 78.* still uses the following preferences.
 user_pref("browser.search.geoSpecificDefaults", false);
 user_pref("browser.search.geoSpecificDefaults.url", "");
-user_pref("browser.download.hide_plugins_without_extensions", false);
 user_pref("browser.library.activity-stream.enabled", false);
 user_pref("browser.urlbar.matchBuckets", "general:5,suggestion:Infinity");
