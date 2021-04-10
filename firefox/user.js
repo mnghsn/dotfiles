@@ -89,13 +89,19 @@ user_pref("dom.targetBlankNoOpener.enabled", true);
 // Disable prefetching.
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
+user_pref("network.predictor.enable-prefetch", false);
 user_pref("network.dns.disablePrefetch", true);
+user_pref("network.dns.disablePrefetchFromHTTPS", true);
 
 // Disable opening connection to links when mouseover.
 user_pref("network.http.speculative-parallel-limit", 0);
 
 // Disable sending additional analytics to websites.
 user_pref("beacon.enabled", false);
+
+// Disable sending full referer header across origins.
+user_pref("network.http.referer.XOriginPolicy", 1);
+user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 // Disallow cross-origin sub-resources to open HTTP authentication credentials
 // dialogs.
@@ -188,9 +194,17 @@ user_pref("security.OCSP.require", true);
 // Enforce CSP (Content Security Policy).
 user_pref("security.csp.enable", true);
 
+// Enforce no insecure content on HTTPS pages.
+user_pref("security.mixed_content.block_active_content", true);
+user_pref("security.mixed_content.block_display_content", true);
+user_pref("security.mixed_content.block_object_subrequest", true);
+
 // -----------------------------------------------------------------------------
 // Search
 // -----------------------------------------------------------------------------
+
+// Disable search engine updates.
+user_pref("browser.search.update", false);
 
 // Enable search suggestions in all windows.
 user_pref("browser.search.suggest.enabled", true);
@@ -216,6 +230,10 @@ user_pref("reader.parse-on-load.enabled", false);
 // Disable UITour backend.
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.uitour.url", "");
+
+// Disable various developer tools.
+user_pref("devtools.chrome.enabled", false);
+user_pref("devtools.debugger.remote-enabled", false);
 
 // -----------------------------------------------------------------------------
 // Add-ons
@@ -355,6 +373,7 @@ user_pref("browser.urlbar.suggest.history", false);
 user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.openpage", true);
 user_pref("browser.urlbar.suggest.topsites", false);
+user_pref("browser.urlbar.suggest.engines", false);
 
 // Set the security delay on some confirmation dialogs.
 user_pref("security.dialog_enable_delay", 500);
