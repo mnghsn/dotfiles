@@ -68,16 +68,16 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.xr", 2);
 user_pref("permissions.default.shortcuts", 2);
 
-// Disallow JavaScript to move and resize windows.
-user_pref("dom.disable_window_move_resize", true);
+// Block pop-up windows.
+user_pref("dom.disable_open_during_load", true);
+user_pref("dom.popup_allowed_events", "click dblclick mousedown mouseup pointerdown pointerup");
 
 // Open links in tabs instead of new windows.
 user_pref("browser.link.open_newwindow", 3);
 user_pref("browser.link.open_newwindow.restriction", 0);
 
-// Block pop-up windows.
-user_pref("dom.disable_open_during_load", true);
-user_pref("dom.popup_allowed_events", "click dblclick mousedown mouseup pointerdown pointerup");
+// Disallow JavaScript to move and resize windows.
+user_pref("dom.disable_window_move_resize", true);
 
 // -----------------------------------------------------------------------------
 // Network
@@ -211,9 +211,6 @@ user_pref("browser.urlbar.suggest.searches", true);
 // Show search suggestions after other suggestions.
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false);
 
-// Disable address bar leaking single words to DNS provider after searching.
-user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
-
 // -----------------------------------------------------------------------------
 // Features
 // -----------------------------------------------------------------------------
@@ -236,11 +233,11 @@ user_pref("devtools.debugger.remote-enabled", false);
 // Add-ons
 // -----------------------------------------------------------------------------
 
-// Disable enforced extension signing for ESR and Nightly.
-user_pref("xpinstall.signatures.required", false);
-
 // Enable all extensions in Private Browsing windows by default.
 user_pref("extensions.allowPrivateBrowsingByDefault", true);
+
+// Disable enforced extension signing for ESR and Nightly.
+user_pref("xpinstall.signatures.required", false);
 
 // Disable extension recommendations in about:addons.
 user_pref("extensions.getAddons.showPane", false);
@@ -279,16 +276,18 @@ user_pref("media.gmp-widevinecdm.enabled", false);
 user_pref("media.eme.enabled", false);
 
 // -----------------------------------------------------------------------------
-// Files
+// System
 // -----------------------------------------------------------------------------
+
+// Disable automatic Firefox updates.
+user_pref("app.update.auto", false);
+
+// Disable accessibility services.
+user_pref("accessibility.force_disabled", 1);
 
 // Disable disk cache.
 user_pref("browser.cache.disk.enable", false);
-
-// Disable offline cache.
 user_pref("browser.cache.offline.storage.enable", false);
-
-// Disable media cache in Private Browsing windows.
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 user_pref("media.memory_cache_max_size", 65536);
 
@@ -309,6 +308,9 @@ user_pref("browser.download.useDownloadDir", false);
 
 // Disable adding downloaded files to Recent Documents folder.
 user_pref("browser.download.manager.addToRecentDocs", false);
+
+// Disable automatic start and session restore after Windows reboot.
+user_pref("toolkit.winRegisterApplicationRestart", false);
 
 // -----------------------------------------------------------------------------
 // Appearance
@@ -347,12 +349,6 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("general.warnOnAboutConfig", false);
 user_pref("browser.aboutConfig.showWarning", false);
 
-// Disable automatic Firefox updates.
-user_pref("app.update.auto", false);
-
-// Disable accessibility services.
-user_pref("accessibility.force_disabled", 1);
-
 // Disable search and form history.
 user_pref("browser.formfill.enable", false);
 
@@ -364,6 +360,9 @@ user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
 // Disable address bar making speculative connections.
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
+
+// Disable address bar leaking single words to DNS provider after searching.
+user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 
 // Set address bar suggestion types.
 user_pref("browser.urlbar.suggest.history", false);
@@ -389,9 +388,6 @@ user_pref("ui.key.menuAccessKey", 0);
 
 // Disable selecting extra space when double-clicking text.
 user_pref("layout.word_select.eat_space_to_next_word", false);
-
-// Disable automatic start and session restore after Windows reboot.
-user_pref("toolkit.winRegisterApplicationRestart", false);
 
 // -----------------------------------------------------------------------------
 // ESR
