@@ -8,9 +8,6 @@
 user_pref("browser.startup.page", 0);
 user_pref("browser.startup.homepage", "about:blank");
 user_pref("browser.startup.homepage_override.mstone", "ignore");
-user_pref("startup.homepage_welcome_url", "");
-user_pref("startup.homepage_welcome_url.additional", "");
-user_pref("startup.homepage_override_url", "");
 
 // Show a blank page when opening new tab.
 user_pref("browser.newtabpage.enabled", false);
@@ -61,7 +58,7 @@ user_pref("media.navigator.enabled", false);
 
 // Block all audio and video autoplay.
 user_pref("media.autoplay.default", 5);
-user_pref("media.autoplay.blocking_policy", 0);
+user_pref("media.autoplay.blocking_policy", 2);
 
 // Block new requests asking for permissions.
 user_pref("permissions.default.geo", 2);
@@ -84,9 +81,6 @@ user_pref("dom.popup_allowed_events", "click dblclick mousedown mouseup pointerd
 
 // Enable window.target protection.
 user_pref("dom.targetBlankNoOpener.enabled", true);
-
-// Enable window.name protection.
-user_pref("privacy.window.name.update.enabled", true);
 
 // -----------------------------------------------------------------------------
 // Network
@@ -186,23 +180,13 @@ user_pref("dom.ipc.plugins.reportCrashURL", false);
 // Disable saving logins and passwords for websites.
 user_pref("signon.rememberSignons", false);
 
-// Enable HTTPS-Only mode.
-user_pref("dom.security.https_only_mode", true);
-
 // Enforce OCSP (Online Certificate Status Protocol) stapling.
 user_pref("security.ssl.enable_ocsp_stapling", true);
 user_pref("security.OCSP.enabled", 1);
 user_pref("security.OCSP.require", true);
 
-// Enforce CRLite.
-user_pref("security.remote_settings.crlite_filters.enabled", true);
-user_pref("security.pki.crlite_mode", 2);
-
 // Enforce CSP (Content Security Policy).
 user_pref("security.csp.enable", true);
-
-// Enforce Firefox blocklist.
-user_pref("extensions.blocklist.enabled", true);
 
 // -----------------------------------------------------------------------------
 // Search
