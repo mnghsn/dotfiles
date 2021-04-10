@@ -72,7 +72,7 @@ user_pref("permissions.default.shortcuts", 2);
 user_pref("dom.disable_open_during_load", true);
 user_pref("dom.popup_allowed_events", "click dblclick mousedown mouseup pointerdown pointerup");
 
-// Open links in tabs instead of new windows.
+// Enforce all links to be opened in new tabs.
 user_pref("browser.link.open_newwindow", 3);
 user_pref("browser.link.open_newwindow.restriction", 0);
 
@@ -90,26 +90,29 @@ user_pref("network.predictor.enable-prefetch", false);
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
 
-// Disable opening connection to links when mouseover.
+// Disable making speculative connections when mouseover.
 user_pref("network.http.speculative-parallel-limit", 0);
 
-// Disable sending additional analytics to websites.
+// Disable sending additional analytics to web servers.
 user_pref("beacon.enabled", false);
 
 // Disable sending full referer header across origins.
 user_pref("network.http.referer.XOriginPolicy", 1);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
-// Disallow cross-origin sub-resources to open HTTP authentication credentials
-// dialogs.
+// Disable HTTP authentication credentials dialogs triggered by cross-origin
+// sub-resources.
 user_pref("network.auth.subresource-http-auth-allow", 1);
 
 // Disable Captive Portal detection.
-user_pref("captivedetect.canonicalURL", "");
 user_pref("network.captive-portal-service.enabled", false);
+user_pref("captivedetect.canonicalURL", "");
 
 // Disable Network Connectivity checks.
 user_pref("network.connectivity-service.enabled", false);
+
+// Disable automatic Work Offline mode.
+user_pref("network.manage-offline-status", false);
 
 // Enable proxying DNS when using SOCKS v5.
 user_pref("network.proxy.socks_remote_dns", true);
@@ -118,19 +121,19 @@ user_pref("network.proxy.socks_remote_dns", true);
 // Privacy
 // -----------------------------------------------------------------------------
 
-// Block all third-party cookies and site data.
+// Block all third-party cookies.
 user_pref("network.cookie.cookieBehavior", 1);
 user_pref("browser.contentblocking.category", "custom");
 
-// Enable First-Party Isolation.
+// Enable FPI (First Party Isolation).
 user_pref("privacy.firstparty.isolate", true);
 
 // Enable Enhanced Tracking Protection.
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
-user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
+user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 
 // Enable DNT (Do Not Track) HTTP header.
 user_pref("privacy.donottrackheader.enabled", true);
@@ -162,7 +165,7 @@ user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 
-// Disable Google Safe Browsing checks.
+// Disable sending file information to Google Safe Browsing service.
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.url", "");
 
@@ -180,7 +183,7 @@ user_pref("dom.ipc.plugins.reportCrashURL", false);
 // Security
 // -----------------------------------------------------------------------------
 
-// Disable saving logins and passwords for websites.
+// Disable saving logins and passwords.
 user_pref("signon.rememberSignons", false);
 
 // Enforce OCSP (Online Certificate Status Protocol) stapling.
@@ -208,7 +211,7 @@ user_pref("browser.search.suggest.enabled", true);
 user_pref("browser.search.suggest.enabled.private", true);
 user_pref("browser.urlbar.suggest.searches", true);
 
-// Show search suggestions after other suggestions.
+// Show search suggestions behind other suggestions.
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false);
 
 // -----------------------------------------------------------------------------
@@ -233,10 +236,10 @@ user_pref("devtools.debugger.remote-enabled", false);
 // Add-ons
 // -----------------------------------------------------------------------------
 
-// Enable all extensions in Private Browsing windows by default.
+// Enable all extensions in Private Windows by default.
 user_pref("extensions.allowPrivateBrowsingByDefault", true);
 
-// Disable enforced extension signing for ESR and Nightly.
+// Disable enforced extension signing in Developer Edition, Nightly and ESR.
 user_pref("xpinstall.signatures.required", false);
 
 // Disable extension recommendations in about:addons.
@@ -291,10 +294,10 @@ user_pref("browser.cache.offline.storage.enable", false);
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 user_pref("media.memory_cache_max_size", 65536);
 
-// Disable page thumbnail collection.
+// Disable saving page thumbnails.
 user_pref("browser.pagethumbnails.capturing_disabled", true);
 
-// Disable favicons in shortcuts.
+// Disable saving shortcut favicons.
 user_pref("browser.shell.shortcutFavicons", false);
 
 // Set the maximum number of bookmark backups to keep.
@@ -306,7 +309,7 @@ user_pref("browser.sessionstore.interval", 60000);
 // Always ask where to save files.
 user_pref("browser.download.useDownloadDir", false);
 
-// Disable adding downloaded files to Recent Documents folder.
+// Disable adding downloads to Recent Documents.
 user_pref("browser.download.manager.addToRecentDocs", false);
 
 // Disable automatic start and session restore after Windows reboot.
@@ -316,7 +319,7 @@ user_pref("toolkit.winRegisterApplicationRestart", false);
 // Appearance
 // -----------------------------------------------------------------------------
 
-// Enable userChrome/userContent.css customizations.
+// Enable userChrome.css and userContent.css customizations.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // Disable site-specific zoom level.
@@ -325,7 +328,7 @@ user_pref("browser.zoom.siteSpecific", false);
 // Show the full URL in address bar.
 user_pref("browser.urlbar.trimURLs", false);
 
-// Show Punycode for IDNs (Internationalized Domain Names) in address bar.
+// Show the Punycode for IDNs (Internationalized Domain Names) in address bar.
 user_pref("network.IDN_show_punycode", true);
 
 // Show "Downloads" button in toolbar.
@@ -349,22 +352,22 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("general.warnOnAboutConfig", false);
 user_pref("browser.aboutConfig.showWarning", false);
 
-// Disable search and form history.
+// Disable form and search history.
 user_pref("browser.formfill.enable", false);
 
 // Disable address bar guessing domain.
 user_pref("browser.fixup.alternate.enabled", false);
 
-// Disable address bar encoding Unicode characters when copying URL.
+// Disable address bar encoding Unicode characters when copying the URL.
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
 // Disable address bar making speculative connections.
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
-// Disable address bar leaking single words to DNS provider after searching.
+// Disable address bar sending search term to DNS server.
 user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 
-// Set address bar suggestion types.
+// Set the suggestion types in address bar.
 user_pref("browser.urlbar.suggest.history", false);
 user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.openpage", true);
@@ -380,13 +383,13 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 // Disable Backspace key navigation.
 user_pref("browser.backspace_action", 2);
 
-// Disable Ctrl+Q quit shortcut.
+// Disable Ctrl+Q as quit shortcut.
 user_pref("browser.quitShortcut.disabled", true);
 
-// Disable Alt key toggling menu bar.
+// Disable Alt as menu access key.
 user_pref("ui.key.menuAccessKey", 0);
 
-// Disable selecting extra space when double-clicking text.
+// Disable selecting any extra spaces when double-clicking text.
 user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // -----------------------------------------------------------------------------
