@@ -399,3 +399,4 @@ user_pref("browser.search.geoSpecificDefaults", false);
 user_pref("browser.search.geoSpecificDefaults.url", "");
 user_pref("browser.download.hide_plugins_without_extensions", false);
 user_pref("browser.library.activity-stream.enabled", false);
+user_pref("browser.urlbar.matchBuckets", "general:5,suggestion:Infinity");
