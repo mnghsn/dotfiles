@@ -2,7 +2,7 @@
 #
 # ~/.bash_exports
 
-# Set the default collation order as in C.
+# Set the default collation order.
 export LC_COLLATE=C
 
 # Set the default editor.

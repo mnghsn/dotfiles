@@ -13,41 +13,33 @@ test_path() {
 }
 
 #######################################
-# Prepends directories to PATH.
+# Sets up the PATH environment variable.
 #######################################
-prepend_paths() {
-  local -r -a paths=(
+set_path() {
+  local -r -a prepend_paths=(
     /usr/local/bin
   )
-
-  for index in ${!paths[*]}; do
-    if test_path "${paths[$index]}"; then
-      PATH="${paths[$index]}:${PATH}"
-    fi
-  done
-}
-
-#######################################
-# Appends directories to PATH.
-#######################################
-append_paths() {
-  local -r -a paths=(
+  local -r -a append_paths=(
     /usr/bin
     "${HOME}/bin"
     "${HOME}/.local/bin"
   )
 
-  for index in ${!paths[*]}; do
-    if test_path "${paths[$index]}"; then
-      PATH="${PATH}:${paths[$index]}"
+  for index in ${!prepend_paths[*]}; do
+    if test_path "${prepend_paths[$index]}"; then
+      PATH="${prepend_paths[$index]}:${PATH}"
     fi
   done
+
+  for index in ${!append_paths[*]}; do
+    if test_path "${append_paths[$index]}"; then
+      PATH="${PATH}:${append_paths[$index]}"
+    fi
+  done
+
+  export PATH
 }
 
-prepend_paths
-append_paths
+set_path
 unset -f test_path
-unset -f prepend_paths
-unset -f append_paths
-
-export PATH
+unset -f set_path
