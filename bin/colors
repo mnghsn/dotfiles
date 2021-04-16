@@ -59,12 +59,23 @@ done
 for s in 38 48; do
   ((s == 38)) && t=':'
   ((s == 48)) && t=' '
-  for n in $(seq 0 79); do
-    r=$((255 - (n * 255 / 79)))
-    g=$((n * 510 / 79))
-    b=$((n * 255 / 79))
-    ((g > 255)) && g=$((510 - g))
-    printf '\033[%d;2;%d;%d;%dm%s\033[0m' "${s}" "${r}" "${g}" "${b}" "${t}"
+  for g in $(seq 0 20 255); do
+    printf '\033[%d;2;255;%d;0m%s\033[0m' "${s}" "${g}" "${t}"
+  done
+  for r in $(seq 255 -20 0); do
+    printf '\033[%d;2;%d;255;0m%s\033[0m' "${s}" "${r}" "${t}"
+  done
+  for b in $(seq 0 20 255); do
+    printf '\033[%d;2;0;255;%dm%s\033[0m' "${s}" "${b}" "${t}"
+  done
+  for g in $(seq 255 -20 0); do
+    printf '\033[%d;2;0;%d;255m%s\033[0m' "${s}" "${g}" "${t}"
+  done
+  for r in $(seq 0 20 255); do
+    printf '\033[%d;2;%d;0;255m%s\033[0m' "${s}" "${r}" "${t}"
+  done
+  for b in $(seq 255 -20 0); do
+    printf '\033[%d;2;255;0;%dm%s\033[0m' "${s}" "${b}" "${t}"
   done
   printf '\n'
 done
