@@ -58,7 +58,7 @@ user_pref("media.navigator.enabled", false);
 
 // Block all audio and video autoplay.
 user_pref("media.autoplay.default", 5);
-user_pref("media.autoplay.blocking_policy", 2);
+user_pref("media.autoplay.blocking_policy", 0);
 
 // Block new requests asking for permissions.
 user_pref("permissions.default.geo", 2);
