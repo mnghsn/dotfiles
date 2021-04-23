@@ -230,3 +230,13 @@ let NERDTreeShowHidden = 1
 
 " Disable indent line and concealing for the following file types.
 let g:indentLine_fileTypeExclude = [ 'help', 'markdown' ]
+
+" ------------------------------------------------------------------------------
+" Local Configuration
+" ------------------------------------------------------------------------------
+
+if filereadable(glob('~/.vim/vimrc.local'))
+  execute 'source ~/.vim/vimrc.local'
+elseif filereadable(glob('~/.vimrc.local'))
+  execute 'source ~/.vimrc.local'
+endif
