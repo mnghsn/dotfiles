@@ -159,7 +159,7 @@ endif
 
 " Load plugins.
 call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'tpope/vim-fugitive'
@@ -171,16 +171,12 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
 
-" -----------------------
-" Plugin: morhetz/gruvbox
-" -----------------------
-
-" Set the contrast.
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_contrast_light = 'hard'
+" ----------------------------
+" Plugin: joshdick/onedark.vim
+" ----------------------------
 
 " Set the colorscheme.
-silent! colorscheme gruvbox
+silent! colorscheme onedark
 
 " -----------------------------------------
 " Plugin: itchyny/lightline.vim
@@ -192,7 +188,7 @@ set showtabline=2
 
 " Configurate lightline.
 let g:lightline = {
-  \ 'colorscheme': 'gruvbox',
+  \ 'colorscheme': 'onedark',
   \ 'active': {
   \   'left': [
   \     [ 'mode', 'paste' ],
