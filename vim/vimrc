@@ -32,8 +32,9 @@ set viminfo+=n~/.vim/viminfo
 " Always show a status line.
 set laststatus=2
 
-" Show the line number in front of each line.
+" Show the relative line number in front of each line.
 set number
+set relativenumber
 
 if has('cmdline_info')
   " Show the line and column number of the cursor position.
