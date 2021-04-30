@@ -59,23 +59,20 @@ done
 for s in 38 48; do
   ((s == 38)) && t=':'
   ((s == 48)) && t=' '
-  for g in $(seq 0 20 255); do
-    printf '\033[%d;2;255;%d;0m%s\033[0m' "${s}" "${g}" "${t}"
-  done
-  for r in $(seq 255 -20 0); do
-    printf '\033[%d;2;%d;255;0m%s\033[0m' "${s}" "${r}" "${t}"
-  done
-  for b in $(seq 0 20 255); do
-    printf '\033[%d;2;0;255;%dm%s\033[0m' "${s}" "${b}" "${t}"
-  done
-  for g in $(seq 255 -20 0); do
-    printf '\033[%d;2;0;%d;255m%s\033[0m' "${s}" "${g}" "${t}"
-  done
-  for r in $(seq 0 20 255); do
-    printf '\033[%d;2;%d;0;255m%s\033[0m' "${s}" "${r}" "${t}"
-  done
-  for b in $(seq 255 -20 0); do
-    printf '\033[%d;2;255;0;%dm%s\033[0m' "${s}" "${b}" "${t}"
+  for i in $(seq 1 80); do
+    h=$((i / 14))
+    f=$((i - 14 * h))
+    a=$((f * 255 / 14))
+    b=$((255 - a))
+    case "${h}" in
+      0) printf '\033[%d;2;%d;%d;%dm%s\033[0m' "${s}" 255 "${a}" 0 "${t}" ;;
+      1) printf '\033[%d;2;%d;%d;%dm%s\033[0m' "${s}" "${b}" 255 0 "${t}" ;;
+      2) printf '\033[%d;2;%d;%d;%dm%s\033[0m' "${s}" 0 255 "${a}" "${t}" ;;
+      3) printf '\033[%d;2;%d;%d;%dm%s\033[0m' "${s}" 0 "${b}" 255 "${t}" ;;
+      4) printf '\033[%d;2;%d;%d;%dm%s\033[0m' "${s}" "${a}" 0 255 "${t}" ;;
+      5) printf '\033[%d;2;%d;%d;%dm%s\033[0m' "${s}" 255 0 "${b}" "${t}" ;;
+      *) ;;
+    esac
   done
   printf '\n'
 done
