@@ -27,7 +27,7 @@ qh() {
 # Searches for text within the current directory.
 #######################################
 qt() {
-  grep --color=always --ignore-case --recursive --exclude-dir=.git -- "$*" . | less -RX
+  grep --color=always --ignore-case --recursive --exclude-dir={.git,node_modules} -- "$*" . | less -RX
 }
 
 #######################################
