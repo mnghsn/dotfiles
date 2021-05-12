@@ -32,9 +32,9 @@ alias ll='ls -l --all --group-directories-first --human-readable --time-style=is
 alias lt='ls -l --almost-all --sort=time --human-readable --time-style=iso'
 
 # File operations.
-alias cp='cp --verbose'
-alias mv='mv --verbose'
-alias rm='rm --verbose'
+alias cp='cp --interactive --verbose'
+alias mv='mv --interactive --verbose'
+alias rm='rm --force --recursive --verbose'
 alias mkdir='mkdir --parents --verbose'
 
 # Clear the screen.
@@ -42,9 +42,10 @@ alias c='clear'
 alias cls='clear'
 
 # Miscellaneous aliases.
-alias e='vim'
+alias e='vim --'
 alias g='git'
 alias m='man'
 alias q='exit'
 alias t='tmux'
+alias v='vim'
 alias map='xargs --max-args=1'
