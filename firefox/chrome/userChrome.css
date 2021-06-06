@@ -23,7 +23,6 @@
 }
 #urlbar[breakout][breakout-extend] > #urlbar-background {
   animation: none !important;
-  box-shadow: none !important;
 }
 
 /* Minimize One-Off Searches in address bar. */
