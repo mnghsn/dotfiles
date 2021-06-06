@@ -1,7 +1,7 @@
 /* Firefox userChrome.css */
 
 /* -------------------------------------------------------------------------- */
-/* Address Bar                                                                */
+/* ESR
 /* -------------------------------------------------------------------------- */
 
 /* Disable revamped address bar. */
@@ -35,28 +35,18 @@
   display: none !important;
 }
 
-/* -------------------------------------------------------------------------- */
-/* Application Menu                                                           */
-/* -------------------------------------------------------------------------- */
-
-/* Hide Firefox Accounts and Sync. */
+/* Hide application menu items. */
 #appMenu-fxa-status,
 #appMenu-fxa-status + toolbarseparator {
   display: none !important;
 }
-
-/* Hide "Protections Dashboard". */
 #appMenu-protection-report-button,
 #appMenu-tp-separator {
   display: none !important;
 }
-
-/* Hide "Logins and Passwords". */
 #appMenu-logins-button {
   display: none !important;
 }
-
-/* Hide "What's New". */
 #appMenu-whatsnew-button {
   display: none !important;
 }
