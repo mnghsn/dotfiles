@@ -1,7 +1,7 @@
 /* Firefox userChrome.css */
 
 /* -------------------------------------------------------------------------- */
-/* ESR
+/* ESR                                                                        */
 /* -------------------------------------------------------------------------- */
 
 /* Disable revamped address bar. */
@@ -30,7 +30,7 @@
   display: flex !important;
   padding-block: 7px !important;
 }
-#urlbar .search-one-offs .search-panel-header {
+#urlbar .search-panel-header {
   display: none !important;
 }
 
@@ -76,7 +76,7 @@
     animation: none !important;
   }
 
-  /* Minimize One-Off Searches. */
+  /* Minimize One-Off Searches in address bar. */
   #urlbar .search-one-offs:not([hidden]) {
     display: flex !important;
     padding-block: 6px !important;
