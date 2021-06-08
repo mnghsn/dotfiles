@@ -92,6 +92,10 @@
   }
 
   /* Hide application menu items. */
+  #appMenu-fxa-status2,
+  #appMenu-fxa-separator {
+    display: none !important;
+  }
   #appMenu-passwords-button {
     display: none !important;
   }
