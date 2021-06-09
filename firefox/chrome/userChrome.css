@@ -87,7 +87,7 @@
   #urlbar .search-panel-header {
     display: none !important;
   }
-  #urlbar .searchbar-engine-one-off-item:first-child {
+  #urlbar .searchbar-engine-one-off-item {
     margin-inline-start: 0 !important;
   }
 
