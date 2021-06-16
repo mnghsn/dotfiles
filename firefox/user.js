@@ -96,10 +96,6 @@ user_pref("network.http.speculative-parallel-limit", 0);
 // Disable sending additional analytics to web servers.
 user_pref("beacon.enabled", false);
 
-// Disable sending full referer header across origins.
-user_pref("network.http.referer.XOriginPolicy", 1);
-user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
-
 // Disable HTTP authentication credentials dialogs triggered by cross-origin
 // sub-resources.
 user_pref("network.auth.subresource-http-auth-allow", 1);
@@ -326,12 +322,6 @@ user_pref("browser.urlbar.trimURLs", false);
 // Show the Punycode for IDNs (Internationalized Domain Names) in address bar.
 user_pref("network.IDN_show_punycode", true);
 
-// Show "Downloads" button in toolbar.
-user_pref("browser.download.autohideButton", false);
-
-// Hide "What's New" button in toolbar.
-user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
-
 // Show weak encryption warning in address bar.
 user_pref("security.ssl.require_safe_negotiation", false);
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
@@ -368,6 +358,8 @@ user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.openpage", true);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("browser.urlbar.suggest.engines", false);
+user_pref("browser.urlbar.suggest.quicksuggest", true);
+user_pref("browser.urlbar.suggest.calculator", true);
 
 // Set the security delay on some confirmation dialogs.
 user_pref("security.dialog_enable_delay", 500);
