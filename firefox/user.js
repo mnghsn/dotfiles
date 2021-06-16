@@ -175,10 +175,6 @@ user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
-// Disable sending plugin crash reports.
-user_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled", false);
-user_pref("dom.ipc.plugins.reportCrashURL", false);
-
 // -----------------------------------------------------------------------------
 // Security
 // -----------------------------------------------------------------------------
@@ -197,7 +193,6 @@ user_pref("security.csp.enable", true);
 // Enforce no insecure content on HTTPS pages.
 user_pref("security.mixed_content.block_active_content", true);
 user_pref("security.mixed_content.block_display_content", true);
-user_pref("security.mixed_content.block_object_subrequest", true);
 
 // -----------------------------------------------------------------------------
 // Search
@@ -401,3 +396,6 @@ user_pref("browser.search.geoSpecificDefaults", false);
 user_pref("browser.search.geoSpecificDefaults.url", "");
 user_pref("browser.library.activity-stream.enabled", false);
 user_pref("browser.urlbar.matchBuckets", "general:5,suggestion:Infinity");
+user_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled", false);
+user_pref("dom.ipc.plugins.reportCrashURL", false);
+user_pref("security.mixed_content.block_object_subrequest", true);
