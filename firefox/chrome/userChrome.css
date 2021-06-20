@@ -86,3 +86,13 @@
     display: none !important;
   }
 }
+
+@media not (-moz-proton) {
+  /* Fix the size of tab icons. */
+  .tab-close-button {
+    padding: 4px !important;
+  }
+  .tab-icon-sound {
+    padding: 2px !important;
+  }
+}
