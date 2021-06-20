@@ -1,8 +1,14 @@
+# Automatically normalize line endings for all text-based files.
 * text=auto
 
+# Exclude the following files when generating an archive.
 .gitattributes export-ignore
+.gitignore export-ignore
 .github/ export-ignore
 
+# Override the language definitions for the following files to ensure that
+# GitHub not only correctly syntax highlights them but also generates better
+# language statistics.
 git/gitconfig linguist-language=gitconfig
 git/gitignore linguist-language=gitignore
 shell/curlrc linguist-language=curlrc
