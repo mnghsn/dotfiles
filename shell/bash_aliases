@@ -34,7 +34,7 @@ alias lt='ls -l --almost-all --sort=time --human-readable --time-style=iso'
 # File operations.
 alias cp='cp --interactive --verbose'
 alias mv='mv --interactive --verbose'
-alias rm='rm --force --recursive --verbose'
+alias rm='rm --interactive=once --recursive --verbose'
 alias mkdir='mkdir --parents --verbose'
 
 # Clear the screen.
