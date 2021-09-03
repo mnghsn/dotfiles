@@ -70,7 +70,7 @@ set_prompts() {
   PS1='\[\033]0;\u@\h: \w\007\]'
 
   # Set the default interactive prompt.
-  #   user@hostname: ~ [main +!?$]
+  #   user@hostname: ~ [master +!?$]
   #   $ ...
   PS1+=$'\n'
   PS1+="${green}\u@\h"

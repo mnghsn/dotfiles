@@ -9,7 +9,7 @@ set -o nounset
 # N.B. If you want to fork this repository and maintain your own dotfiles, you
 # must substitute the following variables for your own.
 DOTFILES_GIT_URL=${DOTFILES_GIT_URL:-'https://github.com/jmlntw/dotfiles.git'}
-DOTFILES_TAR_URL=${DOTFILES_TAR_URL:-'https://github.com/jmlntw/dotfiles/tarball/main'}
+DOTFILES_TAR_URL=${DOTFILES_TAR_URL:-'https://github.com/jmlntw/dotfiles/tarball/master'}
 
 DOTFILES_PATH=${DOTFILES_PATH:-"${HOME}/.dotfiles"}
 
@@ -118,14 +118,14 @@ sync_dotfiles() {
     # Initialize the Git repository.
     git init
     git remote add origin "${DOTFILES_GIT_URL}"
-    git fetch origin main
+    git fetch origin master
     # Reset the repository.
     git reset --hard FETCH_HEAD
     git clean -fd
   fi
 
   # Update from the remote repository.
-  git pull --rebase origin main
+  git pull --rebase origin master
   git submodule update --recursive --init --quiet
 }
 

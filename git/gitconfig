@@ -73,7 +73,7 @@
   autocorrect = 20
 
 [init]
-  defaultBranch = main
+  defaultBranch = master
 
 [pull]
   ff = only
