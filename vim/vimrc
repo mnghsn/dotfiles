@@ -186,7 +186,7 @@ silent! colorscheme onedark
 " Always show the tabline.
 set showtabline=2
 
-" Configurate lightline.
+" Configure lightline.
 let g:lightline = {
   \ 'colorscheme': 'onedark',
   \ 'active': {
