@@ -355,7 +355,7 @@ user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 // Set the suggestion types in address bar.
 user_pref("browser.urlbar.suggest.history", false);
 user_pref("browser.urlbar.suggest.bookmark", true);
-user_pref("browser.urlbar.suggest.openpage", true);
+user_pref("browser.urlbar.suggest.openpage", false);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("browser.urlbar.suggest.engines", false);
 user_pref("browser.urlbar.suggest.quicksuggest", true);
