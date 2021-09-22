@@ -190,6 +190,10 @@ user_pref("security.csp.enable", true);
 user_pref("security.mixed_content.block_active_content", true);
 user_pref("security.mixed_content.block_display_content", true);
 
+// Enable HTTPS-Only Mode in all windows.
+user_pref("dom.security.https_only_mode", true);
+user_pref("dom.security.https_only_mode_pbm", true);
+
 // -----------------------------------------------------------------------------
 // Search
 // -----------------------------------------------------------------------------
