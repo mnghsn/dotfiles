@@ -313,6 +313,9 @@ user_pref("toolkit.winRegisterApplicationRestart", false);
 // Enable userChrome.css and userContent.css customizations.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
+// Disable browser animations.
+user_pref("ui.prefersReducedMotion", 1);
+
 // Disable site-specific zoom level.
 user_pref("browser.zoom.siteSpecific", false);
 
