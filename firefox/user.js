@@ -313,13 +313,6 @@ user_pref("toolkit.winRegisterApplicationRestart", false);
 // Enable userChrome.css and userContent.css customizations.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-// Disable Proton UI.
-user_pref("browser.proton.enabled", false);
-user_pref("browser.proton.contextmenus.enabled", false);
-user_pref("browser.proton.doorhangers.enabled", false);
-user_pref("browser.proton.modals.enabled", false);
-user_pref("browser.proton.places-tooltip.enabled", false);
-
 // Disable site-specific zoom level.
 user_pref("browser.zoom.siteSpecific", false);
 
