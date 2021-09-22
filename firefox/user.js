@@ -30,7 +30,7 @@ user_pref("browser.newtabpage.activity-stream.telemetry", false);
 // -----------------------------------------------------------------------------
 
 // Set preferred language for displaying pages.
-user_pref("intl.accept_languages", "ja,zh-tw,zh,en-us,en");
+user_pref("intl.accept_languages", "en-US, en");
 
 // Disable region updates.
 user_pref("browser.region.update.enabled", false);
