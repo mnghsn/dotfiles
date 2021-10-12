@@ -365,8 +365,9 @@ user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.openpage", false);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("browser.urlbar.suggest.engines", false);
-user_pref("browser.urlbar.suggest.quicksuggest", true);
 user_pref("browser.urlbar.suggest.calculator", true);
+user_pref("browser.urlbar.suggest.quicksuggest", false);
+user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 
 // Set the security delay on some confirmation dialogs.
 user_pref("security.dialog_enable_delay", 500);
