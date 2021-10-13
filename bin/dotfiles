@@ -4,6 +4,7 @@
 
 set -o errexit
 set -o errtrace
+set -o pipefail
 set -o nounset
 
 # N.B. If you want to fork this repository and maintain your own dotfiles, you
