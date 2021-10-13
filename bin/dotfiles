@@ -7,6 +7,8 @@ set -o errtrace
 set -o pipefail
 set -o nounset
 
+trap 'echo "There was an error at line ${LINENO}." 1>&2' ERR
+
 # N.B. If you want to fork this repository and maintain your own dotfiles, you
 # must substitute the following variables for your own.
 DOTFILES_GIT_URL=${DOTFILES_GIT_URL:-'https://github.com/jmlntw/dotfiles.git'}
@@ -234,8 +236,6 @@ e_warning() {
 # Starts this script.
 #######################################
 main() {
-  trap 'die "There was an error at line ${LINENO}."' ERR
-
   local opt_sync=true
 
   # Test for all known options.
