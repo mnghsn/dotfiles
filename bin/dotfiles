@@ -175,7 +175,7 @@ copy_file() {
   fi
 
   mkdir -p "${dest%/*}"
-  cp -f "${source}" "${dest}"
+  cp -af "${source}" "${dest}"
 
   e_success "Copied: ${1} -> ~/${2}"
 }
