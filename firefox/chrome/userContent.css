@@ -28,4 +28,10 @@
   #private-browsing-vpn-link {
     display: none !important;
   }
+  .promo {
+    display: none !important;
+  }
+  .info {
+    margin-top: 0 !important;
+  }
 }
