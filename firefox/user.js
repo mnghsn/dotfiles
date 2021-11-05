@@ -248,10 +248,6 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 // Disable third-party extension install prompts.
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 
-// Disable system add-on updates.
-user_pref("extensions.systemAddon.update.enabled", false);
-user_pref("extensions.systemAddon.update.url", "");
-
 // Disable Form Autofill.
 user_pref("extensions.formautofill.available", "off");
 user_pref("extensions.formautofill.addresses.enabled", false);
