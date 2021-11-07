@@ -43,6 +43,12 @@
   display: none !important;
 }
 
+/* Always show tab icon. */
+.tab-icon-image:not([src], [pinned], [crashed], [busy]) {
+  display: -moz-inline-box !important;
+  list-style-image: url("chrome://branding/content/icon32.png") !important;
+}
+
 /* -------------------------------------------------------------------------- */
 /* Proton UI                                                                  */
 /* -------------------------------------------------------------------------- */
