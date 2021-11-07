@@ -18,7 +18,7 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "git.autoRepositoryDetection": "openEditors",
+  "git.autoRepositoryDetection": "subFolders",
   "git.openAfterClone": "whenNoFolderOpen",
   "git.promptToSaveFilesBeforeCommit": "staged",
   "git.showPushSuccessNotification": true,
