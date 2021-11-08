@@ -6,6 +6,8 @@
   "editor.codeLens": false,
   "editor.colorDecorators": false,
   "editor.copyWithSyntaxHighlighting": false,
+  "editor.cursorSurroundingLines": 2,
+  "editor.cursorSurroundingLinesStyle": "all",
   "editor.find.autoFindInSelection": "multiline",
   "editor.minimap.renderCharacters": false,
   "editor.minimap.showSlider": "always",
