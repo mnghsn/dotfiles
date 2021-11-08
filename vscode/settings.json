@@ -1,9 +1,10 @@
 {
   "breadcrumbs.enabled": false,
-  "debug.javascript.codelens.npmScripts": "never",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.acceptSuggestionOnEnter": "smart",
+  "editor.codeLens": false,
+  "editor.colorDecorators": false,
   "editor.copyWithSyntaxHighlighting": false,
   "editor.find.autoFindInSelection": "multiline",
   "editor.minimap.renderCharacters": false,
