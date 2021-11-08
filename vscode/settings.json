@@ -46,6 +46,6 @@
   "workbench.settings.useSplitJSON": true,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tips.enabled": false,
-  "workbench.tree.indent": 16,
+  "workbench.tree.indent": 20,
   "workbench.tree.renderIndentGuides": "always"
 }
