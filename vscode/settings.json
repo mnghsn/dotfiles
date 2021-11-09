@@ -10,6 +10,7 @@
   "editor.cursorSurroundingLinesStyle": "all",
   "editor.find.autoFindInSelection": "multiline",
   "editor.inlayHints.enabled": false,
+  "editor.linkedEditing": true,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.showSlider": "always",
   "editor.multiCursorModifier": "ctrlCmd",
