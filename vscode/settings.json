@@ -30,6 +30,7 @@
   "git.autoRepositoryDetection": "subFolders",
   "git.openAfterClone": "whenNoFolderOpen",
   "git.showPushSuccessNotification": true,
+  "git.showUnpublishedCommitsButton": "never",
   "git-graph.date.format": "ISO Date & Time",
   "git-graph.date.type": "Commit Date",
   "scm.defaultViewMode": "tree",
