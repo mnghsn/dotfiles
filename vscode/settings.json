@@ -33,6 +33,7 @@
   "git.showUnpublishedCommitsButton": "never",
   "git-graph.date.format": "ISO Date & Time",
   "git-graph.date.type": "Commit Date",
+  "git-graph.repository.useMailmap": true,
   "scm.defaultViewMode": "tree",
   "security.workspace.trust.enabled": false,
   "telemetry.telemetryLevel": "off",
