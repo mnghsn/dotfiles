@@ -22,6 +22,7 @@
   "editor.stickyTabStops": true,
   "editor.tabCompletion": "on",
   "explorer.openEditors.visible": 0,
+  "explorer.sortOrderLexicographicOptions": "unicode",
   "extensions.closeExtensionDetailsOnViewChange": true,
   "extensions.ignoreRecommendations": true,
   "files.insertFinalNewline": true,
