@@ -21,6 +21,7 @@
   "editor.rulers": [80, 100, 120, 200],
   "editor.stickyTabStops": true,
   "editor.tabCompletion": "on",
+  "explorer.openEditors.visible": 0,
   "extensions.closeExtensionDetailsOnViewChange": true,
   "extensions.ignoreRecommendations": true,
   "files.insertFinalNewline": true,
