@@ -40,6 +40,7 @@
   "security.workspace.trust.enabled": false,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.tabs.enabled": false,
+  "update.enableWindowsBackgroundUpdates": false,
   "update.mode": "start",
   "vsicons.dontShowNewVersionMessage": true,
   "vsicons.presets.foldersAllDefaultIcon": true,
