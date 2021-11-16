@@ -55,6 +55,8 @@
   "workbench.editor.decorations.badges": false,
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.editor.revealIfOpen": true,
   "workbench.editor.untitled.hint": "hidden",
   "workbench.editor.untitled.labelFormat": "name",
   "workbench.enableExperiments": false,
