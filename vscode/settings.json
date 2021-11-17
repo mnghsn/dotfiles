@@ -1,5 +1,6 @@
 {
   "breadcrumbs.enabled": false,
+  "debug.showBreakpointsInOverviewRuler": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.acceptSuggestionOnEnter": "smart",
