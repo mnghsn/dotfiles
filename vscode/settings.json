@@ -1,6 +1,7 @@
 {
   "breadcrumbs.enabled": false,
   "debug.showBreakpointsInOverviewRuler": true,
+  "debug.toolBarLocation": "docked",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.acceptSuggestionOnEnter": "smart",
