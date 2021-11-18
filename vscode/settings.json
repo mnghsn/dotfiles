@@ -23,6 +23,7 @@
   "editor.stickyTabStops": true,
   "editor.tabCompletion": "on",
   "explorer.decorations.badges": false,
+  "explorer.incrementalNaming": "smart",
   "explorer.openEditors.visible": 0,
   "explorer.sortOrderLexicographicOptions": "unicode",
   "extensions.closeExtensionDetailsOnViewChange": true,
