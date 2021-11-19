@@ -43,6 +43,8 @@
   "search.collapseResults": "auto",
   "security.workspace.trust.enabled": false,
   "telemetry.telemetryLevel": "off",
+  "terminal.integrated.confirmOnExit": "hasChildProcesses",
+  "terminal.integrated.confirmOnKill": "always",
   "terminal.integrated.tabs.enabled": false,
   "update.enableWindowsBackgroundUpdates": false,
   "update.mode": "start",
