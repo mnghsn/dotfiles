@@ -46,6 +46,7 @@
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
   "terminal.integrated.confirmOnKill": "always",
   "terminal.integrated.tabs.enabled": false,
+  "typescript.surveys.enabled": false,
   "update.enableWindowsBackgroundUpdates": false,
   "update.mode": "start",
   "vsicons.dontShowNewVersionMessage": true,
