@@ -41,6 +41,7 @@
   "git-graph.repository.useMailmap": true,
   "scm.defaultViewMode": "tree",
   "search.collapseResults": "auto",
+  "search.showLineNumbers": true,
   "security.workspace.trust.enabled": false,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
