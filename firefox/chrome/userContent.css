@@ -1,9 +1,5 @@
 /* Firefox userContent.css */
 
-/* -------------------------------------------------------------------------- */
-/* Private Browsing Tab                                                       */
-/* -------------------------------------------------------------------------- */
-
 @-moz-document url("about:privatebrowsing") {
   /* Hide Firefox logo and wordmark. */
   .logo-and-wordmark {
@@ -24,10 +20,6 @@
   }
 
   /* Hide Mozilla VPN promotional messages. */
-  #private-browsing-vpn-text,
-  #private-browsing-vpn-link {
-    display: none !important;
-  }
   .promo {
     display: none !important;
   }
