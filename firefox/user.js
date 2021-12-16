@@ -4,6 +4,9 @@
 // Startup
 // -----------------------------------------------------------------------------
 
+// Disable checking if Firefox is your default browser.
+user_pref("browser.shell.checkDefaultBrowser", false);
+
 // Show a blank page when opening homepage and new window.
 user_pref("browser.startup.page", 0);
 user_pref("browser.startup.homepage", "about:blank");
@@ -23,6 +26,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
 // -----------------------------------------------------------------------------
@@ -58,7 +62,7 @@ user_pref("media.navigator.enabled", false);
 
 // Block all audio and video autoplay.
 user_pref("media.autoplay.default", 5);
-user_pref("media.autoplay.blocking_policy", 0);
+user_pref("media.autoplay.blocking_policy", 2);
 
 // Block new requests asking for permissions.
 user_pref("permissions.default.geo", 2);
@@ -179,16 +183,11 @@ user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 user_pref("signon.rememberSignons", false);
 
 // Enforce OCSP (Online Certificate Status Protocol) stapling.
-user_pref("security.ssl.enable_ocsp_stapling", true);
 user_pref("security.OCSP.enabled", 1);
 user_pref("security.OCSP.require", true);
 
 // Enforce CSP (Content Security Policy).
 user_pref("security.csp.enable", true);
-
-// Enforce no insecure content on HTTPS pages.
-user_pref("security.mixed_content.block_active_content", true);
-user_pref("security.mixed_content.block_display_content", true);
 
 // Enable HTTPS-Only Mode in all windows.
 user_pref("dom.security.https_only_mode", true);
@@ -275,13 +274,14 @@ user_pref("media.eme.enabled", false);
 
 // Disable automatic Firefox updates.
 user_pref("app.update.auto", false);
+user_pref("app.update.background.scheduling.enabled", false);
 
 // Disable accessibility services.
 user_pref("accessibility.force_disabled", 1);
 
 // Disable disk cache.
 user_pref("browser.cache.disk.enable", false);
-user_pref("browser.cache.offline.storage.enable", false);
+user_pref("browser.cache.offline.enable", false);
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 user_pref("media.memory_cache_max_size", 65536);
 
@@ -337,7 +337,6 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 // -----------------------------------------------------------------------------
 
 // Disable about:config warning.
-user_pref("general.warnOnAboutConfig", false);
 user_pref("browser.aboutConfig.showWarning", false);
 
 // Disable form and search history.
@@ -364,6 +363,7 @@ user_pref("browser.urlbar.suggest.engines", false);
 user_pref("browser.urlbar.suggest.calculator", true);
 user_pref("browser.urlbar.suggest.quicksuggest", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 
 // Set the security delay on some confirmation dialogs.
 user_pref("security.dialog_enable_delay", 500);
@@ -387,11 +387,4 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // ESR
 // -----------------------------------------------------------------------------
 
-// ESR 78.* still uses the following preferences.
-user_pref("browser.search.geoSpecificDefaults", false);
-user_pref("browser.search.geoSpecificDefaults.url", "");
-user_pref("browser.library.activity-stream.enabled", false);
-user_pref("browser.urlbar.matchBuckets", "general:5,suggestion:Infinity");
-user_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled", false);
-user_pref("dom.ipc.plugins.reportCrashURL", false);
-user_pref("security.mixed_content.block_object_subrequest", true);
+// ESR 91.* still uses the following preferences.
