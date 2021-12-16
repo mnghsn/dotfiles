@@ -4,7 +4,7 @@
   "debug.toolBarLocation": "docked",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.acceptSuggestionOnCommitCharacter": false,
-  "editor.acceptSuggestionOnEnter": "off",
+  "editor.acceptSuggestionOnEnter": "smart",
   "editor.codeLens": false,
   "editor.colorDecorators": false,
   "editor.copyWithSyntaxHighlighting": false,
