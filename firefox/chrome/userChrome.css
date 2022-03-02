@@ -1,20 +1,6 @@
 /* Firefox userChrome.css */
 
 @media (-moz-proton) {
-  /* Disable revamped address bar. */
-  #urlbar[breakout][breakout-extend] {
-    top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
-    left: 0 !important;
-    width: 100% !important;
-  }
-  #urlbar[breakout][breakout-extend] > #urlbar-input-container {
-    height: var(--urlbar-height) !important;
-    padding: var(--urlbar-container-padding) !important;
-  }
-  #urlbar[breakout][breakout-extend] > #urlbar-background {
-    animation: none !important;
-  }
-
   /* Minimize One-Off Searches in address bar. */
   #urlbar .search-one-offs:not([hidden]) {
     display: flex !important;
