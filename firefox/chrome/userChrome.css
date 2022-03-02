@@ -1,27 +1,25 @@
 /* Firefox userChrome.css */
 
-@media (-moz-proton) {
-  /* Minimize One-Off Searches in address bar. */
-  #urlbar .search-one-offs:not([hidden]) {
-    display: flex !important;
-    padding-block: 6px !important;
-  }
-  [uidensity="touch"] #urlbar .search-one-offs:not([hidden]) {
-    padding-block: 11px !important;
-  }
-  #urlbar .search-panel-header {
-    display: none !important;
-  }
-  #urlbar .searchbar-engine-one-off-item {
-    margin-inline-start: 0 !important;
-  }
+/* Minimize One-Off Searches in address bar. */
+#urlbar .search-one-offs:not([hidden]) {
+  display: flex !important;
+  padding-block: 6px !important;
+}
+[uidensity="touch"] #urlbar .search-one-offs:not([hidden]) {
+  padding-block: 11px !important;
+}
+#urlbar .search-panel-header {
+  display: none !important;
+}
+#urlbar .searchbar-engine-one-off-item {
+  margin-inline-start: 0 !important;
+}
 
-  /* Hide application menu items. */
-  #appMenu-fxa-status2,
-  #appMenu-fxa-separator {
-    display: none !important;
-  }
-  #appMenu-passwords-button {
-    display: none !important;
-  }
+/* Hide application menu items. */
+#appMenu-fxa-status2,
+#appMenu-fxa-separator {
+  display: none !important;
+}
+#appMenu-passwords-button {
+  display: none !important;
 }
