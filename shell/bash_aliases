@@ -32,9 +32,9 @@ alias ll='ls -l --all --group-directories-first --human-readable --time-style=is
 alias lt='ls -l --almost-all --sort=time --human-readable --time-style=iso'
 
 # File operations.
-alias cp='cp --interactive --verbose'
-alias mv='mv --interactive --verbose'
-alias rm='rm --interactive=once --recursive --verbose'
+alias cp='cp --verbose'
+alias mv='mv --verbose'
+alias rm='rm --recursive --verbose'
 alias mkdir='mkdir --parents --verbose'
 
 # Clear the screen.
