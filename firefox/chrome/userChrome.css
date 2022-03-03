@@ -1,5 +1,10 @@
 /* Firefox userChrome.css */
 
+/* Always show tab icon. */
+.tab-icon-image:not([src], [pinned], [crashed], [busy]) {
+  display: -moz-inline-box !important;
+}
+
 /* Minimize One-Off Searches in address bar. */
 #urlbar .search-one-offs:not([hidden]) {
   display: flex !important;
