@@ -353,6 +353,9 @@ user_pref("browser.urlbar.speculativeConnect.enabled", false);
 // Disable address bar sending search term to DNS server.
 user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 
+// Disable mousedown speculative connections on bookmarks and history.
+user_pref("browser.places.speculativeConnect.enabled", false);
+
 // Set the suggestion types in address bar.
 user_pref("browser.urlbar.suggest.history", false);
 user_pref("browser.urlbar.suggest.bookmark", true);
