@@ -9,7 +9,7 @@
 # The escape sequence `^[0m` returns output to default.
 
 for b in 0 1; do
-  for n in $(seq 0 7); do
+  for n in {0..7}; do
     fg=$((n + 30))
     bg=$((n + 40))
     printf '\033[%d;%dm %3s \033[0m' "${b}" "${fg}" "${fg}"
@@ -19,7 +19,7 @@ for b in 0 1; do
 done
 
 for b in 0 1; do
-  for n in $(seq 0 7); do
+  for n in {0..7}; do
     fg=$((n + 90))
     bg=$((n + 100))
     printf '\033[%d;%dm %3s \033[0m' "${b}" "${fg}" "${fg}"
@@ -33,19 +33,19 @@ done
 # The background escape sequence is `^[48;5;<n>m`.
 # The escape sequence `^[0m` returns output to default.
 
-for n in $(seq 0 15); do
+for n in {0..15}; do
   printf '\033[38;5;%dm %3s \033[0m' "${n}" "${n}"
   printf '\033[48;5;%dm %3s \033[0m' "${n}" "${n}"
   (((n + 1) % 8 == 0)) && printf '\n'
 done
 
-for n in $(seq 16 231); do
+for n in {16..231}; do
   printf '\033[38;5;%dm %3s \033[0m' "${n}" "${n}"
   printf '\033[48;5;%dm %3s \033[0m' "${n}" "${n}"
   (((n - 15) % 6 == 0)) && printf '\n'
 done
 
-for n in $(seq 232 255); do
+for n in {232..255}; do
   printf '\033[38;5;%dm %3s \033[0m' "${n}" "${n}"
   printf '\033[48;5;%dm %3s \033[0m' "${n}" "${n}"
   (((n - 231) % 6 == 0)) && printf '\n'
@@ -59,7 +59,7 @@ done
 for s in 38 48; do
   ((s == 38)) && t=':'
   ((s == 48)) && t=' '
-  for i in $(seq 1 80); do
+  for i in {1..80}; do
     h=$((i / 14))
     f=$((i - 14 * h))
     a=$((f * 255 / 14))
