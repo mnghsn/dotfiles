@@ -274,7 +274,6 @@ user_pref("media.eme.enabled", false);
 
 // Disable automatic Firefox updates.
 user_pref("app.update.auto", false);
-user_pref("app.update.background.scheduling.enabled", false);
 
 // Disable accessibility services.
 user_pref("accessibility.force_disabled", 1);
@@ -388,3 +387,4 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // -----------------------------------------------------------------------------
 
 // ESR 91.* still uses the following preferences.
+user_pref("app.update.background.scheduling.enabled", false);
