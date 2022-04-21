@@ -3,6 +3,7 @@ BEGIN TRANSACTION;
 CREATE TABLE ItemTable (key TEXT UNIQUE ON CONFLICT REPLACE, value BLOB);
 INSERT INTO ItemTable VALUES('extensionsAssistant/languagePackSuggestionIgnore','["bg","cs","de","en","es","fr","hu","it","ja","ko","pl","pt-br","ru","tr","zh-cn","zh-tw"]');
 INSERT INTO ItemTable VALUES('terminal.integrated.showTerminalConfigPrompt','false');
+INSERT INTO ItemTable VALUES('vscode.git','{"autofetch.didInformUser":true}');
 INSERT INTO ItemTable VALUES('workbench.activity.showAccounts','false');
 INSERT INTO ItemTable VALUES('workbench.explorer.views.state.hidden','[{"id":"outline","isHidden":true},{"id":"timeline","isHidden":true}]');
 INSERT INTO ItemTable VALUES('workbench.statusbar.hidden','["status.feedback"]');
