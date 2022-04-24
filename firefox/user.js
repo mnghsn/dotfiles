@@ -47,6 +47,8 @@ user_pref("browser.region.network.url", "");
 // Set the minimum font size.
 user_pref("font.minimum-size.ja", 10);
 user_pref("font.minimum-size.ko", 10);
+user_pref("font.minimum-size.x-unicode", 10);
+user_pref("font.minimum-size.x-western", 10);
 user_pref("font.minimum-size.zh-CN", 10);
 user_pref("font.minimum-size.zh-HK", 10);
 user_pref("font.minimum-size.zh-TW", 10);
@@ -57,11 +59,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 user_pref("media.peerconnection.ice.no_host", true);
 user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 
-// Disable media device enumeration.
-user_pref("media.navigator.enabled", false);
-
 // Block all audio and video autoplay.
-user_pref("media.autoplay.default", 5);
 user_pref("media.autoplay.blocking_policy", 2);
 
 // Block new requests asking for permissions.
@@ -121,22 +119,18 @@ user_pref("network.proxy.socks_remote_dns", true);
 // Privacy
 // -----------------------------------------------------------------------------
 
-// Block all third-party cookies.
-user_pref("network.cookie.cookieBehavior", 1);
-user_pref("browser.contentblocking.category", "custom");
+// Enable ETP (Enhanced Tracking Protection) Strict Mode.
+user_pref("browser.contentblocking.category", "strict");
 
-// Enable FPI (First Party Isolation).
-user_pref("privacy.firstparty.isolate", true);
+// Disable FPI (First Party Isolation).
+user_pref("privacy.firstparty.isolate", false);
 
-// Enable Enhanced Tracking Protection.
-user_pref("privacy.trackingprotection.enabled", true);
-user_pref("privacy.trackingprotection.pbmode.enabled", true);
-user_pref("privacy.trackingprotection.cryptomining.enabled", true);
-user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
-user_pref("privacy.trackingprotection.socialtracking.enabled", true);
+// Enable state partitioning of service workers.
+user_pref("privacy.partition.serviceWorkers", true);
 
-// Enable DNT (Do Not Track) HTTP header.
-user_pref("privacy.donottrackheader.enabled", true);
+// Set third-party cookies to session-only.
+user_pref("network.cookie.thirdparty.sessionOnly", true);
+user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
 // Disable Telemetry.
 user_pref("toolkit.telemetry.unified", false);
@@ -186,12 +180,17 @@ user_pref("signon.rememberSignons", false);
 user_pref("security.OCSP.enabled", 1);
 user_pref("security.OCSP.require", true);
 
-// Enforce CSP (Content Security Policy).
-user_pref("security.csp.enable", true);
+// Enable CRLite.
+user_pref("security.remote_settings.crlite_filters.enabled", true);
+user_pref("security.pki.crlite_mode", 2);
+
+// Enforce secure renegotiation.
+user_pref("security.ssl.require_safe_negotiation", true);
 
 // Enable HTTPS-Only Mode in all windows.
 user_pref("dom.security.https_only_mode", true);
 user_pref("dom.security.https_only_mode_pbm", true);
+user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 // -----------------------------------------------------------------------------
 // Search
@@ -200,13 +199,10 @@ user_pref("dom.security.https_only_mode_pbm", true);
 // Disable search engine updates.
 user_pref("browser.search.update", false);
 
-// Enable search suggestions in all windows.
-user_pref("browser.search.suggest.enabled", true);
-user_pref("browser.search.suggest.enabled.private", true);
-user_pref("browser.urlbar.suggest.searches", true);
-
-// Show search suggestions behind other suggestions.
-user_pref("browser.urlbar.showSearchSuggestionsFirst", false);
+// Disable search suggestions in all windows.
+user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.search.suggest.enabled.private", false);
+user_pref("browser.urlbar.suggest.searches", false);
 
 // -----------------------------------------------------------------------------
 // Features
@@ -229,9 +225,6 @@ user_pref("devtools.debugger.remote-enabled", false);
 // -----------------------------------------------------------------------------
 // Add-ons
 // -----------------------------------------------------------------------------
-
-// Enable all extensions in Private Windows by default.
-user_pref("extensions.allowPrivateBrowsingByDefault", true);
 
 // Disable enforced extension signing in Developer Edition, Nightly and ESR.
 user_pref("xpinstall.signatures.required", false);
@@ -262,8 +255,6 @@ user_pref("extensions.webcompat-reporter.enabled", false);
 
 // Disable Gecko Media Plugins.
 user_pref("media.gmp-provider.enabled", false);
-user_pref("media.gmp-gmpopenh264.enabled", false);
-user_pref("media.gmp-widevinecdm.enabled", false);
 
 // Disable DRM-controlled content.
 user_pref("media.eme.enabled", false);
@@ -299,6 +290,9 @@ user_pref("browser.sessionstore.interval", 60000);
 // Always ask where to save files.
 user_pref("browser.download.useDownloadDir", false);
 
+// Disable downloads panel opening on every download.
+user_pref("browser.download.alwaysOpenPanel", false);
+
 // Disable adding downloads to Recent Documents.
 user_pref("browser.download.manager.addToRecentDocs", false);
 
@@ -312,9 +306,6 @@ user_pref("toolkit.winRegisterApplicationRestart", false);
 // Enable userChrome.css and userContent.css customizations.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-// Disable browser animations.
-user_pref("ui.prefersReducedMotion", 1);
-
 // Disable site-specific zoom level.
 user_pref("browser.zoom.siteSpecific", false);
 
@@ -325,11 +316,13 @@ user_pref("browser.urlbar.trimURLs", false);
 user_pref("network.IDN_show_punycode", true);
 
 // Show weak encryption warning in address bar.
-user_pref("security.ssl.require_safe_negotiation", false);
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 
 // Show advanced information in insecure connection warning pages.
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
+
+// Hide "What's New" toolbar icon.
+user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 // -----------------------------------------------------------------------------
 // Miscellaneous
@@ -391,3 +384,4 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // ESR 91.* still uses the following preferences.
 user_pref("app.update.background.scheduling.enabled", false);
+user_pref("security.csp.enable", true);
