@@ -296,6 +296,10 @@ user_pref("browser.download.alwaysOpenPanel", false);
 // Disable adding downloads to Recent Documents.
 user_pref("browser.download.manager.addToRecentDocs", false);
 
+// Enable user interaction for security by always asking how to handle
+// new MIME types.
+user_pref("browser.download.always_ask_before_handling_new_types", true);
+
 // Disable automatic start and session restore after Windows reboot.
 user_pref("toolkit.winRegisterApplicationRestart", false);
 
@@ -348,6 +352,9 @@ user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 
 // Disable mousedown speculative connections on bookmarks and history.
 user_pref("browser.places.speculativeConnect.enabled", false);
+
+// Disable group labels in address bar.
+user_pref("browser.urlbar.groupLabels.enabled", false);
 
 // Set the suggestion types in address bar.
 user_pref("browser.urlbar.suggest.history", false);
