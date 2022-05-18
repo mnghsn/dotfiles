@@ -1,29 +1,20 @@
 /* Firefox userContent.css */
 
 @-moz-document url("about:privatebrowsing") {
-  /* Hide Firefox logo and wordmark. */
-  .logo-and-wordmark {
+  /* Minimize Private Browsing tab. */
+  html.private #search-banner,
+  html.private .showPrivate {
     display: none !important;
   }
-
-  /* Hide search box. */
-  .search-inner-wrapper {
-    display: none !important;
-  }
-
-  /* Hide private browsing myths link. */
-  #private-browsing-myths {
-    display: none !important;
-  }
-  .info p {
-    margin-bottom: 0 !important;
-  }
-
-  /* Hide Mozilla VPN promotional messages. */
   .promo {
     display: none !important;
   }
-  .info {
-    margin-top: 0 !important;
+  html.private body {
+    background-image:
+      url("chrome://global/skin/icons/indicator-private-browsing.svg"),
+      url("chrome://browser/skin/indicator-private-browsing.svg") !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 48px;
   }
 }
