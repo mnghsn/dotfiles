@@ -310,9 +310,6 @@ user_pref("toolkit.winRegisterApplicationRestart", false);
 // Enable userChrome.css and userContent.css customizations.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-// Disable site-specific zoom level.
-user_pref("browser.zoom.siteSpecific", false);
-
 // Show the full URL in address bar.
 user_pref("browser.urlbar.trimURLs", false);
 
@@ -327,6 +324,9 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 
 // Hide "What's New" toolbar icon.
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
+
+// Hide "More from Mozilla" in about:preferences.
+user_pref("browser.preferences.moreFromMozilla", false);
 
 // -----------------------------------------------------------------------------
 // Miscellaneous
