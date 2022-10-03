@@ -4,7 +4,6 @@
 .tab-icon-image:not([src], [pinned], [crashed], [busy]) {
   display: -moz-inline-box !important;
   content: url("chrome://branding/content/icon32.png") !important;
-  list-style-image: url("chrome://branding/content/icon32.png") !important;
 }
 
 /* Minimize One-Off Searches in address bar. */
