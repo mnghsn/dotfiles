@@ -296,6 +296,9 @@ user_pref("browser.download.manager.addToRecentDocs", false);
 // new MIME types.
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 
+// Enforce putting downloads in the OS temp folder.
+user_pref("browser.download.start_downloads_in_tmp_dir", true);
+
 // Disable automatic start and session restore after Windows reboot.
 user_pref("toolkit.winRegisterApplicationRestart", false);
 
@@ -380,6 +383,9 @@ user_pref("ui.key.menuAccessKey", 0);
 
 // Disable selecting any extra spaces when double-clicking text.
 user_pref("layout.word_select.eat_space_to_next_word", false);
+
+// Disable new download behavior.
+user_pref("browser.download.improvements_to_download_panel", false);
 
 // -----------------------------------------------------------------------------
 // ESR
