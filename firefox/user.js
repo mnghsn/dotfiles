@@ -128,10 +128,6 @@ user_pref("privacy.firstparty.isolate", false);
 // Enable state partitioning of service workers.
 user_pref("privacy.partition.serviceWorkers", true);
 
-// Set third-party cookies to session-only.
-user_pref("network.cookie.thirdparty.sessionOnly", true);
-user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
-
 // Disable Telemetry.
 user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.enabled", false);
@@ -389,6 +385,4 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // ESR
 // -----------------------------------------------------------------------------
 
-// ESR 91.* still uses the following preferences.
-user_pref("app.update.background.scheduling.enabled", false);
-user_pref("security.csp.enable", true);
+// ESR 102.* still uses the following preferences.
