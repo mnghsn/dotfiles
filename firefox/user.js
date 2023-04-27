@@ -68,7 +68,6 @@ user_pref("permissions.default.camera", 2);
 user_pref("permissions.default.microphone", 2);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.xr", 2);
-user_pref("permissions.default.shortcuts", 2);
 
 // Block pop-up windows.
 user_pref("dom.disable_open_during_load", true);
