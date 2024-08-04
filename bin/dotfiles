@@ -63,11 +63,6 @@ install_dotfiles() {
   # Vim
   link_file 'vim/vimrc' '.vim/vimrc'
 
-  # Mozilla Firefox
-  link_file 'firefox/user.js'                '.mozilla/firefox/default/user.js'
-  link_file 'firefox/chrome/userChrome.css'  '.mozilla/firefox/default/chrome/userChrome.css'
-  link_file 'firefox/chrome/userContent.css' '.mozilla/firefox/default/chrome/userContent.css'
-
   # Visual Studio Code
   copy_file 'vscode/globalStorage/state.vscdb' '.config/Code/User/globalStorage/state.vscdb'
   link_file 'vscode/settings.json'             '.config/Code/User/settings.json'
