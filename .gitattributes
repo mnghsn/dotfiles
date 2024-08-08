@@ -14,4 +14,3 @@ git/gitignore linguist-language=gitignore
 shell/curlrc linguist-language=curlrc
 shell/inputrc linguist-language=inputrc
 tmux/tmux.conf linguist-language=sh
-vscode/*.json linguist-language=jsonc
