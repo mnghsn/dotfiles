@@ -36,6 +36,8 @@ alias cp='cp --verbose'
 alias mv='mv --verbose'
 alias rm='rm --recursive --verbose'
 alias mkdir='mkdir --parents --verbose'
+alias chmod='chmod --changes'
+alias chown='chown --changes'
 
 # Clear the screen.
 alias c='clear'
